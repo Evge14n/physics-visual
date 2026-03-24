@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тема 30. Магнітне поле — Фізика ЗНО</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script defer src="../main.js"></script>
+</head>
+<body>
+    <header class="header">
+        <button class="header__menu-btn">&#9776;</button>
+        <a href="../index.html" class="header__logo">
+            <div class="header__logo-icon">&#9883;</div>
+            <span>Physics Visual</span>
+        </a>
+        <div class="header__search">
+            <span class="header__search-icon">&#128269;</span>
+            <input type="text" placeholder="Пошук теми...">
+            <div class="search-results"></div>
+        </div>
+        <div class="header__progress-info"></div>
+    </header>
+
+    <div class="sidebar-overlay"></div>
+    <nav class="sidebar">
+        <div class="sidebar__section">
+            <div class="sidebar__section-title">Усі теми</div>
+            <a href="topic-1.html" class="sidebar__item"><span class="sidebar__item-number">1</span><span class="sidebar__item-title">Вступ. Рівномірний рух. Середня швидкість. Відносність руху</span></a>
+            <a href="topic-2.html" class="sidebar__item"><span class="sidebar__item-number">2</span><span class="sidebar__item-title">Рівноприскорений прямолінійний рух. Рух тіл по вертикалі під дією сили тяжіння</span></a>
+            <a href="topic-3.html" class="sidebar__item"><span class="sidebar__item-number">3</span><span class="sidebar__item-title">Рух по горизонту під дією сили тяжіння</span></a>
+            <a href="topic-4.html" class="sidebar__item"><span class="sidebar__item-number">4</span><span class="sidebar__item-title">Рівномірний рух по колу</span></a>
+            <a href="topic-5.html" class="sidebar__item"><span class="sidebar__item-number">5</span><span class="sidebar__item-title">Закони Ньютона</span></a>
+            <a href="topic-6.html" class="sidebar__item"><span class="sidebar__item-number">6</span><span class="sidebar__item-title">Закон всесвітнього тяжіння. Супутники</span></a>
+            <a href="topic-7.html" class="sidebar__item"><span class="sidebar__item-number">7</span><span class="sidebar__item-title">Сила пружності. Вага і невагомість</span></a>
+            <a href="topic-8.html" class="sidebar__item"><span class="sidebar__item-number">8</span><span class="sidebar__item-title">Сила тертя</span></a>
+            <a href="topic-9.html" class="sidebar__item"><span class="sidebar__item-number">9</span><span class="sidebar__item-title">Імпульс. Закон збереження імпульсу</span></a>
+            <a href="topic-10.html" class="sidebar__item"><span class="sidebar__item-number">10</span><span class="sidebar__item-title">Динаміка рівномірного руху тіла по колу</span></a>
+            <a href="topic-11.html" class="sidebar__item"><span class="sidebar__item-number">11</span><span class="sidebar__item-title">Статика</span></a>
+            <a href="topic-12.html" class="sidebar__item"><span class="sidebar__item-number">12</span><span class="sidebar__item-title">Закон збереження енергії</span></a>
+            <a href="topic-13.html" class="sidebar__item"><span class="sidebar__item-number">13</span><span class="sidebar__item-title">Механічна робота. Потужність. ККД. Прості механізми</span></a>
+            <a href="topic-14.html" class="sidebar__item"><span class="sidebar__item-number">14</span><span class="sidebar__item-title">Засоби збереження механічної енергії</span></a>
+            <a href="topic-15.html" class="sidebar__item"><span class="sidebar__item-number">15</span><span class="sidebar__item-title">Елементи механіки рідин і газів</span></a>
+            <a href="topic-16.html" class="sidebar__item"><span class="sidebar__item-number">16</span><span class="sidebar__item-title">Основи молекулярно-кінетичної теорії</span></a>
+            <a href="topic-17.html" class="sidebar__item"><span class="sidebar__item-number">17</span><span class="sidebar__item-title">Рівняння стану ідеального газу. Ізопроцеси</span></a>
+            <a href="topic-18.html" class="sidebar__item"><span class="sidebar__item-number">18</span><span class="sidebar__item-title">Насичена пара. Вологість повітря</span></a>
+            <a href="topic-19.html" class="sidebar__item"><span class="sidebar__item-number">19</span><span class="sidebar__item-title">Поверхневий натяг. Капілярність</span></a>
+            <a href="topic-20.html" class="sidebar__item"><span class="sidebar__item-number">20</span><span class="sidebar__item-title">Властивості твердих тіл. Механізм деформацій</span></a>
+            <a href="topic-21.html" class="sidebar__item"><span class="sidebar__item-number">21</span><span class="sidebar__item-title">Основи термодинаміки</span></a>
+            <a href="topic-22.html" class="sidebar__item"><span class="sidebar__item-number">22</span><span class="sidebar__item-title">Закон агрегатних станів речовини. Рівняння теплового балансу</span></a>
+            <a href="topic-23.html" class="sidebar__item"><span class="sidebar__item-number">23</span><span class="sidebar__item-title">Закон Кулона. Напруженість поля</span></a>
+            <a href="topic-24.html" class="sidebar__item"><span class="sidebar__item-number">24</span><span class="sidebar__item-title">Потенціал. Різниця потенціалів. Робота електростатичного поля</span></a>
+            <a href="topic-25.html" class="sidebar__item"><span class="sidebar__item-number">25</span><span class="sidebar__item-title">Електроємність. Енергія конденсаторів</span></a>
+            <a href="topic-26.html" class="sidebar__item"><span class="sidebar__item-number">26</span><span class="sidebar__item-title">Постійний струм. Закон Ома для ділянки кола</span></a>
+            <a href="topic-27.html" class="sidebar__item"><span class="sidebar__item-number">27</span><span class="sidebar__item-title">Закон Ома для повного (замкнутого) кола</span></a>
+            <a href="topic-28.html" class="sidebar__item"><span class="sidebar__item-number">28</span><span class="sidebar__item-title">Робота і потужність струму. Закон Джоуля — Ленца</span></a>
+            <a href="topic-29.html" class="sidebar__item"><span class="sidebar__item-number">29</span><span class="sidebar__item-title">Струм у різних середовищах</span></a>
+            <a href="topic-30.html" class="sidebar__item sidebar__item--active sidebar__item--completed"><span class="sidebar__item-number">30</span><span class="sidebar__item-title">Магнітне поле</span></a>
+            <a href="topic-31.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">31</span><span class="sidebar__item-title">Електромагнітна індукція</span></a>
+            <a href="topic-32.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">32</span><span class="sidebar__item-title">Механічні коливання</span></a>
+            <a href="topic-33.html" class="sidebar__item"><span class="sidebar__item-number">33</span><span class="sidebar__item-title">Механічні хвилі. Звук</span></a>
+            <a href="topic-34.html" class="sidebar__item"><span class="sidebar__item-number">34</span><span class="sidebar__item-title">Вільні електромагнітні коливання</span></a>
+            <a href="topic-35.html" class="sidebar__item"><span class="sidebar__item-number">35</span><span class="sidebar__item-title">Змінний струм</span></a>
+            <a href="topic-36.html" class="sidebar__item"><span class="sidebar__item-number">36</span><span class="sidebar__item-title">Електромагнітні хвилі</span></a>
+            <a href="topic-37.html" class="sidebar__item"><span class="sidebar__item-number">37</span><span class="sidebar__item-title">Елементи геометричної оптики</span></a>
+            <a href="topic-38.html" class="sidebar__item"><span class="sidebar__item-number">38</span><span class="sidebar__item-title">Лінзи</span></a>
+            <a href="topic-39.html" class="sidebar__item"><span class="sidebar__item-number">39</span><span class="sidebar__item-title">Хвильова оптика</span></a>
+            <a href="topic-40.html" class="sidebar__item"><span class="sidebar__item-number">40</span><span class="sidebar__item-title">Елементи теорії відносності</span></a>
+            <a href="topic-41.html" class="sidebar__item"><span class="sidebar__item-number">41</span><span class="sidebar__item-title">Кванти світла</span></a>
+            <a href="topic-42.html" class="sidebar__item"><span class="sidebar__item-number">42</span><span class="sidebar__item-title">Атомна фізика</span></a>
+            <a href="topic-43.html" class="sidebar__item"><span class="sidebar__item-number">43</span><span class="sidebar__item-title">Ядерна фізика</span></a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="topic-header">
+            <div class="topic-header__breadcrumb">
+                <a href="../index.html">Головна</a> / Тема 30
+            </div>
+            <div class="topic-header__number">Тема 30</div>
+            <h1 class="topic-header__title">Магнітне поле</h1>
+        </div>
+
+        <!-- ==================== ЗМІСТ ==================== -->
+        <div class="toc">
+            <h2 class="toc__title">Зміст теми</h2>
+            <ol class="toc__list">
+                <li class="toc__item"><a href="#section-1" class="toc__link">Магнітне поле провідника зі струмом</a></li>
+                <li class="toc__item"><a href="#section-2" class="toc__link">Сила Ампера</a></li>
+                <li class="toc__item"><a href="#section-3" class="toc__link">Сила Лоренца</a></li>
+                <li class="toc__item"><a href="#section-4" class="toc__link">Магнітний потік</a></li>
+                <li class="toc__item"><a href="#section-5" class="toc__link">Таблиця формул</a></li>
+                <li class="toc__item"><a href="#section-6" class="toc__link">Задачі</a></li>
+            </ol>
+        </div>
+
+        <!-- ==================== РОЗДІЛ 1: МАГНІТНЕ ПОЛЕ ПРОВІДНИКА ==================== -->
+        <section id="section-1" class="content-section">
+            <h2 class="content-section__title">1. Магнітне поле провідника зі струмом</h2>
+
+            <div class="definition">
+                <h3 class="definition__title">Магнітна індукція $\vec{B}$</h3>
+                <p class="definition__text">
+                    <strong>Магнітне поле</strong> створюється рухомими зарядами (струмами) і діє на інші рухомі заряди. Основна характеристика &mdash; <strong>вектор магнітної індукції $\vec{B}$</strong>. Одиниця виміру: 1 Тл (тесла).
+                </p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Магнітна індукція</span>
+                $$B = \frac{F}{I \cdot l}$$
+                <p>$F$ &mdash; сила на провідник (Н), $I$ &mdash; струм (А), $l$ &mdash; довжина провідника (м), провідник $\perp \vec{B}$.</p>
+            </div>
+
+            <!-- ВІЗУАЛІЗАЦІЯ 1: Магнітне поле провідника -->
+            <div class="visualization">
+                <h3 class="visualization__title">Магнітне поле прямого провідника зі струмом</h3>
+                <div class="visualization__canvas-wrapper">
+                    <canvas id="canvas-wire-field" width="800" height="450"></canvas>
+                </div>
+                <div class="visualization__controls">
+                    <div class="control-group">
+                        <label class="control-group__label">Струм I:</label>
+                        <input type="range" id="wire-current" min="0.5" max="10" step="0.5" value="5">
+                        <span class="control-group__value" id="wire-current-val">5.0 А</span>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-group__label">Напрямок:</label>
+                        <button id="wire-dir-btn" style="padding:5px 18px;cursor:pointer;border-radius:6px;border:1px solid #60a5fa;background:#1a1a2e;color:#60a5fa;font-size:14px;">&#8593; Вгору</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="important">
+                <h4 class="important__title">Запам'ятай для ЗНО</h4>
+                <ul>
+                    <li>Лінії $\vec{B}$ прямого провідника &mdash; <strong>концентричні кола</strong> навколо провідника.</li>
+                    <li><strong>Правило правої руки:</strong> великий палець &mdash; напрямок струму, зігнуті пальці &mdash; напрямок $\vec{B}$.</li>
+                    <li>Магнітне поле <strong>НЕ діє</strong> на нерухомі заряди.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ==================== РОЗДІЛ 2: СИЛА АМПЕРА ==================== -->
+        <section id="section-2" class="content-section">
+            <h2 class="content-section__title">2. Сила Ампера</h2>
+
+            <div class="definition">
+                <h3 class="definition__title">Сила Ампера</h3>
+                <p class="definition__text">
+                    Сила, з якою однорідне магнітне поле діє на провідник зі струмом. Напрямок визначається за <strong>правилом лівої руки</strong>.
+                </p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Сила Ампера</span>
+                $$F_A = B \cdot I \cdot l \cdot \sin\alpha$$
+                <p>$\alpha$ &mdash; кут між напрямком струму $I$ та вектором $\vec{B}$.</p>
+            </div>
+
+            <!-- ВІЗУАЛІЗАЦІЯ 2: Сила Ампера -->
+            <div class="visualization">
+                <h3 class="visualization__title">Сила Ампера: провідник у магнітному полі</h3>
+                <div class="visualization__canvas-wrapper">
+                    <canvas id="canvas-ampere" width="800" height="450"></canvas>
+                </div>
+                <div class="visualization__controls">
+                    <div class="control-group">
+                        <label class="control-group__label">Струм I:</label>
+                        <input type="range" id="ampere-I" min="0.1" max="10" step="0.1" value="4">
+                        <span class="control-group__value" id="ampere-I-val">4.0 А</span>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-group__label">Індукція B:</label>
+                        <input type="range" id="ampere-B" min="0.01" max="0.5" step="0.01" value="0.1">
+                        <span class="control-group__value" id="ampere-B-val">0.10 Тл</span>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-group__label">Кут &alpha;:</label>
+                        <input type="range" id="ampere-alpha" min="0" max="90" step="1" value="90">
+                        <span class="control-group__value" id="ampere-alpha-val">90&deg;</span>
+                    </div>
+                    <div class="control-group">
+                        <button id="ampere-play" style="padding:5px 18px;cursor:pointer;border-radius:6px;border:1px solid #4ade80;background:#1a1a2e;color:#4ade80;font-size:14px;">&#9654; Пуск</button>
+                        <button id="ampere-reset" style="padding:5px 18px;cursor:pointer;border-radius:6px;border:1px solid #e94560;background:#1a1a2e;color:#e94560;font-size:14px;margin-left:6px;">Скинути</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="important">
+                <h4 class="important__title">Запам'ятай для ЗНО</h4>
+                <ul>
+                    <li>$F_A$ максимальна при $\alpha = 90°$ ($\sin 90° = 1$), дорівнює нулю при $\alpha = 0°$.</li>
+                    <li><strong>Правило лівої руки:</strong> $\vec{B}$ входить у долоню, 4 пальці &mdash; напрямок $I$, великий палець &mdash; напрямок $\vec{F}_A$.</li>
+                    <li>Сила Ампера лежить в основі роботи <strong>електродвигуна</strong>.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ==================== РОЗДІЛ 3: СИЛА ЛОРЕНЦА ==================== -->
+        <section id="section-3" class="content-section">
+            <h2 class="content-section__title">3. Сила Лоренца</h2>
+
+            <div class="definition">
+                <h3 class="definition__title">Сила Лоренца</h3>
+                <p class="definition__text">
+                    Сила, з якою магнітне поле діє на окремий рухомий заряд. Перпендикулярна до $\vec{v}$ &mdash; змінює лише напрямок руху, не змінює модуль швидкості (не виконує роботи).
+                </p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Сила Лоренца</span>
+                $$F_\text{Л} = q \cdot v \cdot B \cdot \sin\alpha$$
+                <p>$q$ &mdash; заряд (Кл), $v$ &mdash; швидкість (м/с), $\alpha$ &mdash; кут між $\vec{v}$ та $\vec{B}$.</p>
+            </div>
+
+            <!-- ВІЗУАЛІЗАЦІЯ 3: Сила Лоренца -->
+            <div class="visualization">
+                <h3 class="visualization__title">Рух зарядженої частинки в магнітному полі</h3>
+                <div class="visualization__canvas-wrapper">
+                    <canvas id="canvas-lorentz" width="800" height="500"></canvas>
+                </div>
+                <div class="visualization__controls">
+                    <div class="control-group">
+                        <label class="control-group__label">Заряд q:</label>
+                        <input type="range" id="lorentz-q" min="0.5" max="5" step="0.5" value="2">
+                        <span class="control-group__value" id="lorentz-q-val">2.0 мкКл</span>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-group__label">Швидкість v:</label>
+                        <input type="range" id="lorentz-v" min="1" max="10" step="0.5" value="5">
+                        <span class="control-group__value" id="lorentz-v-val">5.0 &times;10&#8309; м/с</span>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-group__label">Індукція B:</label>
+                        <input type="range" id="lorentz-B" min="0.01" max="0.5" step="0.01" value="0.1">
+                        <span class="control-group__value" id="lorentz-B-val">0.10 Тл</span>
+                    </div>
+                    <div class="control-group">
+                        <button id="lorentz-sign" style="padding:5px 18px;cursor:pointer;border-radius:6px;border:1px solid #4ade80;background:#1a1a2e;color:#4ade80;font-size:14px;">+ Позитивний</button>
+                        <button id="lorentz-pause" style="padding:5px 18px;cursor:pointer;border-radius:6px;border:1px solid #fbbf24;background:#1a1a2e;color:#fbbf24;font-size:14px;margin-left:6px;">&#10074;&#10074; Пауза</button>
+                        <button id="lorentz-reset" style="padding:5px 18px;cursor:pointer;border-radius:6px;border:1px solid #e94560;background:#1a1a2e;color:#e94560;font-size:14px;margin-left:6px;">Скинути</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="important">
+                <h4 class="important__title">Запам'ятай для ЗНО</h4>
+                <ul>
+                    <li>При $\vec{v} \perp \vec{B}$ частинка рухається по <strong>колу</strong> з радіусом $r = \dfrac{mv}{qB}$.</li>
+                    <li>Період обертання $T = \dfrac{2\pi m}{qB}$ &mdash; <strong>НЕ залежить від швидкості!</strong></li>
+                    <li>Позитивний і негативний заряди обертаються у <strong>протилежних</strong> напрямках.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ==================== РОЗДІЛ 4: МАГНІТНИЙ ПОТІК ==================== -->
+        <section id="section-4" class="content-section">
+            <h2 class="content-section__title">4. Магнітний потік</h2>
+
+            <div class="definition">
+                <h3 class="definition__title">Магнітний потік &Phi;</h3>
+                <p class="definition__text">
+                    Скалярна величина, що характеризує кількість ліній магнітної індукції, які пронизують поверхню площею $S$. Одиниця: 1 Вб (Вебер).
+                </p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Магнітний потік</span>
+                $$\Phi = B \cdot S \cdot \cos\alpha$$
+                <p>$\alpha$ &mdash; кут між $\vec{B}$ та нормаллю $\vec{n}$ до поверхні. При $\alpha = 0°$: $\Phi = BS$ (макс.), при $\alpha = 90°$: $\Phi = 0$.</p>
+            </div>
+
+            <!-- ВІЗУАЛІЗАЦІЯ 4: Магнітний потік -->
+            <div class="visualization">
+                <h3 class="visualization__title">Магнітний потік через рамку</h3>
+                <div class="visualization__canvas-wrapper">
+                    <canvas id="canvas-flux" width="800" height="400"></canvas>
+                </div>
+                <div class="visualization__controls">
+                    <div class="control-group">
+                        <label class="control-group__label">Кут &alpha;:</label>
+                        <input type="range" id="flux-alpha" min="0" max="90" step="1" value="0">
+                        <span class="control-group__value" id="flux-alpha-val">0&deg;</span>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-group__label">Індукція B:</label>
+                        <input type="range" id="flux-B" min="0.05" max="0.5" step="0.05" value="0.2">
+                        <span class="control-group__value" id="flux-B-val">0.20 Тл</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="important">
+                <h4 class="important__title">Запам'ятай для ЗНО</h4>
+                <ul>
+                    <li>$\Phi$ максимальний, коли площина рамки <strong>перпендикулярна</strong> до $\vec{B}$ ($\alpha = 0°$).</li>
+                    <li>$\Phi = 0$, коли площина рамки <strong>паралельна</strong> $\vec{B}$ ($\alpha = 90°$).</li>
+                    <li>Зміна магнітного потоку через контур &mdash; причина <strong>ЕРС індукції</strong> (тема 31).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ==================== РОЗДІЛ 5: ТАБЛИЦЯ ФОРМУЛ ==================== -->
+        <section id="section-5" class="content-section">
+            <h2 class="content-section__title">5. Таблиця формул</h2>
+            <div class="formula-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Назва</th>
+                            <th>Формула</th>
+                            <th>Одиниці</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Магнітна індукція</td>
+                            <td>$B = \dfrac{F}{I l}$</td>
+                            <td>Тл</td>
+                        </tr>
+                        <tr>
+                            <td>Сила Ампера</td>
+                            <td>$F_A = B I l \sin\alpha$</td>
+                            <td>Н</td>
+                        </tr>
+                        <tr>
+                            <td>Сила Лоренца</td>
+                            <td>$F_\text{Л} = qvB\sin\alpha$</td>
+                            <td>Н</td>
+                        </tr>
+                        <tr>
+                            <td>Радіус орбіти</td>
+                            <td>$r = \dfrac{mv}{qB}$</td>
+                            <td>м</td>
+                        </tr>
+                        <tr>
+                            <td>Період обертання</td>
+                            <td>$T = \dfrac{2\pi m}{qB}$</td>
+                            <td>с</td>
+                        </tr>
+                        <tr>
+                            <td>Магнітний потік</td>
+                            <td>$\Phi = BS\cos\alpha$</td>
+                            <td>Вб</td>
+                        </tr>
+                        <tr>
+                            <td>Поле прямого провідника</td>
+                            <td>$B = \dfrac{\mu_0 I}{2\pi r}$</td>
+                            <td>Тл</td>
+                        </tr>
+                        <tr>
+                            <td>Поле соленоїда</td>
+                            <td>$B = \mu_0 n I$</td>
+                            <td>Тл</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ==================== РОЗДІЛ 6: ЗАДАЧІ ==================== -->
+        <section id="section-6" class="content-section">
+            <h2 class="content-section__title">6. Задачі</h2>
+
+            <div class="problem">
+                <div class="problem__header">
+                    <span class="problem__badge problem__badge--zno">ЗНО</span>
+                    <h3 class="problem__title">Задача 1. Сила Ампера</h3>
+                </div>
+                <div class="problem__body">
+                    <p class="problem__text">Провідник довжиною $l = 0{,}5$ м зі струмом $I = 4$ А розміщений перпендикулярно до однорідного магнітного поля з індукцією $B = 0{,}04$ Тл. Знайти силу Ампера.</p>
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати розв'язок</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__step">
+                            <span class="problem__step-number">1</span>
+                            <div class="problem__step-content">$F_A = B \cdot I \cdot l \cdot \sin\alpha = 0{,}04 \cdot 4 \cdot 0{,}5 \cdot \sin 90°$</div>
+                        </div>
+                        <div class="problem__step">
+                            <span class="problem__step-number">2</span>
+                            <div class="problem__step-content">$F_A = 0{,}04 \cdot 4 \cdot 0{,}5 \cdot 1 = 0{,}08$ Н</div>
+                        </div>
+                        <div class="problem__answer">
+                            <span class="problem__answer-label">Відповідь:</span> $F_A = 0{,}08$ Н
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem__header">
+                    <span class="problem__badge problem__badge--zno">ЗНО</span>
+                    <h3 class="problem__title">Задача 2. Електрон у магнітному полі</h3>
+                </div>
+                <div class="problem__body">
+                    <p class="problem__text">Електрон ($m = 9{,}1 \cdot 10^{-31}$ кг, $q = 1{,}6 \cdot 10^{-19}$ Кл) влітає перпендикулярно до магнітного поля $B = 0{,}01$ Тл зі швидкістю $v = 10^7$ м/с. Знайти радіус орбіти $r$ та період обертання $T$.</p>
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати розв'язок</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__step">
+                            <span class="problem__step-number">1</span>
+                            <div class="problem__step-content">$r = \dfrac{mv}{qB} = \dfrac{9{,}1 \cdot 10^{-31} \cdot 10^7}{1{,}6 \cdot 10^{-19} \cdot 0{,}01} = \dfrac{9{,}1 \cdot 10^{-24}}{1{,}6 \cdot 10^{-21}} \approx 5{,}7 \cdot 10^{-3}$ м $\approx 5{,}7$ мм</div>
+                        </div>
+                        <div class="problem__step">
+                            <span class="problem__step-number">2</span>
+                            <div class="problem__step-content">$T = \dfrac{2\pi m}{qB} = \dfrac{2\pi \cdot 9{,}1 \cdot 10^{-31}}{1{,}6 \cdot 10^{-19} \cdot 0{,}01} \approx 3{,}6 \cdot 10^{-9}$ с $\approx 3{,}6$ нс</div>
+                        </div>
+                        <div class="problem__answer">
+                            <span class="problem__answer-label">Відповідь:</span> $r \approx 5{,}7$ мм, $T \approx 3{,}6$ нс
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Навігація -->
+        <div class="topic-nav">
+            <a href="topic-29.html" class="topic-nav__btn topic-nav__btn--prev">
+                <span class="topic-nav__arrow">&larr;</span>
+                <span class="topic-nav__label">Тема 29</span>
+            </a>
+            <a href="topic-31.html" class="topic-nav__btn topic-nav__btn--next">
+                <span class="topic-nav__label">Тема 31</span>
+                <span class="topic-nav__arrow">&rarr;</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- ============================================================ -->
+    <!--  CANVAS VISUALIZATIONS                                        -->
+    <!-- ============================================================ -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        /* ---------- KaTeX ---------- */
+        if (typeof renderMathInElement === 'function') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false}
+                ]
+            });
+        }
+
+        /* ==========================================================
+         *  SHARED UTILITIES
+         * ========================================================== */
+
+        function resizeCanvas(canvas) {
+            var wrapper = canvas.parentElement;
+            var dpr = window.devicePixelRatio || 1;
+            var w = wrapper.clientWidth;
+            var h = parseInt(canvas.getAttribute('height')) || 450;
+            canvas.style.width = w + 'px';
+            canvas.style.height = h + 'px';
+            canvas.width = w * dpr;
+            canvas.height = h * dpr;
+            var ctx = canvas.getContext('2d');
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            return {w: w, h: h};
+        }
+
+        function drawArrow(ctx, x1, y1, x2, y2, color, lineW, headLen) {
+            headLen = headLen || 10;
+            lineW = lineW || 2;
+            var dx = x2 - x1;
+            var dy = y2 - y1;
+            var len = Math.sqrt(dx * dx + dy * dy);
+            if (len < 1) return;
+            var angle = Math.atan2(dy, dx);
+            ctx.save();
+            ctx.strokeStyle = color;
+            ctx.fillStyle = color;
+            ctx.lineWidth = lineW;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2 - headLen * 0.5 * Math.cos(angle), y2 - headLen * 0.5 * Math.sin(angle));
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x2, y2);
+            ctx.lineTo(x2 - headLen * Math.cos(angle - Math.PI / 7), y2 - headLen * Math.sin(angle - Math.PI / 7));
+            ctx.lineTo(x2 - headLen * Math.cos(angle + Math.PI / 7), y2 - headLen * Math.sin(angle + Math.PI / 7));
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function drawThickArrow(ctx, x1, y1, x2, y2, color, bodyW, headW, headLen) {
+            var dx = x2 - x1;
+            var dy = y2 - y1;
+            var len = Math.sqrt(dx * dx + dy * dy);
+            if (len < 2) return;
+            var angle = Math.atan2(dy, dx);
+            var perpX = -Math.sin(angle);
+            var perpY = Math.cos(angle);
+            var bodyEnd = len - headLen;
+            ctx.save();
+            ctx.translate(x1, y1);
+            ctx.rotate(angle);
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.moveTo(0, -bodyW / 2);
+            ctx.lineTo(bodyEnd, -bodyW / 2);
+            ctx.lineTo(bodyEnd, -headW / 2);
+            ctx.lineTo(len, 0);
+            ctx.lineTo(bodyEnd, headW / 2);
+            ctx.lineTo(bodyEnd, bodyW / 2);
+            ctx.lineTo(0, bodyW / 2);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function drawDashedCircle(ctx, cx, cy, r, color, dashOn, dashOff) {
+            ctx.save();
+            ctx.setLineDash([dashOn || 5, dashOff || 5]);
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.arc(cx, cy, r, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.restore();
+        }
+
+        /* Starfield background - subtle twinkling stars */
+        var stars = [];
+        function initStars() {
+            stars = [];
+            for (var i = 0; i < 60; i++) {
+                stars.push({
+                    x: Math.random(),
+                    y: Math.random(),
+                    size: 0.3 + Math.random() * 1.2,
+                    twinkleSpeed: 0.5 + Math.random() * 2,
+                    twinklePhase: Math.random() * Math.PI * 2
+                });
+            }
+        }
+        initStars();
+
+        function drawStarfield(ctx, w, h, time) {
+            for (var i = 0; i < stars.length; i++) {
+                var s = stars[i];
+                var brightness = 0.15 + 0.15 * Math.sin(time * s.twinkleSpeed + s.twinklePhase);
+                ctx.fillStyle = 'rgba(255, 255, 255, ' + brightness + ')';
+                ctx.beginPath();
+                ctx.arc(s.x * w, s.y * h, s.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function clearBg(ctx, w, h) {
+            var bgGrad = ctx.createLinearGradient(0, 0, 0, h);
+            bgGrad.addColorStop(0, '#0a0a1a');
+            bgGrad.addColorStop(0.5, '#0d0d24');
+            bgGrad.addColorStop(1, '#0a0a1a');
+            ctx.fillStyle = bgGrad;
+            ctx.fillRect(0, 0, w, h);
+        }
+
+        function drawCross(ctx, x, y, size, color) {
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(x - size, y - size);
+            ctx.lineTo(x + size, y + size);
+            ctx.moveTo(x + size, y - size);
+            ctx.lineTo(x - size, y + size);
+            ctx.stroke();
+        }
+
+        function drawDot(ctx, x, y, r, color) {
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, Math.PI * 2);
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+
+        function drawGlowDot(ctx, x, y, r, color, glowR) {
+            glowR = glowR || r * 3;
+            var grad = ctx.createRadialGradient(x, y, r * 0.3, x, y, glowR);
+            grad.addColorStop(0, color);
+            grad.addColorStop(0.4, color.replace(')', ', 0.3)').replace('rgb', 'rgba'));
+            grad.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = grad;
+            ctx.beginPath();
+            ctx.arc(x, y, glowR, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        function roundRect(ctx, x, y, w, h, r) {
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.lineTo(x + w - r, y);
+            ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+            ctx.lineTo(x + w, y + h - r);
+            ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+            ctx.lineTo(x + r, y + h);
+            ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+            ctx.lineTo(x, y + r);
+            ctx.quadraticCurveTo(x, y, x + r, y);
+            ctx.closePath();
+        }
+
+        function drawInfoBox(ctx, x, y, w, h, borderColor) {
+            ctx.save();
+            ctx.fillStyle = 'rgba(10, 10, 26, 0.85)';
+            ctx.strokeStyle = borderColor || 'rgba(255,255,255,0.1)';
+            ctx.lineWidth = 1;
+            roundRect(ctx, x, y, w, h, 6);
+            ctx.fill();
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        function drawCompassNeedle(ctx, cx, cy, size, angleDeg, time) {
+            var angleRad = angleDeg * Math.PI / 180;
+            /* wobble effect */
+            var wobble = Math.sin(time * 3) * 0.03;
+            angleRad += wobble;
+
+            ctx.save();
+            ctx.translate(cx, cy);
+            ctx.rotate(angleRad);
+
+            /* needle body */
+            ctx.beginPath();
+            ctx.moveTo(0, -size);
+            ctx.lineTo(size * 0.15, 0);
+            ctx.lineTo(0, size * 0.3);
+            ctx.lineTo(-size * 0.15, 0);
+            ctx.closePath();
+            ctx.fillStyle = '#e94560';
+            ctx.fill();
+
+            ctx.beginPath();
+            ctx.moveTo(0, size);
+            ctx.lineTo(size * 0.15, 0);
+            ctx.lineTo(0, -size * 0.3);
+            ctx.lineTo(-size * 0.15, 0);
+            ctx.closePath();
+            ctx.fillStyle = '#60a5fa';
+            ctx.fill();
+
+            /* center pin */
+            ctx.beginPath();
+            ctx.arc(0, 0, 3, 0, Math.PI * 2);
+            ctx.fillStyle = '#ccc';
+            ctx.fill();
+
+            ctx.restore();
+
+            /* compass circle */
+            ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.arc(cx, cy, size + 4, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+
+        function drawMiniGraph(ctx, x, y, w, h, dataFn, numPts, color, label, xLabel, yLabel) {
+            /* background */
+            ctx.fillStyle = 'rgba(0,0,0,0.4)';
+            ctx.fillRect(x, y, w, h);
+            ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(x, y, w, h);
+
+            /* axes */
+            ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+            ctx.beginPath();
+            ctx.moveTo(x + 25, y + 5);
+            ctx.lineTo(x + 25, y + h - 15);
+            ctx.lineTo(x + w - 5, y + h - 15);
+            ctx.stroke();
+
+            /* curve */
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            var maxVal = 0;
+            for (var i = 0; i <= numPts; i++) {
+                var t = i / numPts;
+                var val = dataFn(t);
+                if (val > maxVal) maxVal = val;
+            }
+            if (maxVal < 0.001) maxVal = 1;
+            for (var i = 0; i <= numPts; i++) {
+                var t = i / numPts;
+                var val = dataFn(t);
+                var px = x + 25 + t * (w - 30);
+                var py = y + h - 15 - (val / maxVal) * (h - 25);
+                if (i === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            }
+            ctx.stroke();
+
+            /* labels */
+            ctx.fillStyle = 'rgba(255,255,255,0.5)';
+            ctx.font = '10px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'top';
+            if (xLabel) ctx.fillText(xLabel, x + w / 2 + 10, y + h - 12);
+            ctx.save();
+            ctx.translate(x + 10, y + h / 2);
+            ctx.rotate(-Math.PI / 2);
+            ctx.textBaseline = 'middle';
+            if (yLabel) ctx.fillText(yLabel, 0, 0);
+            ctx.restore();
+
+            if (label) {
+                ctx.fillStyle = color;
+                ctx.font = '11px Arial';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                ctx.fillText(label, x + 30, y + 5);
+            }
+        }
+
+        function lerpColor(t) {
+            var r = Math.round(96 + t * (74 - 96));
+            var g = Math.round(165 + t * (222 - 165));
+            var b = Math.round(250 + t * (128 - 250));
+            return 'rgb(' + r + ',' + g + ',' + b + ')';
+        }
+
+        /* ==========================================================
+         *  VISUALIZATION 1 : Wire Magnetic Field
+         * ========================================================== */
+        (function() {
+            var canvas = document.getElementById('canvas-wire-field');
+            if (!canvas) return;
+            var ctx = canvas.getContext('2d');
+            var sliderI = document.getElementById('wire-current');
+            var valI = document.getElementById('wire-current-val');
+            var dirBtn = document.getElementById('wire-dir-btn');
+            var currentDir = 1; // 1=up, -1=down
+
+            dirBtn.addEventListener('click', function() {
+                currentDir *= -1;
+                dirBtn.innerHTML = currentDir > 0 ? '&#8593; Вгору' : '&#8595; Вниз';
+            });
+            sliderI.addEventListener('input', function() {
+                valI.textContent = parseFloat(sliderI.value).toFixed(1) + ' А';
+            });
+
+            /* Particle pool for field-line animation */
+            var MAX_PARTICLES = 120;
+            var particles = [];
+
+            function spawnParticles(W, H) {
+                particles = [];
+                var cx = W / 2;
+                var cy = H / 2;
+                for (var i = 0; i < MAX_PARTICLES; i++) {
+                    var ringIdx = Math.random();
+                    particles.push({
+                        angle: Math.random() * Math.PI * 2,
+                        ringT: ringIdx, // 0..1 placement within available rings
+                        speed: 0.4 + Math.random() * 0.3,
+                        size: 1.5 + Math.random() * 2,
+                        hue: 170 + Math.random() * 60
+                    });
+                }
+            }
+
+            var dims = resizeCanvas(canvas);
+            spawnParticles(dims.w, dims.h);
+
+            var time = 0;
+            function draw() {
+                var W = parseInt(canvas.style.width);
+                var H = parseInt(canvas.style.height);
+                var cx = W / 2;
+                var cy = H / 2;
+                var I = parseFloat(sliderI.value);
+                var maxR = Math.min(W, H) * 0.44;
+                time += 0.016;
+
+                clearBg(ctx, W, H);
+                drawStarfield(ctx, W, H, time);
+
+                /* ----- subtle grid ----- */
+                ctx.strokeStyle = 'rgba(255,255,255,0.02)';
+                ctx.lineWidth = 1;
+                for (var gx = 0; gx < W; gx += 60) {
+                    ctx.beginPath();
+                    ctx.moveTo(gx, 0);
+                    ctx.lineTo(gx, H);
+                    ctx.stroke();
+                }
+                for (var gy = 0; gy < H; gy += 60) {
+                    ctx.beginPath();
+                    ctx.moveTo(0, gy);
+                    ctx.lineTo(W, gy);
+                    ctx.stroke();
+                }
+
+                /* ----- concentric field lines ----- */
+                var numLines = Math.max(3, Math.floor(I * 1.4));
+                for (var li = 1; li <= numLines; li++) {
+                    var r = li * maxR / numLines;
+                    var a = 0.08 + (I / 10) * 0.22;
+                    /* glow */
+                    ctx.strokeStyle = 'rgba(96, 165, 250, ' + (a * 0.3) + ')';
+                    ctx.lineWidth = 6;
+                    ctx.beginPath();
+                    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+                    ctx.stroke();
+                    /* main */
+                    ctx.strokeStyle = 'rgba(96, 165, 250, ' + a + ')';
+                    ctx.lineWidth = 1.2;
+                    ctx.beginPath();
+                    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+                    ctx.stroke();
+
+                    /* direction triangles on each ring */
+                    var nArrows = Math.max(4, Math.floor(r * 0.07));
+                    for (var ai = 0; ai < nArrows; ai++) {
+                        var ang = ai * (Math.PI * 2 / nArrows) + time * 0.3 * currentDir;
+                        var ax = cx + r * Math.cos(ang);
+                        var ay = cy + r * Math.sin(ang);
+                        var tangent = ang + (Math.PI / 2) * currentDir;
+                        var sz = 5;
+                        ctx.fillStyle = 'rgba(96, 165, 250, ' + (a + 0.12) + ')';
+                        ctx.beginPath();
+                        ctx.moveTo(ax + sz * Math.cos(tangent), ay + sz * Math.sin(tangent));
+                        ctx.lineTo(ax - sz * 0.6 * Math.cos(tangent - 0.6), ay - sz * 0.6 * Math.sin(tangent - 0.6));
+                        ctx.lineTo(ax - sz * 0.6 * Math.cos(tangent + 0.6), ay - sz * 0.6 * Math.sin(tangent + 0.6));
+                        ctx.closePath();
+                        ctx.fill();
+                    }
+                }
+
+                /* ----- animated particles ----- */
+                var speed = I / 5 * 0.04 * currentDir;
+                for (var pi = 0; pi < particles.length; pi++) {
+                    var p = particles[pi];
+                    var ringFrac = p.ringT;
+                    var ringR = 25 + ringFrac * (maxR - 25);
+                    var visibleRings = numLines;
+                    // Only show if ring falls within current number of rings
+                    var ringIndex = Math.floor(ringFrac * 12);
+                    if (ringIndex > numLines) continue;
+
+                    p.angle += speed * p.speed;
+                    var px = cx + ringR * Math.cos(p.angle);
+                    var py = cy + ringR * Math.sin(p.angle);
+
+                    if (px < -10 || px > W + 10 || py < -10 || py > H + 10) continue;
+
+                    /* glow */
+                    ctx.beginPath();
+                    ctx.arc(px, py, p.size * 3, 0, Math.PI * 2);
+                    ctx.fillStyle = 'hsla(' + p.hue + ', 80%, 65%, 0.08)';
+                    ctx.fill();
+
+                    /* dot */
+                    ctx.beginPath();
+                    ctx.arc(px, py, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = 'hsl(' + p.hue + ', 80%, 65%)';
+                    ctx.fill();
+                }
+
+                /* ----- wire shadow ----- */
+                ctx.save();
+                ctx.shadowColor = 'rgba(96, 165, 250, ' + (0.1 + I * 0.02) + ')';
+                ctx.shadowBlur = 15 + I * 3;
+                ctx.fillStyle = 'rgba(0,0,0,0)';
+                ctx.fillRect(cx - 7, 0, 14, H);
+                ctx.restore();
+
+                /* ----- wire body ----- */
+                var wireGrad = ctx.createLinearGradient(cx - 7, 0, cx + 7, 0);
+                wireGrad.addColorStop(0, '#444');
+                wireGrad.addColorStop(0.15, '#888');
+                wireGrad.addColorStop(0.35, '#bbb');
+                wireGrad.addColorStop(0.5, '#ddd');
+                wireGrad.addColorStop(0.65, '#bbb');
+                wireGrad.addColorStop(0.85, '#888');
+                wireGrad.addColorStop(1, '#444');
+                ctx.fillStyle = wireGrad;
+                ctx.fillRect(cx - 7, 0, 14, H);
+
+                /* wire edge highlights */
+                ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(cx - 7, 0); ctx.lineTo(cx - 7, H);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(cx + 7, 0); ctx.lineTo(cx + 7, H);
+                ctx.stroke();
+
+                /* metallic highlight shimmer - electron flow indicators */
+                var shimmerY = (time * 80 * currentDir) % H;
+                if (shimmerY < 0) shimmerY += H;
+                var shimGrad = ctx.createRadialGradient(cx, shimmerY, 0, cx, shimmerY, 30);
+                shimGrad.addColorStop(0, 'rgba(255,255,255,0.25)');
+                shimGrad.addColorStop(1, 'rgba(255,255,255,0)');
+                ctx.fillStyle = shimGrad;
+                ctx.fillRect(cx - 7, 0, 14, H);
+
+                /* second shimmer for continuity */
+                var shimmerY2 = shimmerY + H / 2;
+                if (shimmerY2 > H) shimmerY2 -= H;
+                var shimGrad2 = ctx.createRadialGradient(cx, shimmerY2, 0, cx, shimmerY2, 25);
+                shimGrad2.addColorStop(0, 'rgba(233, 69, 96, 0.15)');
+                shimGrad2.addColorStop(1, 'rgba(233, 69, 96, 0)');
+                ctx.fillStyle = shimGrad2;
+                ctx.fillRect(cx - 7, 0, 14, H);
+
+                /* electron dots flowing in wire */
+                var numElectrons = Math.floor(3 + I * 0.8);
+                var eSpacing = H / numElectrons;
+                for (var ei = 0; ei < numElectrons; ei++) {
+                    var eBaseY = ei * eSpacing;
+                    var eY = eBaseY - (time * 60 * currentDir) % eSpacing;
+                    if (currentDir > 0) {
+                        eY = eBaseY - (time * 60) % eSpacing;
+                    } else {
+                        eY = eBaseY + (time * 60) % eSpacing;
+                    }
+                    if (eY < 0) eY += H;
+                    if (eY > H) eY -= H;
+                    ctx.beginPath();
+                    ctx.arc(cx, eY, 2.5, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(233, 69, 96, 0.45)';
+                    ctx.fill();
+                }
+
+                /* current arrow */
+                var ay1 = cy + 80 * (currentDir > 0 ? 1 : -1);
+                var ay2 = cy - 80 * (currentDir > 0 ? 1 : -1);
+                drawArrow(ctx, cx, ay1, cx, ay2, '#e94560', 3, 15);
+
+                /* current label */
+                ctx.fillStyle = '#e94560';
+                ctx.font = 'bold 16px Arial';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('I = ' + I.toFixed(1) + ' А', cx + 20, cy - 70);
+
+                /* direction icon */
+                ctx.fillStyle = currentDir > 0 ? '#e94560' : '#60a5fa';
+                ctx.font = '13px Arial';
+                ctx.fillText(currentDir > 0 ? '\u2191' : '\u2193', cx + 20, cy - 90);
+
+                /* ----- Right-hand rule box ----- */
+                ctx.save();
+                var boxX = 12;
+                var boxY = H - 85;
+                ctx.fillStyle = 'rgba(26, 26, 46, 0.85)';
+                ctx.strokeStyle = 'rgba(251, 191, 36, 0.35)';
+                ctx.lineWidth = 1;
+                roundRect(ctx, boxX, boxY, 260, 72, 8);
+                ctx.fill();
+                ctx.stroke();
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = 'bold 13px Arial';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                ctx.fillText('Правило правої руки:', boxX + 10, boxY + 8);
+                ctx.fillStyle = '#ddd';
+                ctx.font = '12px Arial';
+                if (currentDir > 0) {
+                    ctx.fillText('Палець \u2191 (I вгору)', boxX + 10, boxY + 28);
+                    ctx.fillText('\u2192 B проти годинникової стрілки', boxX + 10, boxY + 46);
+                } else {
+                    ctx.fillText('Палець \u2193 (I вниз)', boxX + 10, boxY + 28);
+                    ctx.fillText('\u2192 B за годинниковою стрілкою', boxX + 10, boxY + 46);
+                }
+                ctx.restore();
+
+                /* ----- compass needles at several positions ----- */
+                var compassPositions = [
+                    {dist: 0.2, ang: 0},
+                    {dist: 0.2, ang: Math.PI / 2},
+                    {dist: 0.2, ang: Math.PI},
+                    {dist: 0.2, ang: -Math.PI / 2},
+                    {dist: 0.38, ang: Math.PI / 4},
+                    {dist: 0.38, ang: 3 * Math.PI / 4},
+                    {dist: 0.38, ang: -Math.PI / 4},
+                    {dist: 0.38, ang: -3 * Math.PI / 4}
+                ];
+                for (var ci = 0; ci < compassPositions.length; ci++) {
+                    var cp = compassPositions[ci];
+                    var cDist = cp.dist * Math.min(W, H);
+                    var cpx = cx + cDist * Math.cos(cp.ang);
+                    var cpy = cy + cDist * Math.sin(cp.ang);
+                    // Needle should point along the tangent (B direction)
+                    var tangentAngle = cp.ang + (Math.PI / 2) * currentDir;
+                    // Only show if within canvas bounds
+                    if (cpx > 30 && cpx < W - 30 && cpy > 30 && cpy < H - 30) {
+                        drawCompassNeedle(ctx, cpx, cpy, 12, tangentAngle * 180 / Math.PI, time);
+                    }
+                }
+
+                /* ----- B(r) mini graph (top-right) ----- */
+                if (W > 500) {
+                    drawMiniGraph(ctx, W - 175, 8, 160, 90,
+                        function(t) {
+                            var rMin = 0.01;
+                            var rMax = 0.5;
+                            var rr = rMin + t * (rMax - rMin);
+                            return (4 * Math.PI * 1e-7 * I) / (2 * Math.PI * rr);
+                        },
+                        50, '#60a5fa', 'B(r) = \u03BC\u2080I/(2\u03C0r)', 'r', 'B'
+                    );
+                }
+
+                /* ----- B formula bottom-right ----- */
+                ctx.fillStyle = 'rgba(255,255,255,0.4)';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'right';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText('B = \u03BC\u2080I / (2\u03C0r)', W - 15, H - 10);
+
+                /* ----- field strength color legend ----- */
+                ctx.fillStyle = 'rgba(255,255,255,0.35)';
+                ctx.font = '11px Arial';
+                ctx.textAlign = 'right';
+                ctx.textBaseline = 'top';
+                ctx.fillText('Ближче = сильніше поле', W - 15, H - 95);
+                /* gradient bar */
+                var legX = W - 120;
+                var legY = H - 82;
+                var legW = 100;
+                var legH = 8;
+                var legGrad = ctx.createLinearGradient(legX, 0, legX + legW, 0);
+                legGrad.addColorStop(0, '#4ade80');
+                legGrad.addColorStop(1, 'rgba(96,165,250,0.3)');
+                ctx.fillStyle = legGrad;
+                ctx.fillRect(legX, legY, legW, legH);
+                ctx.fillStyle = 'rgba(255,255,255,0.3)';
+                ctx.font = '9px Arial';
+                ctx.textAlign = 'left';
+                ctx.fillText('B\u2191', legX, legY + 11);
+                ctx.textAlign = 'right';
+                ctx.fillText('B\u2193', legX + legW, legY + 11);
+
+                requestAnimationFrame(draw);
+            }
+
+            draw();
+        })();
+
+        /* ==========================================================
+         *  VISUALIZATION 2 : Ampere Force
+         * ========================================================== */
+        (function() {
+            var canvas = document.getElementById('canvas-ampere');
+            if (!canvas) return;
+            var ctx = canvas.getContext('2d');
+            var sliderI = document.getElementById('ampere-I');
+            var sliderB = document.getElementById('ampere-B');
+            var sliderA = document.getElementById('ampere-alpha');
+            var valI = document.getElementById('ampere-I-val');
+            var valB = document.getElementById('ampere-B-val');
+            var valA = document.getElementById('ampere-alpha-val');
+            var resetBtn = document.getElementById('ampere-reset');
+            var playBtn = document.getElementById('ampere-play');
+
+            var conductorLen = 0.5; // metres
+            var condDispY = 0;     // visual pixel displacement
+            var playing = false;
+            var playTime = 0;
+
+            sliderI.addEventListener('input', function() { valI.textContent = parseFloat(sliderI.value).toFixed(1) + ' А'; });
+            sliderB.addEventListener('input', function() { valB.textContent = parseFloat(sliderB.value).toFixed(2) + ' Тл'; });
+            sliderA.addEventListener('input', function() { valA.textContent = sliderA.value + '\u00B0'; });
+
+            resetBtn.addEventListener('click', function() {
+                sliderI.value = 4; sliderB.value = 0.1; sliderA.value = 90;
+                valI.textContent = '4.0 А'; valB.textContent = '0.10 Тл'; valA.textContent = '90\u00B0';
+                condDispY = 0; playing = false; playTime = 0;
+                playBtn.innerHTML = '&#9654; Пуск';
+            });
+
+            playBtn.addEventListener('click', function() {
+                playing = !playing;
+                playBtn.innerHTML = playing ? '&#10074;&#10074; Пауза' : '&#9654; Пуск';
+            });
+
+            resizeCanvas(canvas);
+            var time = 0;
+
+            function draw() {
+                var W = parseInt(canvas.style.width);
+                var H = parseInt(canvas.style.height);
+                var I = parseFloat(sliderI.value);
+                var B = parseFloat(sliderB.value);
+                var alphaDeg = parseInt(sliderA.value);
+                var alphaRad = alphaDeg * Math.PI / 180;
+                var F = B * I * conductorLen * Math.sin(alphaRad);
+                time += 0.016;
+
+                if (playing) {
+                    playTime += 0.016;
+                    var targetY = -F * 350;
+                    condDispY += (targetY - condDispY) * 0.04;
+                    // Oscillate slightly for visual feedback
+                    condDispY += Math.sin(playTime * 3) * F * 8;
+                } else {
+                    var targetY2 = -F * 250;
+                    condDispY += (targetY2 - condDispY) * 0.08;
+                }
+
+                clearBg(ctx, W, H);
+                drawStarfield(ctx, W, H, time);
+
+                /* subtle grid */
+                ctx.strokeStyle = 'rgba(255,255,255,0.015)';
+                ctx.lineWidth = 1;
+                for (var gxi = 0; gxi < W; gxi += 50) {
+                    ctx.beginPath(); ctx.moveTo(gxi, 0); ctx.lineTo(gxi, H); ctx.stroke();
+                }
+                for (var gyi = 0; gyi < H; gyi += 50) {
+                    ctx.beginPath(); ctx.moveTo(0, gyi); ctx.lineTo(W, gyi); ctx.stroke();
+                }
+
+                /* Magnet poles */
+                var mW = 55;
+                var mH = H * 0.6;
+                var mTop = (H - mH) / 2;
+                var mLeftX = 25;
+                var mRightX = W - 25 - mW;
+
+                /* N pole (left) */
+                var nGrad = ctx.createLinearGradient(mLeftX, 0, mLeftX + mW, 0);
+                nGrad.addColorStop(0, '#c0392b');
+                nGrad.addColorStop(1, '#e94560');
+                ctx.fillStyle = nGrad;
+                ctx.fillRect(mLeftX, mTop, mW, mH);
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 26px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('N', mLeftX + mW / 2, H / 2);
+
+                /* S pole (right) */
+                var sGrad = ctx.createLinearGradient(mRightX, 0, mRightX + mW, 0);
+                sGrad.addColorStop(0, '#60a5fa');
+                sGrad.addColorStop(1, '#2563eb');
+                ctx.fillStyle = sGrad;
+                ctx.fillRect(mRightX, mTop, mW, mH);
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 26px Arial';
+                ctx.fillText('S', mRightX + mW / 2, H / 2);
+
+                /* Field lines N -> S */
+                var fLeft = mLeftX + mW + 5;
+                var fRight = mRightX - 5;
+                var numFL = Math.max(5, Math.floor(B * 35));
+                for (var fi = 0; fi < numFL; fi++) {
+                    var fy = mTop + 15 + fi * (mH - 30) / (numFL - 1);
+                    var fa = 0.06 + B * 0.35;
+                    ctx.strokeStyle = 'rgba(96, 165, 250, ' + Math.min(fa, 0.45) + ')';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(fLeft, fy);
+                    ctx.lineTo(fRight, fy);
+                    ctx.stroke();
+
+                    /* animated dots along field lines */
+                    var dotOff = (time * 60) % 35;
+                    for (var dx = fLeft + dotOff; dx < fRight; dx += 35) {
+                        ctx.fillStyle = 'rgba(96, 165, 250, ' + Math.min(fa + 0.1, 0.5) + ')';
+                        ctx.beginPath();
+                        ctx.arc(dx, fy, 1.5, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+
+                    /* midpoint arrows */
+                    if (fi % 3 === 0) {
+                        var arX = (fLeft + fRight) / 2 + 30;
+                        ctx.fillStyle = 'rgba(96, 165, 250, ' + Math.min(fa + 0.15, 0.55) + ')';
+                        ctx.beginPath();
+                        ctx.moveTo(arX + 6, fy);
+                        ctx.lineTo(arX - 4, fy - 4);
+                        ctx.lineTo(arX - 4, fy + 4);
+                        ctx.closePath();
+                        ctx.fill();
+                    }
+                }
+
+                /* B label */
+                ctx.fillStyle = '#60a5fa';
+                ctx.font = 'bold 15px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillText('B = ' + B.toFixed(2) + ' Тл', (fLeft + fRight) / 2, mTop - 22);
+                ctx.fillText('\u2192', (fLeft + fRight) / 2 - 50, mTop - 22);
+
+                /* Conductor */
+                var condCX = W / 2;
+                var condCY = H / 2 + condDispY;
+                var condHL = Math.min(130, (fRight - fLeft) * 0.35);
+
+                ctx.save();
+                ctx.translate(condCX, condCY);
+                // Rotate conductor to show angle with B (horizontal)
+                // alpha is angle between I direction and B. B is horizontal.
+                // At alpha=90, conductor is vertical (perpendicular to B).
+                // At alpha=0, conductor is horizontal (parallel to B).
+                var condAngle = -(Math.PI / 2 - alphaRad); // rotation so that angle between conductor and horizontal = alpha
+                ctx.rotate(condAngle);
+
+                /* conductor body */
+                var cGrad = ctx.createLinearGradient(0, -5, 0, 5);
+                cGrad.addColorStop(0, '#c9913d');
+                cGrad.addColorStop(0.3, '#fbbf24');
+                cGrad.addColorStop(0.5, '#fff3c4');
+                cGrad.addColorStop(0.7, '#fbbf24');
+                cGrad.addColorStop(1, '#c9913d');
+                ctx.fillStyle = cGrad;
+                ctx.fillRect(-condHL, -5, condHL * 2, 10);
+
+                /* end caps */
+                ctx.fillStyle = '#b87333';
+                ctx.beginPath(); ctx.arc(-condHL, 0, 5, 0, Math.PI * 2); ctx.fill();
+                ctx.beginPath(); ctx.arc(condHL, 0, 5, 0, Math.PI * 2); ctx.fill();
+
+                /* current direction arrow along conductor */
+                drawArrow(ctx, -condHL + 15, 0, condHL - 15, 0, '#e94560', 2.5, 11);
+                ctx.fillStyle = '#e94560';
+                ctx.font = '13px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText('I', 0, -10);
+
+                ctx.restore();
+
+                /* Angle arc */
+                if (alphaDeg > 2 && alphaDeg < 88) {
+                    ctx.save();
+                    ctx.translate(condCX, condCY);
+                    ctx.strokeStyle = 'rgba(251, 191, 36, 0.5)';
+                    ctx.lineWidth = 1.5;
+                    var arcR = 40;
+                    // Arc from horizontal (B direction = 0) to conductor direction
+                    ctx.beginPath();
+                    ctx.arc(0, 0, arcR, 0, condAngle, condAngle < 0);
+                    ctx.stroke();
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.font = '13px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    var midAng = condAngle / 2;
+                    ctx.fillText('\u03B1=' + alphaDeg + '\u00B0', (arcR + 18) * Math.cos(midAng), (arcR + 18) * Math.sin(midAng));
+                    ctx.restore();
+                }
+
+                /* Force arrow */
+                if (F > 0.0005) {
+                    var fScale = Math.min(F * 280, 130);
+                    // Force direction: upward (perpendicular to B in plane, from left-hand rule with B right, I into page when alpha=90)
+                    drawArrow(ctx, condCX, condCY, condCX, condCY - fScale, '#4ade80', 3.5, 14);
+                    /* force glow */
+                    ctx.save();
+                    var fGlow = ctx.createLinearGradient(condCX, condCY, condCX, condCY - fScale);
+                    fGlow.addColorStop(0, 'rgba(74, 222, 128, 0)');
+                    fGlow.addColorStop(1, 'rgba(74, 222, 128, 0.15)');
+                    ctx.fillStyle = fGlow;
+                    ctx.fillRect(condCX - 10, condCY - fScale, 20, fScale);
+                    ctx.restore();
+
+                    ctx.fillStyle = '#4ade80';
+                    ctx.font = 'bold 16px Arial';
+                    ctx.textAlign = 'left';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('F\u2090 ', condCX + 18, condCY - fScale + 5);
+                }
+
+                /* Formula panel (top-left) */
+                ctx.save();
+                ctx.fillStyle = 'rgba(10, 10, 26, 0.8)';
+                ctx.fillRect(8, 8, 310, 92);
+                ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+                ctx.strokeRect(8, 8, 310, 92);
+
+                ctx.fillStyle = '#fff';
+                ctx.font = '14px Arial';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                ctx.fillText('F\u2090 = B \u00B7 I \u00B7 l \u00B7 sin\u03B1', 18, 16);
+
+                ctx.fillStyle = '#4ade80';
+                ctx.font = '15px Arial';
+                ctx.fillText('F = ' + B.toFixed(2) + ' \u00D7 ' + I.toFixed(1) + ' \u00D7 ' + conductorLen.toFixed(1) + ' \u00D7 sin' + alphaDeg + '\u00B0', 18, 40);
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = 'bold 18px Arial';
+                ctx.fillText('F = ' + F.toFixed(4) + ' Н', 18, 66);
+                ctx.restore();
+
+                /* Animated charge carriers inside conductor */
+                ctx.save();
+                ctx.translate(condCX, condCY);
+                ctx.rotate(condAngle);
+                var numCharges = 8;
+                var chargeSpeed = I * 0.5;
+                for (var chi = 0; chi < numCharges; chi++) {
+                    var baseX = -condHL + chi * (condHL * 2) / numCharges;
+                    var chargeX = baseX + ((time * chargeSpeed * 30) % (condHL * 2 / numCharges));
+                    if (chargeX > condHL) chargeX -= condHL * 2;
+                    if (chargeX < -condHL) chargeX += condHL * 2;
+                    ctx.beginPath();
+                    ctx.arc(chargeX, 0, 3, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(233, 69, 96, 0.6)';
+                    ctx.fill();
+                    /* tiny + sign */
+                    ctx.fillStyle = 'rgba(255,255,255,0.7)';
+                    ctx.font = '7px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('+', chargeX, 0);
+                }
+                ctx.restore();
+
+                /* F(alpha) mini graph (bottom-right) */
+                if (W > 500) {
+                    var graphX = W - 185;
+                    var graphY = H - 110;
+                    drawMiniGraph(ctx, graphX, graphY, 170, 95,
+                        function(t) {
+                            return B * I * conductorLen * Math.sin(t * Math.PI / 2);
+                        },
+                        50, '#4ade80', 'F(\u03B1)', '\u03B1 (0\u00B0\u219290\u00B0)', 'F (H)'
+                    );
+                    /* current alpha marker on graph */
+                    var markerT = alphaDeg / 90;
+                    var markerX = graphX + 25 + markerT * 140;
+                    var markerFval = F;
+                    var maxFval = B * I * conductorLen;
+                    var markerY = graphY + 95 - 15 - (maxFval > 0 ? (markerFval / maxFval) * 70 : 0);
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.beginPath();
+                    ctx.arc(markerX, markerY, 4, 0, Math.PI * 2);
+                    ctx.fill();
+                    /* vertical line from marker */
+                    ctx.strokeStyle = 'rgba(251, 191, 36, 0.3)';
+                    ctx.setLineDash([2, 3]);
+                    ctx.beginPath();
+                    ctx.moveTo(markerX, markerY);
+                    ctx.lineTo(markerX, graphY + 80);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                }
+
+                /* Left-hand rule box (bottom) */
+                ctx.save();
+                drawInfoBox(ctx, 10, H - 55, 350, 44, 'rgba(233, 69, 96, 0.3)');
+
+                ctx.fillStyle = '#e94560';
+                ctx.font = 'bold 12px Arial';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                ctx.fillText('Правило лівої руки:', 18, H - 49);
+                ctx.fillStyle = '#ccc';
+                ctx.font = '12px Arial';
+                ctx.fillText('B \u2192 долоня, 4 пальці = напрямок I, великий = F\u2090', 18, H - 31);
+                ctx.restore();
+
+                /* Extreme case labels */
+                if (alphaDeg === 0) {
+                    ctx.fillStyle = '#e94560';
+                    ctx.font = '13px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('\u03B1 = 0\u00B0: I \u2225 B \u2192 F = 0 (провідник не рухається)', W / 2, mTop - 8);
+                } else if (alphaDeg === 90) {
+                    ctx.fillStyle = '#4ade80';
+                    ctx.font = '13px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('\u03B1 = 90\u00B0: I \u22A5 B \u2192 F = BIl (максимум)', W / 2, mTop - 8);
+                }
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+        /* ==========================================================
+         *  VISUALIZATION 3 : Lorentz Force — Cyclotron Motion
+         * ========================================================== */
+        (function() {
+            var canvas = document.getElementById('canvas-lorentz');
+            if (!canvas) return;
+            var ctx = canvas.getContext('2d');
+
+            var sliderQ = document.getElementById('lorentz-q');
+            var sliderV = document.getElementById('lorentz-v');
+            var sliderB = document.getElementById('lorentz-B');
+            var valQ = document.getElementById('lorentz-q-val');
+            var valV = document.getElementById('lorentz-v-val');
+            var valB = document.getElementById('lorentz-B-val');
+            var signBtn = document.getElementById('lorentz-sign');
+            var pauseBtn = document.getElementById('lorentz-pause');
+            var resetBtn = document.getElementById('lorentz-reset');
+
+            var positive = true;
+            var angle = -Math.PI / 2; // start at top
+            var trail = [];
+            var paused = false;
+            var time = 0;
+
+            signBtn.addEventListener('click', function() {
+                positive = !positive;
+                signBtn.textContent = positive ? '+ Позитивний' : '\u2013 Негативний';
+                signBtn.style.color = positive ? '#4ade80' : '#e94560';
+                signBtn.style.borderColor = positive ? '#4ade80' : '#e94560';
+                trail = [];
+                angle = -Math.PI / 2;
+            });
+
+            pauseBtn.addEventListener('click', function() {
+                paused = !paused;
+                pauseBtn.innerHTML = paused ? '&#9654; Далі' : '&#10074;&#10074; Пауза';
+            });
+
+            resetBtn.addEventListener('click', function() {
+                trail = [];
+                angle = -Math.PI / 2;
+                paused = false;
+                pauseBtn.innerHTML = '&#10074;&#10074; Пауза';
+            });
+
+            sliderQ.addEventListener('input', function() {
+                valQ.textContent = parseFloat(sliderQ.value).toFixed(1) + ' мкКл';
+                trail = []; angle = -Math.PI / 2;
+            });
+            sliderV.addEventListener('input', function() {
+                valV.textContent = parseFloat(sliderV.value).toFixed(1) + ' \u00D710\u2075 м/с';
+                trail = []; angle = -Math.PI / 2;
+            });
+            sliderB.addEventListener('input', function() {
+                valB.textContent = parseFloat(sliderB.value).toFixed(2) + ' Тл';
+                trail = []; angle = -Math.PI / 2;
+            });
+
+            resizeCanvas(canvas);
+
+            function draw() {
+                var W = parseInt(canvas.style.width);
+                var H = parseInt(canvas.style.height);
+                var qVal = parseFloat(sliderQ.value); // in microCoulombs
+                var vVal = parseFloat(sliderV.value); // *1e5 m/s
+                var bVal = parseFloat(sliderB.value);
+
+                // Physics (use proton mass for scale)
+                var q = qVal * 1e-6;
+                var v = vVal * 1e5;
+                var B = bVal;
+                var m = 1.67e-27;
+                var rPhys = m * v / (Math.abs(q) * B);
+                var T = 2 * Math.PI * m / (Math.abs(q) * B);
+
+                // Pixel radius (proportional to v/B, clamped)
+                var maxPxR = Math.min(W, H) * 0.38;
+                var minPxR = 35;
+                var rawPxR = (vVal / bVal) * 8;
+                var pixelR = Math.max(minPxR, Math.min(maxPxR, rawPxR));
+
+                var cx = W / 2;
+                var cy = H / 2;
+                var dir = positive ? 1 : -1;
+
+                // Advance
+                if (!paused) {
+                    angle += 0.022 * dir;
+                }
+
+                var px = cx + pixelR * Math.cos(angle);
+                var py = cy + pixelR * Math.sin(angle);
+
+                if (!paused) {
+                    trail.push({x: px, y: py});
+                    if (trail.length > 600) trail.shift();
+                }
+
+                time += 0.016;
+                clearBg(ctx, W, H);
+                drawStarfield(ctx, W, H, time);
+
+                /* B field crosses — pulsing intensity proportional to B */
+                var sp = 42;
+                var crossAlpha = 0.05 + bVal * 0.15;
+                var crossPulse = 1 + 0.15 * Math.sin(time * 2);
+                for (var gx = 21; gx < W; gx += sp) {
+                    for (var gy = 21; gy < H; gy += sp) {
+                        var distToCenter = Math.sqrt((gx - cx) * (gx - cx) + (gy - cy) * (gy - cy));
+                        var nearOrbit = Math.abs(distToCenter - pixelR) < 30;
+                        var ca = nearOrbit ? crossAlpha * 2 * crossPulse : crossAlpha;
+                        drawCross(ctx, gx, gy, 4, 'rgba(96, 165, 250, ' + ca + ')');
+                    }
+                }
+
+                /* field label */
+                ctx.fillStyle = 'rgba(96, 165, 250, 0.35)';
+                ctx.font = '13px Arial';
+                ctx.textAlign = 'right';
+                ctx.textBaseline = 'top';
+                ctx.fillText('\u2297 B = ' + bVal.toFixed(2) + ' Тл (у площину)', W - 12, 12);
+
+                /* direction of rotation label */
+                var rotDir = positive ? 'CW' : 'CCW';
+                var rotText = positive ? 'За годинниковою' : 'Проти годинникової';
+                ctx.fillStyle = 'rgba(255,255,255,0.25)';
+                ctx.font = '11px Arial';
+                ctx.textAlign = 'right';
+                ctx.fillText(rotText, W - 12, 30);
+
+                /* orbit glow */
+                ctx.save();
+                var orbitRGB = positive ? '74, 222, 128' : '233, 69, 96';
+                ctx.strokeStyle = 'rgba(' + orbitRGB + ', 0.06)';
+                ctx.lineWidth = 8;
+                ctx.beginPath();
+                ctx.arc(cx, cy, pixelR, 0, Math.PI * 2);
+                ctx.stroke();
+                ctx.restore();
+
+                /* orbit dashed circle */
+                drawDashedCircle(ctx, cx, cy, pixelR, 'rgba(255,255,255,0.08)', 6, 6);
+
+                /* radius line */
+                ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.lineTo(px, py);
+                ctx.stroke();
+
+                /* radius label */
+                var rmx = (cx + px) / 2;
+                var rmy = (cy + py) / 2;
+                ctx.fillStyle = '#aaa';
+                ctx.font = '13px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                var rLabelOff = 14;
+                var rAng = Math.atan2(py - cy, px - cx) + Math.PI / 2;
+                ctx.fillText('r', rmx + rLabelOff * Math.cos(rAng), rmy + rLabelOff * Math.sin(rAng));
+
+                /* center dot */
+                drawDot(ctx, cx, cy, 3, '#444');
+
+                /* trail */
+                for (var i = 1; i < trail.length; i++) {
+                    var aT = (i / trail.length);
+                    var tRGB = positive ? '74, 222, 128' : '233, 69, 96';
+                    ctx.strokeStyle = 'rgba(' + tRGB + ', ' + (aT * 0.65) + ')';
+                    ctx.lineWidth = 2.5;
+                    ctx.beginPath();
+                    ctx.moveTo(trail[i - 1].x, trail[i - 1].y);
+                    ctx.lineTo(trail[i].x, trail[i].y);
+                    ctx.stroke();
+                }
+
+                /* glow behind particle */
+                var pColor = positive ? '#4ade80' : '#e94560';
+                var pRGB = positive ? '74, 222, 128' : '233, 69, 96';
+                var glowGrad = ctx.createRadialGradient(px, py, 4, px, py, 28);
+                glowGrad.addColorStop(0, 'rgba(' + pRGB + ', 0.35)');
+                glowGrad.addColorStop(1, 'rgba(' + pRGB + ', 0)');
+                ctx.fillStyle = glowGrad;
+                ctx.beginPath();
+                ctx.arc(px, py, 28, 0, Math.PI * 2);
+                ctx.fill();
+
+                /* particle */
+                ctx.beginPath();
+                ctx.arc(px, py, 15, 0, Math.PI * 2);
+                ctx.fillStyle = pColor;
+                ctx.fill();
+                ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 17px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(positive ? '+' : '\u2013', px, py + 1);
+
+                /* velocity vector (tangent) */
+                var vAng = angle + (Math.PI / 2) * dir;
+                var vLen = 50;
+                drawArrow(ctx, px, py, px + vLen * Math.cos(vAng), py + vLen * Math.sin(vAng), '#fbbf24', 2.5, 11);
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = 'bold 13px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('v', px + (vLen + 14) * Math.cos(vAng), py + (vLen + 14) * Math.sin(vAng));
+
+                /* Lorentz force vector (centripetal) */
+                var fAng = Math.atan2(cy - py, cx - px);
+                var fLen = 45;
+                drawArrow(ctx, px, py, px + fLen * Math.cos(fAng), py + fLen * Math.sin(fAng), '#e94560', 2.5, 11);
+                ctx.fillStyle = '#e94560';
+                ctx.font = 'bold 13px Arial';
+                ctx.fillText('F\u2097', px + (fLen + 14) * Math.cos(fAng), py + (fLen + 14) * Math.sin(fAng));
+
+                /* info panel */
+                ctx.save();
+                ctx.fillStyle = 'rgba(10, 10, 26, 0.82)';
+                ctx.fillRect(8, 8, 270, 148);
+                ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+                ctx.strokeRect(8, 8, 270, 148);
+
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 14px Arial';
+                ctx.fillText('Параметри:', 18, 16);
+
+                ctx.fillStyle = '#ccc';
+                ctx.font = '13px Arial';
+                ctx.fillText('q = ' + (q * 1e6).toFixed(1) + ' мкКл   (' + (positive ? '+' : '\u2013') + ')', 18, 38);
+                ctx.fillText('v = ' + (v / 1e5).toFixed(1) + ' \u00D710\u2075 м/с', 18, 58);
+                ctx.fillText('B = ' + B.toFixed(2) + ' Тл', 18, 78);
+
+                ctx.fillStyle = '#4ade80';
+                ctx.font = 'bold 14px Arial';
+                ctx.fillText('r = mv/(qB) = ' + rPhys.toExponential(2) + ' м', 18, 104);
+                ctx.fillText('T = 2\u03C0m/(qB) = ' + T.toExponential(2) + ' с', 18, 126);
+                ctx.restore();
+
+                /* ----- r(v) mini graph bottom-right ----- */
+                if (W > 500) {
+                    drawMiniGraph(ctx, W - 175, H - 110, 160, 95,
+                        function(t) {
+                            var vv = (0.5 + t * 9.5) * 1e5;
+                            return m * vv / (Math.abs(q) * B);
+                        },
+                        50, '#4ade80', 'r(v) = mv/(qB)', 'v', 'r'
+                    );
+                    /* mark current v */
+                    var mkT = (vVal - 0.5) / 9.5;
+                    var mkX = W - 175 + 25 + mkT * 130;
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.beginPath();
+                    ctx.arc(mkX, H - 110 + 95 - 15 - mkT * 70, 4, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                /* ----- perpendicularity indicator ----- */
+                ctx.save();
+                var perpX = px + 20 * Math.cos(vAng) + 20 * Math.cos(fAng);
+                var perpY = py + 20 * Math.sin(vAng) + 20 * Math.sin(fAng);
+                ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+                ctx.lineWidth = 1;
+                /* small square showing v perp F */
+                var sqSz = 8;
+                ctx.beginPath();
+                ctx.moveTo(px + sqSz * Math.cos(vAng), py + sqSz * Math.sin(vAng));
+                ctx.lineTo(px + sqSz * Math.cos(vAng) + sqSz * Math.cos(fAng), py + sqSz * Math.sin(vAng) + sqSz * Math.sin(fAng));
+                ctx.lineTo(px + sqSz * Math.cos(fAng), py + sqSz * Math.sin(fAng));
+                ctx.stroke();
+                ctx.restore();
+
+                /* bottom notes */
+                ctx.save();
+                drawInfoBox(ctx, 8, H - 38, 340, 30, 'rgba(251, 191, 36, 0.2)');
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = '13px Arial';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('Період T = 2\u03C0m/(qB) \u2014 НЕ залежить від v!', 18, H - 22);
+                ctx.restore();
+
+                ctx.fillStyle = 'rgba(255,255,255,0.4)';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'right';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText(positive ? 'q>0 \u2192 за год. стрілкою' : 'q<0 \u2192 проти год. стрілки', W - 12, H - 42);
+
+                /* force/velocity label helper */
+                ctx.fillStyle = 'rgba(255,255,255,0.3)';
+                ctx.font = '11px Arial';
+                ctx.textAlign = 'right';
+                ctx.fillText('F\u2097 \u22A5 v (завжди перпендикулярні)', W - 12, H - 56);
+                ctx.fillText('F\u2097 не виконує роботи (|v| = const)', W - 12, H - 70);
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+        /* ==========================================================
+         *  VISUALIZATION 4 : Magnetic Flux
+         * ========================================================== */
+        (function() {
+            var canvas = document.getElementById('canvas-flux');
+            if (!canvas) return;
+            var ctx = canvas.getContext('2d');
+            var sliderAlpha = document.getElementById('flux-alpha');
+            var sliderB = document.getElementById('flux-B');
+            var valAlpha = document.getElementById('flux-alpha-val');
+            var valB = document.getElementById('flux-B-val');
+
+            sliderAlpha.addEventListener('input', function() { valAlpha.textContent = sliderAlpha.value + '\u00B0'; });
+            sliderB.addEventListener('input', function() { valB.textContent = parseFloat(sliderB.value).toFixed(2) + ' Тл'; });
+
+            resizeCanvas(canvas);
+            var time = 0;
+
+            function draw() {
+                var W = parseInt(canvas.style.width);
+                var H = parseInt(canvas.style.height);
+                var alphaDeg = parseInt(sliderAlpha.value);
+                var alphaRad = alphaDeg * Math.PI / 180;
+                var B = parseFloat(sliderB.value);
+                var S = 0.04; // m^2
+                var cosA = Math.cos(alphaRad);
+                var Phi = B * S * cosA;
+                time += 0.016;
+
+                clearBg(ctx, W, H);
+                drawStarfield(ctx, W, H, time);
+
+                var cx = W / 2;
+                var cy = H / 2;
+
+                /* subtle grid */
+                ctx.strokeStyle = 'rgba(255,255,255,0.015)';
+                ctx.lineWidth = 1;
+                for (var gxi = 0; gxi < W; gxi += 55) {
+                    ctx.beginPath(); ctx.moveTo(gxi, 0); ctx.lineTo(gxi, H); ctx.stroke();
+                }
+                for (var gyi = 0; gyi < H; gyi += 55) {
+                    ctx.beginPath(); ctx.moveTo(0, gyi); ctx.lineTo(W, gyi); ctx.stroke();
+                }
+
+                /* ----- field lines (horizontal) with dots ----- */
+                var numFL = Math.max(6, Math.floor(B * 40));
+                var lineSpacing = (H - 50) / numFL;
+
+                var frameW = 170;
+                var frameH = 130;
+                var appW = frameW * cosA;
+                var perspShift = Math.sin(alphaRad) * 18;
+
+                var linesThrough = 0;
+
+                for (var fi = 0; fi < numFL; fi++) {
+                    var ly = 25 + fi * lineSpacing;
+                    var inFrame = (ly > cy - frameH / 2 + 5) && (ly < cy + frameH / 2 - 5);
+                    var passThru = inFrame && appW > 8;
+                    if (passThru) linesThrough++;
+
+                    var fa = 0.06 + B * 0.3;
+                    if (passThru) {
+                        ctx.strokeStyle = 'rgba(74, 222, 128, ' + Math.min(fa + 0.25, 0.7) + ')';
+                        ctx.lineWidth = 1.8;
+                    } else {
+                        ctx.strokeStyle = 'rgba(96, 165, 250, ' + Math.min(fa, 0.4) + ')';
+                        ctx.lineWidth = 1;
+                    }
+                    ctx.beginPath();
+                    ctx.moveTo(15, ly);
+                    ctx.lineTo(W - 15, ly);
+                    ctx.stroke();
+
+                    /* dots */
+                    var dotOff = (time * 55) % 28;
+                    var dotColor = passThru ? '74,222,128' : '96,165,250';
+                    var dotA = passThru ? 0.55 : 0.2;
+                    for (var dx = 15 + dotOff; dx < W - 15; dx += 28) {
+                        ctx.fillStyle = 'rgba(' + dotColor + ',' + dotA + ')';
+                        ctx.beginPath();
+                        ctx.arc(dx, ly, 1.8, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+
+                    /* arrows on some lines */
+                    if (fi % 4 === 0) {
+                        var arX = cx + 80;
+                        ctx.fillStyle = passThru ? 'rgba(74,222,128,0.5)' : 'rgba(96,165,250,0.35)';
+                        ctx.beginPath();
+                        ctx.moveTo(arX + 6, ly);
+                        ctx.lineTo(arX - 4, ly - 4);
+                        ctx.lineTo(arX - 4, ly + 4);
+                        ctx.closePath();
+                        ctx.fill();
+                    }
+                }
+
+                /* ----- frame with 3D perspective ----- */
+                ctx.save();
+                ctx.translate(cx, cy);
+
+                var tl = {x: -appW / 2, y: -frameH / 2 - perspShift};
+                var tr = {x: appW / 2,  y: -frameH / 2 + perspShift};
+                var br = {x: appW / 2,  y: frameH / 2 + perspShift};
+                var bl = {x: -appW / 2, y: frameH / 2 - perspShift};
+
+                /* frame fill */
+                ctx.fillStyle = 'rgba(251, 191, 36, ' + (0.03 + cosA * 0.08) + ')';
+                ctx.beginPath();
+                ctx.moveTo(tl.x, tl.y);
+                ctx.lineTo(tr.x, tr.y);
+                ctx.lineTo(br.x, br.y);
+                ctx.lineTo(bl.x, bl.y);
+                ctx.closePath();
+                ctx.fill();
+
+                /* frame border */
+                ctx.strokeStyle = '#fbbf24';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(tl.x, tl.y);
+                ctx.lineTo(tr.x, tr.y);
+                ctx.lineTo(br.x, br.y);
+                ctx.lineTo(bl.x, bl.y);
+                ctx.closePath();
+                ctx.stroke();
+
+                /* corner highlights */
+                var corners = [tl, tr, br, bl];
+                for (var ci = 0; ci < 4; ci++) {
+                    ctx.beginPath();
+                    ctx.arc(corners[ci].x, corners[ci].y, 4, 0, Math.PI * 2);
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.fill();
+                }
+
+                /* normal vector */
+                var nLen = 55;
+                var nx = nLen * cosA;
+                var ny = -nLen * Math.sin(alphaRad) * 0.4;
+                drawArrow(ctx, 0, 0, nx, ny, '#ff6b9d', 2.5, 10);
+                ctx.fillStyle = '#ff6b9d';
+                ctx.font = 'bold 14px Arial';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('n', nx + 10, ny - 3);
+
+                /* angle arc */
+                if (alphaDeg > 3 && alphaDeg < 87) {
+                    ctx.strokeStyle = 'rgba(255,255,255,0.35)';
+                    ctx.lineWidth = 1.2;
+                    var arcR = 30;
+                    var endAng = Math.atan2(ny, nx);
+                    ctx.beginPath();
+                    ctx.arc(0, 0, arcR, Math.min(0, endAng), Math.max(0, endAng));
+                    ctx.stroke();
+                    ctx.fillStyle = 'rgba(255,255,255,0.55)';
+                    ctx.font = '12px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('\u03B1', (arcR + 14) * Math.cos(endAng / 2), (arcR + 14) * Math.sin(endAng / 2));
+                }
+
+                ctx.restore();
+
+                /* B label */
+                ctx.fillStyle = '#60a5fa';
+                ctx.font = 'bold 15px Arial';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                ctx.fillText('B  \u2192', 20, 10);
+
+                /* info panel */
+                ctx.save();
+                ctx.fillStyle = 'rgba(10, 10, 26, 0.82)';
+                ctx.fillRect(8, H - 80, 380, 70);
+                ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+                ctx.strokeRect(8, H - 80, 380, 70);
+
+                ctx.fillStyle = '#fff';
+                ctx.font = '14px Arial';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                ctx.fillText('\u03A6 = B \u00B7 S \u00B7 cos\u03B1', 18, H - 72);
+
+                ctx.fillStyle = '#4ade80';
+                ctx.font = 'bold 15px Arial';
+                ctx.fillText('\u03A6 = ' + B.toFixed(2) + ' \u00D7 ' + S.toFixed(2) + ' \u00D7 cos' + alphaDeg + '\u00B0 = ' + Phi.toFixed(4) + ' Вб', 18, H - 50);
+
+                /* flux percentage */
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = '13px Arial';
+                ctx.fillText('Ліній через рамку: ' + (cosA * 100).toFixed(0) + '%', 18, H - 28);
+                ctx.restore();
+
+                /* flux bar (top-right) */
+                var barX = W - 180;
+                var barW = 155;
+                var barY = 12;
+                var barH = 22;
+                ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(barX, barY, barW, barH);
+
+                var bGrad = ctx.createLinearGradient(barX, 0, barX + barW * cosA, 0);
+                bGrad.addColorStop(0, '#4ade80');
+                bGrad.addColorStop(1, '#60a5fa');
+                ctx.fillStyle = bGrad;
+                ctx.fillRect(barX, barY, barW * cosA, barH);
+
+                ctx.fillStyle = '#fff';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('\u03A6: ' + (cosA * 100).toFixed(0) + '%', barX + barW / 2, barY + barH / 2 + 1);
+
+                /* Phi(alpha) mini graph */
+                if (W > 500) {
+                    drawMiniGraph(ctx, W - 175, 42, 160, 85,
+                        function(t) {
+                            return B * S * Math.cos(t * Math.PI / 2);
+                        },
+                        50, '#4ade80', '\u03A6(\u03B1) = BS\u00B7cos\u03B1', '\u03B1 (0\u00B0\u219290\u00B0)', '\u03A6 (Вб)'
+                    );
+                    /* marker at current alpha */
+                    var aT = alphaDeg / 90;
+                    var aX = W - 175 + 25 + aT * 130;
+                    var aMaxPhi = B * S;
+                    var aCurPhi = Phi;
+                    var aY = 42 + 85 - 15 - (aMaxPhi > 0 ? (aCurPhi / aMaxPhi) * 60 : 0);
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.beginPath();
+                    ctx.arc(aX, aY, 4, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.strokeStyle = 'rgba(251,191,36,0.3)';
+                    ctx.setLineDash([2, 3]);
+                    ctx.beginPath();
+                    ctx.moveTo(aX, aY);
+                    ctx.lineTo(aX, 42 + 70);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                }
+
+                /* field line counter */
+                ctx.save();
+                drawInfoBox(ctx, W - 175, H - 38, 162, 28, 'rgba(74,222,128,0.2)');
+                ctx.fillStyle = '#4ade80';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('Ліній через рамку: ' + linesThrough + ' / ' + numFL, W - 175 + 81, H - 24);
+                ctx.restore();
+
+                /* corner labels */
+                ctx.textAlign = 'right';
+                ctx.textBaseline = 'bottom';
+                ctx.font = '12px Arial';
+                if (alphaDeg <= 2) {
+                    ctx.fillStyle = '#4ade80';
+                    ctx.fillText('\u03B1 = 0\u00B0 \u2192 \u03A6 = BS (максимум)', W - 15, H - 8);
+                } else if (alphaDeg >= 88) {
+                    ctx.fillStyle = '#e94560';
+                    ctx.fillText('\u03B1 = 90\u00B0 \u2192 \u03A6 = 0 (мінімум)', W - 15, H - 8);
+                }
+
+                /* frame S label */
+                ctx.save();
+                ctx.translate(cx, cy);
+                ctx.fillStyle = 'rgba(251,191,36,0.5)';
+                ctx.font = '13px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                if (cosA > 0.15) {
+                    ctx.fillText('S', 0, 0);
+                }
+                ctx.restore();
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+        /* ==========================================================
+         *  INTERSECTION OBSERVER — pause off-screen canvases
+         *  (performance optimization for 4 simultaneous animations)
+         * ========================================================== */
+        var canvasVisible = {};
+        if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    canvasVisible[entry.target.id] = entry.isIntersecting;
+                });
+            }, {threshold: 0.1});
+            ['canvas-wire-field', 'canvas-ampere', 'canvas-lorentz', 'canvas-flux'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) {
+                    observer.observe(el);
+                    canvasVisible[id] = true;
+                }
+            });
+        }
+
+        /* ==========================================================
+         *  RESIZE HANDLER
+         * ========================================================== */
+        window.addEventListener('resize', function() {
+            var ids = ['canvas-wire-field', 'canvas-ampere', 'canvas-lorentz', 'canvas-flux'];
+            for (var i = 0; i < ids.length; i++) {
+                var c = document.getElementById(ids[i]);
+                if (c) resizeCanvas(c);
+            }
+        });
+
+    }); // end DOMContentLoaded
+    </script>
+</body>
+</html>

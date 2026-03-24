@@ -1,0 +1,2103 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тема 32. Механічні коливання — Фізика ЗНО</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script defer src="../main.js"></script>
+</head>
+<body>
+    <header class="header">
+        <button class="header__menu-btn">&#9776;</button>
+        <a href="../index.html" class="header__logo">
+            <div class="header__logo-icon">&#9883;</div>
+            <span>Physics Visual</span>
+        </a>
+        <div class="header__search">
+            <span class="header__search-icon">&#128269;</span>
+            <input type="text" placeholder="Пошук теми...">
+            <div class="search-results"></div>
+        </div>
+        <div class="header__progress-info"></div>
+    </header>
+
+    <div class="sidebar-overlay"></div>
+    <nav class="sidebar">
+        <div class="sidebar__section">
+            <div class="sidebar__section-title">Усі теми</div>
+            <a href="topic-1.html" class="sidebar__item"><span class="sidebar__item-number">1</span><span class="sidebar__item-title">Вступ. Рівномірний рух. Середня швидкість. Відносність руху</span></a>
+            <a href="topic-2.html" class="sidebar__item"><span class="sidebar__item-number">2</span><span class="sidebar__item-title">Рівноприскорений прямолінійний рух. Рух тіл по вертикалі під дією сили тяжіння</span></a>
+            <a href="topic-3.html" class="sidebar__item"><span class="sidebar__item-number">3</span><span class="sidebar__item-title">Рух по горизонту під дією сили тяжіння</span></a>
+            <a href="topic-4.html" class="sidebar__item"><span class="sidebar__item-number">4</span><span class="sidebar__item-title">Рівномірний рух по колу</span></a>
+            <a href="topic-5.html" class="sidebar__item"><span class="sidebar__item-number">5</span><span class="sidebar__item-title">Закони Ньютона</span></a>
+            <a href="topic-6.html" class="sidebar__item"><span class="sidebar__item-number">6</span><span class="sidebar__item-title">Закон всесвітнього тяжіння. Супутники</span></a>
+            <a href="topic-7.html" class="sidebar__item"><span class="sidebar__item-number">7</span><span class="sidebar__item-title">Сила пружності. Вага і невагомість</span></a>
+            <a href="topic-8.html" class="sidebar__item"><span class="sidebar__item-number">8</span><span class="sidebar__item-title">Сила тертя</span></a>
+            <a href="topic-9.html" class="sidebar__item"><span class="sidebar__item-number">9</span><span class="sidebar__item-title">Імпульс. Закон збереження імпульсу</span></a>
+            <a href="topic-10.html" class="sidebar__item"><span class="sidebar__item-number">10</span><span class="sidebar__item-title">Динаміка рівномірного руху тіла по колу</span></a>
+            <a href="topic-11.html" class="sidebar__item"><span class="sidebar__item-number">11</span><span class="sidebar__item-title">Статика</span></a>
+            <a href="topic-12.html" class="sidebar__item"><span class="sidebar__item-number">12</span><span class="sidebar__item-title">Закон збереження енергії</span></a>
+            <a href="topic-13.html" class="sidebar__item"><span class="sidebar__item-number">13</span><span class="sidebar__item-title">Механічна робота. Потужність. ККД. Прості механізми</span></a>
+            <a href="topic-14.html" class="sidebar__item"><span class="sidebar__item-number">14</span><span class="sidebar__item-title">Засоби збереження механічної енергії</span></a>
+            <a href="topic-15.html" class="sidebar__item"><span class="sidebar__item-number">15</span><span class="sidebar__item-title">Елементи механіки рідин і газів</span></a>
+            <a href="topic-16.html" class="sidebar__item"><span class="sidebar__item-number">16</span><span class="sidebar__item-title">Основи молекулярно-кінетичної теорії</span></a>
+            <a href="topic-17.html" class="sidebar__item"><span class="sidebar__item-number">17</span><span class="sidebar__item-title">Рівняння стану ідеального газу. Ізопроцеси</span></a>
+            <a href="topic-18.html" class="sidebar__item"><span class="sidebar__item-number">18</span><span class="sidebar__item-title">Насичена пара. Вологість повітря</span></a>
+            <a href="topic-19.html" class="sidebar__item"><span class="sidebar__item-number">19</span><span class="sidebar__item-title">Поверхневий натяг. Капілярність</span></a>
+            <a href="topic-20.html" class="sidebar__item"><span class="sidebar__item-number">20</span><span class="sidebar__item-title">Властивості твердих тіл. Механізм деформацій</span></a>
+            <a href="topic-21.html" class="sidebar__item"><span class="sidebar__item-number">21</span><span class="sidebar__item-title">Основи термодинаміки</span></a>
+            <a href="topic-22.html" class="sidebar__item"><span class="sidebar__item-number">22</span><span class="sidebar__item-title">Закон агрегатних станів речовини. Рівняння теплового балансу</span></a>
+            <a href="topic-23.html" class="sidebar__item"><span class="sidebar__item-number">23</span><span class="sidebar__item-title">Закон Кулона. Напруженість поля</span></a>
+            <a href="topic-24.html" class="sidebar__item"><span class="sidebar__item-number">24</span><span class="sidebar__item-title">Потенціал. Різниця потенціалів. Робота електростатичного поля</span></a>
+            <a href="topic-25.html" class="sidebar__item"><span class="sidebar__item-number">25</span><span class="sidebar__item-title">Електроємність. Енергія конденсаторів</span></a>
+            <a href="topic-26.html" class="sidebar__item"><span class="sidebar__item-number">26</span><span class="sidebar__item-title">Постійний струм. Закон Ома для ділянки кола</span></a>
+            <a href="topic-27.html" class="sidebar__item"><span class="sidebar__item-number">27</span><span class="sidebar__item-title">Закон Ома для повного (замкнутого) кола</span></a>
+            <a href="topic-28.html" class="sidebar__item"><span class="sidebar__item-number">28</span><span class="sidebar__item-title">Робота і потужність струму. Закон Джоуля — Ленца</span></a>
+            <a href="topic-29.html" class="sidebar__item"><span class="sidebar__item-number">29</span><span class="sidebar__item-title">Струм у різних середовищах</span></a>
+            <a href="topic-30.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">30</span><span class="sidebar__item-title">Магнітне поле</span></a>
+            <a href="topic-31.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">31</span><span class="sidebar__item-title">Електромагнітна індукція</span></a>
+            <a href="topic-32.html" class="sidebar__item sidebar__item--active sidebar__item--completed"><span class="sidebar__item-number">32</span><span class="sidebar__item-title">Механічні коливання</span></a>
+            <a href="topic-33.html" class="sidebar__item"><span class="sidebar__item-number">33</span><span class="sidebar__item-title">Механічні хвилі. Звук</span></a>
+            <a href="topic-34.html" class="sidebar__item"><span class="sidebar__item-number">34</span><span class="sidebar__item-title">Вільні електромагнітні коливання</span></a>
+            <a href="topic-35.html" class="sidebar__item"><span class="sidebar__item-number">35</span><span class="sidebar__item-title">Змінний струм</span></a>
+            <a href="topic-36.html" class="sidebar__item"><span class="sidebar__item-number">36</span><span class="sidebar__item-title">Електромагнітні хвилі</span></a>
+            <a href="topic-37.html" class="sidebar__item"><span class="sidebar__item-number">37</span><span class="sidebar__item-title">Елементи геометричної оптики</span></a>
+            <a href="topic-38.html" class="sidebar__item"><span class="sidebar__item-number">38</span><span class="sidebar__item-title">Лінзи</span></a>
+            <a href="topic-39.html" class="sidebar__item"><span class="sidebar__item-number">39</span><span class="sidebar__item-title">Хвильова оптика</span></a>
+            <a href="topic-40.html" class="sidebar__item"><span class="sidebar__item-number">40</span><span class="sidebar__item-title">Елементи теорії відносності</span></a>
+            <a href="topic-41.html" class="sidebar__item"><span class="sidebar__item-number">41</span><span class="sidebar__item-title">Кванти світла</span></a>
+            <a href="topic-42.html" class="sidebar__item"><span class="sidebar__item-number">42</span><span class="sidebar__item-title">Атомна фізика</span></a>
+            <a href="topic-43.html" class="sidebar__item"><span class="sidebar__item-number">43</span><span class="sidebar__item-title">Ядерна фізика</span></a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="topic-header">
+            <div class="topic-header__breadcrumb">
+                <a href="../index.html">Головна</a> / Тема 32
+            </div>
+            <div class="topic-header__number">Тема 32</div>
+            <h1 class="topic-header__title">Механічні коливання</h1>
+        </div>
+
+        <!-- ===== ЗМІСТ ===== -->
+        <div class="toc">
+            <h2 class="toc__title">Зміст теми</h2>
+            <ol class="toc__list">
+                <li class="toc__item"><a href="#spring" class="toc__link">Пружинний маятник</a></li>
+                <li class="toc__item"><a href="#pendulum" class="toc__link">Математичний маятник</a></li>
+                <li class="toc__item"><a href="#velocity" class="toc__link">Швидкість і прискорення</a></li>
+                <li class="toc__item"><a href="#energy" class="toc__link">Енергія коливань</a></li>
+                <li class="toc__item"><a href="#resonance" class="toc__link">Резонанс</a></li>
+                <li class="toc__item"><a href="#lissajous" class="toc__link">Фігури Ліссажу</a></li>
+            </ol>
+        </div>
+
+        <!-- ===== 1. ПРУЖИННИЙ МАЯТНИК ===== -->
+        <section id="spring" class="content-section">
+            <h2 class="content-section__title">1. Пружинний маятник</h2>
+            <p>
+                <strong>Пружинний маятник</strong> — тіло масою $m$, що коливається під дією сили пружності пружини з жорсткістю $k$.
+                Зміщення: $x(t) = A\cos(\omega t + \varphi_0)$.
+            </p>
+            <div class="formula">
+                $$T = 2\pi\sqrt{\frac{m}{k}}, \qquad \omega = \sqrt{\frac{k}{m}}$$
+            </div>
+            <div class="canvas-wrapper" id="spring-wrap">
+                <canvas id="springCanvas"></canvas>
+                <div class="canvas-controls">
+                    <label>m = <span id="sp-m-val">1.0</span> кг
+                        <input type="range" id="sp-m" min="0.1" max="5" step="0.1" value="1">
+                    </label>
+                    <label>k = <span id="sp-k-val">20</span> Н/м
+                        <input type="range" id="sp-k" min="1" max="100" step="1" value="20">
+                    </label>
+                    <label>A = <span id="sp-A-val">0.10</span> м
+                        <input type="range" id="sp-A" min="0.01" max="0.2" step="0.01" value="0.1">
+                    </label>
+                    <div class="canvas-controls__info" id="sp-info">T = 1.40 с &nbsp; &omega; = 4.47 рад/с</div>
+                    <div class="canvas-controls__buttons">
+                        <button id="sp-play">&#9654; Пуск</button>
+                        <button id="sp-pause">&#10074;&#10074; Пауза</button>
+                        <button id="sp-reset">&#8635; Скинути</button>
+                    </div>
+                </div>
+            </div>
+            <div class="note">
+                <h3 class="note__title">&#128218; Запам'ятай для ЗНО</h3>
+                <ul>
+                    <li>Період $T$ <strong>не залежить</strong> від амплітуди $A$.</li>
+                    <li>Більша маса $m$ &rarr; більший період (повільніші коливання).</li>
+                    <li>Жорсткіша пружина (більше $k$) &rarr; менший період.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== 2. МАТЕМАТИЧНИЙ МАЯТНИК ===== -->
+        <section id="pendulum" class="content-section">
+            <h2 class="content-section__title">2. Математичний маятник</h2>
+            <p>
+                Матеріальна точка на невагомій нерозтяжній нитці довжиною $l$ у полі тяжіння $g$.
+            </p>
+            <div class="formula">
+                $$T = 2\pi\sqrt{\frac{l}{g}}$$
+            </div>
+            <div class="canvas-wrapper" id="pend-wrap">
+                <canvas id="pendCanvas"></canvas>
+                <div class="canvas-controls">
+                    <label>l = <span id="pd-l-val">1.00</span> м
+                        <input type="range" id="pd-l" min="0.1" max="3" step="0.01" value="1">
+                    </label>
+                    <label>g = <span id="pd-g-val">9.8</span> м/с&sup2;
+                        <input type="range" id="pd-g" min="1" max="20" step="0.1" value="9.8">
+                    </label>
+                    <div class="canvas-controls__info" id="pd-info">T = 2.01 с</div>
+                    <div class="canvas-controls__buttons">
+                        <button id="pd-play">&#9654; Пуск</button>
+                        <button id="pd-pause">&#10074;&#10074; Пауза</button>
+                        <button id="pd-reset">&#8635; Скинути</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 3. ШВИДКІСТЬ І ПРИСКОРЕННЯ ===== -->
+        <section id="velocity" class="content-section">
+            <h2 class="content-section__title">3. Швидкість і прискорення</h2>
+            <div class="formula">
+                $$v(t) = -A\omega\sin(\omega t + \varphi_0), \quad v_{\max} = A\omega$$
+            </div>
+            <div class="formula">
+                $$a(t) = -A\omega^2\cos(\omega t + \varphi_0), \quad a_{\max} = A\omega^2$$
+            </div>
+            <div class="canvas-wrapper" id="xva-wrap">
+                <canvas id="xvaCanvas"></canvas>
+                <div class="canvas-controls">
+                    <label>A = <span id="xva-A-val">0.10</span> м
+                        <input type="range" id="xva-A" min="0.01" max="0.2" step="0.01" value="0.1">
+                    </label>
+                    <label>&omega; = <span id="xva-w-val">5.0</span> рад/с
+                        <input type="range" id="xva-w" min="1" max="15" step="0.1" value="5">
+                    </label>
+                    <div class="canvas-controls__info" id="xva-info">x = 0.10 м &nbsp; v = 0.00 м/с &nbsp; a = −2.50 м/с&sup2;</div>
+                    <div class="canvas-controls__buttons">
+                        <button id="xva-play">&#9654; Пуск</button>
+                        <button id="xva-pause">&#10074;&#10074; Пауза</button>
+                        <button id="xva-reset">&#8635; Скинути</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 4. ЕНЕРГІЯ КОЛИВАНЬ ===== -->
+        <section id="energy" class="content-section">
+            <h2 class="content-section__title">4. Енергія коливань</h2>
+            <div class="formula">
+                $$E_k = \frac{mv^2}{2}, \quad E_p = \frac{kx^2}{2}, \quad E = \frac{kA^2}{2} = \text{const}$$
+            </div>
+            <div class="canvas-wrapper" id="energy-wrap">
+                <canvas id="energyCanvas"></canvas>
+                <div class="canvas-controls">
+                    <label>m = <span id="en-m-val">1.0</span> кг
+                        <input type="range" id="en-m" min="0.1" max="5" step="0.1" value="1">
+                    </label>
+                    <label>k = <span id="en-k-val">20</span> Н/м
+                        <input type="range" id="en-k" min="1" max="100" step="1" value="20">
+                    </label>
+                    <label>A = <span id="en-A-val">0.10</span> м
+                        <input type="range" id="en-A" min="0.01" max="0.2" step="0.01" value="0.1">
+                    </label>
+                    <div class="canvas-controls__info" id="en-info">E<sub>k</sub> = 0.00 Дж &nbsp; E<sub>p</sub> = 0.10 Дж &nbsp; E = 0.10 Дж</div>
+                    <div class="canvas-controls__buttons">
+                        <button id="en-play">&#9654; Пуск</button>
+                        <button id="en-pause">&#10074;&#10074; Пауза</button>
+                        <button id="en-reset">&#8635; Скинути</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 5. РЕЗОНАНС ===== -->
+        <section id="resonance" class="content-section">
+            <h2 class="content-section__title">5. Резонанс</h2>
+            <p>
+                Амплітуда вимушених коливань сягає максимуму, коли частота зовнішньої сили збігається з власною частотою системи: $\omega_{\text{зовн}} = \omega_0$.
+            </p>
+            <div class="canvas-wrapper" id="res-wrap">
+                <canvas id="resCanvas"></canvas>
+                <div class="canvas-controls">
+                    <label>&omega;<sub>зовн</sub> = <span id="res-wd-val">5.0</span> рад/с
+                        <input type="range" id="res-wd" min="0.5" max="15" step="0.1" value="5">
+                    </label>
+                    <label>&beta; = <span id="res-b-val">0.5</span>
+                        <input type="range" id="res-b" min="0.1" max="3" step="0.1" value="0.5">
+                    </label>
+                    <div class="canvas-controls__info" id="res-info">&omega;<sub>0</sub> = 5.00 рад/с &nbsp; A/A<sub>0</sub> = 5.00</div>
+                    <div class="canvas-controls__buttons">
+                        <button id="res-play">&#9654; Пуск</button>
+                        <button id="res-pause">&#10074;&#10074; Пауза</button>
+                        <button id="res-reset">&#8635; Скинути</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 6. ФІГУРИ ЛІССАЖУ ===== -->
+        <section id="lissajous" class="content-section">
+            <h2 class="content-section__title">6. Фігури Ліссажу</h2>
+            <p>
+                Суперпозиція двох взаємно перпендикулярних коливань: $x = A\sin(\omega_1 t)$, $y = A\sin(\omega_2 t + \delta)$.
+            </p>
+            <div class="canvas-wrapper" id="liss-wrap">
+                <canvas id="lissCanvas"></canvas>
+                <div class="canvas-controls">
+                    <label>&omega;<sub>1</sub>/&omega;<sub>2</sub> = <span id="li-r-val">1:2</span>
+                        <input type="range" id="li-r" min="0" max="5" step="1" value="1">
+                    </label>
+                    <label>&delta; = <span id="li-d-val">0.00</span>&pi;
+                        <input type="range" id="li-d" min="0" max="2" step="0.01" value="0">
+                    </label>
+                    <div class="canvas-controls__buttons" style="flex-wrap:wrap;gap:6px">
+                        <button id="li-circle">Коло</button>
+                        <button id="li-eight">Вісімка</button>
+                        <button id="li-star">Зірка</button>
+                        <button id="li-reset">&#8635; Скинути</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 7. ТАБЛИЦЯ ФОРМУЛ ===== -->
+        <section id="formulas" class="content-section">
+            <h2 class="content-section__title">7. Таблиця формул</h2>
+            <div class="formula-table">
+                <table>
+                    <thead><tr><th>Величина</th><th>Формула</th></tr></thead>
+                    <tbody>
+                        <tr><td>Зміщення</td><td>$x(t) = A\cos(\omega t + \varphi_0)$</td></tr>
+                        <tr><td>Швидкість</td><td>$v(t) = -A\omega\sin(\omega t + \varphi_0)$</td></tr>
+                        <tr><td>Прискорення</td><td>$a(t) = -A\omega^2\cos(\omega t + \varphi_0)$</td></tr>
+                        <tr><td>Період (пружинний)</td><td>$T = 2\pi\sqrt{m/k}$</td></tr>
+                        <tr><td>Період (математичний)</td><td>$T = 2\pi\sqrt{l/g}$</td></tr>
+                        <tr><td>Циклічна частота</td><td>$\omega = 2\pi/T = 2\pi\nu$</td></tr>
+                        <tr><td>Кінетична енергія</td><td>$E_k = mv^2/2$</td></tr>
+                        <tr><td>Потенціальна енергія</td><td>$E_p = kx^2/2$</td></tr>
+                        <tr><td>Повна енергія</td><td>$E = kA^2/2 = \text{const}$</td></tr>
+                        <tr><td>Максимальна швидкість</td><td>$v_{\max} = A\omega$</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===== 8. ЗАДАЧІ ===== -->
+        <section id="problems" class="content-section">
+            <h2 class="content-section__title">8. Задачі</h2>
+
+            <div class="problem">
+                <div class="problem__text">
+                    <strong>Задача 1.</strong> Маятник з довжиною нитки $l = 0{,}5$ м здійснює коливання з амплітудою $A = 0{,}04$ м і періодом $T = 1$ с. Визначити $v_{\max}$ та $a_{\max}$.
+                </div>
+                <div class="problem__given">
+                    <div class="problem__given-title">Дано:</div>
+                    $l = 0{,}5$ м<br>$A = 0{,}04$ м<br>$T = 1$ с<br><br>$v_{\max} = ?$, $a_{\max} = ?$
+                </div>
+                <div class="problem__solution">
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати розв'язок</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__step">
+                            <div class="problem__step-number">1</div>
+                            <div class="problem__step-content">
+                                Циклічна частота: $$\omega = \frac{2\pi}{T} = \frac{2\pi}{1} = 6{,}28 \text{ рад/с}$$
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">2</div>
+                            <div class="problem__step-content">
+                                Максимальна швидкість: $$v_{\max} = A\omega = 0{,}04 \cdot 6{,}28 \approx 0{,}25 \text{ м/с}$$
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">3</div>
+                            <div class="problem__step-content">
+                                Максимальне прискорення: $$a_{\max} = A\omega^2 = 0{,}04 \cdot 6{,}28^2 \approx 1{,}58 \text{ м/с}^2$$
+                            </div>
+                        </div>
+                        <div class="problem__answer">
+                            <strong>Відповідь:</strong> $v_{\max} \approx 0{,}25$ м/с, $a_{\max} \approx 1{,}58$ м/с&sup2;.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem__text">
+                    <strong>Задача 2.</strong> У який момент зміщення пружинного маятника кінетична енергія дорівнює потенціальній?
+                </div>
+                <div class="problem__given">
+                    <div class="problem__given-title">Дано:</div>
+                    $E_k = E_p$<br><br>$x = ?$
+                </div>
+                <div class="problem__solution">
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати розв'язок</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__step">
+                            <div class="problem__step-number">1</div>
+                            <div class="problem__step-content">
+                                Повна енергія: $E = E_k + E_p$. Якщо $E_k = E_p$, то $E_p = E/2$:
+                                $$\frac{kx^2}{2} = \frac{1}{2} \cdot \frac{kA^2}{2}$$
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">2</div>
+                            <div class="problem__step-content">
+                                Скорочуємо $k/2$:
+                                $$x^2 = \frac{A^2}{2} \implies x = \frac{A}{\sqrt{2}}$$
+                            </div>
+                        </div>
+                        <div class="problem__answer">
+                            <strong>Відповідь:</strong> $x = \dfrac{A}{\sqrt{2}} \approx 0{,}707A$.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== НАВІГАЦІЯ ===== -->
+        <nav class="topic-nav">
+            <a href="topic-31.html" class="topic-nav__btn">&larr; Тема 31</a>
+            <a href="topic-33.html" class="topic-nav__btn topic-nav__btn--next">Тема 33 &rarr;</a>
+        </nav>
+    </main>
+
+    <!-- ============================================ -->
+    <!-- JavaScript: Візуалізації                      -->
+    <!-- ============================================ -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        /* ===========================================================
+           UTILITY FUNCTIONS
+           =========================================================== */
+        var DPR = window.devicePixelRatio || 1;
+
+        function setupCanvas(canvas, height) {
+            var wrap = canvas.parentElement;
+            var rect = wrap.getBoundingClientRect();
+            var w = rect.width;
+            var h = height || 500;
+            canvas.width = w * DPR;
+            canvas.height = h * DPR;
+            canvas.style.width = w + 'px';
+            canvas.style.height = h + 'px';
+            var ctx = canvas.getContext('2d');
+            ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+            return { w: w, h: h, ctx: ctx };
+        }
+
+        function drawArrow(ctx, x0, y0, x1, y1, color, width) {
+            var dx = x1 - x0, dy = y1 - y0;
+            var len = Math.sqrt(dx * dx + dy * dy);
+            if (len < 2) return;
+            var ux = dx / len, uy = dy / len;
+            ctx.strokeStyle = color;
+            ctx.lineWidth = width || 2;
+            ctx.beginPath();
+            ctx.moveTo(x0, y0);
+            ctx.lineTo(x1, y1);
+            ctx.stroke();
+            // arrowhead
+            var hs = 8;
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x1 - ux * hs + uy * hs * 0.4, y1 - uy * hs - ux * hs * 0.4);
+            ctx.lineTo(x1 - ux * hs - uy * hs * 0.4, y1 - uy * hs + ux * hs * 0.4);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        function drawWall(ctx, x, y, height) {
+            ctx.strokeStyle = '#666';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(x, y - height / 2);
+            ctx.lineTo(x, y + height / 2);
+            ctx.stroke();
+            // hatch marks
+            ctx.strokeStyle = '#555';
+            ctx.lineWidth = 1;
+            var step = 10;
+            for (var hy = y - height / 2; hy < y + height / 2; hy += step) {
+                ctx.beginPath();
+                ctx.moveTo(x, hy);
+                ctx.lineTo(x - 8, hy + 8);
+                ctx.stroke();
+            }
+        }
+
+        function drawSpringLine(ctx, x0, y, x1, coils, amp) {
+            var len = x1 - x0;
+            if (len < 5) len = 5;
+            var actualCoils = coils || 14;
+            var actualAmp = amp || 10;
+            var pts = actualCoils * 4 + 2;
+            ctx.beginPath();
+            for (var i = 0; i <= pts; i++) {
+                var frac = i / pts;
+                var px = x0 + frac * len;
+                var py;
+                if (i === 0 || i === pts) {
+                    py = y;
+                } else if (i === 1) {
+                    py = y;
+                } else if (i === pts - 1) {
+                    py = y;
+                } else {
+                    var phase = ((i - 1) / (pts - 2)) * actualCoils * 2 * Math.PI;
+                    // taper at ends
+                    var envelope = 1;
+                    var normPos = (i - 1) / (pts - 2);
+                    if (normPos < 0.05) envelope = normPos / 0.05;
+                    if (normPos > 0.95) envelope = (1 - normPos) / 0.05;
+                    py = y + Math.sin(phase) * actualAmp * envelope;
+                }
+                if (i === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            }
+            ctx.strokeStyle = '#60a5fa';
+            ctx.lineWidth = 2.5;
+            ctx.stroke();
+        }
+
+        function drawGraphAxes(ctx, gx, gy, gw, gh, labelY, labelX) {
+            ctx.strokeStyle = '#444';
+            ctx.lineWidth = 1;
+            // Y axis
+            ctx.beginPath();
+            ctx.moveTo(gx, gy);
+            ctx.lineTo(gx, gy + gh);
+            ctx.stroke();
+            // X axis (center)
+            ctx.beginPath();
+            ctx.moveTo(gx, gy + gh / 2);
+            ctx.lineTo(gx + gw, gy + gh / 2);
+            ctx.stroke();
+            // tick marks on Y axis
+            ctx.strokeStyle = '#333';
+            ctx.beginPath();
+            ctx.moveTo(gx - 3, gy + 4);
+            ctx.lineTo(gx + 3, gy + 4);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(gx - 3, gy + gh - 4);
+            ctx.lineTo(gx + 3, gy + gh - 4);
+            ctx.stroke();
+            // labels
+            ctx.fillStyle = '#999';
+            ctx.font = '11px Inter, sans-serif';
+            ctx.textAlign = 'left';
+            if (labelY) ctx.fillText(labelY, gx + 5, gy + 14);
+            if (labelX) {
+                ctx.textAlign = 'right';
+                ctx.fillText(labelX, gx + gw - 2, gy + gh / 2 - 6);
+            }
+        }
+
+        function drawGraphAxesBottom(ctx, gx, gy, gw, gh, labelY, labelX) {
+            ctx.strokeStyle = '#444';
+            ctx.lineWidth = 1;
+            // Y axis
+            ctx.beginPath();
+            ctx.moveTo(gx, gy);
+            ctx.lineTo(gx, gy + gh);
+            ctx.stroke();
+            // X axis at bottom
+            ctx.beginPath();
+            ctx.moveTo(gx, gy + gh);
+            ctx.lineTo(gx + gw, gy + gh);
+            ctx.stroke();
+            ctx.fillStyle = '#999';
+            ctx.font = '11px Inter, sans-serif';
+            ctx.textAlign = 'left';
+            if (labelY) ctx.fillText(labelY, gx + 5, gy + 14);
+            if (labelX) {
+                ctx.textAlign = 'right';
+                ctx.fillText(labelX, gx + gw - 2, gy + gh - 6);
+            }
+        }
+
+        function plotLine(ctx, data, gx, gy, gw, gh, maxPts, maxVal, color, lineWidth) {
+            if (data.length < 2) return;
+            var sc = (gh / 2 - 6) / Math.max(maxVal, 1e-6);
+            ctx.beginPath();
+            for (var i = 0; i < data.length; i++) {
+                var px = gx + (i / maxPts) * gw;
+                var py = gy + gh / 2 - data[i] * sc;
+                if (i === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            }
+            ctx.strokeStyle = color;
+            ctx.lineWidth = lineWidth || 2;
+            ctx.stroke();
+            // dot at end
+            var lastX = gx + ((data.length - 1) / maxPts) * gw;
+            var lastY = gy + gh / 2 - data[data.length - 1] * sc;
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.arc(lastX, lastY, 4, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        function plotLineBottom(ctx, data, gx, gy, gw, gh, maxPts, maxVal, color, lineWidth) {
+            if (data.length < 2) return;
+            var sc = (gh - 10) / Math.max(maxVal, 1e-6);
+            ctx.beginPath();
+            for (var i = 0; i < data.length; i++) {
+                var px = gx + (i / maxPts) * gw;
+                var py = gy + gh - data[i] * sc;
+                if (i === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            }
+            ctx.strokeStyle = color;
+            ctx.lineWidth = lineWidth || 2;
+            ctx.stroke();
+        }
+
+
+        /* ===========================================================
+           1. ПРУЖИННИЙ МАЯТНИК
+           =========================================================== */
+        (function() {
+            var canvas = document.getElementById('springCanvas');
+            if (!canvas) return;
+            var dim, ctx;
+            var m = 1, k = 20, A = 0.1;
+            var t = 0, paused = false;
+            var graphData = [];
+            var maxGPts = 500;
+
+            var elM = document.getElementById('sp-m');
+            var elK = document.getElementById('sp-k');
+            var elA = document.getElementById('sp-A');
+            var elMV = document.getElementById('sp-m-val');
+            var elKV = document.getElementById('sp-k-val');
+            var elAV = document.getElementById('sp-A-val');
+            var elInfo = document.getElementById('sp-info');
+
+            function updP() {
+                m = parseFloat(elM.value);
+                k = parseFloat(elK.value);
+                A = parseFloat(elA.value);
+                elMV.textContent = m.toFixed(1);
+                elKV.textContent = k;
+                elAV.textContent = A.toFixed(2);
+                var omega = Math.sqrt(k / m);
+                var T = 2 * Math.PI / omega;
+                elInfo.innerHTML = 'T = ' + T.toFixed(2) + ' с &nbsp; &omega; = ' + omega.toFixed(2) + ' рад/с';
+            }
+            elM.addEventListener('input', updP);
+            elK.addEventListener('input', updP);
+            elA.addEventListener('input', updP);
+            document.getElementById('sp-play').addEventListener('click', function() { paused = false; });
+            document.getElementById('sp-pause').addEventListener('click', function() { paused = true; });
+            document.getElementById('sp-reset').addEventListener('click', function() { t = 0; graphData = []; paused = false; });
+
+            function init() { dim = setupCanvas(canvas, 500); ctx = dim.ctx; }
+            window.addEventListener('resize', init);
+            init();
+            updP();
+
+            function draw() {
+                var W = dim.w, H = dim.h;
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, W, H);
+
+                var omega = Math.sqrt(k / m);
+                var x = A * Math.cos(omega * t);
+
+                /* --- LEFT HALF: Spring + Mass Animation --- */
+                var leftW = W * 0.42;
+                var cy = H * 0.48;
+                var wallX = 28;
+                var eqX = leftW * 0.52;
+                var pxPerM = leftW * 0.38 / 0.2;
+                var blockX = eqX + x * pxPerM;
+                var blockW = 44, blockH = 34;
+
+                // floor
+                ctx.strokeStyle = '#444';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(wallX - 10, cy + blockH / 2 + 2);
+                ctx.lineTo(leftW, cy + blockH / 2 + 2);
+                ctx.stroke();
+                // floor hatching
+                for (var fi = wallX; fi < leftW; fi += 14) {
+                    ctx.beginPath();
+                    ctx.moveTo(fi, cy + blockH / 2 + 2);
+                    ctx.lineTo(fi - 6, cy + blockH / 2 + 10);
+                    ctx.stroke();
+                }
+
+                // wall
+                drawWall(ctx, wallX, cy, 100);
+
+                // spring
+                drawSpringLine(ctx, wallX, cy, blockX - blockW / 2, 14, 12);
+
+                // mass block with gradient
+                var grad = ctx.createLinearGradient(blockX - blockW / 2, cy - blockH / 2, blockX + blockW / 2, cy + blockH / 2);
+                grad.addColorStop(0, '#f05676');
+                grad.addColorStop(1, '#c03050');
+                ctx.fillStyle = grad;
+                ctx.fillRect(blockX - blockW / 2, cy - blockH / 2, blockW, blockH);
+                ctx.strokeStyle = '#ff7090';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(blockX - blockW / 2, cy - blockH / 2, blockW, blockH);
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 13px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('m', blockX, cy);
+
+                // equilibrium dashed line
+                ctx.setLineDash([5, 5]);
+                ctx.strokeStyle = '#666';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(eqX, cy - 55);
+                ctx.lineTo(eqX, cy + 55);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.fillStyle = '#777';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textBaseline = 'top';
+                ctx.fillText('0', eqX, cy + 58);
+
+                // displacement arrow x
+                if (Math.abs(x) > 0.003) {
+                    drawArrow(ctx, eqX, cy + 45, blockX, cy + 45, '#fbbf24', 2);
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.font = 'italic 13px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'top';
+                    ctx.fillText('x = ' + (x * 100).toFixed(1) + ' см', (eqX + blockX) / 2, cy + 56);
+                }
+
+                // +A and -A labels
+                ctx.fillStyle = '#555';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+                var plusAx = eqX + A * pxPerM;
+                var minusAx = eqX - A * pxPerM;
+                ctx.setLineDash([2, 4]);
+                ctx.strokeStyle = '#444';
+                ctx.beginPath();
+                ctx.moveTo(plusAx, cy - 40);
+                ctx.lineTo(plusAx, cy + 40);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(minusAx, cy - 40);
+                ctx.lineTo(minusAx, cy + 40);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.fillText('+A', plusAx, cy - 42);
+                ctx.fillText('\u2212A', minusAx, cy - 42);
+
+                // velocity vector on block
+                var v = -A * omega * Math.sin(omega * t);
+                var vScale = pxPerM * 0.5;
+                if (Math.abs(v) > 0.005) {
+                    var vPx = v * vScale;
+                    drawArrow(ctx, blockX, cy - blockH / 2 - 8, blockX + vPx, cy - blockH / 2 - 8, '#60a5fa', 2);
+                    ctx.fillStyle = '#60a5fa';
+                    ctx.font = '10px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+                    ctx.fillText('v', blockX + vPx / 2, cy - blockH / 2 - 12);
+                }
+
+                // spring restoring force vector F = -kx
+                var F = -k * x;
+                var fScale = pxPerM * 0.015;
+                var fPx = F * fScale;
+                if (Math.abs(fPx) > 3) {
+                    drawArrow(ctx, blockX, cy + blockH / 2 + 10, blockX + fPx, cy + blockH / 2 + 10, '#ff6b6b', 2);
+                    ctx.fillStyle = '#ff6b6b';
+                    ctx.font = '10px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'top';
+                    ctx.fillText('F = \u2212kx', blockX + fPx / 2, cy + blockH / 2 + 16);
+                }
+
+                // info panel: current values
+                ctx.fillStyle = 'rgba(30,30,50,0.8)';
+                ctx.fillRect(8, H - 70, leftW - 16, 60);
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(8, H - 70, leftW - 16, 60);
+                ctx.fillStyle = '#ccc';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                ctx.fillText('x = ' + (x * 100).toFixed(2) + ' см', 16, H - 64);
+                ctx.fillText('v = ' + (v * 100).toFixed(2) + ' см/с', 16, H - 48);
+                var acc = -A * omega * omega * Math.cos(omega * t);
+                ctx.fillText('a = ' + (acc * 100).toFixed(2) + ' см/с\u00B2', 16, H - 32);
+
+                /* --- RIGHT HALF: x(t) graph --- */
+                if (!paused) {
+                    graphData.push(x);
+                    if (graphData.length > maxGPts) graphData.shift();
+                }
+
+                var gx0 = leftW + 36;
+                var gy0 = 50;
+                var gw = W - leftW - 60;
+                var gh = H - 110;
+
+                drawGraphAxes(ctx, gx0, gy0, gw, gh, 'x(t)', 't');
+
+                // horizontal grid lines
+                ctx.strokeStyle = 'rgba(60,60,80,0.3)';
+                ctx.lineWidth = 0.5;
+                var ampScale = (gh / 2 - 6) / 0.2;
+                for (var gridI = -4; gridI <= 4; gridI++) {
+                    if (gridI === 0) continue;
+                    var gridY = gy0 + gh / 2 - (gridI * 0.05) * ampScale;
+                    if (gridY > gy0 && gridY < gy0 + gh) {
+                        ctx.beginPath();
+                        ctx.moveTo(gx0, gridY);
+                        ctx.lineTo(gx0 + gw, gridY);
+                        ctx.stroke();
+                    }
+                }
+
+                // +A / -A labels on Y axis
+                ctx.fillStyle = '#666';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'right';
+                var ampScale = (gh / 2 - 6) / 0.2;
+                var plusAy = gy0 + gh / 2 - A * ampScale;
+                var minAy = gy0 + gh / 2 + A * ampScale;
+                ctx.fillText('+A', gx0 - 4, plusAy + 4);
+                ctx.fillText('\u2212A', gx0 - 4, minAy + 4);
+                // dashed lines for +A, -A
+                ctx.setLineDash([3, 5]);
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 0.5;
+                ctx.beginPath();
+                ctx.moveTo(gx0, plusAy);
+                ctx.lineTo(gx0 + gw, plusAy);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(gx0, minAy);
+                ctx.lineTo(gx0 + gw, minAy);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                // plot
+                plotLine(ctx, graphData, gx0, gy0, gw, gh, maxGPts, 0.2, '#4ade80', 2.5);
+
+                // period marker
+                if (graphData.length > 2) {
+                    var T = 2 * Math.PI / omega;
+                    var ptsPerSec = 1 / 0.03; // ~33
+                    var periodPts = T * ptsPerSec;
+                    if (graphData.length > periodPts + 5) {
+                        var pStart = graphData.length - 1 - Math.round(periodPts);
+                        if (pStart >= 0) {
+                            var px1 = gx0 + (pStart / maxGPts) * gw;
+                            var px2 = gx0 + ((graphData.length - 1) / maxGPts) * gw;
+                            var pY = gy0 + gh + 8;
+                            ctx.strokeStyle = '#fbbf24';
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(px1, pY);
+                            ctx.lineTo(px1, pY - 6);
+                            ctx.stroke();
+                            ctx.beginPath();
+                            ctx.moveTo(px2, pY);
+                            ctx.lineTo(px2, pY - 6);
+                            ctx.stroke();
+                            ctx.beginPath();
+                            ctx.moveTo(px1, pY);
+                            ctx.lineTo(px2, pY);
+                            ctx.stroke();
+                            // arrowheads
+                            ctx.fillStyle = '#fbbf24';
+                            ctx.font = '10px Inter, sans-serif';
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'top';
+                            ctx.fillText('T', (px1 + px2) / 2, pY + 2);
+                        }
+                    }
+                }
+
+                // title
+                ctx.fillStyle = '#888';
+                ctx.font = '12px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillText('Пружинний маятник', leftW / 2, 16);
+
+                if (!paused) t += 0.03;
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+
+        /* ===========================================================
+           2. МАТЕМАТИЧНИЙ МАЯТНИК
+           =========================================================== */
+        (function() {
+            var canvas = document.getElementById('pendCanvas');
+            if (!canvas) return;
+            var dim, ctx;
+            var l = 1, g = 9.8;
+            var theta0 = 0.3;
+            var theta = theta0, omegaPd = 0, t = 0;
+            var paused = false;
+            var graphData = [];
+            var maxGPts = 500;
+            var trail = [];
+            var maxTrail = 50;
+
+            var elL = document.getElementById('pd-l');
+            var elG = document.getElementById('pd-g');
+            var elLV = document.getElementById('pd-l-val');
+            var elGV = document.getElementById('pd-g-val');
+            var elInfo = document.getElementById('pd-info');
+
+            function updP() {
+                l = parseFloat(elL.value);
+                g = parseFloat(elG.value);
+                elLV.textContent = l.toFixed(2);
+                elGV.textContent = g.toFixed(1);
+                var T = 2 * Math.PI * Math.sqrt(l / g);
+                elInfo.innerHTML = 'T = ' + T.toFixed(2) + ' с';
+            }
+            function reset() { theta = theta0; omegaPd = 0; t = 0; graphData = []; trail = []; }
+
+            elL.addEventListener('input', function() { updP(); reset(); });
+            elG.addEventListener('input', function() { updP(); reset(); });
+            document.getElementById('pd-play').addEventListener('click', function() { paused = false; });
+            document.getElementById('pd-pause').addEventListener('click', function() { paused = true; });
+            document.getElementById('pd-reset').addEventListener('click', function() { reset(); paused = false; });
+
+            function init() { dim = setupCanvas(canvas, 500); ctx = dim.ctx; }
+            window.addEventListener('resize', init);
+            init();
+            updP();
+
+            function draw() {
+                var W = dim.w, H = dim.h;
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, W, H);
+
+                // physics via Euler-Cromer (energy-preserving)
+                var dt = 0.002;
+                if (!paused) {
+                    for (var step = 0; step < 8; step++) {
+                        var alpha = -(g / l) * Math.sin(theta);
+                        omegaPd += alpha * dt;
+                        theta += omegaPd * dt;
+                    }
+                    t += dt * 8;
+                }
+
+                var leftW = W * 0.45;
+                var pivotX = leftW * 0.5;
+                var pivotY = 55;
+                var ropeLen = Math.min(320, (H - 130) * Math.min(l / 2.5, 1));
+                if (ropeLen < 60) ropeLen = 60;
+                var bobX = pivotX + ropeLen * Math.sin(theta);
+                var bobY = pivotY + ropeLen * Math.cos(theta);
+                var bobR = 15;
+
+                // trail (fading ghost positions)
+                if (!paused) {
+                    trail.push({ x: bobX, y: bobY });
+                    if (trail.length > maxTrail) trail.shift();
+                }
+                for (var i = 0; i < trail.length; i++) {
+                    var alpha = (i / trail.length) * 0.35;
+                    ctx.fillStyle = 'rgba(233, 69, 96, ' + alpha.toFixed(3) + ')';
+                    ctx.beginPath();
+                    ctx.arc(trail[i].x, trail[i].y, 4, 0, 2 * Math.PI);
+                    ctx.fill();
+                }
+
+                // arc path (shows trajectory)
+                ctx.strokeStyle = 'rgba(100,100,100,0.3)';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.arc(pivotX, pivotY, ropeLen, Math.PI / 2 - 0.4, Math.PI / 2 + 0.4);
+                ctx.stroke();
+
+                // equilibrium dashed vertical line
+                ctx.setLineDash([4, 4]);
+                ctx.strokeStyle = '#444';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(pivotX, pivotY);
+                ctx.lineTo(pivotX, pivotY + ropeLen + 30);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                // angle arc
+                if (Math.abs(theta) > 0.01) {
+                    ctx.strokeStyle = '#fbbf24';
+                    ctx.lineWidth = 1.5;
+                    var arcR = 40;
+                    var startA = Math.PI / 2;
+                    var endA = Math.PI / 2 - theta;
+                    ctx.beginPath();
+                    if (theta > 0) ctx.arc(pivotX, pivotY, arcR, endA, startA);
+                    else ctx.arc(pivotX, pivotY, arcR, startA, endA);
+                    ctx.stroke();
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.font = 'italic 12px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    var midA = (startA + endA) / 2;
+                    ctx.fillText('\u03C6', pivotX + (arcR + 12) * Math.cos(midA), pivotY + (arcR + 12) * Math.sin(midA));
+                }
+
+                // ceiling
+                ctx.fillStyle = '#555';
+                ctx.fillRect(pivotX - 40, pivotY - 6, 80, 6);
+
+                // pivot point
+                ctx.fillStyle = '#aaa';
+                ctx.beginPath();
+                ctx.arc(pivotX, pivotY, 4, 0, 2 * Math.PI);
+                ctx.fill();
+
+                // rope (string)
+                ctx.strokeStyle = '#ccc';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(pivotX, pivotY);
+                ctx.lineTo(bobX, bobY);
+                ctx.stroke();
+
+                // bob with gradient
+                var bGrad = ctx.createRadialGradient(bobX - 3, bobY - 3, 2, bobX, bobY, bobR);
+                bGrad.addColorStop(0, '#ff7090');
+                bGrad.addColorStop(1, '#c03050');
+                ctx.fillStyle = bGrad;
+                ctx.beginPath();
+                ctx.arc(bobX, bobY, bobR, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.strokeStyle = '#ff5070';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+
+                // velocity vector (tangent to arc)
+                var vTan = omegaPd * ropeLen;
+                var vScaleDisp = 3;
+                var vDispX = vTan * Math.cos(theta) * vScaleDisp;
+                var vDispY = -vTan * Math.sin(theta) * vScaleDisp;
+                if (Math.abs(vTan) > 1) {
+                    drawArrow(ctx, bobX, bobY, bobX + vDispX, bobY + vDispY, '#60a5fa', 2);
+                    ctx.fillStyle = '#60a5fa';
+                    ctx.font = 'bold 11px Inter, sans-serif';
+                    ctx.textAlign = 'left';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('v', bobX + vDispX + 6, bobY + vDispY);
+                }
+
+                // restoring force (tangent component of gravity, along arc towards equilibrium)
+                var fTangential = -g * Math.sin(theta);
+                var fScale = 4;
+                var fDispX = fTangential * Math.cos(theta) * fScale;
+                var fDispY = -fTangential * Math.sin(theta) * fScale;
+                if (Math.abs(fTangential) > 0.15) {
+                    drawArrow(ctx, bobX, bobY, bobX + fDispX, bobY + fDispY, '#fbbf24', 2);
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.font = 'bold 11px Inter, sans-serif';
+                    ctx.textAlign = 'left';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('F', bobX + fDispX + 6, bobY + fDispY - 6);
+                }
+
+                // gravity vector (downward from bob)
+                var gVecLen = 35;
+                drawArrow(ctx, bobX, bobY, bobX, bobY + gVecLen, '#888', 1.5);
+                ctx.fillStyle = '#888';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('mg', bobX + 5, bobY + gVecLen - 3);
+
+                // tension vector (along rope, from bob towards pivot)
+                var tVecLen = 30;
+                var tDirX = (pivotX - bobX);
+                var tDirY = (pivotY - bobY);
+                var tDirLen = Math.sqrt(tDirX * tDirX + tDirY * tDirY);
+                if (tDirLen > 0) {
+                    tDirX /= tDirLen;
+                    tDirY /= tDirLen;
+                    drawArrow(ctx, bobX, bobY, bobX + tDirX * tVecLen, bobY + tDirY * tVecLen, '#9ca3af', 1.5);
+                    ctx.fillStyle = '#9ca3af';
+                    ctx.font = '10px Inter, sans-serif';
+                    ctx.textAlign = 'right';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('T', bobX + tDirX * tVecLen - 5, bobY + tDirY * tVecLen - 5);
+                }
+
+                // rope length label
+                ctx.save();
+                ctx.translate(pivotX + ropeLen * Math.sin(theta) * 0.5 - 18, pivotY + ropeLen * Math.cos(theta) * 0.5);
+                ctx.fillStyle = '#888';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('l', 0, 0);
+                ctx.restore();
+
+                // energy info for pendulum
+                var hPend = l * (1 - Math.cos(theta));
+                var vPend = omegaPd * l;
+                var EkPend = 0.5 * vPend * vPend;
+                var EpPend = g * hPend;
+                ctx.fillStyle = 'rgba(30,30,50,0.8)';
+                ctx.fillRect(8, H - 65, leftW * 0.85, 56);
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(8, H - 65, leftW * 0.85, 56);
+                ctx.fillStyle = '#ccc';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                ctx.fillText('\u03C6 = ' + (theta * 180 / Math.PI).toFixed(1) + '\u00B0', 16, H - 60);
+                ctx.fillText('\u03C9 = ' + omegaPd.toFixed(3) + ' рад/с', 16, H - 46);
+                ctx.fillText('h = ' + (hPend * 100).toFixed(2) + ' см', 16, H - 32);
+                ctx.fillText('T = ' + (2 * Math.PI * Math.sqrt(l / g)).toFixed(3) + ' с', 16 + leftW * 0.4, H - 60);
+
+                /* --- RIGHT: phi(t) graph --- */
+                if (!paused) {
+                    graphData.push(theta);
+                    if (graphData.length > maxGPts) graphData.shift();
+                }
+
+                var gx0 = leftW + 36;
+                var gy0 = 50;
+                var gw = W - leftW - 60;
+                var gh = H - 110;
+
+                drawGraphAxes(ctx, gx0, gy0, gw, gh, '\u03C6(t), рад', 't');
+
+                // horizontal grid lines for pendulum graph
+                ctx.strokeStyle = 'rgba(60,60,80,0.25)';
+                ctx.lineWidth = 0.5;
+                var thScale = (gh / 2 - 6) / 0.5;
+                for (var gridI = -3; gridI <= 3; gridI++) {
+                    if (gridI === 0) continue;
+                    var gridY = gy0 + gh / 2 - (gridI * 0.1) * thScale;
+                    if (gridY > gy0 && gridY < gy0 + gh) {
+                        ctx.beginPath();
+                        ctx.moveTo(gx0, gridY);
+                        ctx.lineTo(gx0 + gw, gridY);
+                        ctx.stroke();
+                    }
+                }
+
+                // +theta0 / -theta0 dashed
+                var thScale = (gh / 2 - 6) / 0.5;
+                var plusThy = gy0 + gh / 2 - theta0 * thScale;
+                var minThy = gy0 + gh / 2 + theta0 * thScale;
+                ctx.setLineDash([3, 5]);
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 0.5;
+                ctx.beginPath(); ctx.moveTo(gx0, plusThy); ctx.lineTo(gx0 + gw, plusThy); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(gx0, minThy); ctx.lineTo(gx0 + gw, minThy); ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.fillStyle = '#666';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.fillText('+\u03C6\u2080', gx0 - 4, plusThy + 4);
+                ctx.fillText('\u2212\u03C6\u2080', gx0 - 4, minThy + 4);
+
+                plotLine(ctx, graphData, gx0, gy0, gw, gh, maxGPts, 0.5, '#4ade80', 2.5);
+
+                // current angle value
+                ctx.fillStyle = '#4ade80';
+                ctx.font = '12px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                ctx.fillText('\u03C6 = ' + (theta * 180 / Math.PI).toFixed(1) + '\u00B0', gx0 + gw - 80, gy0 + gh + 10);
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+
+        /* ===========================================================
+           3. ШВИДКІСТЬ І ПРИСКОРЕННЯ  x(t), v(t), a(t)
+           =========================================================== */
+        (function() {
+            var canvas = document.getElementById('xvaCanvas');
+            if (!canvas) return;
+            var dim, ctx;
+            var A = 0.1, w = 5;
+            var t = 0, paused = false;
+            var gLen = 500;
+            var gx = [], gv = [], ga = [];
+
+            var elA = document.getElementById('xva-A');
+            var elW = document.getElementById('xva-w');
+            var elAV = document.getElementById('xva-A-val');
+            var elWV = document.getElementById('xva-w-val');
+            var elInfo = document.getElementById('xva-info');
+
+            function updP() {
+                A = parseFloat(elA.value);
+                w = parseFloat(elW.value);
+                elAV.textContent = A.toFixed(2);
+                elWV.textContent = w.toFixed(1);
+            }
+            elA.addEventListener('input', updP);
+            elW.addEventListener('input', updP);
+            document.getElementById('xva-play').addEventListener('click', function() { paused = false; });
+            document.getElementById('xva-pause').addEventListener('click', function() { paused = true; });
+            document.getElementById('xva-reset').addEventListener('click', function() { t = 0; gx = []; gv = []; ga = []; paused = false; });
+
+            function init() { dim = setupCanvas(canvas, 500); ctx = dim.ctx; }
+            window.addEventListener('resize', init);
+            init();
+            updP();
+
+            function draw() {
+                var W = dim.w, H = dim.h;
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, W, H);
+
+                var xVal = A * Math.cos(w * t);
+                var vVal = -A * w * Math.sin(w * t);
+                var aVal = -A * w * w * Math.cos(w * t);
+
+                if (!paused) {
+                    gx.push(xVal); gv.push(vVal); ga.push(aVal);
+                    if (gx.length > gLen) { gx.shift(); gv.shift(); ga.shift(); }
+                }
+
+                elInfo.innerHTML = 'x = ' + xVal.toFixed(4) + ' м &nbsp; v = ' + vVal.toFixed(3) + ' м/с &nbsp; a = ' + aVal.toFixed(3) + ' м/с\u00B2';
+
+                /* LEFT: spring animation compact */
+                var leftW = W * 0.28;
+                var cy = H * 0.5;
+                var wallX = 18;
+                var eqX = leftW * 0.52;
+                var sc = leftW * 0.38 / 0.2;
+                var bx = eqX + xVal * sc;
+                var bW = 32, bH = 24;
+
+                drawWall(ctx, wallX, cy, 80);
+                drawSpringLine(ctx, wallX, cy, bx - bW / 2, 10, 8);
+
+                // mass block
+                ctx.fillStyle = '#e94560';
+                ctx.fillRect(bx - bW / 2, cy - bH / 2, bW, bH);
+                ctx.fillStyle = '#fff';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('m', bx, cy);
+
+                // equilibrium
+                ctx.setLineDash([4, 4]);
+                ctx.strokeStyle = '#555';
+                ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.moveTo(eqX, cy - 40); ctx.lineTo(eqX, cy + 40); ctx.stroke();
+                ctx.setLineDash([]);
+
+                // velocity arrow on block
+                if (Math.abs(vVal) > 0.01) {
+                    var vPx = vVal * sc * 0.5;
+                    drawArrow(ctx, bx, cy - bH / 2 - 6, bx + vPx, cy - bH / 2 - 6, '#60a5fa', 2);
+                }
+                // acceleration arrow
+                if (Math.abs(aVal) > 0.05) {
+                    var aPx = aVal * sc * 0.03;
+                    drawArrow(ctx, bx, cy + bH / 2 + 6, bx + aPx, cy + bH / 2 + 6, '#e94560', 2);
+                }
+
+                // labels
+                ctx.fillStyle = '#60a5fa'; ctx.font = '10px Inter, sans-serif'; ctx.textAlign = 'left';
+                ctx.fillText('v', leftW - 20, cy - bH / 2 - 12);
+                ctx.fillStyle = '#e94560';
+                ctx.fillText('a', leftW - 20, cy + bH / 2 + 14);
+
+                /* RIGHT: three stacked synchronized graphs */
+                var gx0 = leftW + 28;
+                var gw = W - leftW - 50;
+                var totalGH = H - 30;
+                var gap = 14;
+                var graphH = (totalGH - gap * 2) / 3;
+                var maxX = 0.2;
+                var maxV = Math.max(A * w, 0.01);
+                var maxA = Math.max(A * w * w, 0.01);
+
+                var graphs = [
+                    { data: gx, color: '#4ade80', label: 'x(t)', max: maxX, unit: 'м' },
+                    { data: gv, color: '#60a5fa', label: 'v(t)', max: maxV, unit: 'м/с' },
+                    { data: ga, color: '#e94560', label: 'a(t)', max: maxA, unit: 'м/с\u00B2' }
+                ];
+
+                for (var gi = 0; gi < 3; gi++) {
+                    var gy = 15 + gi * (graphH + gap);
+                    var gObj = graphs[gi];
+
+                    drawGraphAxes(ctx, gx0, gy, gw, graphH, gObj.label, '');
+
+                    // max / min labels
+                    ctx.fillStyle = '#555';
+                    ctx.font = '9px Inter, sans-serif';
+                    ctx.textAlign = 'right';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('+' + gObj.max.toFixed(2), gx0 - 3, gy + 8);
+                    ctx.fillText('\u2212' + gObj.max.toFixed(2), gx0 - 3, gy + graphH - 4);
+
+                    // plot
+                    if (gObj.data.length > 1) {
+                        var valSc = (graphH / 2 - 4) / gObj.max;
+                        ctx.beginPath();
+                        for (var j = 0; j < gObj.data.length; j++) {
+                            var px = gx0 + (j / gLen) * gw;
+                            var py = gy + graphH / 2 - gObj.data[j] * valSc;
+                            if (j === 0) ctx.moveTo(px, py);
+                            else ctx.lineTo(px, py);
+                        }
+                        ctx.strokeStyle = gObj.color;
+                        ctx.lineWidth = 2;
+                        ctx.stroke();
+
+                        // end dot
+                        var endX = gx0 + ((gObj.data.length - 1) / gLen) * gw;
+                        var endY = gy + graphH / 2 - gObj.data[gObj.data.length - 1] * valSc;
+                        ctx.fillStyle = gObj.color;
+                        ctx.beginPath(); ctx.arc(endX, endY, 3.5, 0, 2 * Math.PI); ctx.fill();
+                    }
+                }
+
+                // vertical time line across all three graphs
+                if (gx.length > 1) {
+                    var tlx = gx0 + ((gx.length - 1) / gLen) * gw;
+                    ctx.setLineDash([2, 3]);
+                    ctx.strokeStyle = 'rgba(255,255,255,0.35)';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(tlx, 15);
+                    ctx.lineTo(tlx, 15 + totalGH);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                }
+
+                // phase relationship notes for each graph
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.textBaseline = 'bottom';
+
+                ctx.fillStyle = 'rgba(74,222,128,0.5)';
+                ctx.fillText('x = A cos(\u03C9t)', gx0 + gw, 15 + graphH - 2);
+                ctx.fillStyle = 'rgba(96,165,250,0.5)';
+                ctx.fillText('v = \u2212A\u03C9 sin(\u03C9t) \u2014 випереджає x на \u03C0/2', gx0 + gw, 15 + graphH + gap + graphH - 2);
+                ctx.fillStyle = 'rgba(233,69,96,0.5)';
+                ctx.fillText('a = \u2212A\u03C9\u00B2 cos(\u03C9t) \u2014 протифаза до x', gx0 + gw, 15 + 2 * (graphH + gap) + graphH - 2);
+
+                // max values info panel bottom-left
+                ctx.fillStyle = 'rgba(30,30,50,0.8)';
+                ctx.fillRect(8, H - 50, leftW - 16, 42);
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(8, H - 50, leftW - 16, 42);
+                ctx.fillStyle = '#4ade80'; ctx.font = '10px Inter, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+                ctx.fillText('v\u2098\u2090\u2093 = A\u03C9 = ' + (A * w).toFixed(3) + ' м/с', 16, H - 44);
+                ctx.fillStyle = '#e94560';
+                ctx.fillText('a\u2098\u2090\u2093 = A\u03C9\u00B2 = ' + (A * w * w).toFixed(3) + ' м/с\u00B2', 16, H - 30);
+
+                // horizontal grid lines in each sub-graph
+                for (var gi2 = 0; gi2 < 3; gi2++) {
+                    var gy2 = 15 + gi2 * (graphH + gap);
+                    var mxV2 = graphs[gi2].max;
+                    ctx.strokeStyle = 'rgba(60,60,80,0.2)';
+                    ctx.lineWidth = 0.5;
+                    var gridSteps = 4;
+                    for (var gsi = 1; gsi < gridSteps; gsi++) {
+                        var yUp = gy2 + graphH / 2 - (gsi / gridSteps) * (graphH / 2 - 4);
+                        var yDn = gy2 + graphH / 2 + (gsi / gridSteps) * (graphH / 2 - 4);
+                        ctx.beginPath(); ctx.moveTo(gx0, yUp); ctx.lineTo(gx0 + gw, yUp); ctx.stroke();
+                        ctx.beginPath(); ctx.moveTo(gx0, yDn); ctx.lineTo(gx0 + gw, yDn); ctx.stroke();
+                    }
+                }
+
+                if (!paused) t += 0.025;
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+
+        /* ===========================================================
+           4. ЕНЕРГІЯ КОЛИВАНЬ
+           =========================================================== */
+        (function() {
+            var canvas = document.getElementById('energyCanvas');
+            if (!canvas) return;
+            var dim, ctx;
+            var m = 1, k = 20, A = 0.1;
+            var t = 0, paused = false;
+            var gEk = [], gEp = [];
+            var gLen = 500;
+
+            var elM = document.getElementById('en-m');
+            var elK = document.getElementById('en-k');
+            var elA = document.getElementById('en-A');
+            var elMV = document.getElementById('en-m-val');
+            var elKV = document.getElementById('en-k-val');
+            var elAV = document.getElementById('en-A-val');
+            var elInfo = document.getElementById('en-info');
+
+            function updP() {
+                m = parseFloat(elM.value); k = parseFloat(elK.value); A = parseFloat(elA.value);
+                elMV.textContent = m.toFixed(1); elKV.textContent = k; elAV.textContent = A.toFixed(2);
+            }
+            elM.addEventListener('input', updP);
+            elK.addEventListener('input', updP);
+            elA.addEventListener('input', updP);
+            document.getElementById('en-play').addEventListener('click', function() { paused = false; });
+            document.getElementById('en-pause').addEventListener('click', function() { paused = true; });
+            document.getElementById('en-reset').addEventListener('click', function() { t = 0; gEk = []; gEp = []; paused = false; });
+
+            function init() { dim = setupCanvas(canvas, 500); ctx = dim.ctx; }
+            window.addEventListener('resize', init);
+            init();
+            updP();
+
+            function draw() {
+                var W = dim.w, H = dim.h;
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, W, H);
+
+                var omega = Math.sqrt(k / m);
+                var xVal = A * Math.cos(omega * t);
+                var vVal = -A * omega * Math.sin(omega * t);
+                var Ek = 0.5 * m * vVal * vVal;
+                var Ep = 0.5 * k * xVal * xVal;
+                var Etot = 0.5 * k * A * A;
+
+                if (!paused) {
+                    gEk.push(Ek); gEp.push(Ep);
+                    if (gEk.length > gLen) { gEk.shift(); gEp.shift(); }
+                }
+
+                elInfo.innerHTML = 'E<sub>k</sub> = ' + Ek.toFixed(4) + ' Дж &nbsp; E<sub>p</sub> = ' + Ep.toFixed(4) + ' Дж &nbsp; E = ' + Etot.toFixed(4) + ' Дж';
+
+                /* TOP ROW: spring animation */
+                var topH = 90;
+                var wallX = 20;
+                var eqX = W * 0.16;
+                var sc = (W * 0.12) / 0.2;
+                var bx = eqX + xVal * sc;
+                var cy = topH / 2 + 8;
+                var bW = 28, bH = 20;
+
+                drawWall(ctx, wallX, cy, 60);
+                drawSpringLine(ctx, wallX, cy, bx - bW / 2, 8, 6);
+                ctx.fillStyle = '#e94560';
+                ctx.fillRect(bx - bW / 2, cy - bH / 2, bW, bH);
+                // color block based on speed (Ek proportion)
+                var ekFrac = Etot > 0 ? Ek / Etot : 0;
+                ctx.fillStyle = 'rgba(96,165,250,' + ekFrac.toFixed(2) + ')';
+                ctx.fillRect(bx - bW / 2, cy - bH / 2, bW, bH);
+                ctx.strokeStyle = '#e94560'; ctx.lineWidth = 1;
+                ctx.strokeRect(bx - bW / 2, cy - bH / 2, bW, bH);
+
+                // x label above spring
+                ctx.fillStyle = '#888';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText('x = ' + (xVal * 100).toFixed(1) + ' см', bx, cy - bH / 2 - 4);
+
+                /* MIDDLE: energy bar chart */
+                var barAreaX = W * 0.01;
+                var barAreaY = topH + 10;
+                var barAreaW = W * 0.22;
+                var barAreaH = H - topH - 30;
+                var barW = 45;
+                var barMaxH = barAreaH - 40;
+                var barBot = barAreaY + barAreaH - 10;
+
+                var ekH = Etot > 0 ? (Ek / Etot) * barMaxH : 0;
+                var epH = Etot > 0 ? (Ep / Etot) * barMaxH : 0;
+
+                var ekX = barAreaX + barAreaW * 0.3 - barW / 2;
+                var epX = barAreaX + barAreaW * 0.72 - barW / 2;
+
+                // Ek bar
+                var ekGrad = ctx.createLinearGradient(ekX, barBot - ekH, ekX, barBot);
+                ekGrad.addColorStop(0, '#ff5070');
+                ekGrad.addColorStop(1, '#a02040');
+                ctx.fillStyle = ekGrad;
+                ctx.fillRect(ekX, barBot - ekH, barW, ekH);
+                ctx.strokeStyle = '#e94560'; ctx.lineWidth = 1;
+                ctx.strokeRect(ekX, barBot - barMaxH, barW, barMaxH);
+
+                // Ep bar
+                var epGrad = ctx.createLinearGradient(epX, barBot - epH, epX, barBot);
+                epGrad.addColorStop(0, '#60a5fa');
+                epGrad.addColorStop(1, '#2060a0');
+                ctx.fillStyle = epGrad;
+                ctx.fillRect(epX, barBot - epH, barW, epH);
+                ctx.strokeStyle = '#60a5fa'; ctx.lineWidth = 1;
+                ctx.strokeRect(epX, barBot - barMaxH, barW, barMaxH);
+
+                // labels under bars
+                ctx.fillStyle = '#e94560'; ctx.font = '12px Inter, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+                ctx.fillText('E\u2096', ekX + barW / 2, barBot + 4);
+                ctx.fillStyle = '#60a5fa';
+                ctx.fillText('E\u209A', epX + barW / 2, barBot + 4);
+
+                // numeric values on bars
+                ctx.fillStyle = '#fff'; ctx.font = '10px Inter, sans-serif'; ctx.textBaseline = 'bottom';
+                if (ekH > 15) ctx.fillText(Ek.toFixed(3), ekX + barW / 2, barBot - ekH - 2);
+                if (epH > 15) ctx.fillText(Ep.toFixed(3), epX + barW / 2, barBot - epH - 2);
+
+                // total E dashed line
+                ctx.setLineDash([4, 3]);
+                ctx.strokeStyle = '#4ade80'; ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.moveTo(ekX - 8, barBot - barMaxH);
+                ctx.lineTo(epX + barW + 8, barBot - barMaxH);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.fillStyle = '#4ade80'; ctx.font = '10px Inter, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+                ctx.fillText('E = ' + Etot.toFixed(3) + ' Дж', epX + barW + 10, barBot - barMaxH);
+
+                /* BOTTOM-RIGHT: Energy vs time graphs */
+                var gx0 = W * 0.28;
+                var gy0 = topH + 10;
+                var gw = W * 0.68;
+                var gh = H - topH - 30;
+
+                drawGraphAxesBottom(ctx, gx0, gy0, gw, gh, 'E(t), Дж', 't');
+
+                if (gEk.length > 1) {
+                    var eSc = (gh - 15) / Math.max(Etot, 1e-6);
+
+                    // Ek
+                    ctx.beginPath();
+                    for (var i = 0; i < gEk.length; i++) {
+                        var px = gx0 + (i / gLen) * gw;
+                        var py = gy0 + gh - gEk[i] * eSc;
+                        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                    }
+                    ctx.strokeStyle = '#e94560'; ctx.lineWidth = 2; ctx.stroke();
+
+                    // Ep
+                    ctx.beginPath();
+                    for (var i = 0; i < gEp.length; i++) {
+                        var px = gx0 + (i / gLen) * gw;
+                        var py = gy0 + gh - gEp[i] * eSc;
+                        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                    }
+                    ctx.strokeStyle = '#60a5fa'; ctx.lineWidth = 2; ctx.stroke();
+
+                    // total E constant line
+                    ctx.setLineDash([5, 3]);
+                    ctx.strokeStyle = '#4ade80'; ctx.lineWidth = 1.5;
+                    var eY = gy0 + gh - Etot * eSc;
+                    ctx.beginPath(); ctx.moveTo(gx0, eY); ctx.lineTo(gx0 + gw, eY); ctx.stroke();
+                    ctx.setLineDash([]);
+                }
+
+                // legend
+                ctx.font = '11px Inter, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+                var legY = gy0 + 8;
+                ctx.fillStyle = '#e94560'; ctx.fillText('\u25CF E\u2096 (кінетична)', gx0 + gw - 180, legY);
+                ctx.fillStyle = '#60a5fa'; ctx.fillText('\u25CF E\u209A (потенціальна)', gx0 + gw - 180, legY + 15);
+                ctx.fillStyle = '#4ade80'; ctx.fillText('--- E (повна)', gx0 + gw - 180, legY + 30);
+
+                // note about 2*omega oscillation
+                ctx.fillStyle = '#666'; ctx.font = '10px Inter, sans-serif'; ctx.textAlign = 'right'; ctx.textBaseline = 'bottom';
+                ctx.fillText('E\u2096 i E\u209A коливаються з частотою 2\u03C9', gx0 + gw, gy0 + gh + 18);
+
+                // grid lines on energy graph
+                ctx.strokeStyle = 'rgba(60,60,80,0.25)';
+                ctx.lineWidth = 0.5;
+                if (Etot > 0) {
+                    var eScG = (gh - 15) / Etot;
+                    for (var eg = 1; eg <= 4; eg++) {
+                        var eFrac = eg * 0.25;
+                        var eGridY = gy0 + gh - eFrac * Etot * eScG;
+                        if (eGridY > gy0) {
+                            ctx.beginPath();
+                            ctx.moveTo(gx0, eGridY);
+                            ctx.lineTo(gx0 + gw, eGridY);
+                            ctx.stroke();
+                            // label
+                            ctx.fillStyle = '#555';
+                            ctx.font = '9px Inter, sans-serif';
+                            ctx.textAlign = 'right';
+                            ctx.textBaseline = 'middle';
+                            ctx.fillText((eFrac * 100).toFixed(0) + '%', gx0 - 3, eGridY);
+                        }
+                    }
+                }
+
+                // position indicator text
+                ctx.fillStyle = '#aaa';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+                if (Math.abs(xVal) < A * 0.1) {
+                    ctx.fillStyle = '#e94560';
+                    ctx.fillText('x \u2248 0: E\u2096 = max, E\u209A = 0', W * 0.12, topH - 2);
+                } else if (Math.abs(xVal) > A * 0.9) {
+                    ctx.fillStyle = '#60a5fa';
+                    ctx.fillText('x = \u00B1A: E\u2096 = 0, E\u209A = max', W * 0.12, topH - 2);
+                }
+
+                if (!paused) t += 0.025;
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+
+        /* ===========================================================
+           5. РЕЗОНАНС
+           =========================================================== */
+        (function() {
+            var canvas = document.getElementById('resCanvas');
+            if (!canvas) return;
+            var dim, ctx;
+            var omega0 = 5;
+            var wd = 5, beta = 0.5;
+            var t = 0, paused = false;
+
+            var elWd = document.getElementById('res-wd');
+            var elB = document.getElementById('res-b');
+            var elWdV = document.getElementById('res-wd-val');
+            var elBV = document.getElementById('res-b-val');
+            var elInfo = document.getElementById('res-info');
+
+            function resAmp(wDr, w0, b) {
+                var d2 = Math.pow(w0 * w0 - wDr * wDr, 2) + 4 * b * b * wDr * wDr;
+                return d2 < 1e-6 ? 500 : 1.0 / Math.sqrt(d2);
+            }
+
+            function updP() {
+                wd = parseFloat(elWd.value);
+                beta = parseFloat(elB.value);
+                elWdV.textContent = wd.toFixed(1);
+                elBV.textContent = beta.toFixed(1);
+                var a0 = resAmp(0.01, omega0, beta);
+                var aCur = resAmp(wd, omega0, beta);
+                var ratio = a0 > 1e-9 ? aCur / a0 : 0;
+                elInfo.innerHTML = '&omega;<sub>0</sub> = ' + omega0.toFixed(2) + ' рад/с &nbsp; A/A<sub>0</sub> = ' + (ratio > 99 ? '>99' : ratio.toFixed(2));
+            }
+            elWd.addEventListener('input', updP);
+            elB.addEventListener('input', updP);
+            document.getElementById('res-play').addEventListener('click', function() { paused = false; });
+            document.getElementById('res-pause').addEventListener('click', function() { paused = true; });
+            document.getElementById('res-reset').addEventListener('click', function() { t = 0; paused = false; });
+
+            function init() { dim = setupCanvas(canvas, 450); ctx = dim.ctx; }
+            window.addEventListener('resize', init);
+            init();
+            updP();
+
+            function draw() {
+                var W = dim.w, H = dim.h;
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, W, H);
+
+                /* LEFT: driven oscillator animation */
+                var leftW = W * 0.38;
+                var cy = H * 0.5;
+                var wallX = 26;
+                var eqX = leftW * 0.48;
+
+                // compute visible amplitude proportional to resonance
+                var ampPeak = resAmp(omega0, omega0, beta);
+                var ampCur = resAmp(wd, omega0, beta);
+                var dispAmp = Math.min((ampCur / ampPeak) * 90, 130);
+                var xDisp = dispAmp * Math.cos(wd * t);
+
+                var bx = eqX + xDisp;
+                var bW = 38, bH = 30;
+
+                // wall
+                drawWall(ctx, wallX, cy, 90);
+
+                // spring
+                var sEnd = bx - bW / 2;
+                if (sEnd < wallX + 10) sEnd = wallX + 10;
+                drawSpringLine(ctx, wallX, cy, sEnd, 12, 9);
+
+                // mass block - color intensity depends on amplitude
+                var intensity = Math.min(ampCur / ampPeak, 1);
+                var r = Math.round(233 * (0.4 + 0.6 * intensity));
+                var gb = Math.round(69 * (1 - 0.5 * intensity));
+                ctx.fillStyle = 'rgb(' + r + ',' + gb + ',' + Math.round(96 * (1 - 0.3 * intensity)) + ')';
+                ctx.fillRect(bx - bW / 2, cy - bH / 2, bW, bH);
+                ctx.strokeStyle = '#ff7090';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(bx - bW / 2, cy - bH / 2, bW, bH);
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 12px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('m', bx, cy);
+
+                // driving force arrow pulsing
+                var fPhase = Math.sin(wd * t);
+                var arrowLen = 35 * fPhase;
+                if (Math.abs(arrowLen) > 3) {
+                    drawArrow(ctx, bx + bW / 2 + 4, cy, bx + bW / 2 + 4 + arrowLen, cy, '#fbbf24', 3);
+                }
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText('F(t) = F\u2080 cos(\u03C9t)', bx + bW / 2 + 8, cy - 20);
+
+                // amplitude indicator
+                ctx.fillStyle = '#888';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillText('A = ' + dispAmp.toFixed(0) + ' (умовн.)', leftW / 2, cy + 60);
+
+                // damping indicator
+                ctx.fillStyle = '#666';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.fillText('\u03B2 = ' + beta.toFixed(1), leftW / 2, cy + 76);
+
+                /* RIGHT: resonance curve A(omega) */
+                var gx0 = leftW + 30;
+                var gy0 = 30;
+                var gw = W - leftW - 55;
+                var gh = H - 75;
+
+                // axes
+                ctx.strokeStyle = '#444'; ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.moveTo(gx0, gy0); ctx.lineTo(gx0, gy0 + gh); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(gx0, gy0 + gh); ctx.lineTo(gx0 + gw, gy0 + gh); ctx.stroke();
+                ctx.fillStyle = '#999'; ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+                ctx.fillText('\u03C9, рад/с', gx0 + gw / 2, gy0 + gh + 4);
+                ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+                ctx.fillText('A(\u03C9)', gx0 + 5, gy0 + 4);
+
+                // omega0 vertical dashed
+                var w0px = gx0 + (omega0 / 15) * gw;
+                ctx.setLineDash([3, 4]);
+                ctx.strokeStyle = '#555'; ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.moveTo(w0px, gy0); ctx.lineTo(w0px, gy0 + gh); ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.fillStyle = '#888'; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.fillText('\u03C9\u2080', w0px, gy0 + gh + 4);
+
+                // tick marks on omega axis
+                ctx.fillStyle = '#666'; ctx.font = '9px Inter, sans-serif';
+                for (var tick = 0; tick <= 15; tick += 5) {
+                    var txp = gx0 + (tick / 15) * gw;
+                    ctx.strokeStyle = '#444'; ctx.lineWidth = 1;
+                    ctx.beginPath(); ctx.moveTo(txp, gy0 + gh); ctx.lineTo(txp, gy0 + gh + 4); ctx.stroke();
+                    ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+                    ctx.fillText(tick.toString(), txp, gy0 + gh + 16);
+                }
+
+                // draw multiple resonance curves for different beta
+                var bgBetas = [0.3, 0.7, 1.5, 2.5];
+                var normPeak = resAmp(omega0, omega0, 0.3);
+                var normSc = (gh - 20) / normPeak;
+                if (normSc > 800) normSc = 800;
+
+                for (var bi = 0; bi < bgBetas.length; bi++) {
+                    var bv = bgBetas[bi];
+                    ctx.beginPath();
+                    for (var wi = 0; wi <= gw; wi += 2) {
+                        var ww = (wi / gw) * 15;
+                        var av = resAmp(ww, omega0, bv);
+                        var py = gy0 + gh - av * normSc;
+                        if (py < gy0) py = gy0;
+                        if (wi === 0) ctx.moveTo(gx0 + wi, py); else ctx.lineTo(gx0 + wi, py);
+                    }
+                    ctx.strokeStyle = 'rgba(96,165,250,0.2)';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                    // label
+                    var peakY = gy0 + gh - resAmp(omega0, omega0, bv) * normSc;
+                    if (peakY < gy0 + 5) peakY = gy0 + 5;
+                    ctx.fillStyle = 'rgba(130,130,130,0.5)';
+                    ctx.font = '9px Inter, sans-serif';
+                    ctx.textAlign = 'left';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('\u03B2=' + bv, gx0 + gw - 40, peakY + bi * 11 + 3);
+                }
+
+                // active curve for current beta
+                ctx.beginPath();
+                for (var wi = 0; wi <= gw; wi += 1) {
+                    var ww = (wi / gw) * 15;
+                    var av = resAmp(ww, omega0, beta);
+                    var py = gy0 + gh - av * normSc;
+                    if (py < gy0) py = gy0;
+                    if (wi === 0) ctx.moveTo(gx0 + wi, py); else ctx.lineTo(gx0 + wi, py);
+                }
+                ctx.strokeStyle = '#e94560';
+                ctx.lineWidth = 2.5;
+                ctx.stroke();
+
+                // current operating point
+                var wdPx = gx0 + (wd / 15) * gw;
+                var aY = gy0 + gh - ampCur * normSc;
+                if (aY < gy0) aY = gy0;
+                // glow
+                ctx.shadowColor = '#fbbf24';
+                ctx.shadowBlur = 10;
+                ctx.fillStyle = '#fbbf24';
+                ctx.beginPath(); ctx.arc(wdPx, aY, 7, 0, 2 * Math.PI); ctx.fill();
+                ctx.shadowBlur = 0;
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText('\u03C9\u0437\u043E\u0432\u043D = ' + wd.toFixed(1), wdPx + 10, aY - 2);
+
+                // resonance label with pulsing effect
+                if (Math.abs(wd - omega0) < 0.5) {
+                    var pulse = 0.7 + 0.3 * Math.sin(t * 8);
+                    ctx.fillStyle = 'rgba(251, 191, 36, ' + pulse.toFixed(2) + ')';
+                    ctx.font = 'bold 14px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+                    ctx.fillText('\u26A0 РЕЗОНАНС!', leftW / 2, cy - 55);
+
+                    // pulsing glow on the block
+                    ctx.shadowColor = '#fbbf24';
+                    ctx.shadowBlur = 20 * pulse;
+                    ctx.strokeStyle = 'rgba(251, 191, 36, ' + (pulse * 0.6).toFixed(2) + ')';
+                    ctx.lineWidth = 2;
+                    ctx.strokeRect(bx - bW / 2 - 3, cy - bH / 2 - 3, bW + 6, bH + 6);
+                    ctx.shadowBlur = 0;
+                }
+
+                // frequency ratio indicator
+                ctx.fillStyle = 'rgba(30,30,50,0.8)';
+                ctx.fillRect(8, H - 55, leftW - 16, 46);
+                ctx.strokeStyle = '#333'; ctx.lineWidth = 1;
+                ctx.strokeRect(8, H - 55, leftW - 16, 46);
+                ctx.fillStyle = '#ccc'; ctx.font = '10px Inter, sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+                ctx.fillText('\u03C9\u2080 = ' + omega0.toFixed(2) + ' рад/с', 16, H - 50);
+                ctx.fillText('\u03C9\u0437\u043E\u0432\u043D = ' + wd.toFixed(2) + ' рад/с', 16, H - 36);
+                var detuning = Math.abs(wd - omega0);
+                ctx.fillStyle = detuning < 0.5 ? '#fbbf24' : '#888';
+                ctx.fillText('\u0394\u03C9 = ' + detuning.toFixed(2), 16, H - 22);
+
+                // horizontal grid lines on resonance graph
+                ctx.strokeStyle = 'rgba(60,60,80,0.2)';
+                ctx.lineWidth = 0.5;
+                for (var rg = 1; rg <= 5; rg++) {
+                    var rgY = gy0 + gh - (rg / 5) * (gh - 10);
+                    ctx.beginPath();
+                    ctx.moveTo(gx0, rgY);
+                    ctx.lineTo(gx0 + gw, rgY);
+                    ctx.stroke();
+                }
+
+                if (!paused) t += 0.025;
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+
+        /* ===========================================================
+           6. ФІГУРИ ЛІССАЖУ
+           =========================================================== */
+        (function() {
+            var canvas = document.getElementById('lissCanvas');
+            if (!canvas) return;
+            var dim, ctx;
+
+            var ratios = [[1, 1], [1, 2], [2, 3], [3, 4], [3, 5], [4, 5]];
+            var ratioIdx = 1;
+            var delta = 0;
+            var trail = [];
+            var maxTrail = 2500;
+            var t = 0;
+            var baseOmega = 2;
+            var clearNext = false;
+
+            var elR = document.getElementById('li-r');
+            var elD = document.getElementById('li-d');
+            var elRV = document.getElementById('li-r-val');
+            var elDV = document.getElementById('li-d-val');
+
+            function gcd(a, b) { return b === 0 ? a : gcd(b, a % b); }
+
+            function updP() {
+                ratioIdx = parseInt(elR.value);
+                delta = parseFloat(elD.value) * Math.PI;
+                elRV.textContent = ratios[ratioIdx][0] + ':' + ratios[ratioIdx][1];
+                elDV.textContent = parseFloat(elD.value).toFixed(2);
+                trail = [];
+                t = 0;
+                clearNext = true;
+            }
+            elR.addEventListener('input', updP);
+            elD.addEventListener('input', updP);
+            document.getElementById('li-circle').addEventListener('click', function() {
+                elR.value = 0; elD.value = 0.5; updP();
+            });
+            document.getElementById('li-eight').addEventListener('click', function() {
+                elR.value = 1; elD.value = 0; updP();
+            });
+            document.getElementById('li-star').addEventListener('click', function() {
+                elR.value = 2; elD.value = 0.5; updP();
+            });
+            document.getElementById('li-reset').addEventListener('click', function() {
+                trail = []; t = 0; clearNext = true;
+            });
+
+            function init() { dim = setupCanvas(canvas, 450); ctx = dim.ctx; }
+            window.addEventListener('resize', init);
+            init();
+            updP();
+
+            function draw() {
+                var W = dim.w, H = dim.h;
+
+                // fade effect for trails
+                if (clearNext) {
+                    ctx.fillStyle = '#0a0a1a';
+                    ctx.fillRect(0, 0, W, H);
+                    clearNext = false;
+                } else {
+                    ctx.fillStyle = 'rgba(10, 10, 26, 0.06)';
+                    ctx.fillRect(0, 0, W, H);
+                }
+
+                var r = ratios[ratioIdx];
+                var w1 = baseOmega * r[0];
+                var w2 = baseOmega * r[1];
+
+                // main figure area
+                var figSize = Math.min(W * 0.6, H * 0.7);
+                var cx = W * 0.5;
+                var cy = H * 0.45;
+                var R = figSize * 0.45;
+
+                // add new points
+                var stepsPerFrame = 8;
+                for (var s = 0; s < stepsPerFrame; s++) {
+                    var xv = Math.sin(w1 * t);
+                    var yv = Math.sin(w2 * t + delta);
+                    trail.push({ x: xv, y: yv, t: t });
+                    t += 0.006;
+                }
+
+                // trim to one full period
+                var g = gcd(r[0], r[1]);
+                var period = (2 * Math.PI) / (baseOmega * g);
+                var maxT = period * 1.1;
+                while (trail.length > 0 && (t - trail[0].t) > maxT) {
+                    trail.shift();
+                }
+                if (trail.length > maxTrail) {
+                    trail = trail.slice(trail.length - maxTrail);
+                }
+
+                // bounding box
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(cx - R, cy - R, R * 2, R * 2);
+
+                // draw trail with rainbow gradient
+                if (trail.length > 1) {
+                    for (var i = 1; i < trail.length; i++) {
+                        var hue = (i / trail.length) * 360;
+                        var alpha = 0.25 + 0.75 * (i / trail.length);
+                        var lw = 1.5 + 1.5 * (i / trail.length);
+                        ctx.strokeStyle = 'hsla(' + Math.round(hue) + ', 100%, 60%, ' + alpha.toFixed(2) + ')';
+                        ctx.lineWidth = lw;
+                        ctx.beginPath();
+                        ctx.moveTo(cx + trail[i - 1].x * R, cy - trail[i - 1].y * R);
+                        ctx.lineTo(cx + trail[i].x * R, cy - trail[i].y * R);
+                        ctx.stroke();
+                    }
+
+                    // glowing head
+                    var last = trail[trail.length - 1];
+                    var hx = cx + last.x * R;
+                    var hy = cy - last.y * R;
+                    ctx.shadowColor = '#fff';
+                    ctx.shadowBlur = 15;
+                    ctx.fillStyle = '#fff';
+                    ctx.beginPath();
+                    ctx.arc(hx, hy, 4, 0, 2 * Math.PI);
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+
+                // side: x(t) component graph at bottom
+                var sgH = 35;
+                var sgY = cy + R + 15;
+                ctx.strokeStyle = '#444';
+                ctx.lineWidth = 0.5;
+                ctx.beginPath();
+                ctx.moveTo(cx - R, sgY + sgH / 2);
+                ctx.lineTo(cx + R, sgY + sgH / 2);
+                ctx.stroke();
+                if (trail.length > 1) {
+                    ctx.beginPath();
+                    for (var i = 0; i < trail.length; i++) {
+                        var frac = i / trail.length;
+                        var px = cx - R + frac * R * 2;
+                        var py = sgY + sgH / 2 - trail[i].y * (sgH / 2 - 2);
+                        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                    }
+                    ctx.strokeStyle = 'rgba(74, 222, 128, 0.5)';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+                ctx.fillStyle = '#4ade80';
+                ctx.font = '9px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('y(t)', cx + R + 4, sgY + sgH / 2);
+
+                // side: y(t) component graph on left
+                var slX = cx - R - 50;
+                ctx.strokeStyle = '#444';
+                ctx.lineWidth = 0.5;
+                ctx.beginPath();
+                ctx.moveTo(slX + 17, cy - R);
+                ctx.lineTo(slX + 17, cy + R);
+                ctx.stroke();
+                if (trail.length > 1) {
+                    ctx.beginPath();
+                    for (var i = 0; i < trail.length; i++) {
+                        var frac = i / trail.length;
+                        var py = cy + R - frac * R * 2;
+                        var px = slX + 17 + trail[i].x * 15;
+                        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                    }
+                    ctx.strokeStyle = 'rgba(96, 165, 250, 0.5)';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+                ctx.fillStyle = '#60a5fa';
+                ctx.font = '9px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText('x(t)', slX + 17, cy - R - 4);
+
+                // ratio label at top
+                ctx.fillStyle = '#ccc';
+                ctx.font = '14px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillText('\u03C9\u2081 : \u03C9\u2082 = ' + r[0] + ' : ' + r[1] + '    \u03B4 = ' + (delta / Math.PI).toFixed(2) + '\u03C0', cx, 10);
+
+                // coordinate axes for main figure
+                ctx.strokeStyle = 'rgba(80,80,100,0.3)';
+                ctx.lineWidth = 0.5;
+                // vertical center line
+                ctx.beginPath();
+                ctx.moveTo(cx, cy - R);
+                ctx.lineTo(cx, cy + R);
+                ctx.stroke();
+                // horizontal center line
+                ctx.beginPath();
+                ctx.moveTo(cx - R, cy);
+                ctx.lineTo(cx + R, cy);
+                ctx.stroke();
+
+                // axis labels on main figure
+                ctx.fillStyle = '#60a5fa';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText('x', cx + R + 12, cy + 4);
+                ctx.fillStyle = '#4ade80';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillText('y', cx, cy - R - 6);
+
+                // current point coordinates display
+                if (trail.length > 0) {
+                    var lastPt = trail[trail.length - 1];
+                    ctx.fillStyle = 'rgba(30,30,50,0.8)';
+                    ctx.fillRect(W - 130, H - 44, 122, 36);
+                    ctx.strokeStyle = '#444'; ctx.lineWidth = 1;
+                    ctx.strokeRect(W - 130, H - 44, 122, 36);
+                    ctx.fillStyle = '#60a5fa'; ctx.font = '10px Inter, sans-serif';
+                    ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+                    ctx.fillText('x = ' + lastPt.x.toFixed(3), W - 124, H - 40);
+                    ctx.fillStyle = '#4ade80';
+                    ctx.fillText('y = ' + lastPt.y.toFixed(3), W - 124, H - 26);
+                }
+
+                // special figure name
+                ctx.fillStyle = '#888';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                var figName = '';
+                if (r[0] === 1 && r[1] === 1 && Math.abs(delta - Math.PI / 2) < 0.15) figName = 'Коло';
+                else if (r[0] === 1 && r[1] === 1 && Math.abs(delta) < 0.15) figName = 'Пряма';
+                else if (r[0] === 1 && r[1] === 1) figName = 'Еліпс';
+                else if (r[0] === 1 && r[1] === 2) figName = 'Вісімка';
+                else if (r[0] === 2 && r[1] === 3) figName = 'Фігура 2:3';
+                else if (r[0] === 3 && r[1] === 4) figName = 'Фігура 3:4';
+                if (figName) {
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.font = '12px Inter, sans-serif';
+                    ctx.textAlign = 'left';
+                    ctx.textBaseline = 'top';
+                    ctx.fillText(figName, 10, H - 24);
+                }
+
+                requestAnimationFrame(draw);
+            }
+
+            // clear canvas for first frame
+            ctx.fillStyle = '#0a0a1a';
+            ctx.fillRect(0, 0, dim.w, dim.h);
+            draw();
+        })();
+
+
+        /* ===========================================================
+           KATEX RENDER
+           =========================================================== */
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false }
+                ],
+                throwOnError: false
+            });
+        }
+
+    });
+    </script>
+</body>
+</html>

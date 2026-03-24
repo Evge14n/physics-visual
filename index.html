@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фізика — Інтерактивний підручник для ЗНО</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script defer src="main.js"></script>
+    <style>
+        /* Index-specific: no sidebar on main page */
+        .main--index { margin-left: 0; }
+        @media (min-width: 1025px) {
+            .sidebar--index { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="header__logo">
+            <div class="header__logo-icon">&#9883;</div>
+            <span>Physics Visual</span>
+        </a>
+        <div class="header__search">
+            <span class="header__search-icon">&#128269;</span>
+            <input type="text" placeholder="Пошук теми...">
+            <div class="search-results"></div>
+        </div>
+        <div class="header__progress-info">
+            Прогрес: <span>3</span> / 43 тем
+        </div>
+    </header>
+
+    <div class="sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main main--index">
+        <!-- Hero -->
+        <section class="hero">
+            <h1 class="hero__title">Фізика для ЗНО</h1>
+            <p class="hero__subtitle">Інтерактивний підручник з візуалізаціями, формулами та задачами. Готуйся до ЗНО ефективно!</p>
+            <div class="hero__stats">
+                <div class="hero__stat">
+                    <div class="hero__stat-value">43</div>
+                    <div class="hero__stat-label">Теми</div>
+                </div>
+                <div class="hero__stat">
+                    <div class="hero__stat-value">200+</div>
+                    <div class="hero__stat-label">Формул</div>
+                </div>
+                <div class="hero__stat">
+                    <div class="hero__stat-value">50+</div>
+                    <div class="hero__stat-label">Візуалізацій</div>
+                </div>
+                <div class="hero__stat">
+                    <div class="hero__stat-value">100+</div>
+                    <div class="hero__stat-label">Задач ЗНО</div>
+                </div>
+            </div>
+            <a href="topics/formulas.html" style="display:inline-block;margin-top:20px;padding:14px 32px;background:var(--accent);color:#fff;border-radius:var(--radius-lg);font-weight:600;font-size:1.1rem;transition:background var(--transition);text-decoration:none;">&#128209; Довідник формул</a>
+        </section>
+
+        <!-- МЕХАНІКА -->
+        <div class="section-header">
+            <div class="section-header__icon">&#9881;</div>
+            <h2 class="section-header__title">Механіка</h2>
+            <span class="section-header__count">15 тем</span>
+        </div>
+        <div class="topics-grid">
+            <a href="topics/topic-1.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">1</div>
+                    <div class="topic-card__title">Вступ. Рівномірний рух. Середня швидкість. Відносність руху</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-2.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">2</div>
+                    <div class="topic-card__title">Рівноприскорений прямолінійний рух. Рух тіл по вертикалі</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-3.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">3</div>
+                    <div class="topic-card__title">Рух по горизонту під дією сили тяжіння</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-4.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">4</div>
+                    <div class="topic-card__title">Рівномірний рух по колу</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-5.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">5</div>
+                    <div class="topic-card__title">Закони Ньютона</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-6.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">6</div>
+                    <div class="topic-card__title">Закон всесвітнього тяжіння. Супутники</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-7.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">7</div>
+                    <div class="topic-card__title">Сила пружності. Вага і невагомість</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-8.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">8</div>
+                    <div class="topic-card__title">Сила тертя</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-9.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">9</div>
+                    <div class="topic-card__title">Імпульс. Закон збереження імпульсу</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-10.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">10</div>
+                    <div class="topic-card__title">Динаміка рівномірного руху тіла по колу</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-11.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">11</div>
+                    <div class="topic-card__title">Статика</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-12.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">12</div>
+                    <div class="topic-card__title">Закон збереження енергії</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-13.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">13</div>
+                    <div class="topic-card__title">Механічна робота. Потужність. ККД. Прості механізми</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-14.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">14</div>
+                    <div class="topic-card__title">Засоби збереження механічної енергії</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-15.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">15</div>
+                    <div class="topic-card__title">Елементи механіки рідин і газів</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- МОЛЕКУЛЯРНА ФІЗИКА -->
+        <div class="section-header">
+            <div class="section-header__icon">&#9883;</div>
+            <h2 class="section-header__title">Молекулярна фізика</h2>
+            <span class="section-header__count">5 тем</span>
+        </div>
+        <div class="topics-grid">
+            <a href="topics/topic-16.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">16</div>
+                    <div class="topic-card__title">Основи молекулярно-кінетичної теорії</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-17.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">17</div>
+                    <div class="topic-card__title">Рівняння стану ідеального газу. Ізопроцеси</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-18.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">18</div>
+                    <div class="topic-card__title">Насичена пара. Вологість повітря</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-19.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">19</div>
+                    <div class="topic-card__title">Поверхневий натяг. Капілярність</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-20.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">20</div>
+                    <div class="topic-card__title">Властивості твердих тіл. Механізм деформацій</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- ТЕРМОДИНАМІКА -->
+        <div class="section-header">
+            <div class="section-header__icon">&#9832;</div>
+            <h2 class="section-header__title">Термодинаміка</h2>
+            <span class="section-header__count">2 теми</span>
+        </div>
+        <div class="topics-grid">
+            <a href="topics/topic-21.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">21</div>
+                    <div class="topic-card__title">Основи термодинаміки</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-22.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">22</div>
+                    <div class="topic-card__title">Закон агрегатних станів речовини. Рівняння теплового балансу</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- ЕЛЕКТРИКА -->
+        <div class="section-header">
+            <div class="section-header__icon">&#9889;</div>
+            <h2 class="section-header__title">Електрика</h2>
+            <span class="section-header__count">7 тем</span>
+        </div>
+        <div class="topics-grid">
+            <a href="topics/topic-23.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">23</div>
+                    <div class="topic-card__title">Закон Кулона. Напруженість поля</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-24.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">24</div>
+                    <div class="topic-card__title">Потенціал. Різниця потенціалів. Робота електростатичного поля</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-25.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">25</div>
+                    <div class="topic-card__title">Електроємність. Енергія конденсаторів</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-26.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">26</div>
+                    <div class="topic-card__title">Постійний струм. Закон Ома для ділянки кола</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-27.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">27</div>
+                    <div class="topic-card__title">Закон Ома для повного (замкнутого) кола</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-28.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">28</div>
+                    <div class="topic-card__title">Робота і потужність струму. Закон Джоуля — Ленца</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-29.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">29</div>
+                    <div class="topic-card__title">Струм у різних середовищах</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- МАГНЕТИЗМ -->
+        <div class="section-header">
+            <div class="section-header__icon">&#9788;</div>
+            <h2 class="section-header__title">Магнетизм</h2>
+            <span class="section-header__count">2 теми</span>
+        </div>
+        <div class="topics-grid">
+            <a href="topics/topic-30.html" class="topic-card topic-card--completed">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">30</div>
+                    <div class="topic-card__title">Магнітне поле</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Завершено</span>
+                </div>
+            </a>
+            <a href="topics/topic-31.html" class="topic-card topic-card--completed">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">31</div>
+                    <div class="topic-card__title">Електромагнітна індукція</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Завершено</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- КОЛИВАННЯ І ХВИЛІ -->
+        <div class="section-header">
+            <div class="section-header__icon">&#8767;</div>
+            <h2 class="section-header__title">Коливання і хвилі</h2>
+            <span class="section-header__count">5 тем</span>
+        </div>
+        <div class="topics-grid">
+            <a href="topics/topic-32.html" class="topic-card topic-card--completed">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">32</div>
+                    <div class="topic-card__title">Механічні коливання</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Завершено</span>
+                </div>
+            </a>
+            <a href="topics/topic-33.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">33</div>
+                    <div class="topic-card__title">Механічні хвилі. Звук</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-34.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">34</div>
+                    <div class="topic-card__title">Вільні електромагнітні коливання</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-35.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">35</div>
+                    <div class="topic-card__title">Змінний струм</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-36.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">36</div>
+                    <div class="topic-card__title">Електромагнітні хвилі</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- ОПТИКА -->
+        <div class="section-header">
+            <div class="section-header__icon">&#128270;</div>
+            <h2 class="section-header__title">Оптика</h2>
+            <span class="section-header__count">3 теми</span>
+        </div>
+        <div class="topics-grid">
+            <a href="topics/topic-37.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">37</div>
+                    <div class="topic-card__title">Елементи геометричної оптики</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-38.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">38</div>
+                    <div class="topic-card__title">Лінзи</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-39.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">39</div>
+                    <div class="topic-card__title">Хвильова оптика</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- СУЧАСНА ФІЗИКА -->
+        <div class="section-header">
+            <div class="section-header__icon">&#9883;</div>
+            <h2 class="section-header__title">Сучасна фізика</h2>
+            <span class="section-header__count">4 теми</span>
+        </div>
+        <div class="topics-grid">
+            <a href="topics/topic-40.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">40</div>
+                    <div class="topic-card__title">Елементи теорії відносності</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-41.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">41</div>
+                    <div class="topic-card__title">Кванти світла</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-42.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">42</div>
+                    <div class="topic-card__title">Атомна фізика</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+            <a href="topics/topic-43.html" class="topic-card topic-card--empty">
+                <div class="topic-card__header">
+                    <div class="topic-card__number">43</div>
+                    <div class="topic-card__title">Ядерна фізика</div>
+                </div>
+                <div class="topic-card__status">
+                    <div class="topic-card__status-dot"></div>
+                    <span>Скоро буде</span>
+                </div>
+            </a>
+        </div>
+
+    </main>
+</body>
+</html>

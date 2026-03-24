@@ -1,0 +1,2054 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Довідник формул — Фізика ЗНО</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script defer src="../main.js"></script>
+    <style>
+        /* ============================================
+           Formulas Page — Custom Styles
+           ============================================ */
+
+        .formulas-hero {
+            background: linear-gradient(135deg, var(--bg-panel) 0%, var(--bg-secondary) 100%);
+            border-radius: var(--radius-lg);
+            padding: 40px 36px;
+            margin-bottom: 32px;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .formulas-hero::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(233, 69, 96, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .formulas-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: 30%;
+            width: 300px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(96, 165, 250, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .formulas-hero__title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .formulas-hero__subtitle {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+        }
+
+        .formulas-hero__stats {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .formulas-hero__stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .formulas-hero__stat-num {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        /* Search & Filters */
+        .formulas-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .formulas-search {
+            position: relative;
+        }
+
+        .formulas-search__icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            pointer-events: none;
+        }
+
+        .formulas-search__input {
+            width: 100%;
+            padding: 14px 16px 14px 48px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color var(--transition), box-shadow var(--transition);
+            outline: none;
+        }
+
+        .formulas-search__input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .formulas-search__input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-dim);
+        }
+
+        .formulas-search__clear {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: none;
+            padding: 4px;
+            line-height: 1;
+            transition: color var(--transition);
+        }
+
+        .formulas-search__clear:hover {
+            color: var(--text-primary);
+        }
+
+        .formulas-search__clear.visible {
+            display: block;
+        }
+
+        .formulas-filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .formulas-filter-btn {
+            padding: 8px 18px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all var(--transition);
+            white-space: nowrap;
+        }
+
+        .formulas-filter-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        .formulas-filter-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .formulas-count {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            min-height: 24px;
+        }
+
+        /* Topic Sections */
+        .formula-section {
+            margin-bottom: 40px;
+        }
+
+        .formula-section__header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .formula-section__icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .formula-section__icon--t30 {
+            background: rgba(233, 69, 96, 0.15);
+            color: #e94560;
+        }
+
+        .formula-section__icon--t31 {
+            background: rgba(96, 165, 250, 0.15);
+            color: #60a5fa;
+        }
+
+        .formula-section__icon--t32 {
+            background: rgba(74, 222, 128, 0.15);
+            color: #4ade80;
+        }
+
+        .formula-section__info {
+            flex: 1;
+        }
+
+        .formula-section__title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .formula-section__topic {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .formula-section__cards {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Formula Cards */
+        .formula-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition);
+            border-left: 4px solid transparent;
+        }
+
+        .formula-card--t30 {
+            border-left-color: #e94560;
+        }
+
+        .formula-card--t31 {
+            border-left-color: #60a5fa;
+        }
+
+        .formula-card--t32 {
+            border-left-color: #4ade80;
+        }
+
+        .formula-card:hover {
+            border-color: var(--border-light);
+            box-shadow: var(--shadow);
+        }
+
+        .formula-card.expanded {
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Card Header (always visible) */
+        .formula-card__header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            cursor: pointer;
+            user-select: none;
+            transition: background var(--transition);
+        }
+
+        .formula-card__header:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .formula-card__number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .formula-card--t30 .formula-card__number {
+            background: rgba(233, 69, 96, 0.15);
+            color: #e94560;
+        }
+
+        .formula-card--t31 .formula-card__number {
+            background: rgba(96, 165, 250, 0.15);
+            color: #60a5fa;
+        }
+
+        .formula-card--t32 .formula-card__number {
+            background: rgba(74, 222, 128, 0.15);
+            color: #4ade80;
+        }
+
+        .formula-card__title-area {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .formula-card__name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .formula-card__preview {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .formula-card__preview .katex {
+            font-size: 1.15em;
+        }
+
+        .formula-card__badge {
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .formula-card--t30 .formula-card__badge {
+            background: rgba(233, 69, 96, 0.12);
+            color: #e94560;
+        }
+
+        .formula-card--t31 .formula-card__badge {
+            background: rgba(96, 165, 250, 0.12);
+            color: #60a5fa;
+        }
+
+        .formula-card--t32 .formula-card__badge {
+            background: rgba(74, 222, 128, 0.12);
+            color: #4ade80;
+        }
+
+        .formula-card__toggle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .formula-card.expanded .formula-card__toggle {
+            transform: rotate(180deg);
+        }
+
+        /* Card Body (expandable) */
+        .formula-card__body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s ease;
+        }
+
+        .formula-card.expanded .formula-card__body {
+            max-height: 2000px;
+        }
+
+        .formula-card__body-inner {
+            padding: 0 20px 24px 20px;
+        }
+
+        .formula-card__divider {
+            height: 1px;
+            background: var(--border);
+            margin-bottom: 20px;
+        }
+
+        /* Big Formula Display */
+        .formula-card__formula-display {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .formula-card__formula-display .katex {
+            font-size: 1.6em;
+        }
+
+        /* Description */
+        .formula-card__description {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            padding: 12px 16px;
+            background: rgba(96, 165, 250, 0.06);
+            border-radius: var(--radius);
+            border-left: 3px solid var(--info);
+        }
+
+        /* Variables Table */
+        .formula-card__vars-title {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .formula-card__vars {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 24px;
+        }
+
+        .formula-card__var {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 14px;
+            background: var(--bg-input);
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+        }
+
+        .formula-card__var-symbol {
+            min-width: 40px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .formula-card__var-symbol .katex {
+            font-size: 1.05em;
+        }
+
+        .formula-card__var-desc {
+            flex: 1;
+            color: var(--text-secondary);
+        }
+
+        .formula-card__var-unit {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            white-space: nowrap;
+            padding: 2px 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        /* Calculator */
+        .formula-calc {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+        }
+
+        .formula-calc__title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .formula-calc__title-icon {
+            font-size: 1.1rem;
+        }
+
+        .formula-calc__inputs {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .formula-calc__field {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .formula-calc__label {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .formula-calc__label-symbol {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .formula-calc__label-unit {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+        }
+
+        .formula-calc__input {
+            padding: 10px 12px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace, sans-serif;
+            outline: none;
+            transition: border-color var(--transition), box-shadow var(--transition);
+            width: 100%;
+        }
+
+        .formula-calc__input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-dim);
+        }
+
+        .formula-calc__input::placeholder {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .formula-calc__result {
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px;
+            min-height: 56px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .formula-calc__result-step {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', 'Fira Code', monospace, sans-serif;
+            word-break: break-all;
+        }
+
+        .formula-calc__result-answer {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--success);
+            font-family: 'JetBrains Mono', 'Fira Code', monospace, sans-serif;
+        }
+
+        .formula-calc__result-error {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* No results */
+        .formulas-no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+
+        .formulas-no-results__icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            opacity: 0.5;
+        }
+
+        .formulas-no-results__text {
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+
+        .formulas-no-results__hint {
+            font-size: 0.88rem;
+        }
+
+        /* Hidden utility */
+        .formula-section.hidden,
+        .formula-card.hidden {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .formulas-hero {
+                padding: 28px 20px;
+            }
+            .formulas-hero__title {
+                font-size: 1.5rem;
+            }
+            .formulas-hero__stats {
+                gap: 16px;
+            }
+            .formula-card__header {
+                padding: 14px 16px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .formula-card__body-inner {
+                padding: 0 16px 20px 16px;
+            }
+            .formula-card__formula-display {
+                padding: 16px;
+                font-size: 1.1rem;
+            }
+            .formula-card__formula-display .katex {
+                font-size: 1.2em;
+            }
+            .formula-calc__inputs {
+                grid-template-columns: 1fr;
+            }
+            .formula-card__badge {
+                order: -1;
+            }
+            .formulas-filters {
+                gap: 6px;
+            }
+            .formulas-filter-btn {
+                padding: 6px 14px;
+                font-size: 0.82rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .formulas-hero__title {
+                font-size: 1.25rem;
+            }
+            .formulas-hero__stats {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .formula-section__header {
+                gap: 10px;
+            }
+            .formula-section__title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <button class="header__menu-btn">&#9776;</button>
+        <a href="../index.html" class="header__logo">
+            <div class="header__logo-icon">&#9883;</div>
+            <span>Physics Visual</span>
+        </a>
+        <div class="header__search">
+            <span class="header__search-icon">&#128269;</span>
+            <input type="text" placeholder="Пошук теми...">
+            <div class="search-results"></div>
+        </div>
+        <div class="header__progress-info"></div>
+    </header>
+
+    <div class="sidebar-overlay"></div>
+    <nav class="sidebar">
+        <div class="sidebar__section">
+            <div class="sidebar__section-title">Довідник</div>
+            <a href="formulas.html" class="sidebar__item sidebar__item--active">
+                <span class="sidebar__item-number">&#9883;</span>
+                <span class="sidebar__item-title">Формули</span>
+            </a>
+        </div>
+        <div class="sidebar__section">
+            <div class="sidebar__section-title">Усі теми</div>
+            <a href="topic-1.html" class="sidebar__item"><span class="sidebar__item-number">1</span><span class="sidebar__item-title">Вступ. Рівномірний рух. Середня швидкість. Відносність руху</span></a>
+            <a href="topic-2.html" class="sidebar__item"><span class="sidebar__item-number">2</span><span class="sidebar__item-title">Рівноприскорений прямолінійний рух. Рух тіл по вертикалі під дією сили тяжіння</span></a>
+            <a href="topic-3.html" class="sidebar__item"><span class="sidebar__item-number">3</span><span class="sidebar__item-title">Рух по горизонту під дією сили тяжіння</span></a>
+            <a href="topic-4.html" class="sidebar__item"><span class="sidebar__item-number">4</span><span class="sidebar__item-title">Рівномірний рух по колу</span></a>
+            <a href="topic-5.html" class="sidebar__item"><span class="sidebar__item-number">5</span><span class="sidebar__item-title">Закони Ньютона</span></a>
+            <a href="topic-6.html" class="sidebar__item"><span class="sidebar__item-number">6</span><span class="sidebar__item-title">Закон всесвітнього тяжіння. Супутники</span></a>
+            <a href="topic-7.html" class="sidebar__item"><span class="sidebar__item-number">7</span><span class="sidebar__item-title">Сила пружності. Вага і невагомість</span></a>
+            <a href="topic-8.html" class="sidebar__item"><span class="sidebar__item-number">8</span><span class="sidebar__item-title">Сила тертя</span></a>
+            <a href="topic-9.html" class="sidebar__item"><span class="sidebar__item-number">9</span><span class="sidebar__item-title">Імпульс. Закон збереження імпульсу</span></a>
+            <a href="topic-10.html" class="sidebar__item"><span class="sidebar__item-number">10</span><span class="sidebar__item-title">Динаміка рівномірного руху тіла по колу</span></a>
+            <a href="topic-11.html" class="sidebar__item"><span class="sidebar__item-number">11</span><span class="sidebar__item-title">Статика</span></a>
+            <a href="topic-12.html" class="sidebar__item"><span class="sidebar__item-number">12</span><span class="sidebar__item-title">Закон збереження енергії</span></a>
+            <a href="topic-13.html" class="sidebar__item"><span class="sidebar__item-number">13</span><span class="sidebar__item-title">Механічна робота. Потужність. ККД. Прості механізми</span></a>
+            <a href="topic-14.html" class="sidebar__item"><span class="sidebar__item-number">14</span><span class="sidebar__item-title">Засоби збереження механічної енергії</span></a>
+            <a href="topic-15.html" class="sidebar__item"><span class="sidebar__item-number">15</span><span class="sidebar__item-title">Елементи механіки рідин і газів</span></a>
+            <a href="topic-16.html" class="sidebar__item"><span class="sidebar__item-number">16</span><span class="sidebar__item-title">Основи молекулярно-кінетичної теорії</span></a>
+            <a href="topic-17.html" class="sidebar__item"><span class="sidebar__item-number">17</span><span class="sidebar__item-title">Рівняння стану ідеального газу. Ізопроцеси</span></a>
+            <a href="topic-18.html" class="sidebar__item"><span class="sidebar__item-number">18</span><span class="sidebar__item-title">Насичена пара. Вологість повітря</span></a>
+            <a href="topic-19.html" class="sidebar__item"><span class="sidebar__item-number">19</span><span class="sidebar__item-title">Поверхневий натяг. Капілярність</span></a>
+            <a href="topic-20.html" class="sidebar__item"><span class="sidebar__item-number">20</span><span class="sidebar__item-title">Властивості твердих тіл. Механізм деформацій</span></a>
+            <a href="topic-21.html" class="sidebar__item"><span class="sidebar__item-number">21</span><span class="sidebar__item-title">Основи термодинаміки</span></a>
+            <a href="topic-22.html" class="sidebar__item"><span class="sidebar__item-number">22</span><span class="sidebar__item-title">Закон агрегатних станів речовини. Рівняння теплового балансу</span></a>
+            <a href="topic-23.html" class="sidebar__item"><span class="sidebar__item-number">23</span><span class="sidebar__item-title">Закон Кулона. Напруженість поля</span></a>
+            <a href="topic-24.html" class="sidebar__item"><span class="sidebar__item-number">24</span><span class="sidebar__item-title">Потенціал. Різниця потенціалів. Робота електростатичного поля</span></a>
+            <a href="topic-25.html" class="sidebar__item"><span class="sidebar__item-number">25</span><span class="sidebar__item-title">Електроємність. Енергія конденсаторів</span></a>
+            <a href="topic-26.html" class="sidebar__item"><span class="sidebar__item-number">26</span><span class="sidebar__item-title">Постійний струм. Закон Ома для ділянки кола</span></a>
+            <a href="topic-27.html" class="sidebar__item"><span class="sidebar__item-number">27</span><span class="sidebar__item-title">Закон Ома для повного (замкнутого) кола</span></a>
+            <a href="topic-28.html" class="sidebar__item"><span class="sidebar__item-number">28</span><span class="sidebar__item-title">Робота і потужність струму. Закон Джоуля — Ленца</span></a>
+            <a href="topic-29.html" class="sidebar__item"><span class="sidebar__item-number">29</span><span class="sidebar__item-title">Струм у різних середовищах</span></a>
+            <a href="topic-30.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">30</span><span class="sidebar__item-title">Магнітне поле</span></a>
+            <a href="topic-31.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">31</span><span class="sidebar__item-title">Електромагнітна індукція</span></a>
+            <a href="topic-32.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">32</span><span class="sidebar__item-title">Механічні коливання</span></a>
+            <a href="topic-33.html" class="sidebar__item"><span class="sidebar__item-number">33</span><span class="sidebar__item-title">Механічні хвилі. Звук</span></a>
+            <a href="topic-34.html" class="sidebar__item"><span class="sidebar__item-number">34</span><span class="sidebar__item-title">Вільні електромагнітні коливання</span></a>
+            <a href="topic-35.html" class="sidebar__item"><span class="sidebar__item-number">35</span><span class="sidebar__item-title">Змінний струм</span></a>
+            <a href="topic-36.html" class="sidebar__item"><span class="sidebar__item-number">36</span><span class="sidebar__item-title">Електромагнітні хвилі</span></a>
+            <a href="topic-37.html" class="sidebar__item"><span class="sidebar__item-number">37</span><span class="sidebar__item-title">Елементи геометричної оптики</span></a>
+            <a href="topic-38.html" class="sidebar__item"><span class="sidebar__item-number">38</span><span class="sidebar__item-title">Лінзи</span></a>
+            <a href="topic-39.html" class="sidebar__item"><span class="sidebar__item-number">39</span><span class="sidebar__item-title">Хвильова оптика</span></a>
+            <a href="topic-40.html" class="sidebar__item"><span class="sidebar__item-number">40</span><span class="sidebar__item-title">Елементи теорії відносності</span></a>
+            <a href="topic-41.html" class="sidebar__item"><span class="sidebar__item-number">41</span><span class="sidebar__item-title">Кванти світла</span></a>
+            <a href="topic-42.html" class="sidebar__item"><span class="sidebar__item-number">42</span><span class="sidebar__item-title">Атомна фізика</span></a>
+            <a href="topic-43.html" class="sidebar__item"><span class="sidebar__item-number">43</span><span class="sidebar__item-title">Ядерна фізика</span></a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <div class="formulas-hero">
+            <h1 class="formulas-hero__title">Довідник формул</h1>
+            <p class="formulas-hero__subtitle">Інтерактивний довідник з калькуляторами для кожної формули</p>
+            <div class="formulas-hero__stats">
+                <div class="formulas-hero__stat">
+                    <span class="formulas-hero__stat-num">18</span> формул
+                </div>
+                <div class="formulas-hero__stat">
+                    <span class="formulas-hero__stat-num">3</span> теми
+                </div>
+                <div class="formulas-hero__stat">
+                    <span class="formulas-hero__stat-num">18</span> калькуляторів
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="formulas-controls">
+            <div class="formulas-search">
+                <span class="formulas-search__icon">&#128269;</span>
+                <input type="text" class="formulas-search__input" id="formulaSearch" placeholder="Пошук за назвою формули, змінною або описом...">
+                <button class="formulas-search__clear" id="searchClear">&times;</button>
+            </div>
+            <div class="formulas-filters" id="topicFilters">
+                <button class="formulas-filter-btn active" data-topic="all">Усі формули</button>
+                <button class="formulas-filter-btn" data-topic="t30">Тема 30: Магнітне поле</button>
+                <button class="formulas-filter-btn" data-topic="t31">Тема 31: Електромагнітна індукція</button>
+                <button class="formulas-filter-btn" data-topic="t32">Тема 32: Механічні коливання</button>
+            </div>
+        </div>
+
+        <div class="formulas-count" id="formulasCount"></div>
+
+        <!-- No results -->
+        <div class="formulas-no-results" id="noResults" style="display:none;">
+            <div class="formulas-no-results__icon">&#128270;</div>
+            <div class="formulas-no-results__text">Нічого не знайдено</div>
+            <div class="formulas-no-results__hint">Спробуйте інший пошуковий запит</div>
+        </div>
+
+        <!-- ============================================
+             ТЕМА 30: Магнітне поле
+             ============================================ -->
+        <section class="formula-section" data-topic="t30" id="section-t30">
+            <div class="formula-section__header">
+                <div class="formula-section__icon formula-section__icon--t30">&#9788;</div>
+                <div class="formula-section__info">
+                    <div class="formula-section__title">Магнітне поле</div>
+                    <div class="formula-section__topic">Тема 30 &middot; 6 формул</div>
+                </div>
+            </div>
+            <div class="formula-section__cards">
+
+                <!-- Formula 1: Магнітна індукція -->
+                <div class="formula-card formula-card--t30" data-id="1" data-topic="t30"
+                     data-search="магнітна індукція сила струм довжина провідника B F I l">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">1</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">Магнітна індукція</div>
+                            <div class="formula-card__preview" data-katex="B = \dfrac{F}{I \cdot l}"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 30</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="B = \dfrac{F}{I \cdot l}"></div>
+                            <div class="formula-card__description">
+                                Магнітна індукція характеризує силу магнітного поля. Визначається як відношення сили, що діє на провідник зі струмом у магнітному полі, до добутку сили струму та довжини провідника. Одиниця вимірювання — тесла (Тл).
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var">
+                                    <span class="formula-card__var-symbol" data-katex="B"></span>
+                                    <span class="formula-card__var-desc">магнітна індукція</span>
+                                    <span class="formula-card__var-unit">Тл</span>
+                                </div>
+                                <div class="formula-card__var">
+                                    <span class="formula-card__var-symbol" data-katex="F"></span>
+                                    <span class="formula-card__var-desc">сила, що діє на провідник</span>
+                                    <span class="formula-card__var-unit">Н</span>
+                                </div>
+                                <div class="formula-card__var">
+                                    <span class="formula-card__var-symbol" data-katex="I"></span>
+                                    <span class="formula-card__var-desc">сила струму</span>
+                                    <span class="formula-card__var-unit">А</span>
+                                </div>
+                                <div class="formula-card__var">
+                                    <span class="formula-card__var-symbol" data-katex="l"></span>
+                                    <span class="formula-card__var-desc">довжина провідника</span>
+                                    <span class="formula-card__var-unit">м</span>
+                                </div>
+                            </div>
+                            <div class="formula-calc" data-formula="f1">
+                                <div class="formula-calc__title">
+                                    <span class="formula-calc__title-icon">&#9881;</span> Калькулятор
+                                </div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field">
+                                        <label class="formula-calc__label"><span class="formula-calc__label-symbol">F</span> — сила <span class="formula-calc__label-unit">(Н)</span></label>
+                                        <input type="number" class="formula-calc__input" data-var="F" placeholder="0" step="any">
+                                    </div>
+                                    <div class="formula-calc__field">
+                                        <label class="formula-calc__label"><span class="formula-calc__label-symbol">I</span> — сила струму <span class="formula-calc__label-unit">(А)</span></label>
+                                        <input type="number" class="formula-calc__input" data-var="I" placeholder="0" step="any">
+                                    </div>
+                                    <div class="formula-calc__field">
+                                        <label class="formula-calc__label"><span class="formula-calc__label-symbol">l</span> — довжина <span class="formula-calc__label-unit">(м)</span></label>
+                                        <input type="number" class="formula-calc__input" data-var="l" placeholder="0" step="any">
+                                    </div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f1">
+                                    <div class="formula-calc__result-error">Введіть значення для розрахунку</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula 2: Магнітний потік -->
+                <div class="formula-card formula-card--t30" data-id="2" data-topic="t30"
+                     data-search="магнітний потік індукція площа кут Φ B S α вебер">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">2</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">Магнітний потік</div>
+                            <div class="formula-card__preview" data-katex="\Phi = B \cdot S \cdot \cos\alpha"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 30</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="\Phi = B \cdot S \cdot \cos\alpha"></div>
+                            <div class="formula-card__description">
+                                Магнітний потік визначає кількість ліній магнітної індукції, що пронизують певну площину. Залежить від індукції поля, площі поверхні та кута між вектором індукції та нормаллю до поверхні.
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var">
+                                    <span class="formula-card__var-symbol" data-katex="\Phi"></span>
+                                    <span class="formula-card__var-desc">магнітний потік</span>
+                                    <span class="formula-card__var-unit">Вб</span>
+                                </div>
+                                <div class="formula-card__var">
+                                    <span class="formula-card__var-symbol" data-katex="B"></span>
+                                    <span class="formula-card__var-desc">магнітна індукція</span>
+                                    <span class="formula-card__var-unit">Тл</span>
+                                </div>
+                                <div class="formula-card__var">
+                                    <span class="formula-card__var-symbol" data-katex="S"></span>
+                                    <span class="formula-card__var-desc">площа контуру</span>
+                                    <span class="formula-card__var-unit">м&sup2;</span>
+                                </div>
+                                <div class="formula-card__var">
+                                    <span class="formula-card__var-symbol" data-katex="\alpha"></span>
+                                    <span class="formula-card__var-desc">кут між B і нормаллю</span>
+                                    <span class="formula-card__var-unit">&deg;</span>
+                                </div>
+                            </div>
+                            <div class="formula-calc" data-formula="f2">
+                                <div class="formula-calc__title">
+                                    <span class="formula-calc__title-icon">&#9881;</span> Калькулятор
+                                </div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field">
+                                        <label class="formula-calc__label"><span class="formula-calc__label-symbol">B</span> — індукція <span class="formula-calc__label-unit">(Тл)</span></label>
+                                        <input type="number" class="formula-calc__input" data-var="B" placeholder="0" step="any">
+                                    </div>
+                                    <div class="formula-calc__field">
+                                        <label class="formula-calc__label"><span class="formula-calc__label-symbol">S</span> — площа <span class="formula-calc__label-unit">(м&sup2;)</span></label>
+                                        <input type="number" class="formula-calc__input" data-var="S" placeholder="0" step="any">
+                                    </div>
+                                    <div class="formula-calc__field">
+                                        <label class="formula-calc__label"><span class="formula-calc__label-symbol">&alpha;</span> — кут <span class="formula-calc__label-unit">(&deg;)</span></label>
+                                        <input type="number" class="formula-calc__input" data-var="alpha" placeholder="0" step="any">
+                                    </div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f2">
+                                    <div class="formula-calc__result-error">Введіть значення для розрахунку</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula 3: Сила Ампера -->
+                <div class="formula-card formula-card--t30" data-id="3" data-topic="t30"
+                     data-search="сила ампера індукція струм довжина кут F B I l α">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">3</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">Сила Ампера</div>
+                            <div class="formula-card__preview" data-katex="F = B \cdot I \cdot l \cdot \sin\alpha"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 30</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="F = B \cdot I \cdot l \cdot \sin\alpha"></div>
+                            <div class="formula-card__description">
+                                Сила Ампера — це сила, з якою магнітне поле діє на провідник зі струмом. Напрямок сили визначається за правилом лівої руки. Максимальна, коли провідник перпендикулярний до ліній індукції.
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="F"></span><span class="formula-card__var-desc">сила Ампера</span><span class="formula-card__var-unit">Н</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="B"></span><span class="formula-card__var-desc">магнітна індукція</span><span class="formula-card__var-unit">Тл</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="I"></span><span class="formula-card__var-desc">сила струму</span><span class="formula-card__var-unit">А</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="l"></span><span class="formula-card__var-desc">довжина провідника</span><span class="formula-card__var-unit">м</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\alpha"></span><span class="formula-card__var-desc">кут між провідником і вектором B</span><span class="formula-card__var-unit">&deg;</span></div>
+                            </div>
+                            <div class="formula-calc" data-formula="f3">
+                                <div class="formula-calc__title"><span class="formula-calc__title-icon">&#9881;</span> Калькулятор</div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">B</span> — індукція <span class="formula-calc__label-unit">(Тл)</span></label><input type="number" class="formula-calc__input" data-var="B" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">I</span> — струм <span class="formula-calc__label-unit">(А)</span></label><input type="number" class="formula-calc__input" data-var="I" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">l</span> — довжина <span class="formula-calc__label-unit">(м)</span></label><input type="number" class="formula-calc__input" data-var="l" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">&alpha;</span> — кут <span class="formula-calc__label-unit">(&deg;)</span></label><input type="number" class="formula-calc__input" data-var="alpha" placeholder="90" step="any"></div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f3"><div class="formula-calc__result-error">Введіть значення для розрахунку</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula 4: Сила Лоренца -->
+                <div class="formula-card formula-card--t30" data-id="4" data-topic="t30"
+                     data-search="сила лоренца заряд швидкість індукція кут F q v B α">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">4</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">Сила Лоренца</div>
+                            <div class="formula-card__preview" data-katex="F = q \cdot v \cdot B \cdot \sin\alpha"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 30</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="F = q \cdot v \cdot B \cdot \sin\alpha"></div>
+                            <div class="formula-card__description">
+                                Сила Лоренца — сила, з якою магнітне поле діє на рухому заряджену частинку. Напрямок визначається за правилом лівої руки. Ця сила не виконує роботу, а лише змінює напрямок руху частинки.
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="F"></span><span class="formula-card__var-desc">сила Лоренца</span><span class="formula-card__var-unit">Н</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="q"></span><span class="formula-card__var-desc">електричний заряд</span><span class="formula-card__var-unit">Кл</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="v"></span><span class="formula-card__var-desc">швидкість частинки</span><span class="formula-card__var-unit">м/с</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="B"></span><span class="formula-card__var-desc">магнітна індукція</span><span class="formula-card__var-unit">Тл</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\alpha"></span><span class="formula-card__var-desc">кут між v і B</span><span class="formula-card__var-unit">&deg;</span></div>
+                            </div>
+                            <div class="formula-calc" data-formula="f4">
+                                <div class="formula-calc__title"><span class="formula-calc__title-icon">&#9881;</span> Калькулятор</div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">q</span> — заряд <span class="formula-calc__label-unit">(Кл)</span></label><input type="number" class="formula-calc__input" data-var="q" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">v</span> — швидкість <span class="formula-calc__label-unit">(м/с)</span></label><input type="number" class="formula-calc__input" data-var="v" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">B</span> — індукція <span class="formula-calc__label-unit">(Тл)</span></label><input type="number" class="formula-calc__input" data-var="B" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">&alpha;</span> — кут <span class="formula-calc__label-unit">(&deg;)</span></label><input type="number" class="formula-calc__input" data-var="alpha" placeholder="90" step="any"></div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f4"><div class="formula-calc__result-error">Введіть значення для розрахунку</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula 5: Радіус кола -->
+                <div class="formula-card formula-card--t30" data-id="5" data-topic="t30"
+                     data-search="радіус кола магнітне поле маса швидкість заряд індукція r m v q B">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">5</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">Радіус кола в магнітному полі</div>
+                            <div class="formula-card__preview" data-katex="r = \dfrac{m \cdot v}{q \cdot B}"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 30</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="r = \dfrac{m \cdot v}{q \cdot B}"></div>
+                            <div class="formula-card__description">
+                                Заряджена частинка, що влітає перпендикулярно до ліній магнітного поля, рухається по колу. Радіус цього кола залежить від маси, швидкості, заряду частинки та індукції магнітного поля.
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="r"></span><span class="formula-card__var-desc">радіус кола</span><span class="formula-card__var-unit">м</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="m"></span><span class="formula-card__var-desc">маса частинки</span><span class="formula-card__var-unit">кг</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="v"></span><span class="formula-card__var-desc">швидкість частинки</span><span class="formula-card__var-unit">м/с</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="q"></span><span class="formula-card__var-desc">електричний заряд</span><span class="formula-card__var-unit">Кл</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="B"></span><span class="formula-card__var-desc">магнітна індукція</span><span class="formula-card__var-unit">Тл</span></div>
+                            </div>
+                            <div class="formula-calc" data-formula="f5">
+                                <div class="formula-calc__title"><span class="formula-calc__title-icon">&#9881;</span> Калькулятор</div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">m</span> — маса <span class="formula-calc__label-unit">(кг)</span></label><input type="number" class="formula-calc__input" data-var="m" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">v</span> — швидкість <span class="formula-calc__label-unit">(м/с)</span></label><input type="number" class="formula-calc__input" data-var="v" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">q</span> — заряд <span class="formula-calc__label-unit">(Кл)</span></label><input type="number" class="formula-calc__input" data-var="q" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">B</span> — індукція <span class="formula-calc__label-unit">(Тл)</span></label><input type="number" class="formula-calc__input" data-var="B" placeholder="0" step="any"></div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f5"><div class="formula-calc__result-error">Введіть значення для розрахунку</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula 6: Період обертання -->
+                <div class="formula-card formula-card--t30" data-id="6" data-topic="t30"
+                     data-search="період обертання магнітне поле маса заряд індукція T m q B">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">6</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">Період обертання в магнітному полі</div>
+                            <div class="formula-card__preview" data-katex="T = \dfrac{2\pi m}{q \cdot B}"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 30</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="T = \dfrac{2\pi m}{q \cdot B}"></div>
+                            <div class="formula-card__description">
+                                Період обертання зарядженої частинки в магнітному полі не залежить від швидкості. Він визначається лише масою, зарядом частинки та індукцією поля. Це лежить в основі роботи циклотрона.
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="T"></span><span class="formula-card__var-desc">період обертання</span><span class="formula-card__var-unit">с</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="m"></span><span class="formula-card__var-desc">маса частинки</span><span class="formula-card__var-unit">кг</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="q"></span><span class="formula-card__var-desc">електричний заряд</span><span class="formula-card__var-unit">Кл</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="B"></span><span class="formula-card__var-desc">магнітна індукція</span><span class="formula-card__var-unit">Тл</span></div>
+                            </div>
+                            <div class="formula-calc" data-formula="f6">
+                                <div class="formula-calc__title"><span class="formula-calc__title-icon">&#9881;</span> Калькулятор</div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">m</span> — маса <span class="formula-calc__label-unit">(кг)</span></label><input type="number" class="formula-calc__input" data-var="m" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">q</span> — заряд <span class="formula-calc__label-unit">(Кл)</span></label><input type="number" class="formula-calc__input" data-var="q" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">B</span> — індукція <span class="formula-calc__label-unit">(Тл)</span></label><input type="number" class="formula-calc__input" data-var="B" placeholder="0" step="any"></div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f6"><div class="formula-calc__result-error">Введіть значення для розрахунку</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================
+             ТЕМА 31: Електромагнітна індукція
+             ============================================ -->
+        <section class="formula-section" data-topic="t31" id="section-t31">
+            <div class="formula-section__header">
+                <div class="formula-section__icon formula-section__icon--t31">&#9889;</div>
+                <div class="formula-section__info">
+                    <div class="formula-section__title">Електромагнітна індукція</div>
+                    <div class="formula-section__topic">Тема 31 &middot; 5 формул</div>
+                </div>
+            </div>
+            <div class="formula-section__cards">
+
+                <!-- Formula 7: ЕРС індукції -->
+                <div class="formula-card formula-card--t31" data-id="7" data-topic="t31"
+                     data-search="ерс індукції закон фарадея магнітний потік час ε ΔΦ Δt">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">7</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">ЕРС індукції (закон Фарадея)</div>
+                            <div class="formula-card__preview" data-katex="\varepsilon = \dfrac{\Delta\Phi}{\Delta t}"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 31</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="\varepsilon = \dfrac{\Delta\Phi}{\Delta t}"></div>
+                            <div class="formula-card__description">
+                                Закон Фарадея: ЕРС електромагнітної індукції дорівнює швидкості зміни магнітного потоку через контур. Чим швидше змінюється потік, тим більша ЕРС індукується в контурі.
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\varepsilon"></span><span class="formula-card__var-desc">ЕРС індукції</span><span class="formula-card__var-unit">В</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\Delta\Phi"></span><span class="formula-card__var-desc">зміна магнітного потоку</span><span class="formula-card__var-unit">Вб</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\Delta t"></span><span class="formula-card__var-desc">проміжок часу</span><span class="formula-card__var-unit">с</span></div>
+                            </div>
+                            <div class="formula-calc" data-formula="f7">
+                                <div class="formula-calc__title"><span class="formula-calc__title-icon">&#9881;</span> Калькулятор</div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">&Delta;&Phi;</span> — зміна потоку <span class="formula-calc__label-unit">(Вб)</span></label><input type="number" class="formula-calc__input" data-var="dPhi" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">&Delta;t</span> — час <span class="formula-calc__label-unit">(с)</span></label><input type="number" class="formula-calc__input" data-var="dt" placeholder="0" step="any"></div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f7"><div class="formula-calc__result-error">Введіть значення для розрахунку</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula 8: ЕРС в рухомому провіднику -->
+                <div class="formula-card formula-card--t31" data-id="8" data-topic="t31"
+                     data-search="ерс рухомий провідник індукція довжина швидкість кут ε B l v α">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">8</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">ЕРС в рухомому провіднику</div>
+                            <div class="formula-card__preview" data-katex="\varepsilon = B \cdot l \cdot v \cdot \sin\alpha"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 31</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="\varepsilon = B \cdot l \cdot v \cdot \sin\alpha"></div>
+                            <div class="formula-card__description">
+                                При русі провідника в магнітному полі в ньому індукується ЕРС. Її величина залежить від індукції поля, довжини провідника, швидкості його руху та кута між напрямком руху і лініями поля.
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\varepsilon"></span><span class="formula-card__var-desc">ЕРС індукції</span><span class="formula-card__var-unit">В</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="B"></span><span class="formula-card__var-desc">магнітна індукція</span><span class="formula-card__var-unit">Тл</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="l"></span><span class="formula-card__var-desc">довжина провідника</span><span class="formula-card__var-unit">м</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="v"></span><span class="formula-card__var-desc">швидкість руху</span><span class="formula-card__var-unit">м/с</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\alpha"></span><span class="formula-card__var-desc">кут між v і B</span><span class="formula-card__var-unit">&deg;</span></div>
+                            </div>
+                            <div class="formula-calc" data-formula="f8">
+                                <div class="formula-calc__title"><span class="formula-calc__title-icon">&#9881;</span> Калькулятор</div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">B</span> — індукція <span class="formula-calc__label-unit">(Тл)</span></label><input type="number" class="formula-calc__input" data-var="B" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">l</span> — довжина <span class="formula-calc__label-unit">(м)</span></label><input type="number" class="formula-calc__input" data-var="l" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">v</span> — швидкість <span class="formula-calc__label-unit">(м/с)</span></label><input type="number" class="formula-calc__input" data-var="v" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">&alpha;</span> — кут <span class="formula-calc__label-unit">(&deg;)</span></label><input type="number" class="formula-calc__input" data-var="alpha" placeholder="90" step="any"></div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f8"><div class="formula-calc__result-error">Введіть значення для розрахунку</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula 9: ЕРС самоіндукції -->
+                <div class="formula-card formula-card--t31" data-id="9" data-topic="t31"
+                     data-search="ерс самоіндукції індуктивність зміна струму час ε L ΔI Δt">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">9</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">ЕРС самоіндукції</div>
+                            <div class="formula-card__preview" data-katex="\varepsilon = L \cdot \dfrac{\Delta I}{\Delta t}"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 31</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="\varepsilon = L \cdot \dfrac{\Delta I}{\Delta t}"></div>
+                            <div class="formula-card__description">
+                                При зміні сили струму в котушці виникає ЕРС самоіндукції, що протидіє зміні струму (за правилом Ленца). Чим більша індуктивність котушки та швидше змінюється струм, тим більша ця ЕРС.
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\varepsilon"></span><span class="formula-card__var-desc">ЕРС самоіндукції</span><span class="formula-card__var-unit">В</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="L"></span><span class="formula-card__var-desc">індуктивність</span><span class="formula-card__var-unit">Гн</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\Delta I"></span><span class="formula-card__var-desc">зміна сили струму</span><span class="formula-card__var-unit">А</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\Delta t"></span><span class="formula-card__var-desc">проміжок часу</span><span class="formula-card__var-unit">с</span></div>
+                            </div>
+                            <div class="formula-calc" data-formula="f9">
+                                <div class="formula-calc__title"><span class="formula-calc__title-icon">&#9881;</span> Калькулятор</div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">L</span> — індуктивність <span class="formula-calc__label-unit">(Гн)</span></label><input type="number" class="formula-calc__input" data-var="L" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">&Delta;I</span> — зміна струму <span class="formula-calc__label-unit">(А)</span></label><input type="number" class="formula-calc__input" data-var="dI" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">&Delta;t</span> — час <span class="formula-calc__label-unit">(с)</span></label><input type="number" class="formula-calc__input" data-var="dt" placeholder="0" step="any"></div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f9"><div class="formula-calc__result-error">Введіть значення для розрахунку</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula 10: Енергія магнітного поля -->
+                <div class="formula-card formula-card--t31" data-id="10" data-topic="t31"
+                     data-search="енергія магнітне поле індуктивність струм W L I">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">10</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">Енергія магнітного поля</div>
+                            <div class="formula-card__preview" data-katex="W = \dfrac{L \cdot I^2}{2}"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 31</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="W = \dfrac{L \cdot I^2}{2}"></div>
+                            <div class="formula-card__description">
+                                Котушка зі струмом накопичує енергію в магнітному полі. Ця енергія пропорційна індуктивності котушки та квадрату сили струму. При відключенні струму ця енергія вивільняється.
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="W"></span><span class="formula-card__var-desc">енергія магнітного поля</span><span class="formula-card__var-unit">Дж</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="L"></span><span class="formula-card__var-desc">індуктивність</span><span class="formula-card__var-unit">Гн</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="I"></span><span class="formula-card__var-desc">сила струму</span><span class="formula-card__var-unit">А</span></div>
+                            </div>
+                            <div class="formula-calc" data-formula="f10">
+                                <div class="formula-calc__title"><span class="formula-calc__title-icon">&#9881;</span> Калькулятор</div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">L</span> — індуктивність <span class="formula-calc__label-unit">(Гн)</span></label><input type="number" class="formula-calc__input" data-var="L" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">I</span> — сила струму <span class="formula-calc__label-unit">(А)</span></label><input type="number" class="formula-calc__input" data-var="I" placeholder="0" step="any"></div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f10"><div class="formula-calc__result-error">Введіть значення для розрахунку</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula 11: Коефіцієнт трансформації -->
+                <div class="formula-card formula-card--t31" data-id="11" data-topic="t31"
+                     data-search="коефіцієнт трансформації трансформатор витки напруга K N U">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">11</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">Коефіцієнт трансформації</div>
+                            <div class="formula-card__preview" data-katex="K = \dfrac{N_2}{N_1} = \dfrac{U_2}{U_1}"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 31</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="K = \dfrac{N_2}{N_1} = \dfrac{U_2}{U_1}"></div>
+                            <div class="formula-card__description">
+                                Коефіцієнт трансформації показує, у скільки разів трансформатор змінює напругу. При K &gt; 1 трансформатор підвищувальний, при K &lt; 1 — понижувальний. Визначається відношенням кількості витків або напруг.
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="K"></span><span class="formula-card__var-desc">коефіцієнт трансформації</span><span class="formula-card__var-unit">&mdash;</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="N_1"></span><span class="formula-card__var-desc">кількість витків первинної обмотки</span><span class="formula-card__var-unit">&mdash;</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="N_2"></span><span class="formula-card__var-desc">кількість витків вторинної обмотки</span><span class="formula-card__var-unit">&mdash;</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="U_1"></span><span class="formula-card__var-desc">напруга на первинній обмотці</span><span class="formula-card__var-unit">В</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="U_2"></span><span class="formula-card__var-desc">напруга на вторинній обмотці</span><span class="formula-card__var-unit">В</span></div>
+                            </div>
+                            <div class="formula-calc" data-formula="f11">
+                                <div class="formula-calc__title"><span class="formula-calc__title-icon">&#9881;</span> Калькулятор (через витки)</div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">N&sub2;</span> — витки вторинної <span class="formula-calc__label-unit"></span></label><input type="number" class="formula-calc__input" data-var="N2" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">N&sub1;</span> — витки первинної <span class="formula-calc__label-unit"></span></label><input type="number" class="formula-calc__input" data-var="N1" placeholder="0" step="any"></div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f11"><div class="formula-calc__result-error">Введіть значення для розрахунку</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================
+             ТЕМА 32: Механічні коливання
+             ============================================ -->
+        <section class="formula-section" data-topic="t32" id="section-t32">
+            <div class="formula-section__header">
+                <div class="formula-section__icon formula-section__icon--t32">&#8767;</div>
+                <div class="formula-section__info">
+                    <div class="formula-section__title">Механічні коливання</div>
+                    <div class="formula-section__topic">Тема 32 &middot; 7 формул</div>
+                </div>
+            </div>
+            <div class="formula-section__cards">
+
+                <!-- Formula 12: Рівняння гармонічних коливань -->
+                <div class="formula-card formula-card--t32" data-id="12" data-topic="t32"
+                     data-search="рівняння гармонічні коливання зміщення амплітуда частота час фаза x A ω t φ">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">12</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">Рівняння гармонічних коливань</div>
+                            <div class="formula-card__preview" data-katex="x = A \cdot \cos(\omega t + \varphi_0)"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 32</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="x = A \cdot \cos(\omega t + \varphi_0)"></div>
+                            <div class="formula-card__description">
+                                Рівняння гармонічних коливань описує зміщення тіла від положення рівноваги з часом. Коливання характеризуються амплітудою, циклічною частотою та початковою фазою.
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="x"></span><span class="formula-card__var-desc">зміщення від положення рівноваги</span><span class="formula-card__var-unit">м</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="A"></span><span class="formula-card__var-desc">амплітуда коливань</span><span class="formula-card__var-unit">м</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\omega"></span><span class="formula-card__var-desc">циклічна частота</span><span class="formula-card__var-unit">рад/с</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="t"></span><span class="formula-card__var-desc">час</span><span class="formula-card__var-unit">с</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\varphi_0"></span><span class="formula-card__var-desc">початкова фаза</span><span class="formula-card__var-unit">рад</span></div>
+                            </div>
+                            <div class="formula-calc" data-formula="f12">
+                                <div class="formula-calc__title"><span class="formula-calc__title-icon">&#9881;</span> Калькулятор</div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">A</span> — амплітуда <span class="formula-calc__label-unit">(м)</span></label><input type="number" class="formula-calc__input" data-var="A" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">&omega;</span> — частота <span class="formula-calc__label-unit">(рад/с)</span></label><input type="number" class="formula-calc__input" data-var="omega" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">t</span> — час <span class="formula-calc__label-unit">(с)</span></label><input type="number" class="formula-calc__input" data-var="t" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">&phi;&sub0;</span> — початкова фаза <span class="formula-calc__label-unit">(рад)</span></label><input type="number" class="formula-calc__input" data-var="phi0" placeholder="0" step="any"></div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f12"><div class="formula-calc__result-error">Введіть значення для розрахунку</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula 13: Циклічна частота -->
+                <div class="formula-card formula-card--t32" data-id="13" data-topic="t32"
+                     data-search="циклічна частота період ω T ν">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">13</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">Циклічна частота</div>
+                            <div class="formula-card__preview" data-katex="\omega = \dfrac{2\pi}{T} = 2\pi\nu"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 32</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="\omega = \dfrac{2\pi}{T} = 2\pi\nu"></div>
+                            <div class="formula-card__description">
+                                Циклічна (кругова) частота показує кут, на який повертається фаза коливання за одиницю часу. Пов'язана з періодом і звичайною частотою коливань.
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\omega"></span><span class="formula-card__var-desc">циклічна частота</span><span class="formula-card__var-unit">рад/с</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="T"></span><span class="formula-card__var-desc">період коливань</span><span class="formula-card__var-unit">с</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\nu"></span><span class="formula-card__var-desc">частота коливань</span><span class="formula-card__var-unit">Гц</span></div>
+                            </div>
+                            <div class="formula-calc" data-formula="f13">
+                                <div class="formula-calc__title"><span class="formula-calc__title-icon">&#9881;</span> Калькулятор (через період)</div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">T</span> — період <span class="formula-calc__label-unit">(с)</span></label><input type="number" class="formula-calc__input" data-var="T" placeholder="0" step="any"></div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f13"><div class="formula-calc__result-error">Введіть значення для розрахунку</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula 14: Макс. швидкість -->
+                <div class="formula-card formula-card--t32" data-id="14" data-topic="t32"
+                     data-search="максимальна швидкість амплітуда частота v_max A ω">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">14</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">Максимальна швидкість</div>
+                            <div class="formula-card__preview" data-katex="v_{max} = A \cdot \omega"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 32</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="v_{max} = A \cdot \omega"></div>
+                            <div class="formula-card__description">
+                                Максимальна швидкість тіла при гармонічних коливаннях досягається при проходженні положення рівноваги. Дорівнює добутку амплітуди на циклічну частоту.
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="v_{max}"></span><span class="formula-card__var-desc">максимальна швидкість</span><span class="formula-card__var-unit">м/с</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="A"></span><span class="formula-card__var-desc">амплітуда</span><span class="formula-card__var-unit">м</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\omega"></span><span class="formula-card__var-desc">циклічна частота</span><span class="formula-card__var-unit">рад/с</span></div>
+                            </div>
+                            <div class="formula-calc" data-formula="f14">
+                                <div class="formula-calc__title"><span class="formula-calc__title-icon">&#9881;</span> Калькулятор</div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">A</span> — амплітуда <span class="formula-calc__label-unit">(м)</span></label><input type="number" class="formula-calc__input" data-var="A" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">&omega;</span> — частота <span class="formula-calc__label-unit">(рад/с)</span></label><input type="number" class="formula-calc__input" data-var="omega" placeholder="0" step="any"></div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f14"><div class="formula-calc__result-error">Введіть значення для розрахунку</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula 15: Макс. прискорення -->
+                <div class="formula-card formula-card--t32" data-id="15" data-topic="t32"
+                     data-search="максимальне прискорення амплітуда частота a_max A ω">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">15</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">Максимальне прискорення</div>
+                            <div class="formula-card__preview" data-katex="a_{max} = A \cdot \omega^2"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 32</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="a_{max} = A \cdot \omega^2"></div>
+                            <div class="formula-card__description">
+                                Максимальне прискорення досягається у крайніх точках коливання (при максимальному зміщенні). Дорівнює добутку амплітуди на квадрат циклічної частоти.
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="a_{max}"></span><span class="formula-card__var-desc">максимальне прискорення</span><span class="formula-card__var-unit">м/с&sup2;</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="A"></span><span class="formula-card__var-desc">амплітуда</span><span class="formula-card__var-unit">м</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\omega"></span><span class="formula-card__var-desc">циклічна частота</span><span class="formula-card__var-unit">рад/с</span></div>
+                            </div>
+                            <div class="formula-calc" data-formula="f15">
+                                <div class="formula-calc__title"><span class="formula-calc__title-icon">&#9881;</span> Калькулятор</div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">A</span> — амплітуда <span class="formula-calc__label-unit">(м)</span></label><input type="number" class="formula-calc__input" data-var="A" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">&omega;</span> — частота <span class="formula-calc__label-unit">(рад/с)</span></label><input type="number" class="formula-calc__input" data-var="omega" placeholder="0" step="any"></div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f15"><div class="formula-calc__result-error">Введіть значення для розрахунку</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula 16: Період математичного маятника -->
+                <div class="formula-card formula-card--t32" data-id="16" data-topic="t32"
+                     data-search="період математичний маятник довжина нитки прискорення вільного падіння T l g">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">16</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">Період математичного маятника</div>
+                            <div class="formula-card__preview" data-katex="T = 2\pi\sqrt{\dfrac{l}{g}}"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 32</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="T = 2\pi\sqrt{\dfrac{l}{g}}"></div>
+                            <div class="formula-card__description">
+                                Період коливань математичного маятника залежить лише від довжини нитки та прискорення вільного падіння. Не залежить від маси вантажу та амплітуди (при малих кутах відхилення).
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="T"></span><span class="formula-card__var-desc">період коливань</span><span class="formula-card__var-unit">с</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="l"></span><span class="formula-card__var-desc">довжина нитки</span><span class="formula-card__var-unit">м</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="g"></span><span class="formula-card__var-desc">прискорення вільного падіння</span><span class="formula-card__var-unit">м/с&sup2;</span></div>
+                            </div>
+                            <div class="formula-calc" data-formula="f16">
+                                <div class="formula-calc__title"><span class="formula-calc__title-icon">&#9881;</span> Калькулятор</div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">l</span> — довжина нитки <span class="formula-calc__label-unit">(м)</span></label><input type="number" class="formula-calc__input" data-var="l" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">g</span> — прискорення <span class="formula-calc__label-unit">(м/с&sup2;)</span></label><input type="number" class="formula-calc__input" data-var="g" placeholder="9.8" step="any" value="9.8"></div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f16"><div class="formula-calc__result-error">Введіть значення для розрахунку</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula 17: Період пружинного маятника -->
+                <div class="formula-card formula-card--t32" data-id="17" data-topic="t32"
+                     data-search="період пружинний маятник маса жорсткість пружини T m k">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">17</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">Період пружинного маятника</div>
+                            <div class="formula-card__preview" data-katex="T = 2\pi\sqrt{\dfrac{m}{k}}"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 32</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="T = 2\pi\sqrt{\dfrac{m}{k}}"></div>
+                            <div class="formula-card__description">
+                                Період коливань пружинного маятника залежить від маси вантажу та жорсткості пружини. Не залежить від амплітуди коливань та прискорення вільного падіння (на відміну від математичного маятника).
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="T"></span><span class="formula-card__var-desc">період коливань</span><span class="formula-card__var-unit">с</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="m"></span><span class="formula-card__var-desc">маса вантажу</span><span class="formula-card__var-unit">кг</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="k"></span><span class="formula-card__var-desc">жорсткість пружини</span><span class="formula-card__var-unit">Н/м</span></div>
+                            </div>
+                            <div class="formula-calc" data-formula="f17">
+                                <div class="formula-calc__title"><span class="formula-calc__title-icon">&#9881;</span> Калькулятор</div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">m</span> — маса <span class="formula-calc__label-unit">(кг)</span></label><input type="number" class="formula-calc__input" data-var="m" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">k</span> — жорсткість <span class="formula-calc__label-unit">(Н/м)</span></label><input type="number" class="formula-calc__input" data-var="k" placeholder="0" step="any"></div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f17"><div class="formula-calc__result-error">Введіть значення для розрахунку</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula 18: Повна енергія коливань -->
+                <div class="formula-card formula-card--t32" data-id="18" data-topic="t32"
+                     data-search="повна енергія коливань жорсткість амплітуда маса частота E k A m ω">
+                    <div class="formula-card__header" onclick="toggleCard(this)">
+                        <div class="formula-card__number">18</div>
+                        <div class="formula-card__title-area">
+                            <div class="formula-card__name">Повна енергія коливань</div>
+                            <div class="formula-card__preview" data-katex="E = \dfrac{k A^2}{2} = \dfrac{m \omega^2 A^2}{2}"></div>
+                        </div>
+                        <div class="formula-card__badge">Тема 32</div>
+                        <div class="formula-card__toggle">&#9660;</div>
+                    </div>
+                    <div class="formula-card__body">
+                        <div class="formula-card__body-inner">
+                            <div class="formula-card__divider"></div>
+                            <div class="formula-card__formula-display" data-katex="E = \dfrac{k A^2}{2} = \dfrac{m \omega^2 A^2}{2}"></div>
+                            <div class="formula-card__description">
+                                Повна механічна енергія гармонічних коливань залишається сталою і визначається амплітудою. Вона постійно перетворюється з кінетичної в потенціальну і навпаки. Може бути виражена через жорсткість або масу.
+                            </div>
+                            <div class="formula-card__vars-title">Величини</div>
+                            <div class="formula-card__vars">
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="E"></span><span class="formula-card__var-desc">повна енергія коливань</span><span class="formula-card__var-unit">Дж</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="k"></span><span class="formula-card__var-desc">жорсткість пружини</span><span class="formula-card__var-unit">Н/м</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="A"></span><span class="formula-card__var-desc">амплітуда коливань</span><span class="formula-card__var-unit">м</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="m"></span><span class="formula-card__var-desc">маса тіла</span><span class="formula-card__var-unit">кг</span></div>
+                                <div class="formula-card__var"><span class="formula-card__var-symbol" data-katex="\omega"></span><span class="formula-card__var-desc">циклічна частота</span><span class="formula-card__var-unit">рад/с</span></div>
+                            </div>
+                            <div class="formula-calc" data-formula="f18">
+                                <div class="formula-calc__title"><span class="formula-calc__title-icon">&#9881;</span> Калькулятор (через жорсткість)</div>
+                                <div class="formula-calc__inputs">
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">k</span> — жорсткість <span class="formula-calc__label-unit">(Н/м)</span></label><input type="number" class="formula-calc__input" data-var="k" placeholder="0" step="any"></div>
+                                    <div class="formula-calc__field"><label class="formula-calc__label"><span class="formula-calc__label-symbol">A</span> — амплітуда <span class="formula-calc__label-unit">(м)</span></label><input type="number" class="formula-calc__input" data-var="A" placeholder="0" step="any"></div>
+                                </div>
+                                <div class="formula-calc__result" id="result-f18"><div class="formula-calc__result-error">Введіть значення для розрахунку</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+    /* ============================================
+       Formula Page — Interactive Logic
+       ============================================ */
+
+    /* ---- KaTeX rendering ---- */
+    function renderAllKatex() {
+        document.querySelectorAll('[data-katex]').forEach(function(el) {
+            try {
+                katex.render(el.getAttribute('data-katex'), el, {
+                    throwOnError: false,
+                    displayMode: el.classList.contains('formula-card__formula-display')
+                });
+            } catch(e) {
+                el.textContent = el.getAttribute('data-katex');
+            }
+        });
+    }
+
+    /* Wait for KaTeX to load */
+    function waitForKatex(callback) {
+        if (typeof katex !== 'undefined') {
+            callback();
+        } else {
+            setTimeout(function() { waitForKatex(callback); }, 50);
+        }
+    }
+
+    /* ---- Card expand/collapse ---- */
+    function toggleCard(headerEl) {
+        var card = headerEl.closest('.formula-card');
+        if (!card) return;
+        var wasExpanded = card.classList.contains('expanded');
+        card.classList.toggle('expanded');
+        /* Scroll into view if expanding */
+        if (!wasExpanded) {
+            setTimeout(function() {
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        }
+    }
+
+    /* ---- Format numbers nicely ---- */
+    function fmt(n) {
+        if (n === undefined || n === null || isNaN(n)) return '?';
+        if (!isFinite(n)) return 'Infinity';
+        var abs = Math.abs(n);
+        if (abs === 0) return '0';
+        if (abs >= 1e6 || (abs < 0.001 && abs > 0)) {
+            return n.toExponential(4);
+        }
+        /* Up to 6 significant digits */
+        var s = parseFloat(n.toPrecision(6));
+        return String(s);
+    }
+
+    /* ---- Degree to radian ---- */
+    function degToRad(deg) {
+        return deg * Math.PI / 180;
+    }
+
+    /* ---- Calculator functions ---- */
+    var CALCULATORS = {
+        /* F1: B = F / (I * l) */
+        f1: function(v) {
+            var F = v.F, I = v.I, l = v.l;
+            if (F == null || I == null || l == null) return null;
+            if (I === 0 || l === 0) return { error: 'I та l не можуть дорівнювати нулю' };
+            var res = F / (I * l);
+            return {
+                step: 'B = ' + fmt(F) + ' / (' + fmt(I) + ' \u00d7 ' + fmt(l) + ')',
+                answer: 'B = ' + fmt(res) + ' \u0422\u043b',
+                value: res
+            };
+        },
+        /* F2: Phi = B * S * cos(alpha) */
+        f2: function(v) {
+            var B = v.B, S = v.S, alpha = v.alpha;
+            if (B == null || S == null || alpha == null) return null;
+            var rad = degToRad(alpha);
+            var res = B * S * Math.cos(rad);
+            return {
+                step: '\u03a6 = ' + fmt(B) + ' \u00d7 ' + fmt(S) + ' \u00d7 cos(' + fmt(alpha) + '\u00b0)',
+                answer: '\u03a6 = ' + fmt(res) + ' \u0412\u0431',
+                value: res
+            };
+        },
+        /* F3: F = B * I * l * sin(alpha) */
+        f3: function(v) {
+            var B = v.B, I = v.I, l = v.l, alpha = v.alpha;
+            if (B == null || I == null || l == null || alpha == null) return null;
+            var rad = degToRad(alpha);
+            var res = B * I * l * Math.sin(rad);
+            return {
+                step: 'F = ' + fmt(B) + ' \u00d7 ' + fmt(I) + ' \u00d7 ' + fmt(l) + ' \u00d7 sin(' + fmt(alpha) + '\u00b0)',
+                answer: 'F = ' + fmt(res) + ' \u041d',
+                value: res
+            };
+        },
+        /* F4: F = q * v * B * sin(alpha) */
+        f4: function(v) {
+            var q = v.q, vel = v.v, B = v.B, alpha = v.alpha;
+            if (q == null || vel == null || B == null || alpha == null) return null;
+            var rad = degToRad(alpha);
+            var res = q * vel * B * Math.sin(rad);
+            return {
+                step: 'F = ' + fmt(q) + ' \u00d7 ' + fmt(vel) + ' \u00d7 ' + fmt(B) + ' \u00d7 sin(' + fmt(alpha) + '\u00b0)',
+                answer: 'F = ' + fmt(res) + ' \u041d',
+                value: res
+            };
+        },
+        /* F5: r = m * v / (q * B) */
+        f5: function(v) {
+            var m = v.m, vel = v.v, q = v.q, B = v.B;
+            if (m == null || vel == null || q == null || B == null) return null;
+            if (q === 0 || B === 0) return { error: 'q \u0442\u0430 B \u043d\u0435 \u043c\u043e\u0436\u0443\u0442\u044c \u0434\u043e\u0440\u0456\u0432\u043d\u044e\u0432\u0430\u0442\u0438 \u043d\u0443\u043b\u044e' };
+            var res = (m * vel) / (q * B);
+            return {
+                step: 'r = (' + fmt(m) + ' \u00d7 ' + fmt(vel) + ') / (' + fmt(q) + ' \u00d7 ' + fmt(B) + ')',
+                answer: 'r = ' + fmt(res) + ' \u043c',
+                value: res
+            };
+        },
+        /* F6: T = 2 pi m / (q * B) */
+        f6: function(v) {
+            var m = v.m, q = v.q, B = v.B;
+            if (m == null || q == null || B == null) return null;
+            if (q === 0 || B === 0) return { error: 'q \u0442\u0430 B \u043d\u0435 \u043c\u043e\u0436\u0443\u0442\u044c \u0434\u043e\u0440\u0456\u0432\u043d\u044e\u0432\u0430\u0442\u0438 \u043d\u0443\u043b\u044e' };
+            var res = (2 * Math.PI * m) / (q * B);
+            return {
+                step: 'T = 2\u03c0 \u00d7 ' + fmt(m) + ' / (' + fmt(q) + ' \u00d7 ' + fmt(B) + ')',
+                answer: 'T = ' + fmt(res) + ' \u0441',
+                value: res
+            };
+        },
+        /* F7: eps = dPhi / dt */
+        f7: function(v) {
+            var dPhi = v.dPhi, dt = v.dt;
+            if (dPhi == null || dt == null) return null;
+            if (dt === 0) return { error: '\u0394t \u043d\u0435 \u043c\u043e\u0436\u0435 \u0434\u043e\u0440\u0456\u0432\u043d\u044e\u0432\u0430\u0442\u0438 \u043d\u0443\u043b\u044e' };
+            var res = dPhi / dt;
+            return {
+                step: '\u03b5 = ' + fmt(dPhi) + ' / ' + fmt(dt),
+                answer: '\u03b5 = ' + fmt(res) + ' \u0412',
+                value: res
+            };
+        },
+        /* F8: eps = B * l * v * sin(alpha) */
+        f8: function(v) {
+            var B = v.B, l = v.l, vel = v.v, alpha = v.alpha;
+            if (B == null || l == null || vel == null || alpha == null) return null;
+            var rad = degToRad(alpha);
+            var res = B * l * vel * Math.sin(rad);
+            return {
+                step: '\u03b5 = ' + fmt(B) + ' \u00d7 ' + fmt(l) + ' \u00d7 ' + fmt(vel) + ' \u00d7 sin(' + fmt(alpha) + '\u00b0)',
+                answer: '\u03b5 = ' + fmt(res) + ' \u0412',
+                value: res
+            };
+        },
+        /* F9: eps = L * dI / dt */
+        f9: function(v) {
+            var L = v.L, dI = v.dI, dt = v.dt;
+            if (L == null || dI == null || dt == null) return null;
+            if (dt === 0) return { error: '\u0394t \u043d\u0435 \u043c\u043e\u0436\u0435 \u0434\u043e\u0440\u0456\u0432\u043d\u044e\u0432\u0430\u0442\u0438 \u043d\u0443\u043b\u044e' };
+            var res = L * dI / dt;
+            return {
+                step: '\u03b5 = ' + fmt(L) + ' \u00d7 ' + fmt(dI) + ' / ' + fmt(dt),
+                answer: '\u03b5 = ' + fmt(res) + ' \u0412',
+                value: res
+            };
+        },
+        /* F10: W = L * I^2 / 2 */
+        f10: function(v) {
+            var L = v.L, I = v.I;
+            if (L == null || I == null) return null;
+            var res = L * I * I / 2;
+            return {
+                step: 'W = ' + fmt(L) + ' \u00d7 ' + fmt(I) + '\u00b2 / 2',
+                answer: 'W = ' + fmt(res) + ' \u0414\u0436',
+                value: res
+            };
+        },
+        /* F11: K = N2 / N1 */
+        f11: function(v) {
+            var N2 = v.N2, N1 = v.N1;
+            if (N2 == null || N1 == null) return null;
+            if (N1 === 0) return { error: 'N\u2081 \u043d\u0435 \u043c\u043e\u0436\u0435 \u0434\u043e\u0440\u0456\u0432\u043d\u044e\u0432\u0430\u0442\u0438 \u043d\u0443\u043b\u044e' };
+            var res = N2 / N1;
+            var type = res > 1 ? ' (\u043f\u0456\u0434\u0432\u0438\u0449\u0443\u0432\u0430\u043b\u044c\u043d\u0438\u0439)' : res < 1 ? ' (\u043f\u043e\u043d\u0438\u0436\u0443\u0432\u0430\u043b\u044c\u043d\u0438\u0439)' : '';
+            return {
+                step: 'K = ' + fmt(N2) + ' / ' + fmt(N1),
+                answer: 'K = ' + fmt(res) + type,
+                value: res
+            };
+        },
+        /* F12: x = A * cos(omega * t + phi0) */
+        f12: function(v) {
+            var A = v.A, omega = v.omega, t = v.t, phi0 = v.phi0;
+            if (A == null || omega == null || t == null || phi0 == null) return null;
+            var phase = omega * t + phi0;
+            var res = A * Math.cos(phase);
+            return {
+                step: 'x = ' + fmt(A) + ' \u00d7 cos(' + fmt(omega) + ' \u00d7 ' + fmt(t) + ' + ' + fmt(phi0) + ')',
+                answer: 'x = ' + fmt(res) + ' \u043c',
+                value: res
+            };
+        },
+        /* F13: omega = 2 pi / T */
+        f13: function(v) {
+            var T = v.T;
+            if (T == null) return null;
+            if (T === 0) return { error: 'T \u043d\u0435 \u043c\u043e\u0436\u0435 \u0434\u043e\u0440\u0456\u0432\u043d\u044e\u0432\u0430\u0442\u0438 \u043d\u0443\u043b\u044e' };
+            var res = 2 * Math.PI / T;
+            return {
+                step: '\u03c9 = 2\u03c0 / ' + fmt(T),
+                answer: '\u03c9 = ' + fmt(res) + ' \u0440\u0430\u0434/\u0441',
+                value: res
+            };
+        },
+        /* F14: v_max = A * omega */
+        f14: function(v) {
+            var A = v.A, omega = v.omega;
+            if (A == null || omega == null) return null;
+            var res = A * omega;
+            return {
+                step: 'v\u2098\u2090\u2093 = ' + fmt(A) + ' \u00d7 ' + fmt(omega),
+                answer: 'v\u2098\u2090\u2093 = ' + fmt(res) + ' \u043c/\u0441',
+                value: res
+            };
+        },
+        /* F15: a_max = A * omega^2 */
+        f15: function(v) {
+            var A = v.A, omega = v.omega;
+            if (A == null || omega == null) return null;
+            var res = A * omega * omega;
+            return {
+                step: 'a\u2098\u2090\u2093 = ' + fmt(A) + ' \u00d7 ' + fmt(omega) + '\u00b2',
+                answer: 'a\u2098\u2090\u2093 = ' + fmt(res) + ' \u043c/\u0441\u00b2',
+                value: res
+            };
+        },
+        /* F16: T = 2 pi sqrt(l/g) */
+        f16: function(v) {
+            var l = v.l, g = v.g;
+            if (l == null || g == null) return null;
+            if (g === 0) return { error: 'g \u043d\u0435 \u043c\u043e\u0436\u0435 \u0434\u043e\u0440\u0456\u0432\u043d\u044e\u0432\u0430\u0442\u0438 \u043d\u0443\u043b\u044e' };
+            if (l < 0) return { error: 'l \u043d\u0435 \u043c\u043e\u0436\u0435 \u0431\u0443\u0442\u0438 \u0432\u0456\u0434\u2019\u0454\u043c\u043d\u0438\u043c' };
+            var res = 2 * Math.PI * Math.sqrt(l / g);
+            return {
+                step: 'T = 2\u03c0\u221a(' + fmt(l) + ' / ' + fmt(g) + ')',
+                answer: 'T = ' + fmt(res) + ' \u0441',
+                value: res
+            };
+        },
+        /* F17: T = 2 pi sqrt(m/k) */
+        f17: function(v) {
+            var m = v.m, k = v.k;
+            if (m == null || k == null) return null;
+            if (k === 0) return { error: 'k \u043d\u0435 \u043c\u043e\u0436\u0435 \u0434\u043e\u0440\u0456\u0432\u043d\u044e\u0432\u0430\u0442\u0438 \u043d\u0443\u043b\u044e' };
+            if (m < 0) return { error: 'm \u043d\u0435 \u043c\u043e\u0436\u0435 \u0431\u0443\u0442\u0438 \u0432\u0456\u0434\u2019\u0454\u043c\u043d\u0438\u043c' };
+            var res = 2 * Math.PI * Math.sqrt(m / k);
+            return {
+                step: 'T = 2\u03c0\u221a(' + fmt(m) + ' / ' + fmt(k) + ')',
+                answer: 'T = ' + fmt(res) + ' \u0441',
+                value: res
+            };
+        },
+        /* F18: E = k * A^2 / 2 */
+        f18: function(v) {
+            var k = v.k, A = v.A;
+            if (k == null || A == null) return null;
+            var res = k * A * A / 2;
+            return {
+                step: 'E = ' + fmt(k) + ' \u00d7 ' + fmt(A) + '\u00b2 / 2',
+                answer: 'E = ' + fmt(res) + ' \u0414\u0436',
+                value: res
+            };
+        }
+    };
+
+    /* ---- Bind calculators ---- */
+    function initCalculators() {
+        document.querySelectorAll('.formula-calc').forEach(function(calc) {
+            var formulaId = calc.getAttribute('data-formula');
+            var inputs = calc.querySelectorAll('.formula-calc__input');
+            var resultEl = calc.querySelector('.formula-calc__result');
+
+            inputs.forEach(function(inp) {
+                inp.addEventListener('input', function() {
+                    computeFormula(formulaId, calc, resultEl);
+                });
+            });
+        });
+    }
+
+    function computeFormula(formulaId, calcEl, resultEl) {
+        var fn = CALCULATORS[formulaId];
+        if (!fn) return;
+
+        /* Collect values */
+        var vals = {};
+        var allFilled = true;
+        calcEl.querySelectorAll('.formula-calc__input').forEach(function(inp) {
+            var key = inp.getAttribute('data-var');
+            var raw = inp.value.trim();
+            if (raw === '') {
+                vals[key] = null;
+                allFilled = false;
+            } else {
+                vals[key] = parseFloat(raw);
+                if (isNaN(vals[key])) {
+                    vals[key] = null;
+                    allFilled = false;
+                }
+            }
+        });
+
+        if (!allFilled) {
+            resultEl.innerHTML = '<div class="formula-calc__result-error">\u0412\u0432\u0435\u0434\u0456\u0442\u044c \u0443\u0441\u0456 \u0437\u043d\u0430\u0447\u0435\u043d\u043d\u044f \u0434\u043b\u044f \u0440\u043e\u0437\u0440\u0430\u0445\u0443\u043d\u043a\u0443</div>';
+            return;
+        }
+
+        var result = fn(vals);
+        if (!result) {
+            resultEl.innerHTML = '<div class="formula-calc__result-error">\u0412\u0432\u0435\u0434\u0456\u0442\u044c \u0443\u0441\u0456 \u0437\u043d\u0430\u0447\u0435\u043d\u043d\u044f \u0434\u043b\u044f \u0440\u043e\u0437\u0440\u0430\u0445\u0443\u043d\u043a\u0443</div>';
+            return;
+        }
+
+        if (result.error) {
+            resultEl.innerHTML = '<div class="formula-calc__result-error">' + result.error + '</div>';
+            return;
+        }
+
+        resultEl.innerHTML =
+            '<div class="formula-calc__result-step">' + result.step + '</div>' +
+            '<div class="formula-calc__result-answer">' + result.answer + '</div>';
+    }
+
+    /* ---- Search & Filtering ---- */
+    var currentTopic = 'all';
+    var currentSearch = '';
+
+    function initFilters() {
+        var searchInput = document.getElementById('formulaSearch');
+        var clearBtn = document.getElementById('searchClear');
+        var filterBtns = document.querySelectorAll('.formulas-filter-btn');
+
+        /* Search */
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                currentSearch = this.value.toLowerCase().trim();
+                clearBtn.classList.toggle('visible', currentSearch.length > 0);
+                applyFilters();
+            });
+        }
+
+        if (clearBtn) {
+            clearBtn.addEventListener('click', function() {
+                searchInput.value = '';
+                currentSearch = '';
+                clearBtn.classList.remove('visible');
+                applyFilters();
+                searchInput.focus();
+            });
+        }
+
+        /* Topic filter buttons */
+        filterBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                currentTopic = btn.getAttribute('data-topic');
+                applyFilters();
+            });
+        });
+    }
+
+    function applyFilters() {
+        var cards = document.querySelectorAll('.formula-card');
+        var sections = document.querySelectorAll('.formula-section');
+        var visibleCount = 0;
+
+        cards.forEach(function(card) {
+            var topicMatch = (currentTopic === 'all') || (card.getAttribute('data-topic') === currentTopic);
+            var searchData = (card.getAttribute('data-search') || '').toLowerCase();
+            var cardName = (card.querySelector('.formula-card__name') || {}).textContent || '';
+            var searchTarget = searchData + ' ' + cardName.toLowerCase();
+            var searchMatch = !currentSearch || searchTarget.indexOf(currentSearch) !== -1;
+
+            if (topicMatch && searchMatch) {
+                card.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                card.classList.add('hidden');
+                card.classList.remove('expanded');
+            }
+        });
+
+        /* Show/hide sections based on visible children */
+        sections.forEach(function(section) {
+            var topicMatch = (currentTopic === 'all') || (section.getAttribute('data-topic') === currentTopic);
+            var hasVisibleCards = section.querySelectorAll('.formula-card:not(.hidden)').length > 0;
+            section.classList.toggle('hidden', !topicMatch || !hasVisibleCards);
+        });
+
+        /* Update count */
+        var countEl = document.getElementById('formulasCount');
+        if (countEl) {
+            if (currentSearch || currentTopic !== 'all') {
+                countEl.textContent = '\u0417\u043d\u0430\u0439\u0434\u0435\u043d\u043e: ' + visibleCount + ' ' + pluralize(visibleCount);
+            } else {
+                countEl.textContent = '';
+            }
+        }
+
+        /* No results */
+        var noResults = document.getElementById('noResults');
+        if (noResults) {
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+    }
+
+    function pluralize(n) {
+        if (n === 1) return '\u0444\u043e\u0440\u043c\u0443\u043b\u0430';
+        if (n >= 2 && n <= 4) return '\u0444\u043e\u0440\u043c\u0443\u043b\u0438';
+        return '\u0444\u043e\u0440\u043c\u0443\u043b';
+    }
+
+    /* ---- Keyboard shortcuts ---- */
+    function initKeyboard() {
+        document.addEventListener('keydown', function(e) {
+            /* Ctrl+F or Cmd+F focuses the formula search */
+            if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+                var searchInput = document.getElementById('formulaSearch');
+                if (searchInput) {
+                    e.preventDefault();
+                    searchInput.focus();
+                    searchInput.select();
+                }
+            }
+            /* Escape collapses all expanded cards */
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.formula-card.expanded').forEach(function(card) {
+                    card.classList.remove('expanded');
+                });
+            }
+        });
+    }
+
+    /* ---- Initialize everything ---- */
+    document.addEventListener('DOMContentLoaded', function() {
+        waitForKatex(function() {
+            renderAllKatex();
+            initCalculators();
+            initFilters();
+            initKeyboard();
+        });
+    });
+    </script>
+</body>
+</html>
