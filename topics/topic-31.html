@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тема 31. Електромагнітна індукція — Фізика ЗНО</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script defer src="../main.js"></script>
+</head>
+<body>
+    <header class="header">
+        <button class="header__menu-btn">&#9776;</button>
+        <a href="../index.html" class="header__logo">
+            <div class="header__logo-icon">&#9883;</div>
+            <span>Physics Visual</span>
+        </a>
+        <div class="header__search">
+            <span class="header__search-icon">&#128269;</span>
+            <input type="text" placeholder="Пошук теми...">
+            <div class="search-results"></div>
+        </div>
+        <div class="header__progress-info"></div>
+    </header>
+
+    <div class="sidebar-overlay"></div>
+    <nav class="sidebar">
+        <div class="sidebar__section">
+            <div class="sidebar__section-title">Усі теми</div>
+            <a href="topic-1.html" class="sidebar__item"><span class="sidebar__item-number">1</span><span class="sidebar__item-title">Вступ. Рівномірний рух. Середня швидкість. Відносність руху</span></a>
+            <a href="topic-2.html" class="sidebar__item"><span class="sidebar__item-number">2</span><span class="sidebar__item-title">Рівноприскорений прямолінійний рух. Рух тіл по вертикалі під дією сили тяжіння</span></a>
+            <a href="topic-3.html" class="sidebar__item"><span class="sidebar__item-number">3</span><span class="sidebar__item-title">Рух по горизонту під дією сили тяжіння</span></a>
+            <a href="topic-4.html" class="sidebar__item"><span class="sidebar__item-number">4</span><span class="sidebar__item-title">Рівномірний рух по колу</span></a>
+            <a href="topic-5.html" class="sidebar__item"><span class="sidebar__item-number">5</span><span class="sidebar__item-title">Закони Ньютона</span></a>
+            <a href="topic-6.html" class="sidebar__item"><span class="sidebar__item-number">6</span><span class="sidebar__item-title">Закон всесвітнього тяжіння. Супутники</span></a>
+            <a href="topic-7.html" class="sidebar__item"><span class="sidebar__item-number">7</span><span class="sidebar__item-title">Сила пружності. Вага і невагомість</span></a>
+            <a href="topic-8.html" class="sidebar__item"><span class="sidebar__item-number">8</span><span class="sidebar__item-title">Сила тертя</span></a>
+            <a href="topic-9.html" class="sidebar__item"><span class="sidebar__item-number">9</span><span class="sidebar__item-title">Імпульс. Закон збереження імпульсу</span></a>
+            <a href="topic-10.html" class="sidebar__item"><span class="sidebar__item-number">10</span><span class="sidebar__item-title">Динаміка рівномірного руху тіла по колу</span></a>
+            <a href="topic-11.html" class="sidebar__item"><span class="sidebar__item-number">11</span><span class="sidebar__item-title">Статика</span></a>
+            <a href="topic-12.html" class="sidebar__item"><span class="sidebar__item-number">12</span><span class="sidebar__item-title">Закон збереження енергії</span></a>
+            <a href="topic-13.html" class="sidebar__item"><span class="sidebar__item-number">13</span><span class="sidebar__item-title">Механічна робота. Потужність. ККД. Прості механізми</span></a>
+            <a href="topic-14.html" class="sidebar__item"><span class="sidebar__item-number">14</span><span class="sidebar__item-title">Засоби збереження механічної енергії</span></a>
+            <a href="topic-15.html" class="sidebar__item"><span class="sidebar__item-number">15</span><span class="sidebar__item-title">Елементи механіки рідин і газів</span></a>
+            <a href="topic-16.html" class="sidebar__item"><span class="sidebar__item-number">16</span><span class="sidebar__item-title">Основи молекулярно-кінетичної теорії</span></a>
+            <a href="topic-17.html" class="sidebar__item"><span class="sidebar__item-number">17</span><span class="sidebar__item-title">Рівняння стану ідеального газу. Ізопроцеси</span></a>
+            <a href="topic-18.html" class="sidebar__item"><span class="sidebar__item-number">18</span><span class="sidebar__item-title">Насичена пара. Вологість повітря</span></a>
+            <a href="topic-19.html" class="sidebar__item"><span class="sidebar__item-number">19</span><span class="sidebar__item-title">Поверхневий натяг. Капілярність</span></a>
+            <a href="topic-20.html" class="sidebar__item"><span class="sidebar__item-number">20</span><span class="sidebar__item-title">Властивості твердих тіл. Механізм деформацій</span></a>
+            <a href="topic-21.html" class="sidebar__item"><span class="sidebar__item-number">21</span><span class="sidebar__item-title">Основи термодинаміки</span></a>
+            <a href="topic-22.html" class="sidebar__item"><span class="sidebar__item-number">22</span><span class="sidebar__item-title">Закон агрегатних станів речовини. Рівняння теплового балансу</span></a>
+            <a href="topic-23.html" class="sidebar__item"><span class="sidebar__item-number">23</span><span class="sidebar__item-title">Закон Кулона. Напруженість поля</span></a>
+            <a href="topic-24.html" class="sidebar__item"><span class="sidebar__item-number">24</span><span class="sidebar__item-title">Потенціал. Різниця потенціалів. Робота електростатичного поля</span></a>
+            <a href="topic-25.html" class="sidebar__item"><span class="sidebar__item-number">25</span><span class="sidebar__item-title">Електроємність. Енергія конденсаторів</span></a>
+            <a href="topic-26.html" class="sidebar__item"><span class="sidebar__item-number">26</span><span class="sidebar__item-title">Постійний струм. Закон Ома для ділянки кола</span></a>
+            <a href="topic-27.html" class="sidebar__item"><span class="sidebar__item-number">27</span><span class="sidebar__item-title">Закон Ома для повного (замкнутого) кола</span></a>
+            <a href="topic-28.html" class="sidebar__item"><span class="sidebar__item-number">28</span><span class="sidebar__item-title">Робота і потужність струму. Закон Джоуля — Ленца</span></a>
+            <a href="topic-29.html" class="sidebar__item"><span class="sidebar__item-number">29</span><span class="sidebar__item-title">Струм у різних середовищах</span></a>
+            <a href="topic-30.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">30</span><span class="sidebar__item-title">Магнітне поле</span></a>
+            <a href="topic-31.html" class="sidebar__item sidebar__item--active sidebar__item--completed"><span class="sidebar__item-number">31</span><span class="sidebar__item-title">Електромагнітна індукція</span></a>
+            <a href="topic-32.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">32</span><span class="sidebar__item-title">Механічні коливання</span></a>
+            <a href="topic-33.html" class="sidebar__item"><span class="sidebar__item-number">33</span><span class="sidebar__item-title">Механічні хвилі. Звук</span></a>
+            <a href="topic-34.html" class="sidebar__item"><span class="sidebar__item-number">34</span><span class="sidebar__item-title">Вільні електромагнітні коливання</span></a>
+            <a href="topic-35.html" class="sidebar__item"><span class="sidebar__item-number">35</span><span class="sidebar__item-title">Змінний струм</span></a>
+            <a href="topic-36.html" class="sidebar__item"><span class="sidebar__item-number">36</span><span class="sidebar__item-title">Електромагнітні хвилі</span></a>
+            <a href="topic-37.html" class="sidebar__item"><span class="sidebar__item-number">37</span><span class="sidebar__item-title">Елементи геометричної оптики</span></a>
+            <a href="topic-38.html" class="sidebar__item"><span class="sidebar__item-number">38</span><span class="sidebar__item-title">Лінзи</span></a>
+            <a href="topic-39.html" class="sidebar__item"><span class="sidebar__item-number">39</span><span class="sidebar__item-title">Хвильова оптика</span></a>
+            <a href="topic-40.html" class="sidebar__item"><span class="sidebar__item-number">40</span><span class="sidebar__item-title">Елементи теорії відносності</span></a>
+            <a href="topic-41.html" class="sidebar__item"><span class="sidebar__item-number">41</span><span class="sidebar__item-title">Кванти світла</span></a>
+            <a href="topic-42.html" class="sidebar__item"><span class="sidebar__item-number">42</span><span class="sidebar__item-title">Атомна фізика</span></a>
+            <a href="topic-43.html" class="sidebar__item"><span class="sidebar__item-number">43</span><span class="sidebar__item-title">Ядерна фізика</span></a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="topic-header">
+            <div class="topic-header__breadcrumb">
+                <a href="../index.html">Головна</a> / Тема 31
+            </div>
+            <div class="topic-header__number">Тема 31</div>
+            <h1 class="topic-header__title">Електромагнітна індукція</h1>
+        </div>
+
+        <!-- Зміст -->
+        <div class="toc">
+            <div class="toc__title">Зміст теми</div>
+            <ol class="toc__list">
+                <li class="toc__item"><a href="#section-1" class="toc__link">Дослід Фарадея — ЕРС індукції</a></li>
+                <li class="toc__item"><a href="#section-2" class="toc__link">Закон Фарадея — зміна потоку</a></li>
+                <li class="toc__item"><a href="#section-3" class="toc__link">Правило Ленца</a></li>
+                <li class="toc__item"><a href="#section-4" class="toc__link">ЕРС в рухомому провіднику</a></li>
+                <li class="toc__item"><a href="#section-5" class="toc__link">Вихрові струми (Фуко)</a></li>
+                <li class="toc__item"><a href="#section-6" class="toc__link">Магнітний потік — інтерактивна модель</a></li>
+                <li class="toc__item"><a href="#section-7" class="toc__link">Таблиця формул та задачі</a></li>
+            </ol>
+        </div>
+
+        <!-- ================================================ -->
+        <!-- Розділ 1: Дослід Фарадея — ЕРС індукції          -->
+        <!-- ================================================ -->
+        <section class="content-section" id="section-1">
+            <h2 class="content-section__title">1. Дослід Фарадея — ЕРС індукції</h2>
+
+            <p>При зміні магнітного потоку $\Phi$ через замкнутий контур у ньому виникає ЕРС індукції. Чим швидше змінюється потік, тим більша ЕРС.</p>
+
+            <div class="formula-block formula-block--highlighted">
+                <div class="formula-block__label">ЕРС індукції</div>
+                $$\varepsilon_i = -\frac{\Delta\Phi}{\Delta t}$$
+            </div>
+
+            <p>Магнітний потік: $\Phi = B \cdot S \cdot \cos\alpha$, одиниця — вебер (Вб).</p>
+
+            <!-- Canvas 1: Faraday experiment -->
+            <div class="visualization" id="vis-1">
+                <div class="visualization__title">Дослід Фарадея: перетягніть магніт мишкою</div>
+                <div class="visualization__canvas-wrapper">
+                    <canvas id="canvas-faraday"></canvas>
+                </div>
+                <div class="visualization__controls">
+                    <div class="control-group">
+                        <button id="faraday-auto-btn">Авто-коливання</button>
+                        <button id="faraday-reset-btn">Скинути</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="important">
+                <div class="important__title">Запам'ятай для ЗНО</div>
+                <ul>
+                    <li>ЕРС індукції пропорційна <strong>швидкості зміни</strong> магнітного потоку, а не його величині.</li>
+                    <li>Якщо потік не змінюється ($\Delta\Phi=0$), то $\varepsilon_i = 0$ навіть у дуже сильному полі.</li>
+                    <li>Напрямок індукційного струму змінюється при зміні напрямку руху магніту.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ================================================ -->
+        <!-- Розділ 2: Закон Фарадея — зміна потоку            -->
+        <!-- ================================================ -->
+        <section class="content-section" id="section-2">
+            <h2 class="content-section__title">2. Закон Фарадея — зміна потоку</h2>
+
+            <p>Для котушки з $N$ витків ЕРС зростає в $N$ разів. При обертанні рамки в однорідному полі потік змінюється за косинусом, а ЕРС — за синусом.</p>
+
+            <div class="formula-block formula-block--highlighted">
+                <div class="formula-block__label">ЕРС індукції в котушці</div>
+                $$\varepsilon_i = -N\frac{\Delta\Phi}{\Delta t}, \quad \Phi(t) = BS\cos(\omega t), \quad \varepsilon(t) = NBS\omega\sin(\omega t)$$
+            </div>
+
+            <!-- Canvas 2: Rotating frame -->
+            <div class="visualization" id="vis-2">
+                <div class="visualization__title">Рамка обертається в магнітному полі</div>
+                <div class="visualization__canvas-wrapper">
+                    <canvas id="canvas-rotating-frame"></canvas>
+                </div>
+                <div class="visualization__controls">
+                    <div class="control-group">
+                        <label>Швидкість &omega;:</label>
+                        <input type="range" id="frame-omega" min="0.5" max="5" value="2" step="0.1">
+                        <span id="frame-omega-val">2.0</span> рад/с
+                    </div>
+                    <div class="control-group">
+                        <label>Витки N:</label>
+                        <input type="range" id="frame-turns" min="1" max="20" value="5" step="1">
+                        <span id="frame-turns-val">5</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================ -->
+        <!-- Розділ 3: Правило Ленца                           -->
+        <!-- ================================================ -->
+        <section class="content-section" id="section-3">
+            <h2 class="content-section__title">3. Правило Ленца</h2>
+
+            <p>Індукційний струм завжди має такий напрямок, щоб створюване ним магнітне поле <strong>протидіяло зміні потоку</strong>, яка викликала цей струм.</p>
+
+            <!-- Canvas 3: Lenz's rule -->
+            <div class="visualization" id="vis-3">
+                <div class="visualization__title">Магніт падає через кільце (правило Ленца)</div>
+                <div class="visualization__canvas-wrapper">
+                    <canvas id="canvas-lenz"></canvas>
+                </div>
+                <div class="visualization__controls">
+                    <div class="control-group">
+                        <button id="lenz-drop-n">Скинути N-полюсом вниз</button>
+                        <button id="lenz-drop-s">Скинути S-полюсом вниз</button>
+                        <button id="lenz-reset">Скинути</button>
+                    </div>
+                    <div class="control-group">
+                        <label><input type="checkbox" id="lenz-ring-toggle" checked> Кільце замкнуте (гальмування)</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================ -->
+        <!-- Розділ 4: ЕРС в рухомому провіднику               -->
+        <!-- ================================================ -->
+        <section class="content-section" id="section-4">
+            <h2 class="content-section__title">4. ЕРС в рухомому провіднику</h2>
+
+            <div class="formula-block formula-block--highlighted">
+                <div class="formula-block__label">ЕРС рухомого провідника</div>
+                $$\varepsilon = B \cdot l \cdot v$$
+            </div>
+
+            <p>Провідник довжиною $l$ рухається зі швидкістю $v$ перпендикулярно лініям поля $B$. Сила індукційного струму: $I = \varepsilon / R$.</p>
+
+            <!-- Canvas 4: Rails -->
+            <div class="visualization" id="vis-4">
+                <div class="visualization__title">Провідник ковзає по рейках у магнітному полі</div>
+                <div class="visualization__canvas-wrapper">
+                    <canvas id="canvas-rails"></canvas>
+                </div>
+                <div class="visualization__controls">
+                    <div class="control-group">
+                        <label>Швидкість v:</label>
+                        <input type="range" id="rails-v" min="0.5" max="10" value="4" step="0.5">
+                        <span id="rails-v-val">4.0</span> м/с
+                    </div>
+                    <div class="control-group">
+                        <label>Індукція B:</label>
+                        <input type="range" id="rails-b" min="0.1" max="2" value="0.5" step="0.1">
+                        <span id="rails-b-val">0.5</span> Тл
+                    </div>
+                    <div class="control-group">
+                        <label>Опір R:</label>
+                        <input type="range" id="rails-r" min="0.5" max="10" value="2" step="0.5">
+                        <span id="rails-r-val">2.0</span> Ом
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================ -->
+        <!-- Розділ 5: Вихрові струми (Фуко)                   -->
+        <!-- ================================================ -->
+        <section class="content-section" id="section-5">
+            <h2 class="content-section__title">5. Вихрові струми (струми Фуко)</h2>
+
+            <p>Вихрові струми — індукційні струми в масивних провідниках при зміні магнітного потоку. Використання: індукційне гальмування, плавлення металів, індукційні печі.</p>
+
+            <!-- Canvas 5: Eddy currents -->
+            <div class="visualization" id="vis-5">
+                <div class="visualization__title">Маятник між полюсами електромагніту</div>
+                <div class="visualization__canvas-wrapper">
+                    <canvas id="canvas-eddy"></canvas>
+                </div>
+                <div class="visualization__controls">
+                    <div class="control-group">
+                        <button id="eddy-push">Поштовхнути</button>
+                        <button id="eddy-reset">Скинути</button>
+                    </div>
+                    <div class="control-group">
+                        <label><input type="checkbox" id="eddy-magnet-toggle"> Магніт УВІМКНЕНО</label>
+                    </div>
+                    <div class="control-group">
+                        <label><input type="checkbox" id="eddy-slotted"> Пластина з прорізями</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================ -->
+        <!-- Розділ 6: Магнітний потік — інтерактивна модель    -->
+        <!-- ================================================ -->
+        <section class="content-section" id="section-6">
+            <h2 class="content-section__title">6. Магнітний потік — інтерактивна модель</h2>
+
+            <p>Магнітний потік $\Phi = BS\cos\alpha$ залежить від трьох величин: індукції $B$, площі контуру $S$ та кута $\alpha$ між $\vec{B}$ і нормаллю до площини контуру.</p>
+
+            <div class="visualization" id="vis-6">
+                <div class="visualization__title">Магнітний потік через рамку</div>
+                <div class="visualization__canvas-wrapper">
+                    <canvas id="canvas-flux"></canvas>
+                </div>
+                <div class="visualization__controls">
+                    <div class="control-group">
+                        <label>Кут &alpha;:</label>
+                        <input type="range" id="flux-angle" min="0" max="180" value="0" step="1">
+                        <span id="flux-angle-val">0</span>&deg;
+                    </div>
+                    <div class="control-group">
+                        <label>Індукція B:</label>
+                        <input type="range" id="flux-b" min="0.1" max="2" value="1" step="0.1">
+                        <span id="flux-b-val">1.0</span> Тл
+                    </div>
+                    <div class="control-group">
+                        <label>Площа S:</label>
+                        <input type="range" id="flux-s" min="0.1" max="2" value="1" step="0.1">
+                        <span id="flux-s-val">1.0</span> м&sup2;
+                    </div>
+                </div>
+            </div>
+
+            <div class="important">
+                <div class="important__title">Запам'ятай для ЗНО</div>
+                <ul>
+                    <li>$\alpha = 0\degree$: рамка перпендикулярна до $\vec{B}$ &rArr; $\Phi = BS$ (максимум).</li>
+                    <li>$\alpha = 90\degree$: рамка паралельна $\vec{B}$ &rArr; $\Phi = 0$.</li>
+                    <li>1 Вб = 1 Тл &middot; 1 м&sup2;.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ================================================ -->
+        <!-- Розділ 7: Таблиця формул та задачі                -->
+        <!-- ================================================ -->
+        <section class="content-section" id="section-7">
+            <h2 class="content-section__title">7. Таблиця формул</h2>
+
+            <div class="formula-table" style="overflow-x:auto;">
+                <table style="width:100%; border-collapse:collapse; background:#111; border-radius:8px; overflow:hidden;">
+                    <thead>
+                        <tr style="background:#1a1a2e;">
+                            <th style="padding:12px 16px; text-align:left; color:#fbbf24; border-bottom:1px solid #333;">Величина</th>
+                            <th style="padding:12px 16px; text-align:left; color:#fbbf24; border-bottom:1px solid #333;">Формула</th>
+                            <th style="padding:12px 16px; text-align:left; color:#fbbf24; border-bottom:1px solid #333;">Одиниця</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td style="padding:10px 16px; border-bottom:1px solid #222; color:#e8e8e8;">Магнітний потік</td><td style="padding:10px 16px; border-bottom:1px solid #222; color:#fff;">$\Phi = BS\cos\alpha$</td><td style="padding:10px 16px; border-bottom:1px solid #222; color:#aaa;">Вб</td></tr>
+                        <tr><td style="padding:10px 16px; border-bottom:1px solid #222; color:#e8e8e8;">ЕРС індукції</td><td style="padding:10px 16px; border-bottom:1px solid #222; color:#fff;">$\varepsilon_i = -\dfrac{\Delta\Phi}{\Delta t}$</td><td style="padding:10px 16px; border-bottom:1px solid #222; color:#aaa;">В</td></tr>
+                        <tr><td style="padding:10px 16px; border-bottom:1px solid #222; color:#e8e8e8;">ЕРС (котушка N витків)</td><td style="padding:10px 16px; border-bottom:1px solid #222; color:#fff;">$\varepsilon_i = -N\dfrac{\Delta\Phi}{\Delta t}$</td><td style="padding:10px 16px; border-bottom:1px solid #222; color:#aaa;">В</td></tr>
+                        <tr><td style="padding:10px 16px; border-bottom:1px solid #222; color:#e8e8e8;">ЕРС рухомого провідника</td><td style="padding:10px 16px; border-bottom:1px solid #222; color:#fff;">$\varepsilon = Blv$</td><td style="padding:10px 16px; border-bottom:1px solid #222; color:#aaa;">В</td></tr>
+                        <tr><td style="padding:10px 16px; border-bottom:1px solid #222; color:#e8e8e8;">ЕРС самоіндукції</td><td style="padding:10px 16px; border-bottom:1px solid #222; color:#fff;">$\varepsilon_s = -L\dfrac{\Delta I}{\Delta t}$</td><td style="padding:10px 16px; border-bottom:1px solid #222; color:#aaa;">В</td></tr>
+                        <tr><td style="padding:10px 16px; border-bottom:1px solid #222; color:#e8e8e8;">Енергія магнітного поля</td><td style="padding:10px 16px; border-bottom:1px solid #222; color:#fff;">$W = \dfrac{LI^2}{2}$</td><td style="padding:10px 16px; border-bottom:1px solid #222; color:#aaa;">Дж</td></tr>
+                        <tr><td style="padding:10px 16px; border-bottom:1px solid #222; color:#e8e8e8;">Коефіцієнт трансформації</td><td style="padding:10px 16px; border-bottom:1px solid #222; color:#fff;">$K = \dfrac{U_2}{U_1} = \dfrac{N_2}{N_1}$</td><td style="padding:10px 16px; border-bottom:1px solid #222; color:#aaa;">—</td></tr>
+                        <tr><td style="padding:10px 16px; color:#e8e8e8;">Індукційний струм</td><td style="padding:10px 16px; color:#fff;">$I_i = \dfrac{|\varepsilon_i|}{R}$</td><td style="padding:10px 16px; color:#aaa;">А</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="content-section__title" style="margin-top:40px;">Задачі</h2>
+
+            <div class="problem">
+                <div class="problem__text">
+                    <strong>Задача 1.</strong> Магнітний потік через котушку з 200 витків змінюється від 0,04 Вб до 0 за 0,02 с. Знайдіть ЕРС індукції.
+                </div>
+                <div class="problem__solution">
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати розв'язок</button>
+                    <div class="problem__solution-content">
+                        <p>$\Delta\Phi = 0 - 0{,}04 = -0{,}04$ Вб</p>
+                        <p>$|\varepsilon_i| = N\dfrac{|\Delta\Phi|}{\Delta t} = 200 \cdot \dfrac{0{,}04}{0{,}02} = 400$ В</p>
+                        <p><strong>Відповідь:</strong> $\varepsilon_i = 400$ В</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem__text">
+                    <strong>Задача 2.</strong> Провідник довжиною $l = 0{,}4$ м рухається зі швидкістю $v = 5$ м/с перпендикулярно до ліній магнітної індукції $B = 0{,}5$ Тл. Знайдіть ЕРС та силу струму, якщо $R = 2$ Ом.
+                </div>
+                <div class="problem__solution">
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати розв'язок</button>
+                    <div class="problem__solution-content">
+                        <p>$\varepsilon = Blv = 0{,}5 \cdot 0{,}4 \cdot 5 = 1$ В</p>
+                        <p>$I = \dfrac{\varepsilon}{R} = \dfrac{1}{2} = 0{,}5$ А</p>
+                        <p><strong>Відповідь:</strong> $\varepsilon = 1$ В, $I = 0{,}5$ А</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Навігація між темами -->
+        <nav class="topic-nav">
+            <a href="topic-30.html" class="topic-nav__btn">&larr; Тема 30</a>
+            <a href="topic-32.html" class="topic-nav__btn topic-nav__btn--next">Тема 32 &rarr;</a>
+        </nav>
+    </main>
+
+    <!-- ====================================================================
+         ALL CANVAS VISUALIZATIONS
+         ==================================================================== -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        /* KaTeX render */
+        if (typeof renderMathInElement === 'function') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false}
+                ]
+            });
+        }
+
+        /* --------------------------------------------------------
+           Shared helpers
+           -------------------------------------------------------- */
+        function drawArrow(ctx, x1, y1, x2, y2, headLen, color, lineW) {
+            headLen = headLen || 10;
+            lineW = lineW || 2;
+            var dx = x2 - x1, dy = y2 - y1;
+            var len = Math.sqrt(dx * dx + dy * dy);
+            if (len < 1) return;
+            var angle = Math.atan2(dy, dx);
+            ctx.save();
+            ctx.strokeStyle = color;
+            ctx.fillStyle = color;
+            ctx.lineWidth = lineW;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x2, y2);
+            ctx.lineTo(x2 - headLen * Math.cos(angle - Math.PI / 6), y2 - headLen * Math.sin(angle - Math.PI / 6));
+            ctx.lineTo(x2 - headLen * Math.cos(angle + Math.PI / 6), y2 - headLen * Math.sin(angle + Math.PI / 6));
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function resizeCanvas(canvas, desiredH) {
+            var wrapper = canvas.parentElement;
+            var w = wrapper.clientWidth;
+            var h = desiredH || 500;
+            var dpr = window.devicePixelRatio || 1;
+            canvas.width = w * dpr;
+            canvas.height = h * dpr;
+            canvas.style.width = w + 'px';
+            canvas.style.height = h + 'px';
+            var ctx = canvas.getContext('2d');
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            return { w: w, h: h, ctx: ctx };
+        }
+
+        function drawDashedLine(ctx, x1, y1, x2, y2, color, dashArr) {
+            ctx.save();
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 1;
+            ctx.setLineDash(dashArr || [4, 4]);
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.restore();
+        }
+
+        /* draw cross mark (B into screen) */
+        function drawCross(ctx, x, y, size, color) {
+            ctx.save();
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 1.2;
+            ctx.beginPath();
+            ctx.moveTo(x - size, y - size);
+            ctx.lineTo(x + size, y + size);
+            ctx.moveTo(x + size, y - size);
+            ctx.lineTo(x - size, y + size);
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        /* ============================================================
+           VISUALIZATION 1 — Faraday Experiment: drag the magnet
+           ============================================================ */
+        (function() {
+            var canvas = document.getElementById('canvas-faraday');
+            if (!canvas) return;
+            var ctx, w, h;
+            var magnetX, magnetY;
+            var magnetW = 110, magnetH = 44;
+            var coilX, coilY;
+            var coilW = 34, coilH = 90;
+            var dragging = false;
+            var prevMagnetX = 0;
+            var magnetVx = 0;
+            var smoothVx = 0;
+            var emfHistory = [];
+            var maxHistory = 320;
+            var autoMode = false;
+            var autoTime = 0;
+            var galNeedleAngle = -Math.PI / 2;
+
+            function initPositions() {
+                var r = resizeCanvas(canvas, 500);
+                w = r.w; h = r.h; ctx = r.ctx;
+                coilX = w * 0.62;
+                coilY = h * 0.30;
+                if (!dragging && !autoMode) {
+                    magnetX = w * 0.18;
+                    magnetY = coilY;
+                }
+                prevMagnetX = magnetX;
+            }
+            initPositions();
+
+            function getPos(e) {
+                var rect = canvas.getBoundingClientRect();
+                var t = e.touches ? e.touches[0] : e;
+                return { x: t.clientX - rect.left, y: t.clientY - rect.top };
+            }
+            function hitMagnet(px, py) {
+                return px > magnetX - magnetW / 2 - 20 && px < magnetX + magnetW / 2 + 20 &&
+                       py > magnetY - magnetH / 2 - 20 && py < magnetY + magnetH / 2 + 20;
+            }
+
+            canvas.addEventListener('mousedown', function(e) { var p = getPos(e); if (hitMagnet(p.x, p.y)) { dragging = true; autoMode = false; document.getElementById('faraday-auto-btn').textContent = 'Авто-коливання'; } });
+            canvas.addEventListener('mousemove', function(e) { if (!dragging) return; var p = getPos(e); magnetX = Math.max(magnetW / 2, Math.min(w - magnetW / 2, p.x)); magnetY = Math.max(magnetH, Math.min(h * 0.55, p.y)); });
+            canvas.addEventListener('mouseup', function() { dragging = false; });
+            canvas.addEventListener('mouseleave', function() { dragging = false; });
+            canvas.addEventListener('touchstart', function(e) { e.preventDefault(); var p = getPos(e); if (hitMagnet(p.x, p.y)) { dragging = true; autoMode = false; document.getElementById('faraday-auto-btn').textContent = 'Авто-коливання'; } }, { passive: false });
+            canvas.addEventListener('touchmove', function(e) { e.preventDefault(); if (!dragging) return; var p = getPos(e); magnetX = Math.max(magnetW / 2, Math.min(w - magnetW / 2, p.x)); magnetY = Math.max(magnetH, Math.min(h * 0.55, p.y)); }, { passive: false });
+            canvas.addEventListener('touchend', function() { dragging = false; });
+
+            document.getElementById('faraday-auto-btn').addEventListener('click', function() {
+                autoMode = !autoMode; autoTime = 0;
+                this.textContent = autoMode ? 'Зупинити' : 'Авто-коливання';
+            });
+            document.getElementById('faraday-reset-btn').addEventListener('click', function() {
+                autoMode = false; document.getElementById('faraday-auto-btn').textContent = 'Авто-коливання';
+                magnetX = w * 0.18; magnetY = coilY; prevMagnetX = magnetX; magnetVx = 0; smoothVx = 0; emfHistory = []; galNeedleAngle = -Math.PI / 2;
+            });
+
+            function draw() {
+                var r = resizeCanvas(canvas, 500);
+                w = r.w; h = r.h; ctx = r.ctx;
+                coilX = w * 0.62; coilY = h * 0.30;
+
+                /* background */
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, w, h);
+
+                /* auto mode */
+                if (autoMode) {
+                    autoTime += 0.02;
+                    magnetX = coilX + Math.sin(autoTime * 2.2) * (w * 0.33);
+                    magnetY = coilY;
+                }
+
+                /* velocity */
+                magnetVx = magnetX - prevMagnetX;
+                prevMagnetX = magnetX;
+                smoothVx = smoothVx * 0.7 + magnetVx * 0.3;
+
+                /* EMF calculation */
+                var dist = magnetX - coilX;
+                var proximity = Math.max(0, 1 - Math.abs(dist) / (w * 0.42));
+                var emfRaw = -smoothVx * proximity * 0.7;
+                var emfClamped = Math.max(-1, Math.min(1, emfRaw));
+                emfHistory.push(emfClamped);
+                if (emfHistory.length > maxHistory) emfHistory.shift();
+
+                /* galvanometer needle smooth */
+                var targetAngle = -Math.PI / 2 + emfClamped * Math.PI / 2.8;
+                galNeedleAngle += (targetAngle - galNeedleAngle) * 0.15;
+
+                /* ---- energy glow around coil when EMF is high ---- */
+                if (Math.abs(emfClamped) > 0.1) {
+                    var glowRadius = 50 + Math.abs(emfClamped) * 40;
+                    var glowAlpha = Math.abs(emfClamped) * 0.15;
+                    var gradient = ctx.createRadialGradient(coilX, coilY, 10, coilX, coilY, glowRadius);
+                    gradient.addColorStop(0, 'rgba(251,191,36,' + glowAlpha + ')');
+                    gradient.addColorStop(0.5, 'rgba(251,191,36,' + (glowAlpha * 0.4) + ')');
+                    gradient.addColorStop(1, 'rgba(251,191,36,0)');
+                    ctx.fillStyle = gradient;
+                    ctx.beginPath();
+                    ctx.arc(coilX, coilY, glowRadius, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                /* ---- flux density indicator near coil ---- */
+                var fluxDensity = proximity * 0.8;
+                if (fluxDensity > 0.05) {
+                    var numFluxLines = Math.round(fluxDensity * 8);
+                    var fluxSpread = coilH * 0.8;
+                    for (var fi = 0; fi < numFluxLines; fi++) {
+                        var ffy = coilY - fluxSpread / 2 + fi * (fluxSpread / Math.max(numFluxLines - 1, 1));
+                        var ffx1 = coilX - coilW - 15;
+                        var ffx2 = coilX + coilW + 15;
+                        var ffAlpha = fluxDensity * 0.3;
+                        ctx.strokeStyle = 'rgba(96,165,250,' + ffAlpha + ')';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(ffx1, ffy);
+                        ctx.lineTo(ffx2, ffy);
+                        ctx.stroke();
+                    }
+                }
+
+                /* ---- magnetic flux value display ---- */
+                ctx.fillStyle = '#60a5fa';
+                ctx.font = '13px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                var phiApprox = (proximity * 100).toFixed(0);
+                ctx.fillText('\u03A6 \u2248 ' + phiApprox + '% \u043C\u0430\u043A\u0441.', coilX, coilY + coilH / 2 + 20);
+
+                /* ---- draw magnetic field lines from magnet ---- */
+                var numFieldLines = 10;
+                ctx.lineWidth = 1;
+                for (var i = 0; i < numFieldLines; i++) {
+                    var frac = (i + 0.5) / numFieldLines;
+                    var sy = magnetY - magnetH * 1.2 + frac * magnetH * 2.4;
+                    var spreadX = (1 - Math.abs(frac - 0.5) * 2) * 70 + 40;
+                    var spreadY = (frac - 0.5) * magnetH * 4;
+                    /* right side (N-pole) */
+                    ctx.strokeStyle = 'rgba(96,165,250,0.18)';
+                    ctx.beginPath();
+                    ctx.moveTo(magnetX + magnetW / 2, magnetY - magnetH * 0.3 + frac * magnetH * 0.6);
+                    ctx.quadraticCurveTo(magnetX + magnetW / 2 + spreadX, sy, magnetX - magnetW / 2, magnetY - magnetH * 0.3 + frac * magnetH * 0.6);
+                    ctx.stroke();
+                    /* left side (S-pole) — return */
+                    ctx.strokeStyle = 'rgba(233,69,96,0.1)';
+                    ctx.beginPath();
+                    ctx.moveTo(magnetX - magnetW / 2, magnetY - magnetH * 0.3 + frac * magnetH * 0.6);
+                    ctx.quadraticCurveTo(magnetX - magnetW / 2 - spreadX * 0.6, sy, magnetX + magnetW / 2, magnetY - magnetH * 0.3 + frac * magnetH * 0.6);
+                    ctx.stroke();
+                }
+
+                /* ---- draw coil windings ---- */
+                var numWindings = 8;
+                ctx.lineWidth = 2;
+                for (var i = 0; i < numWindings; i++) {
+                    var lx = coilX - coilW / 2 + i * (coilW / (numWindings - 1));
+                    var glowIntensity = Math.abs(emfClamped) * 0.6;
+                    ctx.strokeStyle = 'rgba(251,191,36,' + (0.4 + glowIntensity) + ')';
+                    ctx.beginPath();
+                    ctx.ellipse(lx, coilY, 5, coilH / 2, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+                /* coil outline */
+                ctx.strokeStyle = '#fbbf24';
+                ctx.lineWidth = 3;
+                ctx.strokeRect(coilX - coilW / 2, coilY - coilH / 2, coilW, coilH);
+
+                /* current direction arrows on coil wires */
+                if (Math.abs(emfClamped) > 0.03) {
+                    var cDir = emfClamped > 0 ? 1 : -1;
+                    var cColor = emfClamped > 0 ? '#4ade80' : '#e94560';
+                    var cAlpha = Math.min(1, Math.abs(emfClamped) * 1.5);
+                    var wireExtend = 30;
+                    /* top wire: current flows one direction */
+                    var topY = coilY - coilH / 2;
+                    drawArrow(ctx, coilX + coilW / 2 + wireExtend * cDir, topY, coilX - coilW / 2 - wireExtend * cDir, topY, 8, cColor, 2);
+                    /* bottom wire: opposite direction */
+                    var botY = coilY + coilH / 2;
+                    drawArrow(ctx, coilX - coilW / 2 - wireExtend * cDir, botY, coilX + coilW / 2 + wireExtend * cDir, botY, 8, cColor, 2);
+                    /* current label */
+                    ctx.fillStyle = cColor;
+                    ctx.globalAlpha = cAlpha;
+                    ctx.font = '12px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('I\u1d62\u2099\u2083', coilX, topY - 10);
+                    ctx.globalAlpha = 1;
+
+                    /* moving charge particles along wires */
+                    var numParticles = 6;
+                    var particleSpeed = emfClamped * 3;
+                    var timeNow = Date.now() / 1000;
+                    ctx.fillStyle = cColor;
+                    for (var p = 0; p < numParticles; p++) {
+                        var phase = (timeNow * particleSpeed + p / numParticles) % 1;
+                        if (phase < 0) phase += 1;
+                        /* top wire particles */
+                        var px1 = coilX - coilW / 2 - wireExtend + phase * (coilW + 2 * wireExtend);
+                        ctx.beginPath(); ctx.arc(px1, topY, 3, 0, Math.PI * 2); ctx.fill();
+                        /* bottom wire particles (opposite direction) */
+                        var px2 = coilX + coilW / 2 + wireExtend - phase * (coilW + 2 * wireExtend);
+                        ctx.beginPath(); ctx.arc(px2, botY, 3, 0, Math.PI * 2); ctx.fill();
+                        /* left side vertical particles */
+                        var py1 = topY + phase * (botY - topY);
+                        ctx.beginPath(); ctx.arc(coilX - coilW / 2 - wireExtend * cDir, py1, 2.5, 0, Math.PI * 2); ctx.fill();
+                        /* right side vertical particles */
+                        var py2 = botY - phase * (botY - topY);
+                        ctx.beginPath(); ctx.arc(coilX + coilW / 2 + wireExtend * cDir, py2, 2.5, 0, Math.PI * 2); ctx.fill();
+                    }
+                }
+
+                /* ---- magnetic field strength indicator ---- */
+                var bStrength = proximity;
+                var bBarX = 10, bBarY = h * 0.05, bBarW = 8, bBarH = h * 0.45;
+                ctx.fillStyle = '#1a1a2e';
+                ctx.fillRect(bBarX, bBarY, bBarW, bBarH);
+                var filledH = bStrength * bBarH;
+                var bGrad = ctx.createLinearGradient(0, bBarY + bBarH - filledH, 0, bBarY + bBarH);
+                bGrad.addColorStop(0, '#60a5fa');
+                bGrad.addColorStop(1, '#3b82f6');
+                ctx.fillStyle = bGrad;
+                ctx.fillRect(bBarX, bBarY + bBarH - filledH, bBarW, filledH);
+                ctx.strokeStyle = '#444';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(bBarX, bBarY, bBarW, bBarH);
+                ctx.save();
+                ctx.translate(bBarX + bBarW + 4, bBarY + bBarH / 2);
+                ctx.rotate(-Math.PI / 2);
+                ctx.fillStyle = '#60a5fa';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('B \u0432 \u043A\u043E\u0442\u0443\u0448\u0446\u0456', 0, 0);
+                ctx.restore();
+
+                /* ---- galvanometer ---- */
+                var galX = w * 0.85, galY = coilY;
+                var galR = 35;
+                /* wires to galvanometer */
+                ctx.strokeStyle = 'rgba(251,191,36,0.5)';
+                ctx.lineWidth = 1.5;
+                ctx.beginPath(); ctx.moveTo(coilX + coilW / 2, coilY - coilH / 2); ctx.lineTo(galX, galY - galR); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(coilX + coilW / 2, coilY + coilH / 2); ctx.lineTo(galX, galY + galR); ctx.stroke();
+
+                /* galvanometer body */
+                ctx.fillStyle = '#0f0f2a';
+                ctx.strokeStyle = '#555';
+                ctx.lineWidth = 2;
+                ctx.beginPath(); ctx.arc(galX, galY, galR, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+                /* scale */
+                ctx.strokeStyle = '#444';
+                ctx.lineWidth = 1;
+                for (var a = -5; a <= 5; a++) {
+                    var sa = -Math.PI / 2 + a * Math.PI / 14;
+                    var inner = galR - 8, outer = galR - 3;
+                    ctx.beginPath();
+                    ctx.moveTo(galX + Math.cos(sa) * inner, galY + Math.sin(sa) * inner);
+                    ctx.lineTo(galX + Math.cos(sa) * outer, galY + Math.sin(sa) * outer);
+                    ctx.stroke();
+                }
+                /* zero mark */
+                ctx.fillStyle = '#888';
+                ctx.font = '9px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('0', galX, galY - galR + 15);
+                ctx.fillText('-', galX - galR + 12, galY + 3);
+                ctx.fillText('+', galX + galR - 12, galY + 3);
+                /* needle */
+                var nx = galX + Math.cos(galNeedleAngle) * (galR - 6);
+                var ny = galY + Math.sin(galNeedleAngle) * (galR - 6);
+                ctx.strokeStyle = '#e94560';
+                ctx.lineWidth = 2.5;
+                ctx.beginPath(); ctx.moveTo(galX, galY); ctx.lineTo(nx, ny); ctx.stroke();
+                ctx.fillStyle = '#e94560';
+                ctx.beginPath(); ctx.arc(galX, galY, 3.5, 0, Math.PI * 2); ctx.fill();
+                /* label */
+                ctx.fillStyle = '#aaa';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('Гальванометр', galX, galY + galR + 16);
+
+                /* ---- draw magnet ---- */
+                var mx = magnetX - magnetW / 2, my = magnetY - magnetH / 2;
+                /* shadow */
+                ctx.fillStyle = 'rgba(0,0,0,0.3)';
+                ctx.fillRect(mx + 3, my + 3, magnetW, magnetH);
+                /* N pole (red) */
+                ctx.fillStyle = '#e94560';
+                ctx.fillRect(mx, my, magnetW / 2, magnetH);
+                /* S pole (blue) */
+                ctx.fillStyle = '#3b82f6';
+                ctx.fillRect(mx + magnetW / 2, my, magnetW / 2, magnetH);
+                /* border */
+                ctx.strokeStyle = '#555';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(mx, my, magnetW, magnetH);
+                /* divider */
+                ctx.strokeStyle = '#222';
+                ctx.beginPath(); ctx.moveTo(mx + magnetW / 2, my); ctx.lineTo(mx + magnetW / 2, my + magnetH); ctx.stroke();
+                /* labels */
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 18px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('N', magnetX - magnetW / 4, magnetY);
+                ctx.fillText('S', magnetX + magnetW / 4, magnetY);
+                ctx.textBaseline = 'alphabetic';
+
+                /* drag hint */
+                if (!autoMode && !dragging) {
+                    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+                    ctx.font = '13px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('\u2190 \u2192 перетягніть магніт', magnetX, magnetY + magnetH / 2 + 24);
+                }
+
+                /* ---- EMF graph ---- */
+                var graphTop = h * 0.60;
+                var graphH = h * 0.34;
+                var graphLeft = 45;
+                var graphW2 = w - 70;
+                var graphMid = graphTop + graphH / 2;
+
+                /* axes */
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.moveTo(graphLeft, graphMid); ctx.lineTo(graphLeft + graphW2, graphMid); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(graphLeft, graphTop); ctx.lineTo(graphLeft, graphTop + graphH); ctx.stroke();
+
+                /* axis labels */
+                ctx.fillStyle = '#777';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.fillText('+\u03B5', graphLeft - 5, graphTop + 12);
+                ctx.fillText('0', graphLeft - 5, graphMid + 4);
+                ctx.fillText('-\u03B5', graphLeft - 5, graphTop + graphH - 4);
+                ctx.textAlign = 'left';
+                ctx.fillText('t', graphLeft + graphW2 + 6, graphMid + 4);
+
+                /* title */
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = 'bold 13px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('\u0415\u0420\u0421 \u0456\u043D\u0434\u0443\u043A\u0446\u0456\u0457 \u03B5(t)', graphLeft + graphW2 / 2, graphTop - 8);
+
+                /* zero line dashes */
+                drawDashedLine(ctx, graphLeft, graphTop + 6, graphLeft + graphW2, graphTop + 6, 'rgba(74,222,128,0.15)', [2, 6]);
+                drawDashedLine(ctx, graphLeft, graphTop + graphH - 6, graphLeft + graphW2, graphTop + graphH - 6, 'rgba(233,69,96,0.15)', [2, 6]);
+
+                /* EMF trace */
+                if (emfHistory.length > 1) {
+                    ctx.strokeStyle = '#e94560';
+                    ctx.lineWidth = 2.5;
+                    ctx.lineJoin = 'round';
+                    ctx.beginPath();
+                    for (var i = 0; i < emfHistory.length; i++) {
+                        var gx = graphLeft + (i / maxHistory) * graphW2;
+                        var gy = graphMid - emfHistory[i] * (graphH / 2 - 12);
+                        if (i === 0) ctx.moveTo(gx, gy);
+                        else ctx.lineTo(gx, gy);
+                    }
+                    ctx.stroke();
+                    /* current point glow */
+                    var lastGx = graphLeft + ((emfHistory.length - 1) / maxHistory) * graphW2;
+                    var lastGy = graphMid - emfHistory[emfHistory.length - 1] * (graphH / 2 - 12);
+                    ctx.fillStyle = '#e94560';
+                    ctx.beginPath(); ctx.arc(lastGx, lastGy, 4, 0, Math.PI * 2); ctx.fill();
+                    ctx.fillStyle = 'rgba(233,69,96,0.3)';
+                    ctx.beginPath(); ctx.arc(lastGx, lastGy, 8, 0, Math.PI * 2); ctx.fill();
+                }
+
+                /* EMF numeric readout */
+                var emfDisplay = (emfClamped * 100).toFixed(0);
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 14px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillText('\u03B5 \u2248 ' + emfDisplay + ' \u043C\u0412 (\u0443\u043C\u043E\u0432\u043D.)', 10, h - 8);
+
+                /* direction label */
+                if (Math.abs(emfClamped) > 0.05) {
+                    ctx.fillStyle = emfClamped > 0 ? '#4ade80' : '#e94560';
+                    ctx.textAlign = 'right';
+                    ctx.fillText(emfClamped > 0 ? '\u0421\u0442\u0440\u0443\u043C \u2192 \u043F\u0440\u044F\u043C\u0438\u0439' : '\u0421\u0442\u0440\u0443\u043C \u2190 \u0437\u0432\u043E\u0440\u043E\u0442\u043D\u0456\u0439', w - 10, h - 8);
+                }
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+            window.addEventListener('resize', initPositions);
+        })();
+
+        /* ============================================================
+           VISUALIZATION 2 — Rotating frame in magnetic field
+           ============================================================ */
+        (function() {
+            var canvas = document.getElementById('canvas-rotating-frame');
+            if (!canvas) return;
+            var ctx, w, h;
+            var angle = 0;
+            var omegaSlider = document.getElementById('frame-omega');
+            var turnsSlider = document.getElementById('frame-turns');
+            var omegaVal = document.getElementById('frame-omega-val');
+            var turnsVal = document.getElementById('frame-turns-val');
+            var phiHistory = [], emfHistory = [];
+            var maxHist = 280;
+            var B = 1.0, S = 1.0;
+
+            omegaSlider.addEventListener('input', function() { omegaVal.textContent = parseFloat(this.value).toFixed(1); });
+            turnsSlider.addEventListener('input', function() { turnsVal.textContent = this.value; });
+
+            function init() { var r = resizeCanvas(canvas, 450); w = r.w; h = r.h; ctx = r.ctx; }
+            init();
+
+            function draw() {
+                var r = resizeCanvas(canvas, 450);
+                w = r.w; h = r.h; ctx = r.ctx;
+                var omega = parseFloat(omegaSlider.value);
+                var N = parseInt(turnsSlider.value);
+
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, w, h);
+
+                angle += omega * 0.016;
+
+                /* LEFT PANEL: frame in field */
+                var panelW = w * 0.42;
+                var fieldCx = panelW * 0.5;
+                var fieldCy = h * 0.35;
+                var fieldW = panelW * 0.85;
+                var fieldH = h * 0.52;
+                var fieldLeft = fieldCx - fieldW / 2;
+                var fieldTop = fieldCy - fieldH / 2;
+
+                /* B field arrows */
+                for (var fy = fieldTop + 15; fy < fieldTop + fieldH; fy += 30) {
+                    for (var fx = fieldLeft + 10; fx < fieldLeft + fieldW - 35; fx += 45) {
+                        drawArrow(ctx, fx, fy, fx + 28, fy, 5, 'rgba(96,165,250,0.22)', 1.2);
+                    }
+                }
+                ctx.fillStyle = '#60a5fa';
+                ctx.font = 'bold 15px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillText('\u0412\u2192 (B)', fieldLeft + 5, fieldTop - 8);
+
+                /* rotating frame (3D projected rectangle) */
+                var frameW = 55;
+                var frameH = 65;
+                var projW = frameW * Math.cos(angle);
+
+                /* frame fill — shaded area showing "effective area" */
+                var fillAlpha = Math.abs(Math.cos(angle)) * 0.15;
+                ctx.fillStyle = 'rgba(251,191,36,' + fillAlpha + ')';
+                ctx.fillRect(fieldCx - Math.abs(projW) / 2, fieldCy - frameH / 2, Math.abs(projW), frameH);
+
+                ctx.strokeStyle = '#fbbf24';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(fieldCx - projW / 2, fieldCy - frameH / 2);
+                ctx.lineTo(fieldCx + projW / 2, fieldCy - frameH / 2);
+                ctx.lineTo(fieldCx + projW / 2, fieldCy + frameH / 2);
+                ctx.lineTo(fieldCx - projW / 2, fieldCy + frameH / 2);
+                ctx.closePath();
+                ctx.stroke();
+
+                /* rotation axis (vertical dashed line through center) */
+                drawDashedLine(ctx, fieldCx, fieldCy - frameH / 2 - 15, fieldCx, fieldCy + frameH / 2 + 15, 'rgba(255,255,255,0.2)', [3, 3]);
+
+                /* normal vector n */
+                var normalLen = 42;
+                var nxDir = Math.sin(angle) * normalLen;
+                drawArrow(ctx, fieldCx, fieldCy, fieldCx + nxDir, fieldCy, 9, '#4ade80', 2.5);
+                ctx.fillStyle = '#4ade80';
+                ctx.font = 'bold 13px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('n\u20D7', fieldCx + nxDir + (nxDir >= 0 ? 14 : -14), fieldCy - 6);
+
+                /* angle arc between n and B */
+                var cosA = Math.cos(angle);
+                var alphaAngle = Math.acos(Math.max(-1, Math.min(1, cosA)));
+                if (Math.abs(nxDir) > 3) {
+                    ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    var arcStart = 0;
+                    var arcEnd = Math.sin(angle) >= 0 ? alphaAngle : -alphaAngle;
+                    ctx.arc(fieldCx, fieldCy, 18, arcStart, arcEnd, arcEnd < 0);
+                    ctx.stroke();
+                    ctx.fillStyle = 'rgba(255,255,255,0.4)';
+                    ctx.font = '11px Inter, sans-serif';
+                    ctx.fillText('\u03B1', fieldCx + 22, fieldCy - 2);
+                }
+
+                /* numerical info below frame */
+                var phi = B * S * Math.cos(angle);
+                var emf = N * B * S * omega * Math.sin(angle);
+                var phiNorm = phi / (B * S || 1);
+                var maxEmf = N * B * S * omega;
+                var emfNorm = maxEmf > 0 ? emf / maxEmf : 0;
+
+                phiHistory.push(phiNorm);
+                emfHistory.push(emfNorm);
+                if (phiHistory.length > maxHist) phiHistory.shift();
+                if (emfHistory.length > maxHist) emfHistory.shift();
+
+                var infoX = fieldLeft + 5;
+                var infoY = fieldTop + fieldH + 25;
+                ctx.font = '13px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillStyle = '#e8e8e8';
+                ctx.fillText('N = ' + N + ',  \u03C9 = ' + omega.toFixed(1) + ' \u0440\u0430\u0434/\u0441', infoX, infoY);
+                ctx.fillStyle = '#60a5fa';
+                ctx.fillText('\u03A6 = BS\u00B7cos(\u03C9t) = ' + phi.toFixed(3) + ' \u0412\u0431', infoX, infoY + 20);
+                ctx.fillStyle = '#e94560';
+                ctx.fillText('\u03B5 = NBS\u03C9\u00B7sin(\u03C9t) = ' + emf.toFixed(2) + ' \u0412', infoX, infoY + 40);
+
+                /* RIGHT PANEL: two synchronized graphs */
+                var gLeft = panelW + 20;
+                var gWidth = w - gLeft - 20;
+                var g1Top = 15;
+                var g1H = h * 0.38;
+                var g2Top = h * 0.50;
+                var g2H = h * 0.38;
+
+                /* --- graph 1: Phi(t) --- */
+                /* axis */
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.moveTo(gLeft, g1Top + g1H / 2); ctx.lineTo(gLeft + gWidth, g1Top + g1H / 2); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(gLeft, g1Top + 2); ctx.lineTo(gLeft, g1Top + g1H - 2); ctx.stroke();
+                /* title */
+                ctx.fillStyle = '#60a5fa';
+                ctx.font = 'bold 13px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('\u03A6(t) = BS\u00B7cos(\u03C9t)', gLeft + gWidth / 2, g1Top - 2);
+                /* axis labels */
+                ctx.fillStyle = '#555';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.fillText('+\u03A6', gLeft - 4, g1Top + 12);
+                ctx.fillText('-\u03A6', gLeft - 4, g1Top + g1H - 4);
+                /* trace */
+                if (phiHistory.length > 1) {
+                    ctx.strokeStyle = '#60a5fa';
+                    ctx.lineWidth = 2.5;
+                    ctx.lineJoin = 'round';
+                    ctx.beginPath();
+                    for (var i = 0; i < phiHistory.length; i++) {
+                        var gx = gLeft + (i / maxHist) * gWidth;
+                        var gy = g1Top + g1H / 2 - phiHistory[i] * (g1H / 2 - 10);
+                        if (i === 0) ctx.moveTo(gx, gy); else ctx.lineTo(gx, gy);
+                    }
+                    ctx.stroke();
+                    /* dot */
+                    var lx = gLeft + ((phiHistory.length - 1) / maxHist) * gWidth;
+                    var ly = g1Top + g1H / 2 - phiHistory[phiHistory.length - 1] * (g1H / 2 - 10);
+                    ctx.fillStyle = '#60a5fa';
+                    ctx.beginPath(); ctx.arc(lx, ly, 4, 0, Math.PI * 2); ctx.fill();
+                }
+
+                /* --- graph 2: EMF(t) --- */
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.moveTo(gLeft, g2Top + g2H / 2); ctx.lineTo(gLeft + gWidth, g2Top + g2H / 2); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(gLeft, g2Top + 2); ctx.lineTo(gLeft, g2Top + g2H - 2); ctx.stroke();
+                ctx.fillStyle = '#e94560';
+                ctx.font = 'bold 13px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('\u03B5(t) = NBS\u03C9\u00B7sin(\u03C9t)', gLeft + gWidth / 2, g2Top - 2);
+                ctx.fillStyle = '#555';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.fillText('+\u03B5', gLeft - 4, g2Top + 12);
+                ctx.fillText('-\u03B5', gLeft - 4, g2Top + g2H - 4);
+                if (emfHistory.length > 1) {
+                    ctx.strokeStyle = '#e94560';
+                    ctx.lineWidth = 2.5;
+                    ctx.lineJoin = 'round';
+                    ctx.beginPath();
+                    for (var i = 0; i < emfHistory.length; i++) {
+                        var gx = gLeft + (i / maxHist) * gWidth;
+                        var gy = g2Top + g2H / 2 - emfHistory[i] * (g2H / 2 - 10);
+                        if (i === 0) ctx.moveTo(gx, gy); else ctx.lineTo(gx, gy);
+                    }
+                    ctx.stroke();
+                    var lx = gLeft + ((emfHistory.length - 1) / maxHist) * gWidth;
+                    var ly = g2Top + g2H / 2 - emfHistory[emfHistory.length - 1] * (g2H / 2 - 10);
+                    ctx.fillStyle = '#e94560';
+                    ctx.beginPath(); ctx.arc(lx, ly, 4, 0, Math.PI * 2); ctx.fill();
+                }
+
+                /* vertical time marker across both graphs */
+                if (phiHistory.length > 2) {
+                    var mx = gLeft + ((phiHistory.length - 1) / maxHist) * gWidth;
+                    drawDashedLine(ctx, mx, g1Top, mx, g1Top + g1H, 'rgba(255,255,255,0.12)', [3, 3]);
+                    drawDashedLine(ctx, mx, g2Top, mx, g2Top + g2H, 'rgba(255,255,255,0.12)', [3, 3]);
+                }
+
+                /* insight label */
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = '12px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('\u0394\u03A6/\u0394t \u043C\u0430\u043A\u0441 \u2192 \u03B5 \u043C\u0430\u043A\u0441;  \u03A6 = const \u2192 \u03B5 = 0', gLeft + gWidth / 2, h - 6);
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+            window.addEventListener('resize', init);
+        })();
+
+        /* ============================================================
+           VISUALIZATION 3 — Lenz's Rule: magnet falling through ring
+           ============================================================ */
+        (function() {
+            var canvas = document.getElementById('canvas-lenz');
+            if (!canvas) return;
+            var ctx, w, h;
+            var magnetY = 0, magnetVy = 0;
+            var ringY = 0, startY = 0;
+            var magnetH = 55, magnetW = 28;
+            var falling = false, nFirst = true, ringClosed = true;
+            var g = 180;
+            var lastTs = 0;
+            var trailWithRing = [];
+            var trailNoRing = [];
+            var refMagnetY = 0, refVy = 0;
+
+            document.getElementById('lenz-ring-toggle').addEventListener('change', function() { ringClosed = this.checked; });
+
+            function init() {
+                var r = resizeCanvas(canvas, 450);
+                w = r.w; h = r.h; ctx = r.ctx;
+                ringY = h * 0.52;
+                startY = h * 0.07;
+                if (!falling) { magnetY = startY; magnetVy = 0; refMagnetY = startY; refVy = 0; }
+            }
+            init();
+
+            function startDrop(nPoleFirst) {
+                nFirst = nPoleFirst;
+                magnetY = startY; magnetVy = 0;
+                refMagnetY = startY; refVy = 0;
+                trailWithRing = []; trailNoRing = [];
+                falling = true;
+            }
+            document.getElementById('lenz-drop-n').addEventListener('click', function() { startDrop(true); });
+            document.getElementById('lenz-drop-s').addEventListener('click', function() { startDrop(false); });
+            document.getElementById('lenz-reset').addEventListener('click', function() {
+                falling = false; magnetY = startY; magnetVy = 0; refMagnetY = startY; refVy = 0;
+                trailWithRing = []; trailNoRing = [];
+            });
+
+            function draw(ts) {
+                var dt = Math.min((ts - lastTs) / 1000, 0.03) || 0.016;
+                lastTs = ts;
+
+                var r = resizeCanvas(canvas, 450);
+                w = r.w; h = r.h; ctx = r.ctx;
+                ringY = h * 0.52; startY = h * 0.07;
+
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, w, h);
+
+                var cx = w * 0.32;
+                var cx2 = w * 0.72;
+
+                /* physics update */
+                if (falling && magnetY < h + magnetH) {
+                    var dist = magnetY + magnetH / 2 - ringY;
+                    var braking = 0;
+                    if (ringClosed) {
+                        var sigma = 38;
+                        braking = -dist * Math.exp(-(dist * dist) / (2 * sigma * sigma)) * 14;
+                    }
+                    magnetVy += (g + braking) * dt;
+                    magnetY += magnetVy * dt;
+
+                    /* free-fall reference */
+                    refVy += g * dt;
+                    refMagnetY += refVy * dt;
+
+                    trailWithRing.push(magnetY);
+                    trailNoRing.push(refMagnetY);
+                    if (trailWithRing.length > 300) { trailWithRing.shift(); trailNoRing.shift(); }
+                }
+
+                var dist = magnetY + magnetH / 2 - ringY;
+                var fluxChanging = falling && Math.abs(dist) < 90;
+                var approaching = dist < 0;
+
+                /* velocity comparison display */
+                if (falling) {
+                    var velBarX = w * 0.02;
+                    var velBarW = 10;
+                    var velBarTop2 = h * 0.12;
+                    var velBarH2 = h * 0.32;
+                    var maxVel = Math.sqrt(2 * g * (h - startY));
+                    /* with ring */
+                    var velFrac1 = Math.min(1, Math.abs(magnetVy) / maxVel);
+                    ctx.fillStyle = '#1a1a2e';
+                    ctx.fillRect(velBarX, velBarTop2, velBarW, velBarH2);
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.fillRect(velBarX, velBarTop2 + velBarH2 * (1 - velFrac1), velBarW, velBarH2 * velFrac1);
+                    ctx.strokeStyle = '#444';
+                    ctx.lineWidth = 1;
+                    ctx.strokeRect(velBarX, velBarTop2, velBarW, velBarH2);
+                    /* free fall */
+                    var velFrac2 = Math.min(1, Math.abs(refVy) / maxVel);
+                    ctx.fillStyle = '#1a1a2e';
+                    ctx.fillRect(velBarX + velBarW + 3, velBarTop2, velBarW, velBarH2);
+                    ctx.fillStyle = '#555';
+                    ctx.fillRect(velBarX + velBarW + 3, velBarTop2 + velBarH2 * (1 - velFrac2), velBarW, velBarH2 * velFrac2);
+                    ctx.strokeRect(velBarX + velBarW + 3, velBarTop2, velBarW, velBarH2);
+                    /* labels */
+                    ctx.save();
+                    ctx.translate(velBarX + velBarW * 2 + 10, velBarTop2 + velBarH2 / 2);
+                    ctx.rotate(-Math.PI / 2);
+                    ctx.fillStyle = '#aaa';
+                    ctx.font = '9px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('v \u043C\u0430\u0433\u043D\u0456\u0442\u0443', 0, 0);
+                    ctx.restore();
+                    /* speed values */
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.font = '10px Inter, sans-serif';
+                    ctx.textAlign = 'left';
+                    ctx.fillText('v\u2081=' + Math.abs(magnetVy).toFixed(0), velBarX, velBarTop2 - 4);
+                    ctx.fillStyle = '#666';
+                    ctx.fillText('v\u2080=' + Math.abs(refVy).toFixed(0), velBarX, velBarTop2 + velBarH2 + 14);
+                }
+
+                /* ---- RIGHT SIDE: free-fall reference ---- */
+                ctx.fillStyle = '#555';
+                ctx.font = '12px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('\u0411\u0435\u0437 \u043A\u0456\u043B\u044C\u0446\u044F', cx2, startY - 8);
+                /* reference magnet (ghost) */
+                if (falling) {
+                    ctx.globalAlpha = 0.35;
+                    ctx.fillStyle = nFirst ? '#e94560' : '#3b82f6';
+                    ctx.fillRect(cx2 - magnetW / 2, refMagnetY, magnetW, magnetH / 2);
+                    ctx.fillStyle = nFirst ? '#3b82f6' : '#e94560';
+                    ctx.fillRect(cx2 - magnetW / 2, refMagnetY + magnetH / 2, magnetW, magnetH / 2);
+                    ctx.globalAlpha = 1;
+                }
+                /* reference ring (no current, just outline) */
+                ctx.strokeStyle = '#444';
+                ctx.lineWidth = 2;
+                ctx.beginPath(); ctx.ellipse(cx2, ringY, 55, 10, 0, 0, Math.PI * 2); ctx.stroke();
+                ctx.fillStyle = '#444';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.fillText('(\u0440\u043E\u0437\u0456\u043C\u043A\u043D\u0443\u0442\u0435)', cx2, ringY + 20);
+
+                /* ---- LEFT SIDE: ring with Lenz effect ---- */
+                /* ring */
+                var ringW = 60;
+                ctx.strokeStyle = ringClosed ? '#fbbf24' : '#666';
+                ctx.lineWidth = 4;
+                ctx.beginPath(); ctx.ellipse(cx, ringY, ringW, 12, 0, 0, Math.PI * 2); ctx.stroke();
+                if (!ringClosed) {
+                    ctx.strokeStyle = '#0a0a1a';
+                    ctx.lineWidth = 7;
+                    ctx.beginPath(); ctx.arc(cx, ringY, ringW, -0.18, 0.18); ctx.stroke();
+                    ctx.fillStyle = '#888';
+                    ctx.font = '10px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('\u0440\u043E\u0437\u0456\u043C\u043A\u043D\u0443\u0442\u0435', cx, ringY + 25);
+                } else {
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.font = '10px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('\u0437\u0430\u043C\u043A\u043D\u0443\u0442\u0435', cx, ringY + 25);
+                }
+
+                /* induced current arrows on ring */
+                if (fluxChanging && ringClosed) {
+                    var iDir = (approaching === nFirst) ? 1 : -1;
+                    var intensity = Math.min(1, (1 - Math.abs(dist) / 90) * 2);
+                    var cColor = 'rgba(74,222,128,' + intensity + ')';
+                    for (var a = 0; a < 5; a++) {
+                        var theta = a * Math.PI * 2 / 5 + iDir * 0.25;
+                        var ax1 = cx + Math.cos(theta) * ringW;
+                        var ay1 = ringY + Math.sin(theta) * 12;
+                        var ax2 = cx + Math.cos(theta + iDir * 0.35) * ringW;
+                        var ay2 = ringY + Math.sin(theta + iDir * 0.35) * 12;
+                        drawArrow(ctx, ax1, ay1, ax2, ay2, 5, cColor, 2);
+                    }
+                    /* label */
+                    ctx.fillStyle = '#4ade80';
+                    ctx.globalAlpha = intensity;
+                    ctx.font = '11px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('I\u1d62\u2099\u2083', cx + ringW + 18, ringY + 4);
+                    ctx.globalAlpha = 1;
+                }
+
+                /* B field arrows: external (from magnet) and induced (opposing) */
+                if (falling && Math.abs(dist) < 100) {
+                    var bAlpha = Math.max(0.1, 1 - Math.abs(dist) / 100);
+                    var bDir = nFirst ? 1 : -1;
+                    ctx.globalAlpha = bAlpha;
+                    /* external B */
+                    for (var bx = -1; bx <= 1; bx++) {
+                        drawArrow(ctx, cx + bx * 18, magnetY + magnetH / 2 + 5, cx + bx * 18, magnetY + magnetH / 2 + 30 * bDir, 6, '#60a5fa', 1.5);
+                    }
+                    /* induced B (opposing change) */
+                    if (ringClosed) {
+                        var indDir = approaching ? -bDir : bDir;
+                        for (var bx = -1; bx <= 1; bx++) {
+                            drawArrow(ctx, cx + bx * 18, ringY - 12 * indDir, cx + bx * 18, ringY - 35 * indDir, 6, '#e94560', 1.5);
+                        }
+                    }
+                    ctx.globalAlpha = 1;
+                    /* labels */
+                    ctx.font = '10px Inter, sans-serif';
+                    ctx.textAlign = 'left';
+                    ctx.fillStyle = '#60a5fa';
+                    ctx.fillText('B\u2095\u2093\u209C', cx + 30, magnetY + magnetH / 2 + 22);
+                    if (ringClosed) {
+                        ctx.fillStyle = '#e94560';
+                        ctx.fillText('B\u1d62\u2099\u2083', cx + 30, ringY - 20);
+                    }
+                }
+
+                /* draw magnet */
+                var topColor = nFirst ? '#e94560' : '#3b82f6';
+                var botColor = nFirst ? '#3b82f6' : '#e94560';
+                ctx.fillStyle = topColor;
+                ctx.fillRect(cx - magnetW / 2, magnetY, magnetW, magnetH / 2);
+                ctx.fillStyle = botColor;
+                ctx.fillRect(cx - magnetW / 2, magnetY + magnetH / 2, magnetW, magnetH / 2);
+                ctx.strokeStyle = '#444';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(cx - magnetW / 2, magnetY, magnetW, magnetH);
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 13px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(nFirst ? 'N' : 'S', cx, magnetY + magnetH / 4);
+                ctx.fillText(nFirst ? 'S' : 'N', cx, magnetY + 3 * magnetH / 4);
+                ctx.textBaseline = 'alphabetic';
+
+                /* timing comparison graph */
+                var gLeft2 = w * 0.5;
+                var gW2 = w * 0.46;
+                var gTop2 = h * 0.72;
+                var gH2 = h * 0.22;
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.moveTo(gLeft2, gTop2); ctx.lineTo(gLeft2, gTop2 + gH2); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(gLeft2, gTop2 + gH2); ctx.lineTo(gLeft2 + gW2, gTop2 + gH2); ctx.stroke();
+                ctx.fillStyle = '#777';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('t', gLeft2 + gW2 + 8, gTop2 + gH2 + 3);
+                ctx.textAlign = 'right';
+                ctx.fillText('y', gLeft2 - 4, gTop2 - 2);
+                ctx.textAlign = 'center';
+                ctx.fillStyle = '#888';
+                ctx.fillText('\u041F\u043E\u0440\u0456\u0432\u043D\u044F\u043D\u043D\u044F \u043F\u0430\u0434\u0456\u043D\u043D\u044F', gLeft2 + gW2 / 2, gTop2 - 5);
+
+                if (trailWithRing.length > 2) {
+                    var maxVal = Math.max(trailNoRing[trailNoRing.length - 1] - startY, 1);
+                    /* free fall (reference) */
+                    ctx.strokeStyle = '#555';
+                    ctx.lineWidth = 1.5;
+                    ctx.setLineDash([4, 3]);
+                    ctx.beginPath();
+                    for (var i = 0; i < trailNoRing.length; i++) {
+                        var gx = gLeft2 + (i / 300) * gW2;
+                        var gy = gTop2 + gH2 - ((trailNoRing[i] - startY) / maxVal) * (gH2 - 5);
+                        gy = Math.max(gTop2, Math.min(gTop2 + gH2, gy));
+                        if (i === 0) ctx.moveTo(gx, gy); else ctx.lineTo(gx, gy);
+                    }
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                    /* with ring */
+                    ctx.strokeStyle = '#fbbf24';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    for (var i = 0; i < trailWithRing.length; i++) {
+                        var gx = gLeft2 + (i / 300) * gW2;
+                        var gy = gTop2 + gH2 - ((trailWithRing[i] - startY) / maxVal) * (gH2 - 5);
+                        gy = Math.max(gTop2, Math.min(gTop2 + gH2, gy));
+                        if (i === 0) ctx.moveTo(gx, gy); else ctx.lineTo(gx, gy);
+                    }
+                    ctx.stroke();
+                    /* legend */
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.font = '10px Inter, sans-serif';
+                    ctx.textAlign = 'left';
+                    ctx.fillText('\u2014 \u0437 \u043A\u0456\u043B\u044C\u0446\u0435\u043C', gLeft2 + gW2 - 80, gTop2 + 14);
+                    ctx.fillStyle = '#555';
+                    ctx.fillText('--- \u0431\u0435\u0437', gLeft2 + gW2 - 80, gTop2 + 28);
+                }
+
+                /* explanation line */
+                ctx.font = '12px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillStyle = '#fbbf24';
+                if (fluxChanging && ringClosed) {
+                    ctx.fillText(approaching ? '\u041F\u043E\u0442\u0456\u043A \u0437\u0440\u043E\u0441\u0442\u0430\u0454 \u2192 \u0456\u043D\u0434. B \u043F\u0440\u043E\u0442\u0438\u0434\u0456\u0454 \u2192 \u0433\u0430\u043B\u044C\u043C\u0443\u0454' : '\u041F\u043E\u0442\u0456\u043A \u0441\u043F\u0430\u0434\u0430\u0454 \u2192 \u0456\u043D\u0434. B \u043F\u0456\u0434\u0442\u0440\u0438\u043C\u0443\u0454 \u2192 \u0433\u0430\u043B\u044C\u043C\u0443\u0454', 10, h - 8);
+                } else if (!falling) {
+                    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+                    ctx.fillText('\u041D\u0430\u0442\u0438\u0441\u043D\u0456\u0442\u044C \u043A\u043D\u043E\u043F\u043A\u0443, \u0449\u043E\u0431 \u0441\u043A\u0438\u043D\u0443\u0442\u0438 \u043C\u0430\u0433\u043D\u0456\u0442', 10, h - 8);
+                }
+
+                requestAnimationFrame(draw);
+            }
+            draw(0);
+            window.addEventListener('resize', init);
+        })();
+
+        /* ============================================================
+           VISUALIZATION 4 — Conductor sliding on rails
+           ============================================================ */
+        (function() {
+            var canvas = document.getElementById('canvas-rails');
+            if (!canvas) return;
+            var ctx, w, h;
+            var barPos = 0.12;
+
+            var vSlider = document.getElementById('rails-v');
+            var bSlider = document.getElementById('rails-b');
+            var rSlider = document.getElementById('rails-r');
+            var vVal = document.getElementById('rails-v-val');
+            var bVal = document.getElementById('rails-b-val');
+            var rVal = document.getElementById('rails-r-val');
+
+            vSlider.addEventListener('input', function() { vVal.textContent = parseFloat(this.value).toFixed(1); });
+            bSlider.addEventListener('input', function() { bVal.textContent = parseFloat(this.value).toFixed(1); });
+            rSlider.addEventListener('input', function() { rVal.textContent = parseFloat(this.value).toFixed(1); });
+
+            function init() { var r = resizeCanvas(canvas, 400); w = r.w; h = r.h; ctx = r.ctx; }
+            init();
+
+            function draw() {
+                var r = resizeCanvas(canvas, 400);
+                w = r.w; h = r.h; ctx = r.ctx;
+
+                var v = parseFloat(vSlider.value);
+                var B = parseFloat(bSlider.value);
+                var R = parseFloat(rSlider.value);
+                var l = 0.4;
+                var emf = B * l * v;
+                var I = emf / R;
+
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, w, h);
+
+                var railTop = h * 0.18;
+                var railBot = h * 0.65;
+                var railLeft = w * 0.10;
+                var railRight = w * 0.88;
+                var railLen = railRight - railLeft;
+
+                /* B field crosses (into screen) */
+                for (var bx = railLeft + 20; bx < railRight - 5; bx += 35) {
+                    for (var by = railTop + 18; by < railBot; by += 35) {
+                        drawCross(ctx, bx, by, 5, 'rgba(96,165,250,0.18)');
+                    }
+                }
+                ctx.fillStyle = '#60a5fa';
+                ctx.font = '13px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillText('B = ' + B.toFixed(1) + ' \u0422\u043B (\u2297 \u0432 \u0435\u043A\u0440\u0430\u043D)', railLeft, railTop - 10);
+
+                /* rails */
+                ctx.strokeStyle = '#888';
+                ctx.lineWidth = 3;
+                ctx.beginPath(); ctx.moveTo(railLeft, railTop); ctx.lineTo(railRight, railTop); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(railLeft, railBot); ctx.lineTo(railRight, railBot); ctx.stroke();
+
+                /* left connector — zigzag resistor */
+                ctx.strokeStyle = '#fbbf24';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(railLeft, railTop);
+                var rY1 = railTop + 18, rY2 = railBot - 18;
+                ctx.lineTo(railLeft, rY1);
+                var nSeg = 7;
+                var segH = (rY2 - rY1) / nSeg;
+                for (var i = 0; i < nSeg; i++) {
+                    var zy = rY1 + i * segH + segH / 2;
+                    var zx = (i % 2 === 0) ? railLeft - 10 : railLeft + 10;
+                    ctx.lineTo(zx, zy);
+                }
+                ctx.lineTo(railLeft, rY2);
+                ctx.lineTo(railLeft, railBot);
+                ctx.stroke();
+                /* R label */
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = '12px Inter, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.fillText('R=' + R.toFixed(1) + '\u03A9', railLeft - 14, (railTop + railBot) / 2 + 4);
+
+                /* sliding bar animation */
+                barPos += v * 0.0008;
+                if (barPos > 0.82) barPos = 0.12;
+                var barX = railLeft + barPos * railLen;
+
+                /* shaded area (swept area) */
+                ctx.fillStyle = 'rgba(233,69,96,0.07)';
+                ctx.fillRect(railLeft, railTop, barX - railLeft, railBot - railTop);
+
+                /* bar */
+                ctx.strokeStyle = '#e94560';
+                ctx.lineWidth = 6;
+                ctx.lineCap = 'round';
+                ctx.beginPath(); ctx.moveTo(barX, railTop); ctx.lineTo(barX, railBot); ctx.stroke();
+                ctx.lineCap = 'butt';
+                /* contact dots */
+                ctx.fillStyle = '#e94560';
+                ctx.beginPath(); ctx.arc(barX, railTop, 5, 0, Math.PI * 2); ctx.fill();
+                ctx.beginPath(); ctx.arc(barX, railBot, 5, 0, Math.PI * 2); ctx.fill();
+
+                /* velocity arrow */
+                drawArrow(ctx, barX + 12, (railTop + railBot) / 2, barX + 55, (railTop + railBot) / 2, 10, '#4ade80', 2.5);
+                ctx.fillStyle = '#4ade80';
+                ctx.font = 'bold 13px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillText('v=' + v.toFixed(1) + ' \u043C/\u0441', barX + 60, (railTop + railBot) / 2 + 5);
+
+                /* current direction arrows */
+                if (I > 0.005) {
+                    var ac = 'rgba(251,191,36,0.7)';
+                    /* up in bar */
+                    drawArrow(ctx, barX, railBot - 25, barX, railTop + 25, 7, ac, 1.5);
+                    /* left along top rail */
+                    drawArrow(ctx, barX - 15, railTop, railLeft + 25, railTop, 7, ac, 1.5);
+                    /* down through resistor */
+                    drawArrow(ctx, railLeft, railTop + 30, railLeft, railBot - 30, 7, ac, 1.5);
+                    /* right along bottom rail */
+                    drawArrow(ctx, railLeft + 25, railBot, barX - 15, railBot, 7, ac, 1.5);
+                    /* I label */
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.font = '12px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('I', barX - 14, (railTop + railBot) / 2);
+                }
+
+                /* length label */
+                drawDashedLine(ctx, barX + 3, railTop + 5, barX + 3, railBot - 5, 'rgba(255,255,255,0.2)', [2, 3]);
+                ctx.fillStyle = '#e8e8e8';
+                ctx.font = '12px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillText('l=' + l + ' \u043C', barX + 8, railBot + 18);
+
+                /* Lorentz force explanation */
+                ctx.fillStyle = 'rgba(255,255,255,0.25)';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('\u0421\u0438\u043B\u0430 \u041B\u043E\u0440\u0435\u043D\u0446\u0430 \u0440\u043E\u0437\u0434\u0456\u043B\u044F\u0454 \u0437\u0430\u0440\u044F\u0434\u0438 \u0432 \u043F\u0440\u043E\u0432\u0456\u0434\u043D\u0438\u043A\u0443', w / 2, railBot + 38);
+
+                /* results panel */
+                var infoY = h * 0.83;
+                ctx.font = 'bold 15px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillStyle = '#e94560';
+                ctx.fillText('\u03B5 = Blv = ' + B.toFixed(1) + ' \u00D7 ' + l + ' \u00D7 ' + v.toFixed(1) + ' = ' + emf.toFixed(2) + ' \u0412', w * 0.05, infoY);
+                ctx.fillStyle = '#4ade80';
+                ctx.fillText('I = \u03B5/R = ' + emf.toFixed(2) + ' / ' + R.toFixed(1) + ' = ' + I.toFixed(3) + ' \u0410', w * 0.05, infoY + 24);
+                /* power */
+                var P = emf * I;
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = '13px Inter, sans-serif';
+                ctx.fillText('P = \u03B5I = ' + P.toFixed(3) + ' \u0412\u0442', w * 0.05, infoY + 46);
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+            window.addEventListener('resize', init);
+        })();
+
+        /* ============================================================
+           VISUALIZATION 5 — Eddy currents: pendulum braking
+           ============================================================ */
+        (function() {
+            var canvas = document.getElementById('canvas-eddy');
+            if (!canvas) return;
+            var ctx, w, h;
+            var theta = 0, omega = 0;
+            var magnetOn = false, slotted = false;
+            var pendulumL, pivotX, pivotY;
+            var trailTheta = [];
+            var frameCount = 0;
+
+            document.getElementById('eddy-magnet-toggle').addEventListener('change', function() { magnetOn = this.checked; });
+            document.getElementById('eddy-slotted').addEventListener('change', function() { slotted = this.checked; });
+            document.getElementById('eddy-push').addEventListener('click', function() { theta = 1.0; omega = 0; trailTheta = []; frameCount = 0; });
+            document.getElementById('eddy-reset').addEventListener('click', function() { theta = 0; omega = 0; trailTheta = []; frameCount = 0; });
+
+            function init() {
+                var r = resizeCanvas(canvas, 400);
+                w = r.w; h = r.h; ctx = r.ctx;
+                pendulumL = h * 0.52;
+                pivotX = w * 0.38;
+                pivotY = h * 0.06;
+            }
+            init();
+
+            function draw() {
+                var r = resizeCanvas(canvas, 400);
+                w = r.w; h = r.h; ctx = r.ctx;
+                pendulumL = h * 0.52;
+                pivotX = w * 0.38;
+                pivotY = h * 0.06;
+
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, w, h);
+
+                var dt = 0.016;
+                var gPend = 9.8 / (pendulumL / 150);
+                var naturalDamping = 0.003;
+                var brakingDamping = 0;
+                if (magnetOn) {
+                    brakingDamping = slotted ? 0.06 : 0.32;
+                }
+                var totalDamping = naturalDamping + brakingDamping * Math.abs(omega);
+
+                var alpha = -gPend * Math.sin(theta);
+                omega += alpha * dt;
+                omega *= (1 - totalDamping);
+                theta += omega * dt;
+
+                frameCount++;
+                if (frameCount % 2 === 0) {
+                    trailTheta.push(Math.abs(theta));
+                    if (trailTheta.length > 200) trailTheta.shift();
+                }
+
+                var bobX = pivotX + Math.sin(theta) * pendulumL;
+                var bobY = pivotY + Math.cos(theta) * pendulumL;
+                var plateW = 52, plateH = 42;
+
+                /* ---- magnet poles ---- */
+                var poleW = 30, poleH = plateH + 50;
+                var poleTopY = pivotY + pendulumL - poleH / 2;
+                var poleLeftX = pivotX - 75;
+                var poleRightX = pivotX + 75;
+
+                if (magnetOn) {
+                    /* yoke (top and bottom connecting bars) */
+                    ctx.fillStyle = '#333';
+                    ctx.fillRect(poleLeftX - poleW, poleTopY - 8, poleRightX + poleW - poleLeftX + poleW, 8);
+                    ctx.fillRect(poleLeftX - poleW, poleTopY + poleH, poleRightX + poleW - poleLeftX + poleW, 8);
+                    /* left pole N */
+                    ctx.fillStyle = '#c0392b';
+                    ctx.fillRect(poleLeftX - poleW, poleTopY, poleW, poleH);
+                    ctx.fillStyle = '#fff';
+                    ctx.font = 'bold 14px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('N', poleLeftX - poleW / 2, poleTopY + poleH / 2);
+                    /* right pole S */
+                    ctx.fillStyle = '#2980b9';
+                    ctx.fillRect(poleRightX, poleTopY, poleW, poleH);
+                    ctx.fillStyle = '#fff';
+                    ctx.fillText('S', poleRightX + poleW / 2, poleTopY + poleH / 2);
+                    ctx.textBaseline = 'alphabetic';
+
+                    /* B field lines between poles */
+                    for (var fl = 0; fl < 6; fl++) {
+                        var fy = poleTopY + 10 + fl * (poleH - 20) / 5;
+                        drawArrow(ctx, poleLeftX + 3, fy, poleRightX - 3, fy, 5, 'rgba(96,165,250,0.15)', 1);
+                    }
+                    ctx.fillStyle = 'rgba(96,165,250,0.3)';
+                    ctx.font = '10px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('B', pivotX, poleTopY + poleH + 22);
+                }
+
+                /* ---- rod ---- */
+                ctx.strokeStyle = '#999';
+                ctx.lineWidth = 2;
+                ctx.beginPath(); ctx.moveTo(pivotX, pivotY); ctx.lineTo(bobX, bobY); ctx.stroke();
+                /* pivot */
+                ctx.fillStyle = '#bbb';
+                ctx.beginPath(); ctx.arc(pivotX, pivotY, 5, 0, Math.PI * 2); ctx.fill();
+
+                /* ---- plate (pendulum bob) ---- */
+                ctx.save();
+                ctx.translate(bobX, bobY);
+
+                if (slotted) {
+                    /* plate with slots */
+                    ctx.fillStyle = '#7a6544';
+                    ctx.beginPath();
+                    ctx.roundRect(-plateW / 2, -plateH / 2, plateW, plateH, 3);
+                    ctx.fill();
+                    /* slots */
+                    ctx.fillStyle = '#0a0a1a';
+                    var numSlots = 5;
+                    var slotW = 3;
+                    for (var s = 0; s < numSlots; s++) {
+                        var sx = -plateW / 2 + 7 + s * ((plateW - 14) / (numSlots - 1)) - slotW / 2;
+                        ctx.fillRect(sx, -plateH / 2 + 5, slotW, plateH - 10);
+                    }
+                } else {
+                    /* solid plate */
+                    ctx.fillStyle = '#a08955';
+                    ctx.beginPath();
+                    ctx.roundRect(-plateW / 2, -plateH / 2, plateW, plateH, 3);
+                    ctx.fill();
+                    /* metallic sheen */
+                    var grad = ctx.createLinearGradient(-plateW / 2, 0, plateW / 2, 0);
+                    grad.addColorStop(0, 'rgba(255,255,255,0.05)');
+                    grad.addColorStop(0.5, 'rgba(255,255,255,0.12)');
+                    grad.addColorStop(1, 'rgba(255,255,255,0.02)');
+                    ctx.fillStyle = grad;
+                    ctx.fillRect(-plateW / 2, -plateH / 2, plateW, plateH);
+                }
+
+                /* eddy current swirls */
+                if (magnetOn && Math.abs(omega) > 0.04) {
+                    var eddyI = Math.min(1, Math.abs(omega) * 0.6);
+                    if (!slotted) {
+                        ctx.strokeStyle = 'rgba(74,222,128,' + eddyI + ')';
+                        ctx.lineWidth = 1.8;
+                        var swirlDir = omega > 0 ? 1 : -1;
+                        for (var e = 0; e < 4; e++) {
+                            var ex = -18 + e * 12;
+                            var ey = -4 + (e % 2) * 8;
+                            var er = 6 + e * 1.5;
+                            ctx.beginPath();
+                            ctx.arc(ex, ey, er, 0, Math.PI * 1.5);
+                            ctx.stroke();
+                            /* tiny arrowhead */
+                            var endA = Math.PI * 1.5;
+                            var arx = ex + Math.cos(endA) * er;
+                            var ary = ey + Math.sin(endA) * er;
+                            ctx.fillStyle = 'rgba(74,222,128,' + eddyI + ')';
+                            ctx.beginPath();
+                            ctx.moveTo(arx, ary);
+                            ctx.lineTo(arx + swirlDir * 4, ary - 3);
+                            ctx.lineTo(arx + swirlDir * 4, ary + 3);
+                            ctx.fill();
+                        }
+                    } else {
+                        /* much weaker swirls for slotted */
+                        ctx.strokeStyle = 'rgba(74,222,128,' + eddyI * 0.3 + ')';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath(); ctx.arc(0, 0, 5, 0, Math.PI); ctx.stroke();
+                    }
+                }
+                ctx.restore();
+
+                /* ---- amplitude decay graph ---- */
+                var gLeft = w * 0.6;
+                var gW = w * 0.36;
+                var gTop = h * 0.10;
+                var gH = h * 0.35;
+
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.moveTo(gLeft, gTop + gH); ctx.lineTo(gLeft + gW, gTop + gH); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(gLeft, gTop); ctx.lineTo(gLeft, gTop + gH); ctx.stroke();
+
+                ctx.fillStyle = '#888';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('\u0410\u043C\u043F\u043B\u0456\u0442\u0443\u0434\u0430 \u043A\u043E\u043B\u0438\u0432\u0430\u043D\u044C', gLeft + gW / 2, gTop - 6);
+                ctx.textAlign = 'right';
+                ctx.fillText('\u03B8', gLeft - 4, gTop + 8);
+                ctx.textAlign = 'left';
+                ctx.fillText('t', gLeft + gW + 6, gTop + gH + 3);
+
+                if (trailTheta.length > 2) {
+                    var maxT = Math.max.apply(null, trailTheta) || 1;
+                    ctx.strokeStyle = magnetOn ? (slotted ? '#60a5fa' : '#e94560') : '#4ade80';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    for (var i = 0; i < trailTheta.length; i++) {
+                        var gx = gLeft + (i / 200) * gW;
+                        var gy = gTop + gH - (trailTheta[i] / maxT) * (gH - 8);
+                        if (i === 0) ctx.moveTo(gx, gy); else ctx.lineTo(gx, gy);
+                    }
+                    ctx.stroke();
+                }
+
+                /* info panel */
+                var infoY = h * 0.58;
+                ctx.font = '13px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.fillStyle = '#e8e8e8';
+                ctx.fillText('\u041C\u0430\u0433\u043D\u0456\u0442: ' + (magnetOn ? '\u0423\u0412\u0406\u041C\u041A' : '\u0412\u0418\u041C\u041A'), gLeft, infoY);
+                ctx.fillText('\u041F\u043B\u0430\u0441\u0442\u0438\u043D\u0430: ' + (slotted ? '\u0437 \u043F\u0440\u043E\u0440\u0456\u0437\u044F\u043C\u0438' : '\u0441\u0443\u0446\u0456\u043B\u044C\u043D\u0430'), gLeft, infoY + 20);
+
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = '12px Inter, sans-serif';
+                if (magnetOn && !slotted) {
+                    ctx.fillText('\u0421\u0438\u043B\u044C\u043D\u0435 \u0433\u0430\u043B\u044C\u043C\u0443\u0432\u0430\u043D\u043D\u044F:', gLeft, infoY + 44);
+                    ctx.fillText('\u0432\u0438\u0445\u0440\u043E\u0432\u0456 \u0441\u0442\u0440\u0443\u043C\u0438 \u0432 \u0441\u0443\u0446\u0456\u043B\u044C\u043D\u0456\u0439 \u043F\u043B\u0430\u0441\u0442\u0438\u043D\u0456', gLeft, infoY + 60);
+                } else if (magnetOn && slotted) {
+                    ctx.fillText('\u0421\u043B\u0430\u0431\u043A\u0435 \u0433\u0430\u043B\u044C\u043C\u0443\u0432\u0430\u043D\u043D\u044F:', gLeft, infoY + 44);
+                    ctx.fillText('\u043F\u0440\u043E\u0440\u0456\u0437\u0456 \u0437\u043C\u0435\u043D\u0448\u0443\u044E\u0442\u044C \u0432\u0438\u0445\u0440\u043E\u0432\u0456 \u0441\u0442\u0440\u0443\u043C\u0438', gLeft, infoY + 60);
+                } else {
+                    ctx.fillText('\u0412\u0456\u043B\u044C\u043D\u0456 \u043A\u043E\u043B\u0438\u0432\u0430\u043D\u043D\u044F', gLeft, infoY + 44);
+                    ctx.fillText('(\u043C\u0456\u043D\u0456\u043C\u0430\u043B\u044C\u043D\u0435 \u0437\u0433\u0430\u0441\u0430\u043D\u043D\u044F)', gLeft, infoY + 60);
+                }
+
+                /* physics note */
+                ctx.fillStyle = 'rgba(255,255,255,0.3)';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('\u0412\u0438\u0445\u0440\u043E\u0432\u0456 \u0441\u0442\u0440\u0443\u043C\u0438 \u0437\u0430 \u043F\u0440\u0430\u0432\u0438\u043B\u043E\u043C \u041B\u0435\u043D\u0446\u0430 \u0441\u0442\u0432\u043E\u0440\u044E\u044E\u0442\u044C \u0441\u0438\u043B\u0443, \u0449\u043E \u0433\u0430\u043B\u044C\u043C\u0443\u0454 \u0440\u0443\u0445', w / 2, h - 8);
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+            window.addEventListener('resize', init);
+        })();
+
+        /* ============================================================
+           VISUALIZATION 6 — Magnetic flux interactive model
+           ============================================================ */
+        (function() {
+            var canvas = document.getElementById('canvas-flux');
+            if (!canvas) return;
+            var ctx, w, h;
+
+            var angleSlider = document.getElementById('flux-angle');
+            var bSlider2 = document.getElementById('flux-b');
+            var sSlider = document.getElementById('flux-s');
+            var angleVal = document.getElementById('flux-angle-val');
+            var bVal2 = document.getElementById('flux-b-val');
+            var sVal = document.getElementById('flux-s-val');
+
+            angleSlider.addEventListener('input', function() { angleVal.textContent = this.value; });
+            bSlider2.addEventListener('input', function() { bVal2.textContent = parseFloat(this.value).toFixed(1); });
+            sSlider.addEventListener('input', function() { sVal.textContent = parseFloat(this.value).toFixed(1); });
+
+            function init() { var r = resizeCanvas(canvas, 420); w = r.w; h = r.h; ctx = r.ctx; }
+            init();
+
+            function draw() {
+                var r = resizeCanvas(canvas, 420);
+                w = r.w; h = r.h; ctx = r.ctx;
+
+                var alphaDeg = parseInt(angleSlider.value);
+                var alphaRad = alphaDeg * Math.PI / 180;
+                var B = parseFloat(bSlider2.value);
+                var S = parseFloat(sSlider.value);
+                var phi = B * S * Math.cos(alphaRad);
+
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, w, h);
+
+                /* LEFT: 3D frame view */
+                var frameCx = w * 0.28;
+                var frameCy = h * 0.42;
+                var frameW = 80 * Math.sqrt(S);
+                var frameH = 80 * Math.sqrt(S);
+                var projW = frameW * Math.cos(alphaRad);
+
+                /* B field arrows background */
+                for (var fy = frameCy - frameH - 30; fy < frameCy + frameH + 30; fy += 28) {
+                    for (var fx = frameCx - 120; fx < frameCx + 120; fx += 55) {
+                        drawArrow(ctx, fx, fy, fx + 32, fy, 5, 'rgba(96,165,250,0.15)', 1);
+                    }
+                }
+                ctx.fillStyle = '#60a5fa';
+                ctx.font = 'bold 14px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('B = ' + B.toFixed(1) + ' \u0422\u043B \u2192', frameCx, frameCy - frameH - 38);
+
+                /* frame fill (effective area projection) */
+                var fillAlpha = Math.abs(Math.cos(alphaRad)) * 0.2;
+                ctx.fillStyle = 'rgba(251,191,36,' + fillAlpha + ')';
+                ctx.fillRect(frameCx - Math.abs(projW) / 2, frameCy - frameH / 2, Math.abs(projW), frameH);
+
+                /* frame outline */
+                ctx.strokeStyle = '#fbbf24';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(frameCx - projW / 2, frameCy - frameH / 2);
+                ctx.lineTo(frameCx + projW / 2, frameCy - frameH / 2);
+                ctx.lineTo(frameCx + projW / 2, frameCy + frameH / 2);
+                ctx.lineTo(frameCx - projW / 2, frameCy + frameH / 2);
+                ctx.closePath();
+                ctx.stroke();
+
+                /* normal vector */
+                var nLen = 50;
+                var nx = Math.sin(alphaRad) * nLen;
+                var ny = 0;
+                drawArrow(ctx, frameCx, frameCy, frameCx + nx, frameCy, 9, '#4ade80', 2.5);
+                ctx.fillStyle = '#4ade80';
+                ctx.font = 'bold 13px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('n\u20D7', frameCx + nx + (nx >= 0 ? 15 : -15), frameCy - 8);
+
+                /* B vector reference */
+                drawArrow(ctx, frameCx - 40, frameCy, frameCx - 10, frameCy, 7, '#60a5fa', 2);
+                ctx.fillStyle = '#60a5fa';
+                ctx.font = '12px Inter, sans-serif';
+                ctx.fillText('B\u20D7', frameCx - 50, frameCy - 6);
+
+                /* angle arc */
+                if (alphaDeg > 2 && alphaDeg < 178) {
+                    ctx.strokeStyle = 'rgba(255,255,255,0.4)';
+                    ctx.lineWidth = 1.5;
+                    ctx.beginPath();
+                    var arcStart = 0;
+                    var arcEnd = alphaRad;
+                    ctx.arc(frameCx, frameCy, 22, arcStart, arcEnd, false);
+                    ctx.stroke();
+                    /* angle label */
+                    var midA = alphaRad / 2;
+                    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+                    ctx.font = '12px Inter, sans-serif';
+                    ctx.fillText('\u03B1=' + alphaDeg + '\u00B0', frameCx + Math.cos(midA) * 34, frameCy + Math.sin(midA) * 34);
+                }
+
+                /* area label */
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = '12px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('S = ' + S.toFixed(1) + ' \u043C\u00B2', frameCx, frameCy + frameH / 2 + 22);
+
+                /* field lines through frame — count proportional to flux */
+                var numThrough = Math.round(Math.abs(phi) * 5);
+                if (numThrough > 0 && Math.abs(projW) > 3) {
+                    ctx.strokeStyle = 'rgba(96,165,250,0.5)';
+                    ctx.lineWidth = 1.5;
+                    for (var i = 0; i < numThrough; i++) {
+                        var fy = frameCy - frameH / 2 + (i + 0.5) * frameH / numThrough;
+                        if (fy > frameCy - frameH / 2 && fy < frameCy + frameH / 2) {
+                            ctx.beginPath();
+                            ctx.moveTo(frameCx - Math.abs(projW) / 2 - 10, fy);
+                            ctx.lineTo(frameCx + Math.abs(projW) / 2 + 10, fy);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                /* RIGHT: cos(alpha) graph */
+                var gLeft = w * 0.58;
+                var gW = w * 0.38;
+                var gTop = h * 0.08;
+                var gH = h * 0.35;
+                var gMid = gTop + gH / 2;
+
+                /* axes */
+                ctx.strokeStyle = '#444';
+                ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.moveTo(gLeft, gMid); ctx.lineTo(gLeft + gW, gMid); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(gLeft, gTop); ctx.lineTo(gLeft, gTop + gH); ctx.stroke();
+
+                ctx.fillStyle = '#888';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.fillText('+1', gLeft - 4, gTop + 8);
+                ctx.fillText('0', gLeft - 4, gMid + 4);
+                ctx.fillText('-1', gLeft - 4, gTop + gH - 2);
+                ctx.textAlign = 'center';
+                ctx.fillText('0\u00B0', gLeft, gTop + gH + 14);
+                ctx.fillText('90\u00B0', gLeft + gW / 2, gTop + gH + 14);
+                ctx.fillText('180\u00B0', gLeft + gW, gTop + gH + 14);
+
+                /* cos curve */
+                ctx.strokeStyle = '#60a5fa';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                for (var deg = 0; deg <= 180; deg++) {
+                    var rad = deg * Math.PI / 180;
+                    var cosVal = Math.cos(rad);
+                    var gx = gLeft + (deg / 180) * gW;
+                    var gy = gMid - cosVal * (gH / 2 - 6);
+                    if (deg === 0) ctx.moveTo(gx, gy); else ctx.lineTo(gx, gy);
+                }
+                ctx.stroke();
+                ctx.fillStyle = '#60a5fa';
+                ctx.font = 'bold 12px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('cos(\u03B1)', gLeft + gW / 2, gTop - 4);
+
+                /* current position marker */
+                var markerX = gLeft + (alphaDeg / 180) * gW;
+                var markerY = gMid - Math.cos(alphaRad) * (gH / 2 - 6);
+                ctx.fillStyle = '#e94560';
+                ctx.beginPath(); ctx.arc(markerX, markerY, 6, 0, Math.PI * 2); ctx.fill();
+                ctx.fillStyle = 'rgba(233,69,96,0.3)';
+                ctx.beginPath(); ctx.arc(markerX, markerY, 10, 0, Math.PI * 2); ctx.fill();
+                drawDashedLine(ctx, markerX, gMid, markerX, markerY, 'rgba(233,69,96,0.4)', [3, 3]);
+
+                /* BOTTOM: flux bar visualization */
+                var barTop = h * 0.62;
+                var barH = 35;
+                var barMaxW = w * 0.7;
+                var barLeft = w * 0.15;
+
+                /* background bar */
+                ctx.fillStyle = '#1a1a2e';
+                ctx.fillRect(barLeft, barTop, barMaxW, barH);
+                /* flux bar */
+                var barFrac = phi / (2 * 2); /* max possible flux = 2*2 = 4 */
+                var barW2 = Math.abs(barFrac) * barMaxW;
+                var barColor = phi >= 0 ? '#60a5fa' : '#e94560';
+                ctx.fillStyle = barColor;
+                if (phi >= 0) {
+                    ctx.fillRect(barLeft, barTop, barW2, barH);
+                } else {
+                    ctx.fillRect(barLeft + barMaxW - barW2, barTop, barW2, barH);
+                }
+                ctx.strokeStyle = '#555';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(barLeft, barTop, barMaxW, barH);
+                /* zero mark */
+                drawDashedLine(ctx, barLeft + barMaxW / 2, barTop - 5, barLeft + barMaxW / 2, barTop + barH + 5, '#666', [3, 3]);
+
+                /* flux value */
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 18px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('\u03A6 = BS\u00B7cos\u03B1 = ' + B.toFixed(1) + '\u00D7' + S.toFixed(1) + '\u00D7cos(' + alphaDeg + '\u00B0) = ' + phi.toFixed(3) + ' \u0412\u0431', w / 2, barTop + barH + 30);
+
+                /* flux visualization label */
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = '13px Inter, sans-serif';
+                ctx.fillText('\u041C\u0430\u0433\u043D\u0456\u0442\u043D\u0438\u0439 \u043F\u043E\u0442\u0456\u043A \u03A6', w / 2, barTop - 8);
+
+                /* additional info */
+                ctx.fillStyle = '#aaa';
+                ctx.font = '12px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                if (alphaDeg === 0) {
+                    ctx.fillText('\u0420\u0430\u043C\u043A\u0430 \u2534 B \u2192 \u043C\u0430\u043A\u0441. \u043F\u043E\u0442\u0456\u043A', w / 2, h - 12);
+                } else if (alphaDeg === 90) {
+                    ctx.fillText('\u0420\u0430\u043C\u043A\u0430 \u2225 B \u2192 \u043F\u043E\u0442\u0456\u043A = 0', w / 2, h - 12);
+                } else if (alphaDeg === 180) {
+                    ctx.fillText('\u0420\u0430\u043C\u043A\u0430 \u2534 B (\u0437\u0432\u043E\u0440\u043E\u0442\u043D\u044F \u043D\u043E\u0440\u043C\u0430\u043B\u044C) \u2192 \u043F\u043E\u0442\u0456\u043A \u0432\u0456\u0434\u2019\u0454\u043C\u043D\u0438\u0439', w / 2, h - 12);
+                } else {
+                    ctx.fillText('\u041A\u0456\u043B\u044C\u043A\u0456\u0441\u0442\u044C \u043B\u0456\u043D\u0456\u0439, \u0449\u043E \u043F\u0440\u043E\u0445\u043E\u0434\u044F\u0442\u044C \u0447\u0435\u0440\u0435\u0437 \u0440\u0430\u043C\u043A\u0443, \u043F\u0440\u043E\u043F. \u043F\u043E\u0442\u043E\u043A\u0443', w / 2, h - 12);
+                }
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+            window.addEventListener('resize', init);
+        })();
+
+    }); /* end DOMContentLoaded */
+    </script>
+</body>
+</html>

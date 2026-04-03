@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "physics-visual",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "D:/main/Project/physics-visual", "-l", "3001", "--no-clipboard"],
+      "port": 3001
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тема 23. Закон Кулона. Напруженість поля — Фізика ЗНО</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script defer src="../main.js"></script>
+</head>
+<body>
+    <header class="header">
+        <button class="header__menu-btn">&#9776;</button>
+        <a href="../index.html" class="header__logo">
+            <div class="header__logo-icon">&#9883;</div>
+            <span>Physics Visual</span>
+        </a>
+        <div class="header__search">
+            <span class="header__search-icon">&#128269;</span>
+            <input type="text" placeholder="Пошук теми...">
+            <div class="search-results"></div>
+        </div>
+        <div class="header__progress-info"></div>
+    </header>
+
+    <div class="sidebar-overlay"></div>
+    <nav class="sidebar">
+        <div class="sidebar__section">
+            <div class="sidebar__section-title">Усі теми</div>
+            <a href="topic-1.html" class="sidebar__item"><span class="sidebar__item-number">1</span><span class="sidebar__item-title">Вступ. Рівномірний рух. Середня швидкість. Відносність руху</span></a>
+            <a href="topic-2.html" class="sidebar__item"><span class="sidebar__item-number">2</span><span class="sidebar__item-title">Рівноприскорений прямолінійний рух. Рух тіл по вертикалі під дією сили тяжіння</span></a>
+            <a href="topic-3.html" class="sidebar__item"><span class="sidebar__item-number">3</span><span class="sidebar__item-title">Рух по горизонту під дією сили тяжіння</span></a>
+            <a href="topic-4.html" class="sidebar__item"><span class="sidebar__item-number">4</span><span class="sidebar__item-title">Рівномірний рух по колу</span></a>
+            <a href="topic-5.html" class="sidebar__item"><span class="sidebar__item-number">5</span><span class="sidebar__item-title">Закони Ньютона</span></a>
+            <a href="topic-6.html" class="sidebar__item"><span class="sidebar__item-number">6</span><span class="sidebar__item-title">Закон всесвітнього тяжіння. Супутники</span></a>
+            <a href="topic-7.html" class="sidebar__item"><span class="sidebar__item-number">7</span><span class="sidebar__item-title">Сила пружності. Вага і невагомість</span></a>
+            <a href="topic-8.html" class="sidebar__item"><span class="sidebar__item-number">8</span><span class="sidebar__item-title">Сила тертя</span></a>
+            <a href="topic-9.html" class="sidebar__item"><span class="sidebar__item-number">9</span><span class="sidebar__item-title">Імпульс. Закон збереження імпульсу</span></a>
+            <a href="topic-10.html" class="sidebar__item"><span class="sidebar__item-number">10</span><span class="sidebar__item-title">Динаміка рівномірного руху тіла по колу</span></a>
+            <a href="topic-11.html" class="sidebar__item"><span class="sidebar__item-number">11</span><span class="sidebar__item-title">Статика</span></a>
+            <a href="topic-12.html" class="sidebar__item"><span class="sidebar__item-number">12</span><span class="sidebar__item-title">Закон збереження енергії</span></a>
+            <a href="topic-13.html" class="sidebar__item"><span class="sidebar__item-number">13</span><span class="sidebar__item-title">Механічна робота. Потужність. ККД. Прості механізми</span></a>
+            <a href="topic-14.html" class="sidebar__item"><span class="sidebar__item-number">14</span><span class="sidebar__item-title">Засоби збереження механічної енергії</span></a>
+            <a href="topic-15.html" class="sidebar__item"><span class="sidebar__item-number">15</span><span class="sidebar__item-title">Елементи механіки рідин і газів</span></a>
+            <a href="topic-16.html" class="sidebar__item"><span class="sidebar__item-number">16</span><span class="sidebar__item-title">Основи молекулярно-кінетичної теорії</span></a>
+            <a href="topic-17.html" class="sidebar__item"><span class="sidebar__item-number">17</span><span class="sidebar__item-title">Рівняння стану ідеального газу. Ізопроцеси</span></a>
+            <a href="topic-18.html" class="sidebar__item"><span class="sidebar__item-number">18</span><span class="sidebar__item-title">Насичена пара. Вологість повітря</span></a>
+            <a href="topic-19.html" class="sidebar__item"><span class="sidebar__item-number">19</span><span class="sidebar__item-title">Поверхневий натяг. Капілярність</span></a>
+            <a href="topic-20.html" class="sidebar__item"><span class="sidebar__item-number">20</span><span class="sidebar__item-title">Властивості твердих тіл. Механізм деформацій</span></a>
+            <a href="topic-21.html" class="sidebar__item"><span class="sidebar__item-number">21</span><span class="sidebar__item-title">Основи термодинаміки</span></a>
+            <a href="topic-22.html" class="sidebar__item"><span class="sidebar__item-number">22</span><span class="sidebar__item-title">Закон агрегатних станів речовини. Рівняння теплового балансу</span></a>
+            <a href="topic-23.html" class="sidebar__item sidebar__item--active"><span class="sidebar__item-number">23</span><span class="sidebar__item-title">Закон Кулона. Напруженість поля</span></a>
+            <a href="topic-24.html" class="sidebar__item"><span class="sidebar__item-number">24</span><span class="sidebar__item-title">Потенціал. Різниця потенціалів. Робота електростатичного поля</span></a>
+            <a href="topic-25.html" class="sidebar__item"><span class="sidebar__item-number">25</span><span class="sidebar__item-title">Електроємність. Енергія конденсаторів</span></a>
+            <a href="topic-26.html" class="sidebar__item"><span class="sidebar__item-number">26</span><span class="sidebar__item-title">Постійний струм. Закон Ома для ділянки кола</span></a>
+            <a href="topic-27.html" class="sidebar__item"><span class="sidebar__item-number">27</span><span class="sidebar__item-title">Закон Ома для повного (замкнутого) кола</span></a>
+            <a href="topic-28.html" class="sidebar__item"><span class="sidebar__item-number">28</span><span class="sidebar__item-title">Робота і потужність струму. Закон Джоуля — Ленца</span></a>
+            <a href="topic-29.html" class="sidebar__item"><span class="sidebar__item-number">29</span><span class="sidebar__item-title">Струм у різних середовищах</span></a>
+            <a href="topic-30.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">30</span><span class="sidebar__item-title">Магнітне поле</span></a>
+            <a href="topic-31.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">31</span><span class="sidebar__item-title">Електромагнітна індукція</span></a>
+            <a href="topic-32.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">32</span><span class="sidebar__item-title">Механічні коливання</span></a>
+            <a href="topic-33.html" class="sidebar__item"><span class="sidebar__item-number">33</span><span class="sidebar__item-title">Механічні хвилі. Звук</span></a>
+            <a href="topic-34.html" class="sidebar__item"><span class="sidebar__item-number">34</span><span class="sidebar__item-title">Вільні електромагнітні коливання</span></a>
+            <a href="topic-35.html" class="sidebar__item"><span class="sidebar__item-number">35</span><span class="sidebar__item-title">Змінний струм</span></a>
+            <a href="topic-36.html" class="sidebar__item"><span class="sidebar__item-number">36</span><span class="sidebar__item-title">Електромагнітні хвилі</span></a>
+            <a href="topic-37.html" class="sidebar__item"><span class="sidebar__item-number">37</span><span class="sidebar__item-title">Елементи геометричної оптики</span></a>
+            <a href="topic-38.html" class="sidebar__item"><span class="sidebar__item-number">38</span><span class="sidebar__item-title">Лінзи</span></a>
+            <a href="topic-39.html" class="sidebar__item"><span class="sidebar__item-number">39</span><span class="sidebar__item-title">Хвильова оптика</span></a>
+            <a href="topic-40.html" class="sidebar__item"><span class="sidebar__item-number">40</span><span class="sidebar__item-title">Елементи теорії відносності</span></a>
+            <a href="topic-41.html" class="sidebar__item"><span class="sidebar__item-number">41</span><span class="sidebar__item-title">Кванти світла</span></a>
+            <a href="topic-42.html" class="sidebar__item"><span class="sidebar__item-number">42</span><span class="sidebar__item-title">Атомна фізика</span></a>
+            <a href="topic-43.html" class="sidebar__item"><span class="sidebar__item-number">43</span><span class="sidebar__item-title">Ядерна фізика</span></a>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="topic-header">
+            <div class="topic-header__breadcrumb">
+                <a href="../index.html">Головна</a> / Тема 23
+            </div>
+            <div class="topic-header__number">Тема 23</div>
+            <h1 class="topic-header__title">Закон Кулона. Напруженість поля</h1>
+        </div>
+
+        <div class="empty-topic">
+            <div class="empty-topic__icon">&#128218;</div>
+            <h2 class="empty-topic__title">Скоро буде</h2>
+            <p class="empty-topic__text">Ця тема ще в розробці. Контент з'явиться найближчим часом.</p>
+        </div>
+
+        <nav class="topic-nav">
+            <a href="topic-22.html" class="topic-nav__btn">&larr; Тема 22</a>
+            <a href="topic-24.html" class="topic-nav__btn topic-nav__btn--next">Тема 24 &rarr;</a>
+        </nav>
+    </main>
+</body>
+</html>
