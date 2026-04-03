@@ -58,9 +58,9 @@
             <a href="topic-27.html" class="sidebar__item"><span class="sidebar__item-number">27</span><span class="sidebar__item-title">Закон Ома для повного (замкнутого) кола</span></a>
             <a href="topic-28.html" class="sidebar__item"><span class="sidebar__item-number">28</span><span class="sidebar__item-title">Робота і потужність струму. Закон Джоуля — Ленца</span></a>
             <a href="topic-29.html" class="sidebar__item"><span class="sidebar__item-number">29</span><span class="sidebar__item-title">Струм у різних середовищах</span></a>
-            <a href="topic-30.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">30</span><span class="sidebar__item-title">Магнітне поле</span></a>
-            <a href="topic-31.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">31</span><span class="sidebar__item-title">Електромагнітна індукція</span></a>
-            <a href="topic-32.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">32</span><span class="sidebar__item-title">Механічні коливання</span></a>
+            <a href="topic-30.html" class="sidebar__item"><span class="sidebar__item-number">30</span><span class="sidebar__item-title">Магнітне поле</span></a>
+            <a href="topic-31.html" class="sidebar__item"><span class="sidebar__item-number">31</span><span class="sidebar__item-title">Електромагнітна індукція</span></a>
+            <a href="topic-32.html" class="sidebar__item"><span class="sidebar__item-number">32</span><span class="sidebar__item-title">Механічні коливання</span></a>
             <a href="topic-33.html" class="sidebar__item"><span class="sidebar__item-number">33</span><span class="sidebar__item-title">Механічні хвилі. Звук</span></a>
             <a href="topic-34.html" class="sidebar__item sidebar__item--active"><span class="sidebar__item-number">34</span><span class="sidebar__item-title">Вільні електромагнітні коливання</span></a>
             <a href="topic-35.html" class="sidebar__item"><span class="sidebar__item-number">35</span><span class="sidebar__item-title">Змінний струм</span></a>
@@ -84,16 +84,1289 @@
             <h1 class="topic-header__title">Вільні електромагнітні коливання</h1>
         </div>
 
-        <div class="empty-topic">
-            <div class="empty-topic__icon">&#128218;</div>
-            <h2 class="empty-topic__title">Скоро буде</h2>
-            <p class="empty-topic__text">Ця тема ще в розробці. Контент з'явиться найближчим часом.</p>
+        <!-- ===== ЗМІСТ ===== -->
+        <div class="toc">
+            <h2 class="toc__title">Зміст теми</h2>
+            <ol class="toc__list">
+                <li class="toc__item"><a href="#circuit" class="toc__link">Коливальний контур</a></li>
+                <li class="toc__item"><a href="#energy" class="toc__link">Енергія в контурі</a></li>
+                <li class="toc__item"><a href="#thomson" class="toc__link">Формула Томсона</a></li>
+                <li class="toc__item"><a href="#analogy" class="toc__link">Аналогія: пружина і контур</a></li>
+                <li class="toc__item"><a href="#graphs" class="toc__link">Графіки q(t), u(t), i(t)</a></li>
+                <li class="toc__item"><a href="#formulas" class="toc__link">Таблиця формул</a></li>
+                <li class="toc__item"><a href="#problems" class="toc__link">Задачі</a></li>
+            </ol>
         </div>
 
+        <!-- ===== 1. КОЛИВАЛЬНИЙ КОНТУР ===== -->
+        <section id="circuit" class="content-section">
+            <h2 class="content-section__title">1. Коливальний контур</h2>
+            <div class="definition-box">
+                <p><strong>Коливальний контур</strong> — це найпростіше електричне коло з конденсатора (C) та котушки індуктивності (L), з'єднаних між собою.</p>
+                <p class="simple-explanation"><strong>Простими словами:</strong> уяви електричну гойдалку. Конденсатор — як відро з водою (зберігає заряд), а котушка — як маховик (не дає струму різко змінитись). Заряд бігає туди-сюди між ними, як дитина на гойдалці.</p>
+            </div>
+            <p>
+                <strong>Конденсатор</strong> — зберігає електричну енергію у вигляді заряду на пластинах. Як акумулятор, який миттєво заряджається і розряджається.
+            </p>
+            <p>
+                <strong>Котушка індуктивності</strong> — зберігає енергію у магнітному полі. Як маховик: коли струм тече, котушка "розганяється" і не дає йому зупинитись різко. А коли струм намагається зникнути — котушка його підтримує.
+            </p>
+            <div class="formula">
+                $$q = q_m \cos(\omega t), \qquad u = U_m \cos(\omega t), \qquad i = I_m \cos\!\left(\omega t + \frac{\pi}{2}\right)$$
+            </div>
+            <p>
+                <strong>Вільні електромагнітні коливання (ЕМК)</strong> — це періодичні зміни заряду $q$, напруги $u$ та сили струму $i$ в контурі, які відбуваються без зовнішнього джерела енергії.
+            </p>
+
+            <div class="canvas-wrapper" id="circuit-wrap">
+                <canvas id="circuitCanvas"></canvas>
+                <div class="canvas-controls">
+                    <label>C = <span id="cc-C-val">50</span> мкФ
+                        <input type="range" id="cc-C" min="1" max="100" step="1" value="50">
+                    </label>
+                    <label>L = <span id="cc-L-val">50</span> мГн
+                        <input type="range" id="cc-L" min="1" max="100" step="1" value="50">
+                    </label>
+                    <div class="canvas-controls__info" id="cc-info">T = 0.0314 с &nbsp; &nu; = 31.8 Гц</div>
+                    <div class="canvas-controls__buttons">
+                        <button id="cc-play">&#9654; Пуск</button>
+                        <button id="cc-pause">&#10074;&#10074; Пауза</button>
+                        <button id="cc-reset">&#8635; Скинути</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <h3 class="note__title">&#128218; Запам'ятай для ЗНО</h3>
+                <ul>
+                    <li>Заряд $q$ і напруга $u$ змінюються <strong>в однаковій фазі</strong> (одночасно максимум і мінімум).</li>
+                    <li>Струм $i$ <strong>випереджає</strong> заряд на $\pi/2$ (чверть періоду).</li>
+                    <li>$I_m = q_m \cdot \omega$ — зв'язок амплітуди струму з амплітудою заряду.</li>
+                    <li>Коливання відбуваються <strong>без затухання</strong> тільки в ідеальному контурі (без опору).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== 2. ЕНЕРГІЯ В КОНТУРІ ===== -->
+        <section id="energy" class="content-section">
+            <h2 class="content-section__title">2. Енергія в контурі</h2>
+            <div class="definition-box">
+                <p>У коливальному контурі енергія постійно перетворюється: електрична енергія конденсатора перетікає в магнітну енергію котушки і навпаки.</p>
+                <p class="simple-explanation"><strong>Простими словами:</strong> уяви дві склянки, з'єднані трубкою. Вода (енергія) переливається з однієї в іншу і назад. Повна кількість води не змінюється — вона просто перетікає туди-сюди.</p>
+            </div>
+            <div class="formula">
+                $$W_e = \frac{CU^2}{2} = \frac{q^2}{2C}, \qquad W_m = \frac{LI^2}{2}$$
+            </div>
+            <div class="formula">
+                $$W_e + W_m = \frac{CU_m^2}{2} = \frac{LI_m^2}{2} = \text{const}$$
+            </div>
+
+            <div class="canvas-wrapper" id="energy-wrap">
+                <canvas id="energyCanvas"></canvas>
+                <div class="canvas-controls">
+                    <div class="canvas-controls__info" id="en-info">W<sub>e</sub> = 100% &nbsp; W<sub>m</sub> = 0% &nbsp; W = const</div>
+                    <div class="canvas-controls__buttons">
+                        <button id="en-play">&#9654; Пуск</button>
+                        <button id="en-pause">&#10074;&#10074; Пауза</button>
+                        <button id="en-reset">&#8635; Скинути</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <h3 class="note__title">&#128218; Запам'ятай для ЗНО</h3>
+                <ul>
+                    <li>$W_e$ — максимальна, коли конденсатор повністю заряджений ($q = q_m$, $i = 0$).</li>
+                    <li>$W_m$ — максимальна, коли струм найбільший ($i = I_m$, $q = 0$).</li>
+                    <li>$W_e + W_m = \text{const}$ — повна енергія не змінюється (закон збереження).</li>
+                    <li>Частота коливань енергії <strong>вдвічі більша</strong>, ніж частота коливань заряду ($\cos^2$).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== 3. ФОРМУЛА ТОМСОНА ===== -->
+        <section id="thomson" class="content-section">
+            <h2 class="content-section__title">3. Формула Томсона</h2>
+            <div class="definition-box">
+                <p><strong>Формула Томсона</strong> дозволяє обчислити період, частоту та циклічну частоту вільних ЕМК за відомими L і C.</p>
+                <p class="simple-explanation"><strong>Простими словами:</strong> чим більший конденсатор або котушка — тим повільніше коливання (як важча гойдалка гойдається повільніше). Менші деталі — швидші коливання.</p>
+            </div>
+            <div class="formula">
+                $$T = 2\pi\sqrt{LC}, \qquad \nu = \frac{1}{2\pi\sqrt{LC}}, \qquad \omega = \frac{1}{\sqrt{LC}}$$
+            </div>
+
+            <div class="canvas-wrapper" id="thomson-wrap">
+                <canvas id="thomsonCanvas"></canvas>
+                <div class="canvas-controls">
+                    <label>L = <span id="th-L-val">50</span> мГн
+                        <input type="range" id="th-L" min="1" max="100" step="1" value="50">
+                    </label>
+                    <label>C = <span id="th-C-val">50</span> мкФ
+                        <input type="range" id="th-C" min="1" max="100" step="1" value="50">
+                    </label>
+                    <div class="canvas-controls__info" id="th-info">T = 0.0314 с &nbsp; &nu; = 31.8 Гц &nbsp; &omega; = 200.0 рад/с</div>
+                    <div class="canvas-controls__buttons">
+                        <button id="th-play">&#9654; Пуск</button>
+                        <button id="th-pause">&#10074;&#10074; Пауза</button>
+                        <button id="th-reset">&#8635; Скинути</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <h3 class="note__title">&#128218; Запам'ятай для ЗНО</h3>
+                <ul>
+                    <li>Збільшуємо $L$ або $C$ — період $T$ <strong>зростає</strong> (коливання стають повільнішими).</li>
+                    <li>Зменшуємо $L$ або $C$ — частота $\nu$ <strong>зростає</strong> (коливання стають швидшими).</li>
+                    <li>$T$ залежить від $\sqrt{LC}$ — щоб подвоїти період, треба збільшити $LC$ у <strong>4 рази</strong>.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== 4. АНАЛОГІЯ: ПРУЖИНА І КОНТУР ===== -->
+        <section id="analogy" class="content-section">
+            <h2 class="content-section__title">4. Аналогія: пружина і контур</h2>
+            <div class="definition-box">
+                <p>Механічні коливання пружинного маятника та електромагнітні коливання в контурі описуються однаковими рівняннями.</p>
+                <p class="simple-explanation"><strong>Простими словами:</strong> вантаж на пружині та коливальний контур — це "брати-близнюки". Одне коливається у просторі, інше — в електричному колі, але математика однакова!</p>
+            </div>
+            <div class="formula-table">
+                <table>
+                    <thead><tr><th>Механіка (пружина)</th><th></th><th>Електрика (контур)</th></tr></thead>
+                    <tbody>
+                        <tr><td>зміщення $x$</td><td>&#8596;</td><td>заряд $q$</td></tr>
+                        <tr><td>швидкість $v$</td><td>&#8596;</td><td>сила струму $i$</td></tr>
+                        <tr><td>маса $m$</td><td>&#8596;</td><td>індуктивність $L$</td></tr>
+                        <tr><td>жорсткість $k$</td><td>&#8596;</td><td>$1/C$ (обернена ємність)</td></tr>
+                        <tr><td>$E_p = kx^2/2$</td><td>&#8596;</td><td>$W_e = q^2/(2C)$</td></tr>
+                        <tr><td>$E_k = mv^2/2$</td><td>&#8596;</td><td>$W_m = Li^2/2$</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="canvas-wrapper" id="analogy-wrap">
+                <canvas id="analogyCanvas"></canvas>
+                <div class="canvas-controls">
+                    <div class="canvas-controls__info" id="an-info">Пружина та контур коливаються синхронно</div>
+                    <div class="canvas-controls__buttons">
+                        <button id="an-play">&#9654; Пуск</button>
+                        <button id="an-pause">&#10074;&#10074; Пауза</button>
+                        <button id="an-reset">&#8635; Скинути</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <h3 class="note__title">&#128218; Запам'ятай для ЗНО</h3>
+                <ul>
+                    <li>Маса $m$ аналогічна індуктивності $L$ — обидві створюють "інерцію".</li>
+                    <li>Жорсткість $k$ аналогічна $1/C$ — обидві визначають "силу повернення".</li>
+                    <li>Формули для періоду: $T = 2\pi\sqrt{m/k}$ та $T = 2\pi\sqrt{LC}$ — однакові за структурою!</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== 5. ГРАФІКИ q(t), u(t), i(t) ===== -->
+        <section id="graphs" class="content-section">
+            <h2 class="content-section__title">5. Графіки q(t), u(t), i(t)</h2>
+            <div class="definition-box">
+                <p>Заряд і напруга змінюються за законом косинуса (в одній фазі), а струм зсунутий на $\pi/2$ (випереджає на чверть періоду).</p>
+                <p class="simple-explanation"><strong>Простими словами:</strong> коли конденсатор повністю заряджений — струму немає (вода зупинилась). Коли конденсатор порожній — струм максимальний (вода тече найшвидше). Вони ніколи не досягають максимуму одночасно!</p>
+            </div>
+            <div class="formula">
+                $$q(t) = q_m \cos(\omega t), \quad u(t) = U_m \cos(\omega t), \quad i(t) = -I_m \sin(\omega t)$$
+            </div>
+
+            <div class="canvas-wrapper" id="graphs-wrap">
+                <canvas id="graphsCanvas"></canvas>
+                <div class="canvas-controls">
+                    <div class="canvas-controls__info" id="gr-info">q = max, u = max, i = 0</div>
+                    <div class="canvas-controls__buttons">
+                        <button id="gr-play">&#9654; Пуск</button>
+                        <button id="gr-pause">&#10074;&#10074; Пауза</button>
+                        <button id="gr-reset">&#8635; Скинути</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <h3 class="note__title">&#128218; Запам'ятай для ЗНО</h3>
+                <ul>
+                    <li>$q$ та $u$ — в одній фазі (графіки збігаються за формою).</li>
+                    <li>$i$ випереджає $q$ на $\pi/2$ (зсув на чверть періоду вліво).</li>
+                    <li>Коли $q = q_m$ (максимум заряду), $i = 0$.</li>
+                    <li>Коли $q = 0$, $i = \pm I_m$ (максимальний струм).</li>
+                    <li>$I_m = q_m \cdot \omega$ — формула для ЗНО!</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== 6. ТАБЛИЦЯ ФОРМУЛ ===== -->
+        <section id="formulas" class="content-section">
+            <h2 class="content-section__title">6. Таблиця формул</h2>
+            <div class="formula-table">
+                <table>
+                    <thead><tr><th>Величина</th><th>Формула</th></tr></thead>
+                    <tbody>
+                        <tr><td>Заряд конденсатора</td><td>$q(t) = q_m \cos(\omega t)$</td></tr>
+                        <tr><td>Напруга на конденсаторі</td><td>$u(t) = U_m \cos(\omega t)$</td></tr>
+                        <tr><td>Сила струму</td><td>$i(t) = I_m \cos(\omega t + \pi/2)$</td></tr>
+                        <tr><td>Зв'язок амплітуд</td><td>$I_m = q_m \cdot \omega$</td></tr>
+                        <tr><td>Період (Томсон)</td><td>$T = 2\pi\sqrt{LC}$</td></tr>
+                        <tr><td>Частота</td><td>$\nu = \dfrac{1}{2\pi\sqrt{LC}}$</td></tr>
+                        <tr><td>Циклічна частота</td><td>$\omega = \dfrac{1}{\sqrt{LC}}$</td></tr>
+                        <tr><td>Електрична енергія</td><td>$W_e = \dfrac{CU^2}{2} = \dfrac{q^2}{2C}$</td></tr>
+                        <tr><td>Магнітна енергія</td><td>$W_m = \dfrac{LI^2}{2}$</td></tr>
+                        <tr><td>Повна енергія</td><td>$W = W_e + W_m = \dfrac{CU_m^2}{2} = \text{const}$</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===== 7. ЗАДАЧІ ===== -->
+        <section id="problems" class="content-section">
+            <h2 class="content-section__title">7. Задачі</h2>
+
+            <div class="problem">
+                <div class="problem__text">
+                    <strong>Задача 1.</strong> Ємність конденсатора коливального контуру $C = 10$ мкФ, амплітуда напруги $U_m = 10$ В, період коливань $T = 8 \cdot 10^{-3}$ с. Записати рівняння $u(t)$, $q(t)$, $i(t)$ та знайти максимальні значення енергій.
+                </div>
+                <div class="problem__given">
+                    <div class="problem__given-title">Дано:</div>
+                    $C = 10$ мкФ $= 10^{-5}$ Ф<br>
+                    $U_m = 10$ В<br>
+                    $T = 8 \cdot 10^{-3}$ с<br><br>
+                    $u(t),\ q(t),\ i(t),\ W_e,\ W_m = ?$
+                </div>
+                <div class="problem__solution">
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати розв'язок</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__step">
+                            <div class="problem__step-number">1</div>
+                            <div class="problem__step-content">
+                                Циклічна частота: $$\omega = \frac{2\pi}{T} = \frac{2\pi}{8 \cdot 10^{-3}} = 250\pi \approx 785 \text{ рад/с}$$
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">2</div>
+                            <div class="problem__step-content">
+                                Рівняння напруги: $$u(t) = 10\cos(250\pi t) \text{ (В)}$$
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">3</div>
+                            <div class="problem__step-content">
+                                Амплітуда заряду: $q_m = CU_m = 10^{-5} \cdot 10 = 10^{-4}$ Кл. Рівняння заряду: $$q(t) = 10^{-4}\cos(250\pi t) \text{ (Кл)}$$
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">4</div>
+                            <div class="problem__step-content">
+                                Амплітуда струму: $I_m = q_m \omega = 10^{-4} \cdot 250\pi \approx 0{,}0785$ А. Рівняння струму: $$i(t) = 0{,}0785\cos(250\pi t + \pi/2) \text{ (А)}$$
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">5</div>
+                            <div class="problem__step-content">
+                                Максимальна електрична енергія: $$W_{e,\max} = \frac{CU_m^2}{2} = \frac{10^{-5} \cdot 100}{2} = 5 \cdot 10^{-4} \text{ Дж} = 0{,}5 \text{ мДж}$$
+                                Максимальна магнітна енергія: $W_{m,\max} = W_{e,\max} = 0{,}5$ мДж (за ЗЗЕ).
+                            </div>
+                        </div>
+                        <div class="problem__answer">
+                            <strong>Відповідь:</strong> $u = 10\cos(250\pi t)$ В; $q = 10^{-4}\cos(250\pi t)$ Кл; $i \approx 0{,}079\cos(250\pi t + \pi/2)$ А; $W_{e,\max} = W_{m,\max} = 0{,}5$ мДж.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem__text">
+                    <strong>Задача 2.</strong> Індуктивність котушки зменшили на 200 мГн, а ємність конденсатора збільшили в 3 рази. Частота коливань зменшилась в 1,5 рази. Знайти початкову індуктивність.
+                </div>
+                <div class="problem__given">
+                    <div class="problem__given-title">Дано:</div>
+                    $L_2 = L_1 - 0{,}2$ Гн<br>
+                    $C_2 = 3C_1$<br>
+                    $\nu_2 = \nu_1 / 1{,}5$<br><br>
+                    $L_1 = ?$
+                </div>
+                <div class="problem__solution">
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати розв'язок</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__step">
+                            <div class="problem__step-number">1</div>
+                            <div class="problem__step-content">
+                                Формула Томсона для частоти:
+                                $$\nu = \frac{1}{2\pi\sqrt{LC}}$$
+                                Складемо відношення:
+                                $$\frac{\nu_2}{\nu_1} = \frac{\sqrt{L_1 C_1}}{\sqrt{L_2 C_2}}$$
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">2</div>
+                            <div class="problem__step-content">
+                                Підставимо $\nu_2/\nu_1 = 2/3$, $L_2 = L_1 - 0{,}2$, $C_2 = 3C_1$:
+                                $$\frac{2}{3} = \sqrt{\frac{L_1 C_1}{(L_1 - 0{,}2) \cdot 3C_1}} = \sqrt{\frac{L_1}{3(L_1 - 0{,}2)}}$$
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">3</div>
+                            <div class="problem__step-content">
+                                Піднесемо до квадрату:
+                                $$\frac{4}{9} = \frac{L_1}{3(L_1 - 0{,}2)}$$
+                                $$12L_1 - 2{,}4 = 9L_1$$
+                                $$3L_1 = 2{,}4 \implies L_1 = 0{,}8 \text{ Гн} = 800 \text{ мГн}$$
+                            </div>
+                        </div>
+                        <div class="problem__answer">
+                            <strong>Відповідь:</strong> $L_1 = 800$ мГн.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem__text">
+                    <strong>Задача 3.</strong> Ємність конденсатора $C = 2$ мкФ, амплітуда сили струму $I_m = 40$ мА. У деякий момент електрична енергія становить $W_e = W_m / 3$. Період коливань $T = 20$ мс. Знайти напругу на конденсаторі в цей момент.
+                </div>
+                <div class="problem__given">
+                    <div class="problem__given-title">Дано:</div>
+                    $C = 2$ мкФ $= 2 \cdot 10^{-6}$ Ф<br>
+                    $I_m = 40$ мА $= 0{,}04$ А<br>
+                    $W_e = W_m / 3$<br>
+                    $T = 20$ мс<br><br>
+                    $U = ?$
+                </div>
+                <div class="problem__solution">
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати розв'язок</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__step">
+                            <div class="problem__step-number">1</div>
+                            <div class="problem__step-content">
+                                Повна енергія: $W = W_e + W_m$. Якщо $W_e = W_m/3$, то $W_m = 3W_e$, і $W = W_e + 3W_e = 4W_e$, отже $W_e = W/4$.
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">2</div>
+                            <div class="problem__step-content">
+                                Циклічна частота: $\omega = 2\pi/T = 2\pi/0{,}02 = 100\pi$ рад/с.
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">3</div>
+                            <div class="problem__step-content">
+                                Знайдемо $L$ з формули Томсона: $L = 1/(\omega^2 C) = 1/((100\pi)^2 \cdot 2 \cdot 10^{-6}) \approx 5{,}07$ Гн.
+                                Повна енергія: $W = LI_m^2/2 = 5{,}07 \cdot 0{,}0016/2 \approx 4{,}05 \cdot 10^{-3}$ Дж.
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">4</div>
+                            <div class="problem__step-content">
+                                $W_e = W/4$, тому $CU^2/2 = LI_m^2/8$:
+                                $$U = \frac{I_m}{2\omega C} = \frac{0{,}04}{2 \cdot 100\pi \cdot 2 \cdot 10^{-6}} = \frac{0{,}04}{4\pi \cdot 10^{-4}} = \frac{100}{\pi} \approx 31{,}8 \text{ В}$$
+                            </div>
+                        </div>
+                        <div class="problem__answer">
+                            <strong>Відповідь:</strong> $U = \dfrac{100}{\pi} \approx 31{,}8$ В.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== НАВІГАЦІЯ ===== -->
         <nav class="topic-nav">
             <a href="topic-33.html" class="topic-nav__btn">&larr; Тема 33</a>
             <a href="topic-35.html" class="topic-nav__btn topic-nav__btn--next">Тема 35 &rarr;</a>
         </nav>
     </main>
+
+    <!-- ============================================ -->
+    <!-- JavaScript: Візуалізації                      -->
+    <!-- ============================================ -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        /* ===========================================================
+           UTILITY FUNCTIONS
+           =========================================================== */
+        var DPR = window.devicePixelRatio || 1;
+
+        function setupCanvas(canvas, height) {
+            var wrap = canvas.parentElement;
+            var rect = wrap.getBoundingClientRect();
+            var w = rect.width;
+            var h = height || 500;
+            canvas.width = w * DPR;
+            canvas.height = h * DPR;
+            canvas.style.width = w + 'px';
+            canvas.style.height = h + 'px';
+            var ctx = canvas.getContext('2d');
+            ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+            return { w: w, h: h, ctx: ctx };
+        }
+
+        function drawArrow(ctx, x0, y0, x1, y1, color, width) {
+            var dx = x1 - x0, dy = y1 - y0;
+            var len = Math.sqrt(dx * dx + dy * dy);
+            if (len < 2) return;
+            var ux = dx / len, uy = dy / len;
+            ctx.strokeStyle = color;
+            ctx.lineWidth = width || 2;
+            ctx.beginPath();
+            ctx.moveTo(x0, y0);
+            ctx.lineTo(x1, y1);
+            ctx.stroke();
+            var hs = 8;
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x1 - ux * hs + uy * hs * 0.4, y1 - uy * hs - ux * hs * 0.4);
+            ctx.lineTo(x1 - ux * hs - uy * hs * 0.4, y1 - uy * hs + ux * hs * 0.4);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        function drawGraphAxes(ctx, gx, gy, gw, gh, labelY, labelX) {
+            ctx.strokeStyle = '#444';
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(gx, gy); ctx.lineTo(gx, gy + gh); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(gx, gy + gh / 2); ctx.lineTo(gx + gw, gy + gh / 2); ctx.stroke();
+            ctx.fillStyle = '#999';
+            ctx.font = '11px Inter, sans-serif';
+            ctx.textAlign = 'left';
+            if (labelY) ctx.fillText(labelY, gx + 5, gy + 14);
+            if (labelX) { ctx.textAlign = 'right'; ctx.fillText(labelX, gx + gw - 2, gy + gh / 2 - 6); }
+        }
+
+        function drawGraphAxesBottom(ctx, gx, gy, gw, gh, labelY, labelX) {
+            ctx.strokeStyle = '#444';
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(gx, gy); ctx.lineTo(gx, gy + gh); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(gx, gy + gh); ctx.lineTo(gx + gw, gy + gh); ctx.stroke();
+            ctx.fillStyle = '#999';
+            ctx.font = '11px Inter, sans-serif';
+            ctx.textAlign = 'left';
+            if (labelY) ctx.fillText(labelY, gx + 5, gy + 14);
+            if (labelX) { ctx.textAlign = 'right'; ctx.fillText(labelX, gx + gw - 2, gy + gh - 6); }
+        }
+
+        /* ===========================================================
+           IntersectionObserver: pause off-screen canvases
+           =========================================================== */
+        var visibleCanvases = {};
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                visibleCanvases[entry.target.id] = entry.isIntersecting;
+            });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('.canvas-wrapper').forEach(function(w) {
+            observer.observe(w);
+            visibleCanvases[w.id] = false;
+        });
+        function isVisible(id) { return visibleCanvases[id] !== false; }
+
+        /* ===========================================================
+           Resize handler
+           =========================================================== */
+        var resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() { DPR = window.devicePixelRatio || 1; }, 200);
+        });
+
+
+        /* ===========================================================
+           1. "ЕЛЕКТРИЧНА ГОЙДАЛКА" — КОЛИВАЛЬНИЙ КОНТУР (500px)
+           =========================================================== */
+        (function() {
+            var canvas = document.getElementById('circuitCanvas');
+            if (!canvas) return;
+            var dim = setupCanvas(canvas, 500);
+            var ctx = dim.ctx, W = dim.w, H = dim.h;
+            var C_val = 50, L_val = 50;
+            var t = 0, paused = false, speed = 0.03;
+
+            var elC = document.getElementById('cc-C');
+            var elL = document.getElementById('cc-L');
+            var elCV = document.getElementById('cc-C-val');
+            var elLV = document.getElementById('cc-L-val');
+            var elInfo = document.getElementById('cc-info');
+
+            function updP() {
+                C_val = parseFloat(elC.value); L_val = parseFloat(elL.value);
+                elCV.textContent = C_val; elLV.textContent = L_val;
+                var Lh = L_val * 1e-3, Cf = C_val * 1e-6;
+                var T = 2 * Math.PI * Math.sqrt(Lh * Cf);
+                elInfo.textContent = 'T = ' + T.toFixed(4) + ' c  \u03BD = ' + (1 / T).toFixed(1) + ' Гц';
+            }
+            elC.addEventListener('input', updP);
+            elL.addEventListener('input', updP);
+            updP();
+
+            document.getElementById('cc-play').onclick = function() { paused = false; };
+            document.getElementById('cc-pause').onclick = function() { paused = true; };
+            document.getElementById('cc-reset').onclick = function() { t = 0; paused = false; };
+
+            function drawCapPlates(cx, cy, charge, pH) {
+                var gap = 18, pw = 5;
+                var posC = '#ff6b6b', negC = '#74b9ff';
+                var ab = Math.abs(charge);
+                // left plate
+                ctx.fillStyle = charge > 0 ? posC : negC;
+                ctx.globalAlpha = ab * 0.8 + 0.2;
+                ctx.fillRect(cx - gap / 2 - pw, cy - pH / 2, pw, pH);
+                ctx.globalAlpha = 1;
+                ctx.strokeStyle = '#888'; ctx.lineWidth = 1.5;
+                ctx.strokeRect(cx - gap / 2 - pw, cy - pH / 2, pw, pH);
+                // right plate
+                ctx.fillStyle = charge > 0 ? negC : posC;
+                ctx.globalAlpha = ab * 0.8 + 0.2;
+                ctx.fillRect(cx + gap / 2, cy - pH / 2, pw, pH);
+                ctx.globalAlpha = 1;
+                ctx.strokeStyle = '#888'; ctx.lineWidth = 1.5;
+                ctx.strokeRect(cx + gap / 2, cy - pH / 2, pw, pH);
+                // charge symbols
+                var n = Math.max(1, Math.floor(ab * 5));
+                ctx.font = 'bold 13px Inter, sans-serif';
+                ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+                for (var j = 0; j < n; j++) {
+                    var yy = cy - pH / 2 + (j + 0.5) * pH / n;
+                    ctx.fillStyle = charge > 0 ? posC : negC;
+                    ctx.fillText(charge > 0 ? '+' : '\u2212', cx - gap / 2 - pw - 14, yy);
+                    ctx.fillStyle = charge > 0 ? negC : posC;
+                    ctx.fillText(charge > 0 ? '\u2212' : '+', cx + gap / 2 + pw + 14, yy);
+                }
+                ctx.textBaseline = 'alphabetic';
+                ctx.fillStyle = '#ffd93d'; ctx.font = '14px Inter, sans-serif';
+                ctx.fillText('C', cx, cy + pH / 2 + 16);
+            }
+
+            function drawCoil(x0, y0, x1, curLevel) {
+                var mx = (x0 + x1) / 2;
+                var nL = 5, amp = 13;
+                ctx.beginPath(); ctx.strokeStyle = '#6c5ce7'; ctx.lineWidth = 2.5;
+                for (var i = 0; i <= 100; i++) {
+                    var f = i / 100;
+                    var px = x0 + f * (x1 - x0);
+                    var py = y0 + Math.sin(f * nL * 2 * Math.PI) * amp;
+                    if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                }
+                ctx.stroke();
+                // magnetic field
+                var ca = Math.abs(curLevel);
+                if (ca > 0.05) {
+                    ctx.globalAlpha = ca * 0.5;
+                    ctx.strokeStyle = '#6c5ce7'; ctx.lineWidth = 1;
+                    ctx.setLineDash([4, 4]);
+                    for (var fl = 0; fl < 3; fl++) {
+                        var r = amp + 10 + ca * 14 + fl * 9;
+                        ctx.beginPath();
+                        ctx.ellipse(mx, y0, (x1 - x0) * 0.3, r, 0, 0, 2 * Math.PI);
+                        ctx.stroke();
+                    }
+                    ctx.setLineDash([]); ctx.globalAlpha = 1;
+                }
+                ctx.fillStyle = '#6c5ce7'; ctx.font = '14px Inter, sans-serif';
+                ctx.textAlign = 'center'; ctx.fillText('L', mx, y0 + amp + 22);
+            }
+
+            function drawParticles(path, dir, mag) {
+                if (mag < 0.02) return;
+                ctx.fillStyle = '#00ff88'; ctx.globalAlpha = Math.min(mag * 1.5, 1);
+                for (var p = 0; p < 12; p++) {
+                    var frac = ((p / 12) + dir * t * 0.5) % 1;
+                    if (frac < 0) frac += 1;
+                    var totalL = 0, segs = [];
+                    for (var s = 1; s < path.length; s++) {
+                        var sl = Math.hypot(path[s][0] - path[s-1][0], path[s][1] - path[s-1][1]);
+                        segs.push(sl); totalL += sl;
+                    }
+                    var tgt = frac * totalL, acc = 0, px = path[0][0], py = path[0][1];
+                    for (var s = 0; s < segs.length; s++) {
+                        if (acc + segs[s] >= tgt) {
+                            var f2 = (tgt - acc) / segs[s];
+                            px = path[s][0] + (path[s+1][0] - path[s][0]) * f2;
+                            py = path[s][1] + (path[s+1][1] - path[s][1]) * f2;
+                            break;
+                        }
+                        acc += segs[s];
+                    }
+                    ctx.beginPath(); ctx.arc(px, py, 3, 0, 2 * Math.PI); ctx.fill();
+                }
+                ctx.globalAlpha = 1;
+            }
+
+            function draw() {
+                if (!isVisible('circuit-wrap')) { requestAnimationFrame(draw); return; }
+                var rect = canvas.parentElement.getBoundingClientRect();
+                if (Math.abs(rect.width - W) > 2) { dim = setupCanvas(canvas, 500); ctx = dim.ctx; W = dim.w; H = dim.h; }
+                if (!paused) t += speed;
+                var phase = t % (2 * Math.PI);
+                var charge = Math.cos(t), current = -Math.sin(t);
+
+                ctx.fillStyle = '#0a0a1a'; ctx.fillRect(0, 0, W, H);
+
+                // circuit geometry
+                var cxC = W / 2, circW2 = Math.min(W - 80, 360) / 2, circH2 = 75;
+                var topY = 140, botY = topY + 2 * circH2;
+                var lx = cxC - circW2, rx = cxC + circW2;
+
+                // wires
+                ctx.strokeStyle = '#555'; ctx.lineWidth = 2;
+                ctx.beginPath(); ctx.moveTo(lx, topY); ctx.lineTo(cxC - 25, topY); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(cxC + 25, topY); ctx.lineTo(rx, topY); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(rx, topY); ctx.lineTo(rx, botY); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(lx, topY); ctx.lineTo(lx, botY); ctx.stroke();
+
+                drawCapPlates(cxC, topY, charge, 55);
+                drawCoil(lx, botY, rx, current);
+
+                var wPath = [[cxC + 25, topY],[rx, topY],[rx, botY],[rx - 20, botY],[lx + 20, botY],[lx, botY],[lx, topY],[cxC - 25, topY]];
+                drawParticles(wPath, current > 0 ? 1 : -1, Math.abs(current));
+
+                // current arrow
+                if (Math.abs(current) > 0.1) {
+                    var col = current > 0 ? '#00ff88' : '#ff6b6b';
+                    ctx.fillStyle = col; ctx.font = '12px Inter, sans-serif'; ctx.textAlign = 'center';
+                    if (current > 0) {
+                        drawArrow(ctx, rx + 8, topY + 30, rx + 8, botY - 30, col, 2);
+                        ctx.fillText('i', rx + 20, (topY + botY) / 2 + 4);
+                    } else {
+                        drawArrow(ctx, lx - 8, botY - 30, lx - 8, topY + 30, col, 2);
+                        ctx.fillText('i', lx - 20, (topY + botY) / 2 + 4);
+                    }
+                }
+
+                // phase text
+                var pn = (t % (2 * Math.PI));
+                var labels = [
+                    [0, 0.5, 'Конденсатор заряджений (+). Струм починає текти.'],
+                    [0.5, 1.3, 'Конденсатор розряджається. Струм зростає.'],
+                    [1.3, 1.9, 'Конденсатор порожній. Струм МАКСИМАЛЬНИЙ!'],
+                    [1.9, 2.8, 'Котушка підтримує струм. Конденсатор заряджається навпаки.'],
+                    [2.8, 3.5, 'Конденсатор заряджений (\u2212). Зворотний процес.'],
+                    [3.5, 4.3, 'Конденсатор розряджається. Зворотний струм зростає.'],
+                    [4.3, 5.0, 'Конденсатор порожній. Зворотний струм максимальний.'],
+                    [5.0, 6.3, 'Повертаємось до початку! Один повний цикл.']
+                ];
+                var txt = labels[labels.length - 1][2];
+                for (var li = 0; li < labels.length; li++) {
+                    if (pn >= labels[li][0] && pn < labels[li][1]) { txt = labels[li][2]; break; }
+                }
+                ctx.fillStyle = '#ffd93d'; ctx.font = '13px Inter, sans-serif';
+                ctx.textAlign = 'center'; ctx.fillText(txt, W / 2, botY + 48);
+
+                // scrolling graphs at bottom
+                var gY1 = botY + 65, gH = (H - gY1 - 15) / 2 - 3, gW = W - 60, gx = 40;
+                drawGraphAxes(ctx, gx, gY1, gW, gH, 'q(t)', 't');
+                drawGraphAxes(ctx, gx, gY1 + gH + 6, gW, gH, 'i(t)', 't');
+
+                var nP = 200, perVis = 3;
+                for (var pp = 0; pp < nP; pp++) {
+                    var fr = pp / nP;
+                    var a = t - (1 - fr) * perVis * 2 * Math.PI;
+                    var qv = Math.cos(a), iv = -Math.sin(a);
+                    var px = gx + fr * gW;
+                    if (pp > 0) {
+                        var a2 = t - (1 - (pp - 1) / nP) * perVis * 2 * Math.PI;
+                        var px2 = gx + (pp - 1) / nP * gW;
+                        ctx.strokeStyle = '#00ff88'; ctx.lineWidth = 2; ctx.beginPath();
+                        ctx.moveTo(px2, gY1 + gH / 2 - Math.cos(a2) * (gH / 2 - 6));
+                        ctx.lineTo(px, gY1 + gH / 2 - qv * (gH / 2 - 6)); ctx.stroke();
+
+                        ctx.strokeStyle = '#ff6b6b'; ctx.beginPath();
+                        ctx.moveTo(px2, gY1 + gH + 6 + gH / 2 - (-Math.sin(a2)) * (gH / 2 - 6));
+                        ctx.lineTo(px, gY1 + gH + 6 + gH / 2 - iv * (gH / 2 - 6)); ctx.stroke();
+                    }
+                }
+
+                // dots
+                ctx.fillStyle = '#00ff88'; ctx.beginPath();
+                ctx.arc(gx + gW, gY1 + gH / 2 - charge * (gH / 2 - 6), 5, 0, 2 * Math.PI); ctx.fill();
+                ctx.fillStyle = '#ff6b6b'; ctx.beginPath();
+                ctx.arc(gx + gW, gY1 + gH + 6 + gH / 2 - current * (gH / 2 - 6), 5, 0, 2 * Math.PI); ctx.fill();
+
+                // value labels
+                ctx.font = '11px Inter, sans-serif'; ctx.textAlign = 'right';
+                ctx.fillStyle = '#00ff88';
+                ctx.fillText('q=' + charge.toFixed(2), gx + gW - 8, gY1 + gH / 2 - charge * (gH / 2 - 6) - 8);
+                ctx.fillStyle = '#ff6b6b';
+                ctx.fillText('i=' + current.toFixed(2), gx + gW - 8, gY1 + gH + 6 + gH / 2 - current * (gH / 2 - 6) - 8);
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+
+        /* ===========================================================
+           2. ЕНЕРГЕТИЧНА ДІАГРАМА (400px)
+           =========================================================== */
+        (function() {
+            var canvas = document.getElementById('energyCanvas');
+            if (!canvas) return;
+            var dim = setupCanvas(canvas, 400);
+            var ctx = dim.ctx, W = dim.w, H = dim.h;
+            var t = 0, paused = false;
+            var weHist = [], wmHist = [], maxGP = 400;
+
+            var elInfo = document.getElementById('en-info');
+            document.getElementById('en-play').onclick = function() { paused = false; };
+            document.getElementById('en-pause').onclick = function() { paused = true; };
+            document.getElementById('en-reset').onclick = function() { t = 0; paused = false; weHist = []; wmHist = []; };
+
+            function draw() {
+                if (!isVisible('energy-wrap')) { requestAnimationFrame(draw); return; }
+                var rect = canvas.parentElement.getBoundingClientRect();
+                if (Math.abs(rect.width - W) > 2) { dim = setupCanvas(canvas, 400); ctx = dim.ctx; W = dim.w; H = dim.h; }
+                if (!paused) t += 0.025;
+
+                var We = Math.cos(t) * Math.cos(t);
+                var Wm = Math.sin(t) * Math.sin(t);
+                weHist.push(We); wmHist.push(Wm);
+                if (weHist.length > maxGP) { weHist.shift(); wmHist.shift(); }
+
+                var wePct = Math.round(We * 100), wmPct = Math.round(Wm * 100);
+                elInfo.innerHTML = 'W<sub>e</sub> = ' + wePct + '%  W<sub>m</sub> = ' + wmPct + '%  W = const';
+
+                ctx.fillStyle = '#0a0a1a'; ctx.fillRect(0, 0, W, H);
+
+                // bar charts
+                var bH = 150, bW = 65, bGap = 50;
+                var bx1 = W / 2 - bGap / 2 - bW, bx2 = W / 2 + bGap / 2;
+                var bBase = 195;
+
+                // We bar
+                ctx.fillStyle = '#74b9ff';
+                ctx.fillRect(bx1, bBase - We * bH, bW, We * bH);
+                ctx.strokeStyle = '#74b9ff'; ctx.lineWidth = 2;
+                ctx.strokeRect(bx1, bBase - bH, bW, bH);
+
+                // Wm bar
+                ctx.fillStyle = '#ff6b6b';
+                ctx.fillRect(bx2, bBase - Wm * bH, bW, Wm * bH);
+                ctx.strokeStyle = '#ff6b6b'; ctx.lineWidth = 2;
+                ctx.strokeRect(bx2, bBase - bH, bW, bH);
+
+                // W_total green dashed
+                ctx.strokeStyle = '#00ff88'; ctx.lineWidth = 2;
+                ctx.setLineDash([6, 4]);
+                ctx.beginPath(); ctx.moveTo(bx1 - 15, bBase - bH); ctx.lineTo(bx2 + bW + 15, bBase - bH); ctx.stroke();
+                ctx.setLineDash([]);
+
+                // labels
+                ctx.font = 'bold 14px Inter, sans-serif'; ctx.textAlign = 'center';
+                ctx.fillStyle = '#74b9ff'; ctx.fillText('W\u2091 = ' + wePct + '%', bx1 + bW / 2, bBase + 20);
+                ctx.fillStyle = '#ff6b6b'; ctx.fillText('W\u2098 = ' + wmPct + '%', bx2 + bW / 2, bBase + 20);
+                ctx.fillStyle = '#00ff88'; ctx.fillText('W = const', W / 2, bBase - bH - 10);
+                ctx.fillStyle = '#ffd93d'; ctx.font = '12px Inter, sans-serif';
+                ctx.fillText('\u2248 як вода переливається між склянками', W / 2, bBase + 42);
+
+                // animated drops
+                for (var d = 0; d < 5; d++) {
+                    var dp = (t * 3 + d * 1.2) % (2 * Math.PI);
+                    var dir = Math.cos(t);
+                    var fx = dir > 0 ? bx1 + bW : bx2;
+                    var tx = dir > 0 ? bx2 : bx1 + bW;
+                    var df = (Math.sin(dp) + 1) / 2;
+                    var dx = fx + (tx - fx) * df;
+                    var dy = bBase - bH / 2 + Math.sin(dp * 2) * 18;
+                    ctx.globalAlpha = Math.abs(Math.sin(t)) * 0.5;
+                    ctx.fillStyle = '#4ecdc4';
+                    ctx.beginPath(); ctx.arc(dx, dy, 3, 0, 2 * Math.PI); ctx.fill();
+                }
+                ctx.globalAlpha = 1;
+
+                // scrolling graph
+                var gY = bBase + 56, gH2 = H - gY - 12, gW2 = W - 60, gx = 40;
+                drawGraphAxesBottom(ctx, gx, gY, gW2, gH2, 'W(t)', 't');
+
+                if (weHist.length > 1) {
+                    ctx.beginPath();
+                    for (var i = 0; i < weHist.length; i++) {
+                        var px = gx + (i / maxGP) * gW2;
+                        var py = gY + gH2 - weHist[i] * (gH2 - 8);
+                        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                    }
+                    ctx.strokeStyle = '#74b9ff'; ctx.lineWidth = 2; ctx.stroke();
+
+                    ctx.beginPath();
+                    for (var i = 0; i < wmHist.length; i++) {
+                        var px = gx + (i / maxGP) * gW2;
+                        var py = gY + gH2 - wmHist[i] * (gH2 - 8);
+                        if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                    }
+                    ctx.strokeStyle = '#ff6b6b'; ctx.lineWidth = 2; ctx.stroke();
+
+                    ctx.strokeStyle = '#00ff88'; ctx.lineWidth = 1.5; ctx.setLineDash([4, 4]);
+                    ctx.beginPath(); ctx.moveTo(gx, gY + 4); ctx.lineTo(gx + (weHist.length / maxGP) * gW2, gY + 4); ctx.stroke();
+                    ctx.setLineDash([]);
+                }
+
+                ctx.font = '10px Inter, sans-serif'; ctx.textAlign = 'left';
+                ctx.fillStyle = '#74b9ff'; ctx.fillText('W\u2091 = cos\u00B2', gx + gW2 - 130, gY + 16);
+                ctx.fillStyle = '#ff6b6b'; ctx.fillText('W\u2098 = sin\u00B2', gx + gW2 - 130, gY + 28);
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+
+        /* ===========================================================
+           3. ФОРМУЛА ТОМСОНА — КАЛЬКУЛЯТОР (400px)
+           =========================================================== */
+        (function() {
+            var canvas = document.getElementById('thomsonCanvas');
+            if (!canvas) return;
+            var dim = setupCanvas(canvas, 400);
+            var ctx = dim.ctx, W = dim.w, H = dim.h;
+            var t = 0, paused = false;
+
+            var elL = document.getElementById('th-L');
+            var elC = document.getElementById('th-C');
+            var elLV = document.getElementById('th-L-val');
+            var elCV = document.getElementById('th-C-val');
+            var elInfo = document.getElementById('th-info');
+
+            function getP() {
+                var Lv = parseFloat(elL.value), Cv = parseFloat(elC.value);
+                elLV.textContent = Lv; elCV.textContent = Cv;
+                var Lh = Lv * 1e-3, Cf = Cv * 1e-6;
+                var T = 2 * Math.PI * Math.sqrt(Lh * Cf);
+                var nu = 1 / T, om = 1 / Math.sqrt(Lh * Cf);
+                elInfo.textContent = 'T = ' + T.toFixed(4) + ' c  \u03BD = ' + nu.toFixed(1) + ' Гц  \u03C9 = ' + om.toFixed(1) + ' рад/с';
+                return { T: T, nu: nu, omega: om, Lh: Lh, Cf: Cf };
+            }
+            elL.addEventListener('input', getP); elC.addEventListener('input', getP);
+
+            document.getElementById('th-play').onclick = function() { paused = false; };
+            document.getElementById('th-pause').onclick = function() { paused = true; };
+            document.getElementById('th-reset').onclick = function() { t = 0; paused = false; };
+
+            function draw() {
+                if (!isVisible('thomson-wrap')) { requestAnimationFrame(draw); return; }
+                var rect = canvas.parentElement.getBoundingClientRect();
+                if (Math.abs(rect.width - W) > 2) { dim = setupCanvas(canvas, 400); ctx = dim.ctx; W = dim.w; H = dim.h; }
+                var p = getP();
+                var vo = Math.min(p.omega, 1500);
+                if (!paused) t += 0.016;
+                var phase = vo * t, osc = Math.cos(phase);
+
+                ctx.fillStyle = '#0a0a1a'; ctx.fillRect(0, 0, W, H);
+
+                // prominent values
+                ctx.textAlign = 'center';
+                ctx.font = 'bold 16px Inter, sans-serif';
+                ctx.fillStyle = '#ffd93d'; ctx.fillText('T = 2\u03C0\u221A(LC) = ' + p.T.toFixed(4) + ' c', W / 2, 30);
+                ctx.fillStyle = '#4ecdc4'; ctx.fillText('\u03BD = ' + p.nu.toFixed(1) + ' Гц', W / 2, 54);
+                ctx.fillStyle = '#6c5ce7'; ctx.fillText('\u03C9 = ' + p.omega.toFixed(1) + ' рад/с', W / 2, 78);
+
+                // speed color
+                var lc = p.Lh * p.Cf;
+                var lcN = (Math.log(lc) - Math.log(1e-9)) / (Math.log(0.01) - Math.log(1e-9));
+                lcN = Math.max(0, Math.min(1, lcN));
+                var cr = Math.round(255 * lcN), cb = Math.round(255 * (1 - lcN));
+                var sCol = 'rgb(' + cr + ',100,' + cb + ')';
+                ctx.fillStyle = sCol; ctx.font = '13px Inter, sans-serif';
+                ctx.fillText(lcN > 0.6 ? 'Повільні коливання' : lcN < 0.4 ? 'Швидкі коливання' : 'Середня швидкість', W / 2, 98);
+
+                // pendulum on left
+                var pCX = W * 0.25, pCY = 155, pLen = 75;
+                var pAng = osc * 0.45;
+                var pBX = pCX + Math.sin(pAng) * pLen;
+                var pBY = pCY + Math.cos(pAng) * pLen;
+                ctx.fillStyle = '#888'; ctx.fillRect(pCX - 2, pCY - 2, 4, 4);
+                ctx.strokeStyle = '#aaa'; ctx.lineWidth = 1.5;
+                ctx.beginPath(); ctx.moveTo(pCX, pCY); ctx.lineTo(pBX, pBY); ctx.stroke();
+                ctx.fillStyle = sCol; ctx.beginPath(); ctx.arc(pBX, pBY, 12, 0, 2 * Math.PI); ctx.fill();
+                ctx.strokeStyle = '#fff'; ctx.lineWidth = 1; ctx.stroke();
+                ctx.fillStyle = '#999'; ctx.font = '11px Inter, sans-serif'; ctx.textAlign = 'center';
+                ctx.fillText('Маятник з таким же T', pCX, pCY + pLen + 30);
+
+                // oscillating charge on right
+                var oCX = W * 0.7, oCY = 195;
+                var oX = oCX + osc * 55;
+                ctx.strokeStyle = '#333'; ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.moveTo(oCX - 65, oCY); ctx.lineTo(oCX + 65, oCY); ctx.stroke();
+                ctx.setLineDash([3, 3]); ctx.strokeStyle = '#444';
+                ctx.beginPath(); ctx.moveTo(oCX, oCY - 12); ctx.lineTo(oCX, oCY + 12); ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.fillStyle = sCol; ctx.beginPath(); ctx.arc(oX, oCY, 14, 0, 2 * Math.PI); ctx.fill();
+                ctx.fillStyle = '#fff'; ctx.font = 'bold 11px Inter, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+                ctx.fillText('q', oX, oCY); ctx.textBaseline = 'alphabetic';
+                ctx.fillStyle = '#999'; ctx.font = '11px Inter, sans-serif';
+                ctx.fillText('Коливання заряду', oCX, oCY + 30);
+
+                // graph
+                var gY = 240, gH = H - gY - 12, gW = W - 60, gx = 40;
+                drawGraphAxes(ctx, gx, gY, gW, gH, 'q(t)', 't');
+                ctx.beginPath();
+                for (var i = 0; i < 300; i++) {
+                    var fr = i / 300;
+                    var ang = phase - (1 - fr) * 6 * Math.PI;
+                    var v = Math.cos(ang);
+                    var px = gx + fr * gW, py = gY + gH / 2 - v * (gH / 2 - 6);
+                    if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                }
+                ctx.strokeStyle = sCol; ctx.lineWidth = 2; ctx.stroke();
+                ctx.fillStyle = sCol; ctx.beginPath();
+                ctx.arc(gx + gW, gY + gH / 2 - osc * (gH / 2 - 6), 5, 0, 2 * Math.PI); ctx.fill();
+
+                requestAnimationFrame(draw);
+            }
+            getP(); draw();
+        })();
+
+
+        /* ===========================================================
+           4. АНАЛОГІЯ: ПРУЖИНА <-> КОНТУР (450px)
+           =========================================================== */
+        (function() {
+            var canvas = document.getElementById('analogyCanvas');
+            if (!canvas) return;
+            var dim = setupCanvas(canvas, 450);
+            var ctx = dim.ctx, W = dim.w, H = dim.h;
+            var t = 0, paused = false;
+
+            var elInfo = document.getElementById('an-info');
+            document.getElementById('an-play').onclick = function() { paused = false; };
+            document.getElementById('an-pause').onclick = function() { paused = true; };
+            document.getElementById('an-reset').onclick = function() { t = 0; paused = false; };
+
+            function drawSpring(x0, y, x1) {
+                var nC = 14, pts = nC * 4 + 2, len = x1 - x0, amp = 10;
+                ctx.beginPath();
+                for (var i = 0; i <= pts; i++) {
+                    var f = i / pts, px = x0 + f * len, py = y;
+                    if (i > 0 && i < pts) {
+                        var env = 1, nf = (i - 1) / (pts - 2);
+                        if (nf < 0.05) env = nf / 0.05;
+                        if (nf > 0.95) env = (1 - nf) / 0.05;
+                        py = y + Math.sin(f * nC * 2 * Math.PI) * amp * env;
+                    }
+                    if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                }
+                ctx.strokeStyle = '#60a5fa'; ctx.lineWidth = 2; ctx.stroke();
+            }
+
+            function draw() {
+                if (!isVisible('analogy-wrap')) { requestAnimationFrame(draw); return; }
+                var rect = canvas.parentElement.getBoundingClientRect();
+                if (Math.abs(rect.width - W) > 2) { dim = setupCanvas(canvas, 450); ctx = dim.ctx; W = dim.w; H = dim.h; }
+                if (!paused) t += 0.03;
+
+                var disp = Math.cos(t), vel = -Math.sin(t);
+                ctx.fillStyle = '#0a0a1a'; ctx.fillRect(0, 0, W, H);
+
+                ctx.fillStyle = '#ffd93d'; ctx.font = 'bold 15px Inter, sans-serif'; ctx.textAlign = 'center';
+                ctx.fillText('АНАЛОГІЯ', W / 2, 22);
+
+                var leftW = W / 2 - 15, rX = W / 2 + 15, rW = leftW;
+
+                // LEFT: Spring
+                ctx.fillStyle = '#4ecdc4'; ctx.font = 'bold 13px Inter, sans-serif'; ctx.textAlign = 'center';
+                ctx.fillText('ПРУЖИНА', leftW / 2, 44);
+
+                var wX = 25, sY = 115, restL = leftW * 0.5, maxS = leftW * 0.18, bS = 28;
+                // wall
+                ctx.strokeStyle = '#666'; ctx.lineWidth = 2;
+                ctx.beginPath(); ctx.moveTo(wX, sY - 28); ctx.lineTo(wX, sY + 28); ctx.stroke();
+                ctx.strokeStyle = '#555'; ctx.lineWidth = 1;
+                for (var hy = sY - 28; hy < sY + 28; hy += 8) {
+                    ctx.beginPath(); ctx.moveTo(wX, hy); ctx.lineTo(wX - 7, hy + 7); ctx.stroke();
+                }
+
+                var bX = wX + restL + disp * maxS;
+                drawSpring(wX, sY, bX);
+
+                ctx.fillStyle = '#4ecdc4'; ctx.fillRect(bX, sY - bS / 2, bS, bS);
+                ctx.strokeStyle = '#fff'; ctx.lineWidth = 1; ctx.strokeRect(bX, sY - bS / 2, bS, bS);
+                ctx.fillStyle = '#fff'; ctx.font = 'bold 12px Inter, sans-serif'; ctx.textAlign = 'center';
+                ctx.fillText('m', bX + bS / 2, sY + 4);
+
+                if (Math.abs(vel) > 0.1) {
+                    drawArrow(ctx, bX + bS / 2, sY + bS / 2 + 8, bX + bS / 2 + vel * 30, sY + bS / 2 + 8, '#ff6b6b', 2);
+                    ctx.fillStyle = '#ff6b6b'; ctx.font = '10px Inter, sans-serif'; ctx.fillText('v', bX + bS / 2 + vel * 15, sY + bS / 2 + 22);
+                }
+
+                // equilibrium
+                ctx.strokeStyle = '#444'; ctx.lineWidth = 1; ctx.setLineDash([3, 3]);
+                ctx.beginPath(); ctx.moveTo(wX + restL + bS / 2, sY - 32); ctx.lineTo(wX + restL + bS / 2, sY + 35); ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.fillStyle = '#666'; ctx.font = '9px Inter, sans-serif'; ctx.fillText('x=0', wX + restL + bS / 2, sY - 35);
+
+                if (Math.abs(disp) > 0.05) {
+                    ctx.fillStyle = '#00ff88'; ctx.font = '10px Inter, sans-serif';
+                    ctx.fillText('x=' + disp.toFixed(2), bX + bS / 2, sY - bS / 2 - 6);
+                }
+
+                // RIGHT: Circuit
+                ctx.fillStyle = '#6c5ce7'; ctx.font = 'bold 13px Inter, sans-serif'; ctx.textAlign = 'center';
+                ctx.fillText('КОНТУР', rX + rW / 2, 44);
+
+                var ccx = rX + rW / 2, ccy = 115, ccW2 = Math.min(rW * 0.32, 70), ccH2 = 40;
+
+                // wires
+                ctx.strokeStyle = '#555'; ctx.lineWidth = 2;
+                ctx.beginPath(); ctx.moveTo(ccx - ccW2, ccy - ccH2); ctx.lineTo(ccx - ccW2, ccy + ccH2); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(ccx + ccW2, ccy - ccH2); ctx.lineTo(ccx + ccW2, ccy + ccH2); ctx.stroke();
+
+                // capacitor at top
+                var pg = 10, ppw = 3, ppH = 22, capY = ccy - ccH2;
+                ctx.beginPath(); ctx.moveTo(ccx - ccW2, capY); ctx.lineTo(ccx - pg / 2 - ppw, capY); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(ccx + pg / 2 + ppw, capY); ctx.lineTo(ccx + ccW2, capY); ctx.stroke();
+                var ab = Math.abs(disp);
+                ctx.fillStyle = disp > 0 ? 'rgba(255,107,107,' + (0.3 + ab * 0.7) + ')' : 'rgba(116,185,255,' + (0.3 + ab * 0.7) + ')';
+                ctx.fillRect(ccx - pg / 2 - ppw, capY - ppH, ppw, ppH * 2);
+                ctx.fillStyle = disp > 0 ? 'rgba(116,185,255,' + (0.3 + ab * 0.7) + ')' : 'rgba(255,107,107,' + (0.3 + ab * 0.7) + ')';
+                ctx.fillRect(ccx + pg / 2, capY - ppH, ppw, ppH * 2);
+                ctx.fillStyle = '#ffd93d'; ctx.font = '11px Inter, sans-serif'; ctx.textAlign = 'center';
+                ctx.fillText('C', ccx, capY - ppH - 5);
+                if (ab > 0.05) {
+                    ctx.fillStyle = '#00ff88'; ctx.font = '10px Inter, sans-serif';
+                    ctx.fillText('q=' + disp.toFixed(2), ccx, capY + ppH + 12);
+                }
+
+                // coil at bottom
+                var coilY = ccy + ccH2;
+                ctx.beginPath(); ctx.strokeStyle = '#6c5ce7'; ctx.lineWidth = 2;
+                for (var ci = 0; ci <= 80; ci++) {
+                    var cf = ci / 80;
+                    var cpx = ccx - ccW2 + cf * 2 * ccW2;
+                    var cpy = coilY + Math.sin(cf * 4 * 2 * Math.PI) * 8;
+                    if (ci === 0) ctx.moveTo(cpx, cpy); else ctx.lineTo(cpx, cpy);
+                }
+                ctx.stroke();
+                ctx.fillStyle = '#6c5ce7'; ctx.font = '11px Inter, sans-serif'; ctx.fillText('L', ccx, coilY + 22);
+
+                if (Math.abs(vel) > 0.1) {
+                    ctx.fillStyle = '#ff6b6b'; ctx.font = '10px Inter, sans-serif';
+                    ctx.fillText('i=' + vel.toFixed(2), ccx + ccW2 + 22, ccy);
+                    drawArrow(ctx, ccx + ccW2 + 5, ccy + 8, ccx + ccW2 + 5, ccy + 8 + (vel > 0 ? 18 : -18), '#ff6b6b', 2);
+                }
+
+                // charge particles
+                if (Math.abs(vel) > 0.05) {
+                    ctx.fillStyle = '#00ff88'; ctx.globalAlpha = Math.abs(vel) * 0.8;
+                    for (var pp = 0; pp < 6; pp++) {
+                        var pf = ((pp / 6) + t * 0.3 * (vel > 0 ? 1 : -1)) % 1;
+                        if (pf < 0) pf += 1;
+                        var px2, py2;
+                        if (pf < 0.25) { px2 = ccx + ccW2; py2 = capY + pf / 0.25 * (coilY - capY); }
+                        else if (pf < 0.5) { var f2 = (pf - 0.25) / 0.25; px2 = ccx + ccW2 - f2 * 2 * ccW2; py2 = coilY; }
+                        else if (pf < 0.75) { px2 = ccx - ccW2; py2 = coilY - (pf - 0.5) / 0.25 * (coilY - capY); }
+                        else { var f2 = (pf - 0.75) / 0.25; px2 = ccx - ccW2 + f2 * 2 * ccW2; py2 = capY; }
+                        ctx.beginPath(); ctx.arc(px2, py2, 3, 0, 2 * Math.PI); ctx.fill();
+                    }
+                    ctx.globalAlpha = 1;
+                }
+
+                // CENTER: analogy arrows
+                var ax = W / 2;
+                var als = [
+                    { l: 'x', r: 'q', y: 185 }, { l: 'v', r: 'i', y: 203 },
+                    { l: 'm', r: 'L', y: 221 }, { l: 'k', r: '1/C', y: 239 },
+                    { l: 'Ep', r: 'W\u2091', y: 257 }, { l: 'Ek', r: 'W\u2098', y: 275 }
+                ];
+                ctx.font = '12px Inter, sans-serif';
+                for (var ai = 0; ai < als.length; ai++) {
+                    var a = als[ai];
+                    ctx.fillStyle = '#4ecdc4'; ctx.textAlign = 'right'; ctx.fillText(a.l, ax - 16, a.y + 4);
+                    ctx.fillStyle = '#ffd93d'; ctx.textAlign = 'center'; ctx.fillText('\u2194', ax, a.y + 4);
+                    ctx.fillStyle = '#6c5ce7'; ctx.textAlign = 'left'; ctx.fillText(a.r, ax + 16, a.y + 4);
+                }
+
+                // BOTTOM: synchronized graphs
+                var gY1 = 298, gH1 = (H - gY1 - 8) / 2 - 4;
+                var gW1 = (W - 70) / 2, gxL = 28, gxR = W / 2 + 10;
+
+                drawGraphAxes(ctx, gxL, gY1, gW1, gH1, 'x(t)', 't');
+                drawGraphAxes(ctx, gxR, gY1, gW1, gH1, 'q(t)', 't');
+
+                var gY2 = gY1 + gH1 + 8;
+                drawGraphAxesBottom(ctx, gxL, gY2, gW1, gH1, 'E(t)', 't');
+                drawGraphAxesBottom(ctx, gxR, gY2, gW1, gH1, 'W(t)', 't');
+
+                var nG = 150, pV = 2;
+                // x(t) green-teal
+                ctx.beginPath();
+                for (var gi = 0; gi < nG; gi++) {
+                    var gf = gi / nG, ga = t - (1 - gf) * pV * 2 * Math.PI;
+                    var px = gxL + gf * gW1, py = gY1 + gH1 / 2 - Math.cos(ga) * (gH1 / 2 - 4);
+                    if (gi === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                }
+                ctx.strokeStyle = '#4ecdc4'; ctx.lineWidth = 2; ctx.stroke();
+
+                // q(t) green
+                ctx.beginPath();
+                for (var gi = 0; gi < nG; gi++) {
+                    var gf = gi / nG, ga = t - (1 - gf) * pV * 2 * Math.PI;
+                    var px = gxR + gf * gW1, py = gY1 + gH1 / 2 - Math.cos(ga) * (gH1 / 2 - 4);
+                    if (gi === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                }
+                ctx.strokeStyle = '#00ff88'; ctx.lineWidth = 2; ctx.stroke();
+
+                // Ep (blue) and Ek (red) on left
+                ctx.beginPath();
+                for (var gi = 0; gi < nG; gi++) {
+                    var gf = gi / nG, ga = t - (1 - gf) * pV * 2 * Math.PI;
+                    var px = gxL + gf * gW1, py = gY2 + gH1 - Math.pow(Math.cos(ga), 2) * (gH1 - 5);
+                    if (gi === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                }
+                ctx.strokeStyle = '#74b9ff'; ctx.lineWidth = 1.5; ctx.stroke();
+                ctx.beginPath();
+                for (var gi = 0; gi < nG; gi++) {
+                    var gf = gi / nG, ga = t - (1 - gf) * pV * 2 * Math.PI;
+                    var px = gxL + gf * gW1, py = gY2 + gH1 - Math.pow(Math.sin(ga), 2) * (gH1 - 5);
+                    if (gi === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                }
+                ctx.strokeStyle = '#ff6b6b'; ctx.lineWidth = 1.5; ctx.stroke();
+
+                // We and Wm on right
+                ctx.beginPath();
+                for (var gi = 0; gi < nG; gi++) {
+                    var gf = gi / nG, ga = t - (1 - gf) * pV * 2 * Math.PI;
+                    var px = gxR + gf * gW1, py = gY2 + gH1 - Math.pow(Math.cos(ga), 2) * (gH1 - 5);
+                    if (gi === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                }
+                ctx.strokeStyle = '#74b9ff'; ctx.lineWidth = 1.5; ctx.stroke();
+                ctx.beginPath();
+                for (var gi = 0; gi < nG; gi++) {
+                    var gf = gi / nG, ga = t - (1 - gf) * pV * 2 * Math.PI;
+                    var px = gxR + gf * gW1, py = gY2 + gH1 - Math.pow(Math.sin(ga), 2) * (gH1 - 5);
+                    if (gi === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                }
+                ctx.strokeStyle = '#ff6b6b'; ctx.lineWidth = 1.5; ctx.stroke();
+
+                var dA = Math.abs(disp), vA = Math.abs(vel);
+                elInfo.textContent = dA > 0.85 ? 'x=max, q=max | пружина стиснута / конденсатор заряджений' :
+                    vA > 0.85 ? 'v=max, i=max | рівновага / конденсатор порожній' : 'Енергія перерозподіляється...';
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+
+        /* ===========================================================
+           5. ГРАФІКИ q(t), u(t), i(t) (400px)
+           =========================================================== */
+        (function() {
+            var canvas = document.getElementById('graphsCanvas');
+            if (!canvas) return;
+            var dim = setupCanvas(canvas, 400);
+            var ctx = dim.ctx, W = dim.w, H = dim.h;
+            var t = 0, paused = false;
+
+            var elInfo = document.getElementById('gr-info');
+            document.getElementById('gr-play').onclick = function() { paused = false; };
+            document.getElementById('gr-pause').onclick = function() { paused = true; };
+            document.getElementById('gr-reset').onclick = function() { t = 0; paused = false; };
+
+            function draw() {
+                if (!isVisible('graphs-wrap')) { requestAnimationFrame(draw); return; }
+                var rect = canvas.parentElement.getBoundingClientRect();
+                if (Math.abs(rect.width - W) > 2) { dim = setupCanvas(canvas, 400); ctx = dim.ctx; W = dim.w; H = dim.h; }
+                if (!paused) t += 0.025;
+
+                var qV = Math.cos(t), uV = Math.cos(t), iV = -Math.sin(t);
+                ctx.fillStyle = '#0a0a1a'; ctx.fillRect(0, 0, W, H);
+
+                var mg = 10, gx = 50, gW = W - gx - 15, totH = H - 16;
+                var sH = (totH - mg * 2) / 3;
+                var gs = [
+                    { lbl: 'q(t)', col: '#00ff88', val: qV, desc: 'заряд' },
+                    { lbl: 'u(t)', col: '#74b9ff', val: uV, desc: 'напруга' },
+                    { lbl: 'i(t)', col: '#ff6b6b', val: iV, desc: 'струм' }
+                ];
+
+                var nP = 250, pVis = 2.5;
+
+                for (var gi = 0; gi < 3; gi++) {
+                    var g = gs[gi], gy = 8 + gi * (sH + mg);
+                    drawGraphAxes(ctx, gx, gy, gW, sH, g.lbl, 't');
+
+                    ctx.beginPath();
+                    for (var pi = 0; pi < nP; pi++) {
+                        var fr = pi / nP, ang = t - (1 - fr) * pVis * 2 * Math.PI;
+                        var val = gi < 2 ? Math.cos(ang) : -Math.sin(ang);
+                        var px = gx + fr * gW, py = gy + sH / 2 - val * (sH / 2 - 6);
+                        if (pi === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                    }
+                    ctx.strokeStyle = g.col; ctx.lineWidth = 2.5; ctx.stroke();
+
+                    ctx.fillStyle = g.col; ctx.beginPath();
+                    ctx.arc(gx + gW, gy + sH / 2 - g.val * (sH / 2 - 6), 6, 0, 2 * Math.PI); ctx.fill();
+
+                    ctx.font = '11px Inter, sans-serif'; ctx.textAlign = 'right'; ctx.fillStyle = g.col;
+                    ctx.fillText(g.desc + ' = ' + g.val.toFixed(2), gx + gW - 8, gy + sH / 2 - g.val * (sH / 2 - 6) - 9);
+                }
+
+                // vertical cursor
+                ctx.strokeStyle = 'rgba(255,255,255,0.35)'; ctx.lineWidth = 1; ctx.setLineDash([4, 4]);
+                ctx.beginPath(); ctx.moveTo(gx + gW, 8); ctx.lineTo(gx + gW, H - 8); ctx.stroke();
+                ctx.setLineDash([]);
+
+                // key point annotations on q(t) graph
+                var qGy = 8;
+                ctx.font = '9px Inter, sans-serif'; ctx.textAlign = 'center';
+                for (var k = -5; k <= 5; k++) {
+                    // q=max points
+                    var mPh = k * 2 * Math.PI;
+                    var mFr = 1 - (t - mPh) / (pVis * 2 * Math.PI);
+                    if (mFr > 0.03 && mFr < 0.97) {
+                        var annX = gx + mFr * gW;
+                        ctx.fillStyle = 'rgba(255,217,61,0.7)';
+                        ctx.fillText('q=max', annX, qGy + 12);
+                        ctx.fillText('i=0', annX, qGy + 23);
+                        ctx.strokeStyle = 'rgba(255,217,61,0.15)'; ctx.lineWidth = 1; ctx.setLineDash([2, 3]);
+                        ctx.beginPath(); ctx.moveTo(annX, 8); ctx.lineTo(annX, H - 8); ctx.stroke();
+                        ctx.setLineDash([]);
+                    }
+                    // q=0 points
+                    var zPh = Math.PI / 2 + k * 2 * Math.PI;
+                    var zFr = 1 - (t - zPh) / (pVis * 2 * Math.PI);
+                    if (zFr > 0.03 && zFr < 0.97) {
+                        var annX = gx + zFr * gW;
+                        ctx.fillStyle = 'rgba(255,217,61,0.7)';
+                        ctx.fillText('q=0', annX, qGy + sH - 16);
+                        ctx.fillText('i=max', annX, qGy + sH - 5);
+                        ctx.strokeStyle = 'rgba(255,217,61,0.15)'; ctx.lineWidth = 1; ctx.setLineDash([2, 3]);
+                        ctx.beginPath(); ctx.moveTo(annX, 8); ctx.lineTo(annX, H - 8); ctx.stroke();
+                        ctx.setLineDash([]);
+                    }
+                }
+
+                var qA = Math.abs(qV), iA = Math.abs(iV);
+                elInfo.textContent = qA > 0.9 ? 'q = max, u = max, i \u2248 0' :
+                    iA > 0.9 ? 'q \u2248 0, u \u2248 0, i = max' :
+                    'q \u2248 ' + qV.toFixed(2) + ', i \u2248 ' + iV.toFixed(2);
+
+                ctx.fillStyle = '#ffd93d'; ctx.font = '12px Inter, sans-serif'; ctx.textAlign = 'left';
+                ctx.fillText('i випереджає q на \u03C0/2', gx + 5, H - 3);
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+
+        /* ===========================================================
+           KATEX RENDER
+           =========================================================== */
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false }
+                ],
+                throwOnError: false
+            });
+        }
+
+    });
+    </script>
 </body>
 </html>

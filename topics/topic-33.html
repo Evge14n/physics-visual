@@ -58,8 +58,8 @@
             <a href="topic-27.html" class="sidebar__item"><span class="sidebar__item-number">27</span><span class="sidebar__item-title">Закон Ома для повного (замкнутого) кола</span></a>
             <a href="topic-28.html" class="sidebar__item"><span class="sidebar__item-number">28</span><span class="sidebar__item-title">Робота і потужність струму. Закон Джоуля — Ленца</span></a>
             <a href="topic-29.html" class="sidebar__item"><span class="sidebar__item-number">29</span><span class="sidebar__item-title">Струм у різних середовищах</span></a>
-            <a href="topic-30.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">30</span><span class="sidebar__item-title">Магнітне поле</span></a>
-            <a href="topic-31.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">31</span><span class="sidebar__item-title">Електромагнітна індукція</span></a>
+            <a href="topic-30.html" class="sidebar__item"><span class="sidebar__item-number">30</span><span class="sidebar__item-title">Магнітне поле</span></a>
+            <a href="topic-31.html" class="sidebar__item"><span class="sidebar__item-number">31</span><span class="sidebar__item-title">Електромагнітна індукція</span></a>
             <a href="topic-32.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">32</span><span class="sidebar__item-title">Механічні коливання</span></a>
             <a href="topic-33.html" class="sidebar__item sidebar__item--active"><span class="sidebar__item-number">33</span><span class="sidebar__item-title">Механічні хвилі. Звук</span></a>
             <a href="topic-34.html" class="sidebar__item"><span class="sidebar__item-number">34</span><span class="sidebar__item-title">Вільні електромагнітні коливання</span></a>
@@ -84,16 +84,1631 @@
             <h1 class="topic-header__title">Механічні хвилі. Звук</h1>
         </div>
 
-        <div class="empty-topic">
-            <div class="empty-topic__icon">&#128218;</div>
-            <h2 class="empty-topic__title">Скоро буде</h2>
-            <p class="empty-topic__text">Ця тема ще в розробці. Контент з'явиться найближчим часом.</p>
+        <!-- ===== ЗМІСТ ===== -->
+        <div class="toc">
+            <h2 class="toc__title">Зміст теми</h2>
+            <ol class="toc__list">
+                <li class="toc__item"><a href="#wave-types" class="toc__link">Поперечні та поздовжні хвилі</a></li>
+                <li class="toc__item"><a href="#wave-equation" class="toc__link">Рівняння хвилі</a></li>
+                <li class="toc__item"><a href="#sound-spectrum" class="toc__link">Звуковий спектр</a></li>
+                <li class="toc__item"><a href="#doppler" class="toc__link">Ефект Доплера</a></li>
+                <li class="toc__item"><a href="#standing" class="toc__link">Стояча хвиля</a></li>
+                <li class="toc__item"><a href="#formulas" class="toc__link">Таблиця формул</a></li>
+                <li class="toc__item"><a href="#problems" class="toc__link">Задачі</a></li>
+            </ol>
         </div>
 
+        <!-- ===== 1. ПОПЕРЕЧНІ ТА ПОЗДОВЖНІ ХВИЛІ ===== -->
+        <section id="wave-types" class="content-section">
+            <h2 class="content-section__title">1. Поперечні та поздовжні хвилі</h2>
+            <p>
+                <strong>Механічна хвиля</strong> &mdash; це коливання, що поширюються у пружному середовищі.
+                Хвиля переносить <em>енергію</em>, але <strong>не переносить речовину</strong>.
+            </p>
+            <p class="simple-explanation">
+                <strong>Простими словами:</strong> уявіть, що ви кинули камінець у воду. Кола розходяться від центру,
+                але сама вода нікуди не тече &mdash; качки на поверхні просто підстрибують на місці.
+                Так само працює будь-яка хвиля: коливання передаються від частинки до частинки,
+                але самі частинки лише гойдаються навколо свого положення рівноваги.
+            </p>
+
+            <div class="formula">
+                $$v = \frac{\lambda}{T} = \lambda \nu \qquad \lambda = vT = \frac{v}{\nu} \qquad \omega = 2\pi\nu = \frac{2\pi}{T}$$
+            </div>
+
+            <p>
+                <strong>Поперечна хвиля</strong> &mdash; частинки коливаються <em>перпендикулярно</em> напрямку поширення хвилі.
+                Як мексиканська хвиля на стадіоні: люди встають і сідають по черзі, а хвиля біжить по колу.
+                Існує в <strong>твердих тілах</strong> і на <strong>поверхні рідин</strong>.
+            </p>
+            <p>
+                <strong>Поздовжня хвиля</strong> &mdash; частинки коливаються <em>вздовж</em> напрямку поширення.
+                Як пружинка-слінкі, яку штовхнули з одного кінця: стиснення і розтягнення біжать вздовж неї.
+                Існує в <strong>газах, рідинах і твердих тілах</strong>.
+            </p>
+
+            <div class="canvas-wrapper" id="wave-types-wrap">
+                <canvas id="waveTypesCanvas"></canvas>
+                <div class="canvas-controls">
+                    <label>Частота &nu; = <span id="wt-freq-val">1.0</span> Гц
+                        <input type="range" id="wt-freq" min="0.3" max="3" step="0.1" value="1">
+                    </label>
+                    <label>Амплітуда A = <span id="wt-amp-val">25</span> px
+                        <input type="range" id="wt-amp" min="5" max="50" step="1" value="25">
+                    </label>
+                    <div class="canvas-controls__info" id="wt-info">&lambda; = 200 px &nbsp; T = 1.00 с</div>
+                    <div class="canvas-controls__buttons">
+                        <button id="wt-play">&#9654; Пуск</button>
+                        <button id="wt-pause">&#10074;&#10074; Пауза</button>
+                        <button id="wt-reset">&#8635; Скинути</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <h3 class="note__title">&#128218; Запам'ятай для ЗНО</h3>
+                <ul>
+                    <li><strong>Поперечні</strong> хвилі: лише в твердих тілах та на поверхні рідин.</li>
+                    <li><strong>Поздовжні</strong> хвилі: в будь-яких середовищах (тверді, рідкі, газоподібні).</li>
+                    <li>Швидкість хвилі $v$ залежить від <strong>середовища</strong>, а не від частоти.</li>
+                    <li>$v = \lambda\nu$ &mdash; головна формула хвиль.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== 2. РІВНЯННЯ ХВИЛІ ===== -->
+        <section id="wave-equation" class="content-section">
+            <h2 class="content-section__title">2. Рівняння хвилі</h2>
+            <p>
+                Рівняння хвилі описує зміщення кожної точки середовища у будь-який момент часу.
+                Знаючи його, можна визначити положення, швидкість та прискорення будь-якої частинки.
+            </p>
+            <div class="formula">
+                $$f(x,t) = A\cos\!\left(\omega t - kx + \varphi_0\right)$$
+            </div>
+            <p>
+                де $A$ &mdash; амплітуда, $\omega = 2\pi\nu$ &mdash; циклічна частота,
+                $k = \dfrac{2\pi}{\lambda}$ &mdash; хвильове число, $\varphi_0$ &mdash; початкова фаза.
+            </p>
+            <p>
+                Альтернативний запис:
+            </p>
+            <div class="formula">
+                $$f(x,t) = A\cos\!\left(\omega\!\left(t - \frac{x}{v}\right) + \varphi_0\right)$$
+            </div>
+            <p class="simple-explanation">
+                <strong>Простими словами:</strong> уявіть довгий канат, один кінець якого ви хитаєте вгору-вниз.
+                Формула говорить: яке зміщення має будь-яка точка канату в будь-яку секунду.
+                Чим далі від вашої руки ($x$ більше), тим пізніше дійде хвиля &mdash; це і є зміст доданка $-kx$.
+            </p>
+
+            <div class="canvas-wrapper" id="wave-eq-wrap">
+                <canvas id="waveEqCanvas"></canvas>
+                <div class="canvas-controls">
+                    <label>A = <span id="we-A-val">40</span> px
+                        <input type="range" id="we-A" min="10" max="80" step="1" value="40">
+                    </label>
+                    <label>&lambda; = <span id="we-lam-val">200</span> px
+                        <input type="range" id="we-lam" min="60" max="400" step="5" value="200">
+                    </label>
+                    <label>v = <span id="we-v-val">80</span> px/с
+                        <input type="range" id="we-v" min="20" max="200" step="5" value="80">
+                    </label>
+                    <div class="canvas-controls__info" id="we-info">k = 0.031 &nbsp; &omega; = 2.51 &nbsp; T = 2.50 с</div>
+                    <div class="canvas-controls__buttons">
+                        <button id="we-play">&#9654; Пуск</button>
+                        <button id="we-pause">&#10074;&#10074; Пауза</button>
+                        <button id="we-reset">&#8635; Скинути</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <h3 class="note__title">&#128218; Запам'ятай для ЗНО</h3>
+                <ul>
+                    <li>Хвильове число: $k = \dfrac{2\pi}{\lambda}$.</li>
+                    <li>Різниця фаз між двома точками: $\Delta\varphi = k \cdot \Delta x = \dfrac{2\pi}{\lambda}\Delta x$.</li>
+                    <li>Якщо $\Delta x = \lambda$, то $\Delta\varphi = 2\pi$ &mdash; точки коливаються однаково (синфазно).</li>
+                    <li>Якщо $\Delta x = \lambda/2$, то $\Delta\varphi = \pi$ &mdash; точки коливаються у протифазі.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== 3. ЗВУКОВИЙ СПЕКТР ===== -->
+        <section id="sound-spectrum" class="content-section">
+            <h2 class="content-section__title">3. Звуковий спектр</h2>
+            <p>
+                <strong>Звукові хвилі</strong> &mdash; це поздовжні механічні хвилі, які сприймає людське вухо.
+                Діапазон чутності: від <strong>20 Гц</strong> до <strong>20 000 Гц</strong>.
+            </p>
+            <p class="simple-explanation">
+                <strong>Простими словами:</strong> звук &mdash; це коли повітря стискається і розтягується,
+                як гармошка. Ці стиснення долітають до вуха, і ми чуємо. Дуже повільні коливання (нижче 20 Гц)
+                ми не чуємо &mdash; це інфразвук. Дуже швидкі (вище 20 000 Гц) &mdash; ультразвук.
+                Кажани їх чують, а ми ні.
+            </p>
+
+            <div class="formula">
+                $$\text{Інфразвук: } \nu < 20 \text{ Гц} \qquad \text{Звук: } 20 \leq \nu \leq 20\,000 \text{ Гц} \qquad \text{Ультразвук: } \nu > 20\,000 \text{ Гц}$$
+            </div>
+
+            <p>
+                <strong>Швидкість звуку</strong> залежить від середовища: у повітрі &asymp; 340 м/с, у воді &asymp; 1400 м/с, у сталі &asymp; 5000 м/с.
+                Чим щільніше та пружніше середовище &mdash; тим швидше поширюється звук.
+            </p>
+            <p>
+                <strong>Характеристики звуку:</strong>
+                <em>гучність</em> визначається амплітудою коливань;
+                <em>висота тону</em> визначається частотою (вища частота = вищий звук).
+                Музичний тон &mdash; гармонічне коливання, шум &mdash; коливання довільної форми.
+            </p>
+
+            <div class="canvas-wrapper" id="sound-wrap">
+                <canvas id="soundCanvas"></canvas>
+                <div class="canvas-controls">
+                    <label>Частота &nu; = <span id="snd-freq-val">440</span> Гц
+                        <input type="range" id="snd-freq" min="1" max="25000" step="1" value="440">
+                    </label>
+                    <div class="canvas-controls__info" id="snd-info">Діапазон: Звук &nbsp; T = 0.00227 с &nbsp; &lambda; = 0.77 м</div>
+                    <div class="canvas-controls__buttons">
+                        <button id="snd-play">&#9654; Пуск</button>
+                        <button id="snd-pause">&#10074;&#10074; Пауза</button>
+                        <button id="snd-reset">&#8635; Скинути</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <h3 class="note__title">&#128218; Запам'ятай для ЗНО</h3>
+                <ul>
+                    <li>Звук &mdash; <strong>поздовжня</strong> механічна хвиля (не поширюється у вакуумі!).</li>
+                    <li>Швидкість звуку у повітрі &asymp; 340 м/с (залежить від температури).</li>
+                    <li>Гучність &harr; амплітуда, висота тону &harr; частота.</li>
+                    <li>Тварини чують інші діапазони: собака до 40 кГц, кажан до 120 кГц, дельфін до 150 кГц.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== 4. ЕФЕКТ ДОПЛЕРА ===== -->
+        <section id="doppler" class="content-section">
+            <h2 class="content-section__title">4. Ефект Доплера</h2>
+            <p>
+                <strong>Ефект Доплера</strong> &mdash; зміна частоти хвилі, яку сприймає спостерігач,
+                коли джерело і/або спостерігач рухаються одне відносно одного.
+            </p>
+            <div class="formula">
+                $$\nu' = \nu_0 \cdot \frac{v \pm v_{\text{спост}}}{v \mp v_{\text{джер}}}$$
+            </div>
+            <p class="simple-explanation">
+                <strong>Простими словами:</strong> чому сирена швидкої допомоги звучить вище, коли машина їде на вас,
+                і нижче, коли від'їжджає? Бо коли джерело наближається, хвилі стискаються попереду нього,
+                і вухо ловить їх частіше. Коли віддаляється &mdash; хвилі розтягуються, і ми чуємо нижчий звук.
+            </p>
+            <p>
+                <strong>Правило знаків:</strong> верхні знаки &mdash; спостерігач рухається <em>назустріч</em>
+                джерелу (частота зростає); нижні знаки &mdash; спостерігач рухається <em>від</em> джерела.
+                Для $v_{\text{джер}}$ &mdash; навпаки: мінус у знаменнику, коли джерело наближається.
+            </p>
+
+            <div class="canvas-wrapper" id="doppler-wrap">
+                <canvas id="dopplerCanvas"></canvas>
+                <div class="canvas-controls">
+                    <label>v<sub>джер</sub> = <span id="dp-vs-val">60</span> px/с
+                        <input type="range" id="dp-vs" min="0" max="180" step="5" value="60">
+                    </label>
+                    <div class="canvas-controls__info" id="dp-info">&nu;' (попереду) = 1.21 &nu;<sub>0</sub> &nbsp;&nbsp; &nu;' (позаду) = 0.85 &nu;<sub>0</sub></div>
+                    <div class="canvas-controls__buttons">
+                        <button id="dp-play">&#9654; Пуск</button>
+                        <button id="dp-pause">&#10074;&#10074; Пауза</button>
+                        <button id="dp-reset">&#8635; Скинути</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <h3 class="note__title">&#128218; Запам'ятай для ЗНО</h3>
+                <ul>
+                    <li>Джерело наближається &rarr; частота <strong>зростає</strong> ($\nu' > \nu_0$).</li>
+                    <li>Джерело віддаляється &rarr; частота <strong>зменшується</strong> ($\nu' < \nu_0$).</li>
+                    <li>Ефект Доплера працює і для світла (червоний/синій зсув).</li>
+                    <li>У формулі $v$ &mdash; швидкість хвилі в середовищі (для звуку &asymp; 340 м/с).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== 5. СТОЯЧА ХВИЛЯ ===== -->
+        <section id="standing" class="content-section">
+            <h2 class="content-section__title">5. Стояча хвиля</h2>
+            <p>
+                <strong>Стояча хвиля</strong> виникає при накладанні двох однакових хвиль,
+                що рухаються в протилежних напрямках (наприклад, хвиля та її відбиття від стінки).
+            </p>
+            <p class="simple-explanation">
+                <strong>Простими словами:</strong> уявіть гітарну струну. Коли ви її смикнете,
+                хвиля біжить до кінця, відбивається і повертається. Ці дві хвилі (пряма і відбита)
+                накладаються і утворюють стоячу хвилю: деякі точки (<em>вузли</em>) стоять нерухомо,
+                а інші (<em>пучності</em>) коливаються з максимальною амплітудою.
+            </p>
+            <div class="formula">
+                $$f(x,t) = 2A\cos(kx)\cdot\cos(\omega t)$$
+            </div>
+            <p>
+                <strong>Вузли</strong> &mdash; точки, де амплітуда = 0 (закріплені кінці струни).
+                <br>
+                <strong>Пучності</strong> &mdash; точки, де амплітуда максимальна.
+            </p>
+            <p>
+                Відстань між сусідніми <strong>вузлами</strong> = $\lambda / 2$.
+                Відстань між вузлом і найближчою <strong>пучністю</strong> = $\lambda / 4$.
+            </p>
+            <p>
+                <strong>Акустичний резонанс</strong> виникає, коли довжина стовпа повітря (труби, кімнати)
+                кратна половині довжини хвилі звуку. Тоді звук різко підсилюється.
+            </p>
+
+            <div class="canvas-wrapper" id="standing-wrap">
+                <canvas id="standingCanvas"></canvas>
+                <div class="canvas-controls">
+                    <label>Гармоніка n = <span id="st-n-val">2</span>
+                        <input type="range" id="st-n" min="1" max="8" step="1" value="2">
+                    </label>
+                    <label>Швидкість = <span id="st-speed-val">1.0</span>x
+                        <input type="range" id="st-speed" min="0.2" max="3" step="0.1" value="1">
+                    </label>
+                    <div class="canvas-controls__info" id="st-info">Вузлів: 3 &nbsp; Пучностей: 2</div>
+                    <div class="canvas-controls__buttons">
+                        <button id="st-play">&#9654; Пуск</button>
+                        <button id="st-pause">&#10074;&#10074; Пауза</button>
+                        <button id="st-reset">&#8635; Скинути</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <h3 class="note__title">&#128218; Запам'ятай для ЗНО</h3>
+                <ul>
+                    <li>Стояча хвиля <strong>не переносить енергію</strong>.</li>
+                    <li>Відстань між сусідніми вузлами = $\lambda / 2$.</li>
+                    <li>Відстань між вузлом і найближчою пучністю = $\lambda / 4$.</li>
+                    <li>Акустичний резонанс &mdash; підсилення звуку, коли зовнішня частота збігається з власною частотою тіла.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== 6. ТАБЛИЦЯ ФОРМУЛ ===== -->
+        <section id="formulas" class="content-section">
+            <h2 class="content-section__title">6. Таблиця формул</h2>
+            <div class="formula-table-wrapper">
+                <table class="formula-table">
+                    <thead>
+                        <tr><th>Величина</th><th>Формула</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Швидкість хвилі</td><td>$v = \lambda\nu = \lambda / T$</td></tr>
+                        <tr><td>Довжина хвилі</td><td>$\lambda = vT = v / \nu$</td></tr>
+                        <tr><td>Циклічна частота</td><td>$\omega = 2\pi\nu = 2\pi / T$</td></tr>
+                        <tr><td>Хвильове число</td><td>$k = 2\pi / \lambda = \omega / v$</td></tr>
+                        <tr><td>Рівняння хвилі</td><td>$f(x,t) = A\cos(\omega t - kx + \varphi_0)$</td></tr>
+                        <tr><td>Різниця фаз</td><td>$\Delta\varphi = \dfrac{2\pi}{\lambda}\Delta x$</td></tr>
+                        <tr><td>Ефект Доплера</td><td>$\nu' = \nu_0 \cdot \dfrac{v \pm v_{\text{сп}}}{v \mp v_{\text{дж}}}$</td></tr>
+                        <tr><td>Стояча хвиля</td><td>$f = 2A\cos(kx)\cos(\omega t)$</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ===== 7. ЗАДАЧІ ===== -->
+        <section id="problems" class="content-section">
+            <h2 class="content-section__title">7. Задачі</h2>
+
+            <div class="problem">
+                <div class="problem__text">
+                    <strong>Задача 1.</strong> Швидкість поширення хвилі $v = 10$ м/с, амплітуда $A = 0{,}01$ м,
+                    період $T = 0{,}2$ с. Написати рівняння хвилі та знайти довжину хвилі $\lambda$
+                    і зміщення точки $x = 1$ м у момент $t = 0{,}1$ с.
+                </div>
+                <div class="problem__given">
+                    <div class="problem__given-title">Дано:</div>
+                    $v = 10$ м/с<br>$A = 0{,}01$ м<br>$T = 0{,}2$ с<br>$x = 1$ м, $t = 0{,}1$ с<br><br>$\lambda = ?$, $f(1;\;0{,}1) = ?$
+                </div>
+                <div class="problem__solution">
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати розв'язок</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__step">
+                            <div class="problem__step-number">1</div>
+                            <div class="problem__step-content">
+                                Довжина хвилі: $$\lambda = vT = 10 \cdot 0{,}2 = 2 \text{ м}$$
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">2</div>
+                            <div class="problem__step-content">
+                                Циклічна частота та хвильове число:
+                                $$\omega = \frac{2\pi}{T} = \frac{2\pi}{0{,}2} = 10\pi \text{ рад/с}$$
+                                $$k = \frac{2\pi}{\lambda} = \frac{2\pi}{2} = \pi \text{ рад/м}$$
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">3</div>
+                            <div class="problem__step-content">
+                                Рівняння хвилі:
+                                $$f(x,t) = 0{,}01 \cdot \cos(10\pi t - \pi x)$$
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">4</div>
+                            <div class="problem__step-content">
+                                Зміщення при $x = 1$ м, $t = 0{,}1$ с:
+                                $$f(1;\;0{,}1) = 0{,}01 \cdot \cos(10\pi \cdot 0{,}1 - \pi \cdot 1) = 0{,}01 \cdot \cos(\pi - \pi) = 0{,}01 \cdot \cos(0) = 0{,}01 \text{ м}$$
+                            </div>
+                        </div>
+                        <div class="problem__answer">
+                            <strong>Відповідь:</strong> $\lambda = 2$ м; $f(1;\;0{,}1) = 0{,}01$ м.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem__text">
+                    <strong>Задача 2.</strong> Дві точки хвилі знаходяться на відстанях $x_1 = 6$ м і $x_2 = 12$ м від джерела.
+                    Період коливань $T = 0{,}01$ с, швидкість $v = 300$ м/с. Знайти різницю фаз $\Delta\varphi$ між цими точками.
+                </div>
+                <div class="problem__given">
+                    <div class="problem__given-title">Дано:</div>
+                    $x_1 = 6$ м, $x_2 = 12$ м<br>$T = 0{,}01$ с<br>$v = 300$ м/с<br><br>$\Delta\varphi = ?$
+                </div>
+                <div class="problem__solution">
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати розв'язок</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__step">
+                            <div class="problem__step-number">1</div>
+                            <div class="problem__step-content">
+                                Довжина хвилі: $$\lambda = vT = 300 \cdot 0{,}01 = 3 \text{ м}$$
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">2</div>
+                            <div class="problem__step-content">
+                                Відстань між точками: $$\Delta x = x_2 - x_1 = 12 - 6 = 6 \text{ м}$$
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">3</div>
+                            <div class="problem__step-content">
+                                Різниця фаз:
+                                $$\Delta\varphi = \frac{2\pi}{\lambda}\cdot\Delta x = \frac{2\pi}{3}\cdot 6 = 4\pi \text{ рад}$$
+                            </div>
+                        </div>
+                        <div class="problem__answer">
+                            <strong>Відповідь:</strong> $\Delta\varphi = 4\pi$ рад (точки коливаються синфазно, бо $4\pi = 2 \cdot 2\pi$).
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem__text">
+                    <strong>Задача 3.</strong> Потяг наближається до спостерігача зі швидкістю $v_{\text{потяг}} = 10$ м/с
+                    і подає гудок із частотою $\nu_0 = 200$ Гц. Швидкість звуку $v = 340$ м/с.
+                    Яку частоту чує спостерігач?
+                </div>
+                <div class="problem__given">
+                    <div class="problem__given-title">Дано:</div>
+                    $v_{\text{потяг}} = 10$ м/с<br>$\nu_0 = 200$ Гц<br>$v = 340$ м/с<br><br>$\nu' = ?$
+                </div>
+                <div class="problem__solution">
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати розв'язок</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__step">
+                            <div class="problem__step-number">1</div>
+                            <div class="problem__step-content">
+                                Джерело наближається, спостерігач нерухомий ($v_{\text{сп}} = 0$).
+                                Формула Доплера:
+                                $$\nu' = \nu_0 \cdot \frac{v}{v - v_{\text{дж}}}$$
+                            </div>
+                        </div>
+                        <div class="problem__step">
+                            <div class="problem__step-number">2</div>
+                            <div class="problem__step-content">
+                                Підставляємо:
+                                $$\nu' = 200 \cdot \frac{340}{340 - 10} = 200 \cdot \frac{340}{330} \approx 206{,}1 \text{ Гц}$$
+                            </div>
+                        </div>
+                        <div class="problem__answer">
+                            <strong>Відповідь:</strong> $\nu' \approx 206$ Гц &mdash; частота вища за $\nu_0$, бо потяг наближається.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== НАВІГАЦІЯ ===== -->
         <nav class="topic-nav">
             <a href="topic-32.html" class="topic-nav__btn">&larr; Тема 32</a>
             <a href="topic-34.html" class="topic-nav__btn topic-nav__btn--next">Тема 34 &rarr;</a>
         </nav>
     </main>
+
+    <!-- ============================================ -->
+    <!-- JavaScript: Візуалізації                      -->
+    <!-- ============================================ -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        /* ===========================================================
+           UTILITY FUNCTIONS
+           =========================================================== */
+        var DPR = window.devicePixelRatio || 1;
+
+        function setupCanvas(canvas, height) {
+            var wrap = canvas.parentElement;
+            var rect = wrap.getBoundingClientRect();
+            var w = rect.width;
+            var h = height || 500;
+            canvas.width = w * DPR;
+            canvas.height = h * DPR;
+            canvas.style.width = w + 'px';
+            canvas.style.height = h + 'px';
+            var ctx = canvas.getContext('2d');
+            ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+            return { w: w, h: h, ctx: ctx };
+        }
+
+        function drawArrow(ctx, x0, y0, x1, y1, color, width) {
+            var dx = x1 - x0, dy = y1 - y0;
+            var len = Math.sqrt(dx * dx + dy * dy);
+            if (len < 2) return;
+            var ux = dx / len, uy = dy / len;
+            ctx.strokeStyle = color;
+            ctx.lineWidth = width || 2;
+            ctx.beginPath();
+            ctx.moveTo(x0, y0);
+            ctx.lineTo(x1, y1);
+            ctx.stroke();
+            var hs = 8;
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x1 - ux * hs + uy * hs * 0.4, y1 - uy * hs - ux * hs * 0.4);
+            ctx.lineTo(x1 - ux * hs - uy * hs * 0.4, y1 - uy * hs + ux * hs * 0.4);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+
+        /* ===========================================================
+           1. ПОПЕРЕЧНІ ТА ПОЗДОВЖНІ ХВИЛІ (500px)
+           =========================================================== */
+        (function() {
+            var canvas = document.getElementById('waveTypesCanvas');
+            if (!canvas) return;
+            var dim = setupCanvas(canvas, 500);
+            var W = dim.w, H = dim.h, ctx = dim.ctx;
+
+            var freqSlider = document.getElementById('wt-freq');
+            var ampSlider  = document.getElementById('wt-amp');
+            var freqVal    = document.getElementById('wt-freq-val');
+            var ampVal     = document.getElementById('wt-amp-val');
+            var infoEl     = document.getElementById('wt-info');
+
+            var playing = true;
+            var time = 0;
+            var lastTs = 0;
+            var NUM_DOTS = 40;
+
+            document.getElementById('wt-play').onclick  = function() { playing = true; };
+            document.getElementById('wt-pause').onclick = function() { playing = false; };
+            document.getElementById('wt-reset').onclick = function() { time = 0; };
+
+            function getParams() {
+                var freq = parseFloat(freqSlider.value);
+                var amp  = parseFloat(ampSlider.value);
+                freqVal.textContent = freq.toFixed(1);
+                ampVal.textContent  = amp.toFixed(0);
+                var waveSpeed = 200;
+                var lam = waveSpeed / freq;
+                var T = 1 / freq;
+                infoEl.textContent = '\u03BB = ' + lam.toFixed(0) + ' px   T = ' + T.toFixed(2) + ' \u0441';
+                return { freq: freq, amp: amp, lam: lam, omega: 2 * Math.PI * freq, v: waveSpeed };
+            }
+
+            function draw(ts) {
+                if (!lastTs) lastTs = ts;
+                var dt = (ts - lastTs) / 1000;
+                lastTs = ts;
+                if (playing) time += dt;
+
+                var p = getParams();
+                var k = 2 * Math.PI / p.lam;
+
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, W, H);
+
+                // section labels
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = 'bold 14px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                ctx.fillText('ПОПЕРЕЧНА ХВИЛЯ', 15, 15);
+
+                ctx.fillStyle = '#60a5fa';
+                ctx.fillText('ПОЗДОВЖНЯ ХВИЛЯ', 15, H / 2 + 15);
+
+                // divider
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                ctx.setLineDash([5, 5]);
+                ctx.beginPath();
+                ctx.moveTo(0, H / 2);
+                ctx.lineTo(W, H / 2);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                var topCy  = H / 4 + 10;
+                var botCy  = H * 3 / 4 + 10;
+                var margin = 40;
+                var spanX  = W - 2 * margin;
+
+                // === TRANSVERSE WAVE (top) ===
+                // equilibrium line
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(margin, topCy);
+                ctx.lineTo(margin + spanX, topCy);
+                ctx.stroke();
+
+                // wave curve
+                ctx.strokeStyle = '#fbbf24';
+                ctx.lineWidth = 2.5;
+                ctx.beginPath();
+                for (var px = 0; px <= spanX; px++) {
+                    var yOff = p.amp * Math.sin(p.omega * time - k * px);
+                    var sx = margin + px;
+                    var sy = topCy - yOff;
+                    if (px === 0) ctx.moveTo(sx, sy); else ctx.lineTo(sx, sy);
+                }
+                ctx.stroke();
+
+                // dots (particles)
+                var dotSpacing = spanX / NUM_DOTS;
+                for (var i = 0; i < NUM_DOTS; i++) {
+                    var dx = i * dotSpacing;
+                    var dy = p.amp * Math.sin(p.omega * time - k * dx);
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.beginPath();
+                    ctx.arc(margin + dx, topCy - dy, 4, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // vertical movement indicator for first few dots
+                    if (i > 0 && i < 4) {
+                        ctx.strokeStyle = 'rgba(251,191,36,0.25)';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(margin + dx, topCy - p.amp - 6);
+                        ctx.lineTo(margin + dx, topCy + p.amp + 6);
+                        ctx.stroke();
+                    }
+                }
+
+                // amplitude arrow
+                drawArrow(ctx, margin + 20, topCy, margin + 20, topCy - p.amp, '#ef4444', 2);
+                ctx.fillStyle = '#ef4444';
+                ctx.font = 'bold 13px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('A', margin + 26, topCy - p.amp / 2);
+
+                // wavelength arrow
+                var lamPixels = p.lam;
+                if (lamPixels < spanX - 40) {
+                    var lamY = topCy + p.amp + 25;
+                    var lamX0 = margin + 60;
+                    drawArrow(ctx, lamX0, lamY, lamX0 + lamPixels, lamY, '#4ade80', 2);
+                    drawArrow(ctx, lamX0 + lamPixels, lamY, lamX0, lamY, '#4ade80', 2);
+                    ctx.fillStyle = '#4ade80';
+                    ctx.font = 'bold 13px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'top';
+                    ctx.fillText('\u03BB', lamX0 + lamPixels / 2, lamY + 5);
+                }
+
+                // v arrow
+                drawArrow(ctx, W - 110, topCy - p.amp - 22, W - 55, topCy - p.amp - 22, '#60a5fa', 2);
+                ctx.fillStyle = '#60a5fa';
+                ctx.font = 'bold 13px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText('v', W - 82, topCy - p.amp - 25);
+
+                // particle motion labels
+                ctx.fillStyle = 'rgba(251,191,36,0.6)';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillText('\u2195 частинки рухаються вгору-вниз', margin + spanX / 2, topCy - p.amp - 42);
+
+                // === LONGITUDINAL WAVE (bottom) ===
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(margin, botCy);
+                ctx.lineTo(margin + spanX, botCy);
+                ctx.stroke();
+
+                // dots with horizontal displacement
+                var longDotSpacing = spanX / NUM_DOTS;
+                var longAmp = p.amp * 0.7;
+                for (var j = 0; j < NUM_DOTS; j++) {
+                    var baseX = j * longDotSpacing;
+                    var displacement = longAmp * Math.sin(p.omega * time - k * baseX);
+                    var dotX = margin + baseX + displacement;
+                    var dotY = botCy;
+
+                    // density visualization: closer dots = bigger/brighter
+                    var nextBaseX = (j + 1) * longDotSpacing;
+                    var nextDisp = longAmp * Math.sin(p.omega * time - k * nextBaseX);
+                    var gap = longDotSpacing + nextDisp - displacement;
+                    var density = Math.max(0.3, Math.min(1, longDotSpacing / Math.max(gap, 1)));
+                    var radius = 3 + density * 3;
+
+                    ctx.fillStyle = 'rgba(96,165,250,' + (0.4 + density * 0.6).toFixed(2) + ')';
+                    ctx.beginPath();
+                    ctx.arc(dotX, dotY, radius, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // find compression/rarefaction labels
+                for (var ci = 5; ci < NUM_DOTS - 5; ci++) {
+                    var bx1 = ci * longDotSpacing;
+                    var d1  = longAmp * Math.sin(p.omega * time - k * bx1);
+                    var bx2 = (ci + 1) * longDotSpacing;
+                    var d2  = longAmp * Math.sin(p.omega * time - k * bx2);
+                    var g   = longDotSpacing + d2 - d1;
+                    if (g < longDotSpacing * 0.4) {
+                        ctx.fillStyle = 'rgba(96,165,250,0.7)';
+                        ctx.font = '11px Inter, sans-serif';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'bottom';
+                        ctx.fillText('стиснення', margin + bx1 + d1, botCy - 20);
+                        break;
+                    }
+                }
+                for (var ri = 5; ri < NUM_DOTS - 5; ri++) {
+                    var rbx1 = ri * longDotSpacing;
+                    var rd1  = longAmp * Math.sin(p.omega * time - k * rbx1);
+                    var rbx2 = (ri + 1) * longDotSpacing;
+                    var rd2  = longAmp * Math.sin(p.omega * time - k * rbx2);
+                    var rg   = longDotSpacing + rd2 - rd1;
+                    if (rg > longDotSpacing * 1.6) {
+                        ctx.fillStyle = 'rgba(96,165,250,0.5)';
+                        ctx.font = '11px Inter, sans-serif';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'top';
+                        ctx.fillText('розрідження', margin + rbx1 + rd1, botCy + 18);
+                        break;
+                    }
+                }
+
+                // v arrow bottom
+                drawArrow(ctx, W - 110, botCy - 42, W - 55, botCy - 42, '#60a5fa', 2);
+                ctx.fillStyle = '#60a5fa';
+                ctx.font = 'bold 13px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText('v', W - 82, botCy - 45);
+
+                ctx.fillStyle = 'rgba(96,165,250,0.6)';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillText('\u2194 частинки рухаються вздовж хвилі', margin + spanX / 2, botCy + 35);
+
+                requestAnimationFrame(draw);
+            }
+
+            ctx.fillStyle = '#0a0a1a';
+            ctx.fillRect(0, 0, W, H);
+            requestAnimationFrame(draw);
+        })();
+
+
+        /* ===========================================================
+           2. РІВНЯННЯ ХВИЛІ — ІНТЕРАКТИВ (450px)
+           =========================================================== */
+        (function() {
+            var canvas = document.getElementById('waveEqCanvas');
+            if (!canvas) return;
+            var dim = setupCanvas(canvas, 450);
+            var W = dim.w, H = dim.h, ctx = dim.ctx;
+
+            var sliderA   = document.getElementById('we-A');
+            var sliderLam = document.getElementById('we-lam');
+            var sliderV   = document.getElementById('we-v');
+            var valA      = document.getElementById('we-A-val');
+            var valLam    = document.getElementById('we-lam-val');
+            var valV      = document.getElementById('we-v-val');
+            var infoEl    = document.getElementById('we-info');
+
+            var playing = true;
+            var time = 0;
+            var lastTs = 0;
+
+            document.getElementById('we-play').onclick  = function() { playing = true; };
+            document.getElementById('we-pause').onclick = function() { playing = false; };
+            document.getElementById('we-reset').onclick = function() { time = 0; };
+
+            function getParams() {
+                var A   = parseFloat(sliderA.value);
+                var lam = parseFloat(sliderLam.value);
+                var v   = parseFloat(sliderV.value);
+                valA.textContent   = A.toFixed(0);
+                valLam.textContent = lam.toFixed(0);
+                valV.textContent   = v.toFixed(0);
+                var k     = 2 * Math.PI / lam;
+                var omega = k * v;
+                var T     = 2 * Math.PI / omega;
+                infoEl.textContent = 'k = ' + k.toFixed(3) + '   \u03C9 = ' + omega.toFixed(2) + '   T = ' + T.toFixed(2) + ' \u0441';
+                return { A: A, lam: lam, v: v, k: k, omega: omega, T: T };
+            }
+
+            var margin   = 50;
+            var dotCount = 30;
+
+            function draw(ts) {
+                if (!lastTs) lastTs = ts;
+                var dt = (ts - lastTs) / 1000;
+                lastTs = ts;
+                if (playing) time += dt;
+
+                var p = getParams();
+
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, W, H);
+
+                var cy    = H / 2;
+                var spanX = W - 2 * margin;
+
+                // grid
+                ctx.strokeStyle = '#1a1a2e';
+                ctx.lineWidth = 1;
+                for (var gx = margin; gx <= margin + spanX; gx += 50) {
+                    ctx.beginPath(); ctx.moveTo(gx, 40); ctx.lineTo(gx, H - 40); ctx.stroke();
+                }
+                for (var gy = 40; gy <= H - 40; gy += 50) {
+                    ctx.beginPath(); ctx.moveTo(margin, gy); ctx.lineTo(margin + spanX, gy); ctx.stroke();
+                }
+
+                // axes
+                ctx.strokeStyle = '#555';
+                ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.moveTo(margin, cy);
+                ctx.lineTo(margin + spanX, cy);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(margin, 40);
+                ctx.lineTo(margin, H - 40);
+                ctx.stroke();
+
+                // axis labels
+                ctx.fillStyle = '#888';
+                ctx.font = '12px Inter, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.textBaseline = 'top';
+                ctx.fillText('x', margin + spanX - 5, cy + 5);
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText('f(x,t)', margin + 5, 45);
+
+                // wave curve
+                ctx.strokeStyle = '#a78bfa';
+                ctx.lineWidth = 2.5;
+                ctx.beginPath();
+                for (var px = 0; px <= spanX; px++) {
+                    var yOff = p.A * Math.cos(p.omega * time - p.k * px);
+                    var sx = margin + px;
+                    var sy = cy - yOff;
+                    if (px === 0) ctx.moveTo(sx, sy); else ctx.lineTo(sx, sy);
+                }
+                ctx.stroke();
+
+                // particles
+                var dotSpacing = spanX / dotCount;
+                for (var i = 0; i <= dotCount; i++) {
+                    var dxPos = i * dotSpacing;
+                    var dyOff = p.A * Math.cos(p.omega * time - p.k * dxPos);
+                    var sx2 = margin + dxPos;
+                    var sy2 = cy - dyOff;
+
+                    // vertical dashed line
+                    ctx.strokeStyle = 'rgba(167,139,250,0.2)';
+                    ctx.lineWidth = 1;
+                    ctx.setLineDash([2, 3]);
+                    ctx.beginPath();
+                    ctx.moveTo(sx2, cy);
+                    ctx.lineTo(sx2, sy2);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+
+                    ctx.fillStyle = '#a78bfa';
+                    ctx.beginPath();
+                    ctx.arc(sx2, sy2, 4, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // amplitude arrow
+                drawArrow(ctx, margin + 14, cy, margin + 14, cy - p.A, '#ef4444', 2);
+                ctx.fillStyle = '#ef4444';
+                ctx.font = 'bold 13px Inter, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('A', margin + 10, cy - p.A / 2);
+
+                // wavelength arrow
+                if (p.lam < spanX - 20) {
+                    var lamY  = cy + p.A + 30;
+                    var lamX0 = margin + 80;
+                    ctx.strokeStyle = '#4ade80';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(lamX0, lamY);
+                    ctx.lineTo(lamX0 + p.lam, lamY);
+                    ctx.stroke();
+                    // tick marks
+                    ctx.beginPath();
+                    ctx.moveTo(lamX0, lamY - 5);
+                    ctx.lineTo(lamX0, lamY + 5);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(lamX0 + p.lam, lamY - 5);
+                    ctx.lineTo(lamX0 + p.lam, lamY + 5);
+                    ctx.stroke();
+                    ctx.fillStyle = '#4ade80';
+                    ctx.font = 'bold 13px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'top';
+                    ctx.fillText('\u03BB', lamX0 + p.lam / 2, lamY + 6);
+                }
+
+                // formula display
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = '13px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                ctx.fillText('f(x,t) = ' + p.A.toFixed(0) + '\u00B7cos(' + p.omega.toFixed(1) + 't \u2212 ' + p.k.toFixed(3) + 'x)', margin + 10, 55);
+
+                // time display
+                ctx.fillStyle = '#60a5fa';
+                ctx.fillText('t = ' + time.toFixed(2) + ' \u0441', margin + 10, 75);
+
+                // phase info for highlighted particle
+                var highlightIdx = 10;
+                var hx = highlightIdx * dotSpacing;
+                var hy = p.A * Math.cos(p.omega * time - p.k * hx);
+                var hsx = margin + hx;
+                var hsy = cy - hy;
+                ctx.fillStyle = '#fbbf24';
+                ctx.beginPath();
+                ctx.arc(hsx, hsy, 6, 0, Math.PI * 2);
+                ctx.fill();
+                var phase = (p.omega * time - p.k * hx) % (2 * Math.PI);
+                if (phase < 0) phase += 2 * Math.PI;
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText('x=' + hx.toFixed(0) + '  \u03C6=' + phase.toFixed(2) + ' рад  f=' + hy.toFixed(1), hsx + 10, hsy - 5);
+
+                requestAnimationFrame(draw);
+            }
+
+            ctx.fillStyle = '#0a0a1a';
+            ctx.fillRect(0, 0, W, H);
+            requestAnimationFrame(draw);
+        })();
+
+
+        /* ===========================================================
+           3. ЗВУКОВИЙ СПЕКТР (400px)
+           =========================================================== */
+        (function() {
+            var canvas = document.getElementById('soundCanvas');
+            if (!canvas) return;
+            var dim = setupCanvas(canvas, 400);
+            var W = dim.w, H = dim.h, ctx = dim.ctx;
+
+            var freqSlider = document.getElementById('snd-freq');
+            var freqVal    = document.getElementById('snd-freq-val');
+            var infoEl     = document.getElementById('snd-info');
+
+            var playing = true;
+            var time = 0;
+            var lastTs = 0;
+
+            document.getElementById('snd-play').onclick  = function() { playing = true; };
+            document.getElementById('snd-pause').onclick = function() { playing = false; };
+            document.getElementById('snd-reset').onclick = function() { time = 0; };
+
+            var margin = 40;
+            var barH = 45;
+            var barY = 58;
+
+            var animals = [
+                { name: 'Людина',  min: 20,    max: 20000,  color: '#4ade80' },
+                { name: 'Собака',  min: 40,    max: 40000,  color: '#fbbf24' },
+                { name: 'Кажан',   min: 1000,  max: 120000, color: '#ef4444' },
+                { name: 'Дельфін', min: 150,   max: 150000, color: '#60a5fa' }
+            ];
+
+            function freqToX(f) {
+                var logMin = Math.log10(1);
+                var logMax = Math.log10(25000);
+                var logF   = Math.log10(Math.max(1, Math.min(f, 25000)));
+                return margin + (logF - logMin) / (logMax - logMin) * (W - 2 * margin);
+            }
+
+            function draw(ts) {
+                if (!lastTs) lastTs = ts;
+                var dt = (ts - lastTs) / 1000;
+                lastTs = ts;
+                if (playing) time += dt;
+
+                var freq = parseFloat(freqSlider.value);
+                freqVal.textContent = freq.toFixed(0);
+
+                var zone = '';
+                var vSound = 340;
+                if (freq < 20) zone = 'Інфразвук';
+                else if (freq <= 20000) zone = 'Звук';
+                else zone = 'Ультразвук';
+
+                var T   = 1 / freq;
+                var lam = vSound / freq;
+                infoEl.textContent = 'Діапазон: ' + zone + '   T = ' + T.toFixed(5) + ' \u0441   \u03BB = ' + lam.toFixed(2) + ' м';
+
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, W, H);
+
+                // title
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 14px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillText('ЧАСТОТНИЙ СПЕКТР', W / 2, 8);
+
+                var barW = W - 2 * margin;
+                var x20  = freqToX(20);
+                var x20k = freqToX(20000);
+                var xMax = freqToX(25000);
+
+                // fill zones
+                ctx.fillStyle = 'rgba(239,68,68,0.25)';
+                ctx.fillRect(margin, barY, x20 - margin, barH);
+                ctx.fillStyle = 'rgba(74,222,128,0.25)';
+                ctx.fillRect(x20, barY, x20k - x20, barH);
+                ctx.fillStyle = 'rgba(96,165,250,0.25)';
+                ctx.fillRect(x20k, barY, xMax - x20k, barH);
+
+                // borders
+                ctx.strokeStyle = '#555';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(margin, barY, barW, barH);
+
+                // zone dividers
+                ctx.strokeStyle = '#888';
+                ctx.lineWidth = 1;
+                ctx.setLineDash([3, 3]);
+                ctx.beginPath();
+                ctx.moveTo(x20, barY);
+                ctx.lineTo(x20, barY + barH);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(x20k, barY);
+                ctx.lineTo(x20k, barY + barH);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                // zone labels
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+                ctx.fillStyle = '#ef4444';
+                ctx.fillText('Інфразвук', (margin + x20) / 2, barY - 3);
+                ctx.fillText('< 20 Гц', (margin + x20) / 2, barY - 15);
+                ctx.fillStyle = '#4ade80';
+                ctx.fillText('Звук (чутний)', (x20 + x20k) / 2, barY - 3);
+                ctx.fillText('20 \u2014 20 000 Гц', (x20 + x20k) / 2, barY - 15);
+                ctx.fillStyle = '#60a5fa';
+                ctx.fillText('Ультразвук', (x20k + xMax) / 2, barY - 3);
+                ctx.fillText('> 20 кГц', (x20k + xMax) / 2, barY - 15);
+
+                // tick marks
+                var ticks = [1, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000, 20000, 25000];
+                ctx.fillStyle = '#888';
+                ctx.font = '9px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                for (var ti = 0; ti < ticks.length; ti++) {
+                    var tx = freqToX(ticks[ti]);
+                    ctx.strokeStyle = '#555';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(tx, barY + barH);
+                    ctx.lineTo(tx, barY + barH + 5);
+                    ctx.stroke();
+                    var label = ticks[ti] >= 1000 ? (ticks[ti] / 1000) + 'k' : ticks[ti] + '';
+                    ctx.fillText(label, tx, barY + barH + 7);
+                }
+
+                // current frequency marker
+                var curX = freqToX(freq);
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(curX, barY - 5);
+                ctx.lineTo(curX, barY + barH + 5);
+                ctx.stroke();
+                ctx.fillStyle = '#fff';
+                ctx.beginPath();
+                ctx.moveTo(curX, barY - 5);
+                ctx.lineTo(curX - 6, barY - 14);
+                ctx.lineTo(curX + 6, barY - 14);
+                ctx.closePath();
+                ctx.fill();
+
+                // freq readout at marker
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 10px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'bottom';
+                ctx.fillText(freq + ' Гц', curX, barY - 16);
+
+                // === Animal hearing ranges ===
+                var animalY = barY + barH + 30;
+                ctx.fillStyle = '#aaa';
+                ctx.font = 'bold 12px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                ctx.fillText('Діапазони слуху:', margin, animalY);
+                animalY += 20;
+
+                for (var ai = 0; ai < animals.length; ai++) {
+                    var a   = animals[ai];
+                    var ax0 = freqToX(Math.max(a.min, 1));
+                    var ax1 = freqToX(Math.min(a.max, 25000));
+                    var aBarY = animalY + ai * 26;
+
+                    ctx.fillStyle = a.color;
+                    ctx.font = '11px Inter, sans-serif';
+                    ctx.textAlign = 'right';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(a.name, margin - 5, aBarY + 7);
+
+                    ctx.fillStyle = a.color;
+                    ctx.globalAlpha = 0.35;
+                    ctx.fillRect(ax0, aBarY, ax1 - ax0, 14);
+                    ctx.globalAlpha = 1.0;
+                    ctx.strokeStyle = a.color;
+                    ctx.lineWidth = 1;
+                    ctx.strokeRect(ax0, aBarY, ax1 - ax0, 14);
+
+                    if (a.max > 25000) {
+                        ctx.fillStyle = a.color;
+                        ctx.beginPath();
+                        ctx.moveTo(ax1, aBarY);
+                        ctx.lineTo(ax1 + 8, aBarY + 7);
+                        ctx.lineTo(ax1, aBarY + 14);
+                        ctx.closePath();
+                        ctx.fill();
+                    }
+
+                    ctx.fillStyle = a.color;
+                    ctx.font = '9px Inter, sans-serif';
+                    ctx.textAlign = 'left';
+                    ctx.textBaseline = 'middle';
+                    var rangeStr = a.min + ' \u2014 ' + (a.max >= 1000 ? (a.max / 1000) + 'k' : a.max) + ' Гц';
+                    ctx.fillText(rangeStr, ax1 + (a.max > 25000 ? 12 : 5), aBarY + 7);
+                }
+
+                // === Oscillation preview ===
+                var oscY  = animalY + animals.length * 26 + 20;
+                var oscH  = H - oscY - 10;
+                var oscCy = oscY + oscH / 2;
+
+                ctx.fillStyle = '#888';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                ctx.fillText('Вигляд коливання (' + freq.toFixed(0) + ' Гц):', margin, oscY - 14);
+
+                // equilibrium line
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(margin, oscCy);
+                ctx.lineTo(W - margin, oscCy);
+                ctx.stroke();
+
+                var visualFreq = Math.min(freq, 80);
+                var oscAmp     = oscH / 2 - 8;
+                var oscOmega   = 2 * Math.PI * visualFreq;
+                var oscSpan    = W - 2 * margin;
+
+                var zoneColor = '#4ade80';
+                if (freq < 20) zoneColor = '#ef4444';
+                else if (freq > 20000) zoneColor = '#60a5fa';
+
+                ctx.strokeStyle = zoneColor;
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                for (var ox = 0; ox <= oscSpan; ox++) {
+                    var ot = ox / oscSpan * 2;
+                    var oy = oscAmp * Math.sin(oscOmega * (ot - time * 0.5));
+                    if (ox === 0) ctx.moveTo(margin + ox, oscCy - oy);
+                    else ctx.lineTo(margin + ox, oscCy - oy);
+                }
+                ctx.stroke();
+
+                // T marker
+                if (visualFreq > 0.5) {
+                    var tPeriodPx = oscSpan / (visualFreq * 2);
+                    if (tPeriodPx > 15 && tPeriodPx < oscSpan * 0.7) {
+                        var tMarkY = oscCy + oscAmp + 10;
+                        ctx.strokeStyle = '#fbbf24';
+                        ctx.lineWidth = 1.5;
+                        ctx.beginPath();
+                        ctx.moveTo(margin, tMarkY);
+                        ctx.lineTo(margin + tPeriodPx, tMarkY);
+                        ctx.stroke();
+                        ctx.beginPath(); ctx.moveTo(margin, tMarkY - 4); ctx.lineTo(margin, tMarkY + 4); ctx.stroke();
+                        ctx.beginPath(); ctx.moveTo(margin + tPeriodPx, tMarkY - 4); ctx.lineTo(margin + tPeriodPx, tMarkY + 4); ctx.stroke();
+                        ctx.fillStyle = '#fbbf24';
+                        ctx.font = '11px Inter, sans-serif';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'top';
+                        ctx.fillText('T', margin + tPeriodPx / 2, tMarkY + 3);
+                    }
+                }
+
+                requestAnimationFrame(draw);
+            }
+
+            ctx.fillStyle = '#0a0a1a';
+            ctx.fillRect(0, 0, W, H);
+            requestAnimationFrame(draw);
+        })();
+
+
+        /* ===========================================================
+           4. ЕФЕКТ ДОПЛЕРА (450px)
+           =========================================================== */
+        (function() {
+            var canvas = document.getElementById('dopplerCanvas');
+            if (!canvas) return;
+            var dim = setupCanvas(canvas, 450);
+            var W = dim.w, H = dim.h, ctx = dim.ctx;
+
+            var vsSlider = document.getElementById('dp-vs');
+            var vsVal    = document.getElementById('dp-vs-val');
+            var infoEl   = document.getElementById('dp-info');
+
+            var playing = true;
+            var time = 0;
+            var lastTs = 0;
+
+            document.getElementById('dp-play').onclick  = function() { playing = true; };
+            document.getElementById('dp-pause').onclick = function() { playing = false; };
+            document.getElementById('dp-reset').onclick = function() { time = 0; wavefronts = []; lastEmit = 0; };
+
+            var vWave = 200;
+            var emitInterval = 0.25;
+            var wavefronts = [];
+            var lastEmit = 0;
+
+            // source moves right with constant velocity
+            var sourceStartX = 80;
+
+            function draw(ts) {
+                if (!lastTs) lastTs = ts;
+                var dt = (ts - lastTs) / 1000;
+                lastTs = ts;
+                if (playing) time += dt;
+
+                var vSource = parseFloat(vsSlider.value);
+                vsVal.textContent = vSource.toFixed(0);
+
+                // source position
+                var sourceX = sourceStartX + vSource * time;
+                // loop when source goes off screen
+                if (sourceX > W + 50) {
+                    sourceX = sourceStartX;
+                    time = 0;
+                    wavefronts = [];
+                    lastEmit = 0;
+                    lastTs = ts;
+                }
+                var cy = H / 2 - 10;
+
+                // emit wavefronts
+                if (playing && time - lastEmit > emitInterval) {
+                    wavefronts.push({ x: sourceX, y: cy, t: time, r: 0 });
+                    lastEmit = time;
+                }
+
+                // update and remove old
+                wavefronts = wavefronts.filter(function(wf) {
+                    return (time - wf.t) * vWave < Math.max(W, H) * 1.2;
+                });
+
+                // Doppler ratio display
+                var ratio = Math.min(vSource / vWave, 0.95);
+                var nuAhead  = 1 / (1 - ratio);
+                var nuBehind = 1 / (1 + ratio);
+                infoEl.innerHTML = "\u03BD' (попереду) = " + nuAhead.toFixed(2) + " \u03BD<sub>0</sub>    \u03BD' (позаду) = " + nuBehind.toFixed(2) + " \u03BD<sub>0</sub>";
+
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, W, H);
+
+                // title
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = 'bold 14px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillText('ЕФЕКТ ДОПЛЕРА', W / 2, 8);
+
+                // ground line
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(0, cy + 20);
+                ctx.lineTo(W, cy + 20);
+                ctx.stroke();
+
+                // observers on both sides
+                function drawPerson(ox, oy) {
+                    ctx.strokeStyle = '#888';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath(); ctx.arc(ox, oy - 22, 8, 0, Math.PI * 2); ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(ox, oy - 14); ctx.lineTo(ox, oy + 8); ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(ox - 10, oy - 4); ctx.lineTo(ox + 10, oy - 4); ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(ox, oy + 8); ctx.lineTo(ox - 8, oy + 22); ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(ox, oy + 8); ctx.lineTo(ox + 8, oy + 22); ctx.stroke();
+                }
+
+                drawPerson(W - 40, cy);
+                ctx.fillStyle = '#888';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillText('Спостерігач', W - 40, cy + 24);
+
+                // wavefronts
+                for (var wi = 0; wi < wavefronts.length; wi++) {
+                    var wf = wavefronts[wi];
+                    var radius = (time - wf.t) * vWave;
+                    if (radius < 1) continue;
+                    var alpha = Math.max(0.04, 0.6 - radius / (Math.max(W, H)));
+                    ctx.strokeStyle = 'rgba(96,165,250,' + alpha.toFixed(2) + ')';
+                    ctx.lineWidth = 1.5;
+                    ctx.beginPath();
+                    ctx.arc(wf.x, wf.y, radius, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+
+                // source (ambulance-like circle)
+                // body
+                ctx.fillStyle = '#ef4444';
+                ctx.beginPath();
+                ctx.roundRect(sourceX - 22, cy - 14, 44, 28, 6);
+                ctx.fill();
+                ctx.strokeStyle = '#ff6b6b';
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+                // cross
+                ctx.strokeStyle = '#fff';
+                ctx.lineWidth = 2.5;
+                ctx.beginPath();
+                ctx.moveTo(sourceX - 7, cy);
+                ctx.lineTo(sourceX + 7, cy);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(sourceX, cy - 7);
+                ctx.lineTo(sourceX, cy + 7);
+                ctx.stroke();
+
+                // velocity arrow
+                if (vSource > 5) {
+                    drawArrow(ctx, sourceX + 28, cy - 24, sourceX + 65, cy - 24, '#fbbf24', 2);
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.font = 'bold 11px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+                    ctx.fillText('v = ' + vSource.toFixed(0), sourceX + 47, cy - 27);
+                }
+
+                // label for source
+                ctx.fillStyle = '#ff6b6b';
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillText('Джерело', sourceX, cy + 18);
+
+                // compressed waves label
+                ctx.fillStyle = '#4ade80';
+                ctx.font = '12px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+
+                // explanation at bottom
+                var expY = H - 80;
+                ctx.fillStyle = '#4ade80';
+                ctx.font = '12px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillText('Попереду джерела: хвилі стискаються \u2192 частота ВИЩА', W / 2, expY);
+                ctx.fillStyle = '#ef4444';
+                ctx.fillText('Позаду джерела: хвилі розтягуються \u2192 частота НИЖЧА', W / 2, expY + 18);
+
+                // speed comparison
+                ctx.fillStyle = '#888';
+                ctx.font = '11px Inter, sans-serif';
+                ctx.fillText('v\u0437\u0432\u0443\u043A\u0443 = ' + vWave + ' px/\u0441    v\u0434\u0436\u0435\u0440 = ' + vSource.toFixed(0) + ' px/\u0441    v\u0434\u0436/v = ' + ratio.toFixed(2), W / 2, expY + 40);
+
+                requestAnimationFrame(draw);
+            }
+
+            ctx.fillStyle = '#0a0a1a';
+            ctx.fillRect(0, 0, W, H);
+            requestAnimationFrame(draw);
+        })();
+
+
+        /* ===========================================================
+           5. СТОЯЧА ХВИЛЯ (400px)
+           =========================================================== */
+        (function() {
+            var canvas = document.getElementById('standingCanvas');
+            if (!canvas) return;
+            var dim = setupCanvas(canvas, 400);
+            var W = dim.w, H = dim.h, ctx = dim.ctx;
+
+            var nSlider     = document.getElementById('st-n');
+            var speedSlider = document.getElementById('st-speed');
+            var nVal        = document.getElementById('st-n-val');
+            var speedVal    = document.getElementById('st-speed-val');
+            var infoEl      = document.getElementById('st-info');
+
+            var playing = true;
+            var time = 0;
+            var lastTs = 0;
+
+            document.getElementById('st-play').onclick  = function() { playing = true; };
+            document.getElementById('st-pause').onclick = function() { playing = false; };
+            document.getElementById('st-reset').onclick = function() { time = 0; };
+
+            var margin = 40;
+
+            function draw(ts) {
+                if (!lastTs) lastTs = ts;
+                var dt = (ts - lastTs) / 1000;
+                lastTs = ts;
+                if (playing) time += dt;
+
+                var n     = parseInt(nSlider.value);
+                var speed = parseFloat(speedSlider.value);
+                nVal.textContent     = n;
+                speedVal.textContent = speed.toFixed(1);
+
+                var numNodes     = n + 1;
+                var numAntinodes = n;
+                infoEl.textContent = 'Вузлів: ' + numNodes + '   Пучностей: ' + numAntinodes;
+
+                var spanX = W - 2 * margin;
+                var lam   = 2 * spanX / n;
+                var k     = 2 * Math.PI / lam;
+                var omega = 2 * Math.PI * speed;
+                var amp   = 60;
+                var cy    = H / 2;
+
+                ctx.fillStyle = '#0a0a1a';
+                ctx.fillRect(0, 0, W, H);
+
+                // title
+                ctx.fillStyle = '#a78bfa';
+                ctx.font = 'bold 14px Inter, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillText('СТОЯЧА ХВИЛЯ (гармоніка n = ' + n + ')', W / 2, 10);
+
+                // walls
+                ctx.strokeStyle = '#888';
+                ctx.lineWidth = 3;
+                ctx.beginPath(); ctx.moveTo(margin, cy - 80); ctx.lineTo(margin, cy + 80); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(margin + spanX, cy - 80); ctx.lineTo(margin + spanX, cy + 80); ctx.stroke();
+
+                // hatch marks left
+                ctx.strokeStyle = '#555';
+                ctx.lineWidth = 1;
+                for (var hy = cy - 80; hy < cy + 80; hy += 10) {
+                    ctx.beginPath(); ctx.moveTo(margin, hy); ctx.lineTo(margin - 8, hy + 8); ctx.stroke();
+                }
+                // hatch marks right
+                for (var hy2 = cy - 80; hy2 < cy + 80; hy2 += 10) {
+                    ctx.beginPath(); ctx.moveTo(margin + spanX, hy2); ctx.lineTo(margin + spanX + 8, hy2 + 8); ctx.stroke();
+                }
+
+                // equilibrium
+                ctx.strokeStyle = '#333';
+                ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.moveTo(margin, cy); ctx.lineTo(margin + spanX, cy); ctx.stroke();
+
+                // === Traveling wave 1 (right) ===
+                ctx.strokeStyle = 'rgba(96,165,250,0.3)';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                for (var px1 = 0; px1 <= spanX; px1++) {
+                    var y1 = amp * 0.5 * Math.sin(omega * time - k * px1);
+                    if (px1 === 0) ctx.moveTo(margin + px1, cy - y1); else ctx.lineTo(margin + px1, cy - y1);
+                }
+                ctx.stroke();
+
+                // === Traveling wave 2 (left) ===
+                ctx.strokeStyle = 'rgba(251,191,36,0.3)';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                for (var px2 = 0; px2 <= spanX; px2++) {
+                    var y2 = amp * 0.5 * Math.sin(omega * time + k * px2);
+                    if (px2 === 0) ctx.moveTo(margin + px2, cy - y2); else ctx.lineTo(margin + px2, cy - y2);
+                }
+                ctx.stroke();
+
+                // === Standing wave (sum) ===
+                ctx.strokeStyle = '#a78bfa';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                for (var px3 = 0; px3 <= spanX; px3++) {
+                    var yStand = amp * Math.sin(k * px3) * Math.cos(omega * time);
+                    if (px3 === 0) ctx.moveTo(margin + px3, cy - yStand); else ctx.lineTo(margin + px3, cy - yStand);
+                }
+                ctx.stroke();
+
+                // === Envelope (dashed) ===
+                ctx.strokeStyle = 'rgba(167,139,250,0.2)';
+                ctx.lineWidth = 1;
+                ctx.setLineDash([4, 4]);
+                ctx.beginPath();
+                for (var pe = 0; pe <= spanX; pe++) {
+                    var envY = amp * Math.abs(Math.sin(k * pe));
+                    if (pe === 0) ctx.moveTo(margin + pe, cy - envY); else ctx.lineTo(margin + pe, cy - envY);
+                }
+                ctx.stroke();
+                ctx.beginPath();
+                for (var pe2 = 0; pe2 <= spanX; pe2++) {
+                    var envY2 = amp * Math.abs(Math.sin(k * pe2));
+                    if (pe2 === 0) ctx.moveTo(margin + pe2, cy + envY2); else ctx.lineTo(margin + pe2, cy + envY2);
+                }
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                // === Particles ===
+                var numParticles = n * 12;
+                var pSpacing = spanX / numParticles;
+                for (var pi = 0; pi <= numParticles; pi++) {
+                    var ppx = pi * pSpacing;
+                    var ppy = amp * Math.sin(k * ppx) * Math.cos(omega * time);
+                    ctx.fillStyle = '#a78bfa';
+                    ctx.beginPath();
+                    ctx.arc(margin + ppx, cy - ppy, 2.5, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // === Node labels (red) ===
+                for (var ni = 0; ni <= n; ni++) {
+                    var nodeX = margin + ni * (spanX / n);
+                    ctx.fillStyle = '#ef4444';
+                    ctx.beginPath();
+                    ctx.arc(nodeX, cy, 5, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.fillStyle = '#ef4444';
+                    ctx.font = '10px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'top';
+                    ctx.fillText('В', nodeX, cy + 8);
+                }
+
+                // === Antinode labels (green) ===
+                for (var ai = 0; ai < n; ai++) {
+                    var antiX = margin + (ai + 0.5) * (spanX / n);
+                    ctx.fillStyle = '#4ade80';
+                    ctx.font = '10px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+                    ctx.fillText('П', antiX, cy - amp - 8);
+                }
+
+                // lambda/2 marker
+                if (n >= 1) {
+                    var segLen  = spanX / n;
+                    var markerY = cy + amp + 28;
+                    ctx.strokeStyle = '#4ade80';
+                    ctx.lineWidth = 1.5;
+                    ctx.beginPath(); ctx.moveTo(margin, markerY); ctx.lineTo(margin + segLen, markerY); ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(margin, markerY - 4); ctx.lineTo(margin, markerY + 4); ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(margin + segLen, markerY - 4); ctx.lineTo(margin + segLen, markerY + 4); ctx.stroke();
+                    ctx.fillStyle = '#4ade80';
+                    ctx.font = '12px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'top';
+                    ctx.fillText('\u03BB/2', margin + segLen / 2, markerY + 5);
+                }
+
+                // lambda/4 marker (between node and antinode)
+                if (n >= 1) {
+                    var qLen    = segLen / 2;
+                    var qMarkerY = cy + amp + 48;
+                    ctx.strokeStyle = '#fbbf24';
+                    ctx.lineWidth = 1.5;
+                    ctx.beginPath(); ctx.moveTo(margin, qMarkerY); ctx.lineTo(margin + qLen, qMarkerY); ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(margin, qMarkerY - 4); ctx.lineTo(margin, qMarkerY + 4); ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(margin + qLen, qMarkerY - 4); ctx.lineTo(margin + qLen, qMarkerY + 4); ctx.stroke();
+                    ctx.fillStyle = '#fbbf24';
+                    ctx.font = '12px Inter, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'top';
+                    ctx.fillText('\u03BB/4', margin + qLen / 2, qMarkerY + 5);
+                }
+
+                // legend
+                var legY = H - 30;
+                ctx.font = '10px Inter, sans-serif';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'middle';
+
+                ctx.fillStyle = 'rgba(96,165,250,0.6)';
+                ctx.fillRect(margin, legY, 15, 3);
+                ctx.fillStyle = '#60a5fa';
+                ctx.fillText('Хвиля \u2192', margin + 20, legY + 1);
+
+                ctx.fillStyle = 'rgba(251,191,36,0.6)';
+                ctx.fillRect(margin + 100, legY, 15, 3);
+                ctx.fillStyle = '#fbbf24';
+                ctx.fillText('Хвиля \u2190', margin + 120, legY + 1);
+
+                ctx.fillStyle = '#a78bfa';
+                ctx.fillRect(margin + 200, legY, 15, 3);
+                ctx.fillText('Стояча', margin + 220, legY + 1);
+
+                ctx.fillStyle = '#ef4444';
+                ctx.fillText('В = вузол', margin + 290, legY + 1);
+
+                ctx.fillStyle = '#4ade80';
+                ctx.fillText('П = пучність', margin + 380, legY + 1);
+
+                requestAnimationFrame(draw);
+            }
+
+            ctx.fillStyle = '#0a0a1a';
+            ctx.fillRect(0, 0, W, H);
+            requestAnimationFrame(draw);
+        })();
+
+
+        /* ===========================================================
+           KATEX RENDER
+           =========================================================== */
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false }
+                ],
+                throwOnError: false
+            });
+        }
+
+    });
+    </script>
 </body>
 </html>
