@@ -63,7 +63,7 @@
             <a href="topic-32.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">32</span><span class="sidebar__item-title">Механічні коливання</span></a>
             <a href="topic-33.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">33</span><span class="sidebar__item-title">Механічні хвилі. Звук</span></a>
             <a href="topic-34.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">34</span><span class="sidebar__item-title">Вільні електромагнітні коливання</span></a>
-            <a href="topic-35.html" class="sidebar__item sidebar__item--active"><span class="sidebar__item-number">35</span><span class="sidebar__item-title">Змінний струм</span></a>
+            <a href="topic-35.html" class="sidebar__item sidebar__item--active sidebar__item--completed"><span class="sidebar__item-number">35</span><span class="sidebar__item-title">Змінний струм</span></a>
             <a href="topic-36.html" class="sidebar__item"><span class="sidebar__item-number">36</span><span class="sidebar__item-title">Електромагнітні хвилі</span></a>
             <a href="topic-37.html" class="sidebar__item"><span class="sidebar__item-number">37</span><span class="sidebar__item-title">Елементи геометричної оптики</span></a>
             <a href="topic-38.html" class="sidebar__item"><span class="sidebar__item-number">38</span><span class="sidebar__item-title">Лінзи</span></a>
@@ -84,16 +84,804 @@
             <h1 class="topic-header__title">Змінний струм</h1>
         </div>
 
-        <div class="empty-topic">
-            <div class="empty-topic__icon">&#128218;</div>
-            <h2 class="empty-topic__title">Скоро буде</h2>
-            <p class="empty-topic__text">Ця тема ще в розробці. Контент з'явиться найближчим часом.</p>
+        <div class="toc">
+            <h2 class="toc__title">Зміст теми</h2>
+            <ol class="toc__list">
+                <li class="toc__item"><a href="#section-1" class="toc__link">Змінний струм — основні поняття</a></li>
+                <li class="toc__item"><a href="#section-2" class="toc__link">Активний, ємнісний та індуктивний опори</a></li>
+                <li class="toc__item"><a href="#section-3" class="toc__link">Резонанс у коливальному контурі</a></li>
+                <li class="toc__item"><a href="#section-4" class="toc__link">Трансформатор</a></li>
+                <li class="toc__item"><a href="#section-5" class="toc__link">Передача електроенергії</a></li>
+                <li class="toc__item"><a href="#section-6" class="toc__link">Таблиця формул</a></li>
+                <li class="toc__item"><a href="#section-7" class="toc__link">Задачі</a></li>
+                <li class="toc__item"><a href="#section-8" class="toc__link">Тестові завдання ЗНО</a></li>
+            </ol>
         </div>
 
-        <nav class="topic-nav">
-            <a href="topic-34.html" class="topic-nav__btn">&larr; Тема 34</a>
-            <a href="topic-36.html" class="topic-nav__btn topic-nav__btn--next">Тема 36 &rarr;</a>
-        </nav>
+        <!-- ==================== РОЗДІЛ 1 ==================== -->
+        <section id="section-1" class="content-section">
+            <h2 class="content-section__title">1. Змінний струм — основні поняття</h2>
+
+            <div class="definition">
+                <h3 class="definition__title">Змінний струм</h3>
+                <p class="definition__text">
+                    <strong>Змінний струм</strong> &mdash; електричний струм, що періодично змінює напрямок і величину. Виникає при обертанні рамки в магнітному полі або при підключенні до генератора змінного струму.
+                </p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Миттєві значення струму і напруги</span>
+                $$i = I_m \cdot \sin(\omega t), \quad u = U_m \cdot \sin(\omega t)$$
+                <p>$I_m$, $U_m$ &mdash; амплітудні (максимальні) значення; $\omega$ &mdash; циклічна частота (рад/с); $t$ &mdash; час (с).</p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Циклічна частота і період</span>
+                $$\omega = 2\pi\nu, \quad T = \frac{1}{\nu}$$
+                <p>$\nu$ &mdash; частота (Гц), $T$ &mdash; період (с). Промислова частота: $\nu = 50$ Гц, $T = 0{,}02$ с.</p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Діючі (ефективні) значення</span>
+                $$I = \frac{I_m}{\sqrt{2}} \approx 0{,}707 \cdot I_m, \quad U = \frac{U_m}{\sqrt{2}} \approx 0{,}707 \cdot U_m$$
+                <p>Діючі значення &mdash; ті, що показують амперметри і вольтметри. Побутова мережа: $U = 220$ В, тобто $U_m = 220\sqrt{2} \approx 311$ В.</p>
+            </div>
+
+            <div class="important">
+                <h4 class="important__title">Запам'ятай для ЗНО</h4>
+                <ul>
+                    <li>$U = 220$ В у мережі &mdash; це <strong>діюче</strong> значення, а не амплітудне.</li>
+                    <li>Амплітудне значення більше від діючого в $\sqrt{2} \approx 1{,}41$ раза.</li>
+                    <li>Промислова частота в Україні: $\nu = 50$ Гц, $T = 0{,}02$ с.</li>
+                    <li>Вольтметри і амперметри в колах змінного струму показують <strong>діючі</strong> значення.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ==================== РОЗДІЛ 2 ==================== -->
+        <section id="section-2" class="content-section">
+            <h2 class="content-section__title">2. Активний, ємнісний та індуктивний опори</h2>
+
+            <div class="definition">
+                <h3 class="definition__title">Активний опір</h3>
+                <p class="definition__text">
+                    <strong>Активний опір $R$</strong> не залежить від частоти. Струм і напруга збігаються за фазою. Виділяється теплова енергія. Закон Ома: $I = U / R$.
+                </p>
+            </div>
+
+            <div class="definition">
+                <h3 class="definition__title">Ємнісний опір</h3>
+                <p class="definition__text">
+                    <strong>Ємнісний опір $X_C$</strong> &mdash; опір конденсатора змінному струму. Напруга <em>відстає</em> від струму на $\pi/2$ (на чверть періоду).
+                </p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Ємнісний опір</span>
+                $$X_C = \frac{1}{\omega C} = \frac{1}{2\pi\nu C}$$
+                <p>$C$ &mdash; ємність конденсатора (Ф). При збільшенні частоти $X_C$ зменшується (конденсатор краще пропускає змінний струм).</p>
+            </div>
+
+            <div class="definition">
+                <h3 class="definition__title">Індуктивний опір</h3>
+                <p class="definition__text">
+                    <strong>Індуктивний опір $X_L$</strong> &mdash; опір котушки індуктивності змінному струму. Напруга <em>випереджає</em> струм на $\pi/2$.
+                </p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Індуктивний опір</span>
+                $$X_L = \omega L = 2\pi\nu L$$
+                <p>$L$ &mdash; індуктивність котушки (Гн). При збільшенні частоти $X_L$ зростає (котушка гірше пропускає змінний струм).</p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Повний опір (імпеданс)</span>
+                $$Z = \sqrt{R^2 + (X_L - X_C)^2}$$
+                <p>Закон Ома для кола змінного струму: $I = U / Z$.</p>
+            </div>
+
+            <div class="important">
+                <h4 class="important__title">Запам'ятай для ЗНО</h4>
+                <ul>
+                    <li>Конденсатор <strong>не пропускає</strong> постійний струм ($\nu = 0 \Rightarrow X_C \to \infty$).</li>
+                    <li>Котушка <strong>не перешкоджає</strong> постійному струму ($\nu = 0 \Rightarrow X_L = 0$).</li>
+                    <li>«Конденсатор &mdash; напруга відстає»; «Котушка &mdash; напруга випереджає».</li>
+                    <li>Імпеданс $Z$ &mdash; повний опір кола, вимірюється в Омах.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ==================== РОЗДІЛ 3 ==================== -->
+        <section id="section-3" class="content-section">
+            <h2 class="content-section__title">3. Резонанс у коливальному контурі</h2>
+
+            <div class="definition">
+                <h3 class="definition__title">Резонанс струмів</h3>
+                <p class="definition__text">
+                    <strong>Резонанс</strong> настає, коли індуктивний і ємнісний опори рівні: $X_L = X_C$. При цьому повний опір кола мінімальний ($Z = R$), а струм &mdash; максимальний.
+                </p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Резонансна частота</span>
+                $$\omega_0 = \frac{1}{\sqrt{LC}}, \quad \nu_0 = \frac{1}{2\pi\sqrt{LC}}$$
+                <p>$L$ &mdash; індуктивність (Гн), $C$ &mdash; ємність (Ф). Це &mdash; власна частота коливального контуру (формула Томсона).</p>
+            </div>
+
+            <div class="important">
+                <h4 class="important__title">Запам'ятай для ЗНО</h4>
+                <ul>
+                    <li>При резонансі: $X_L = X_C$, $Z = R$ (мінімум), $I = U/R$ (максимум).</li>
+                    <li>Резонансна частота визначається параметрами контуру $L$ і $C$.</li>
+                    <li>Формула Томсона $\nu_0 = \dfrac{1}{2\pi\sqrt{LC}}$ використовується і для вільних коливань контуру (тема 34).</li>
+                    <li>Резонанс застосовується в радіоприймачах для <strong>налаштування</strong> на певну станцію.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ==================== РОЗДІЛ 4: ТРАНСФОРМАТОР ==================== -->
+        <section id="section-4" class="content-section">
+            <h2 class="content-section__title">4. Трансформатор</h2>
+
+            <div class="definition">
+                <h3 class="definition__title">Трансформатор</h3>
+                <p class="definition__text">
+                    <strong>Трансформатор</strong> &mdash; пристрій для зміни напруги змінного струму. Складається з первинної обмотки ($N_1$ витків), вторинної обмотки ($N_2$ витків) та магнітопроводу (залізного осердя).
+                </p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Коефіцієнт трансформації</span>
+                $$k = \frac{N_1}{N_2} = \frac{U_1}{U_2} = \frac{I_2}{I_1}$$
+                <p>$N_1$, $N_2$ &mdash; кількість витків; $U_1$, $U_2$ &mdash; напруги; $I_1$, $I_2$ &mdash; струми в первинній і вторинній обмотках.</p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Збереження потужності (ідеальний трансформатор)</span>
+                $$P_1 \approx P_2 \Rightarrow U_1 \cdot I_1 \approx U_2 \cdot I_2$$
+                <p>ККД реального трансформатора: $\eta = P_2 / P_1$. У потужних трансформаторах $\eta \approx 98$&ndash;$99\%$.</p>
+            </div>
+
+            <div class="important">
+                <h4 class="important__title">Запам'ятай для ЗНО</h4>
+                <ul>
+                    <li><strong>Підвищувальний ($k &lt; 1$):</strong> $N_2 > N_1$, $U_2 > U_1$, $I_2 < I_1$.</li>
+                    <li><strong>Знижувальний ($k > 1$):</strong> $N_2 &lt; N_1$, $U_2 &lt; U_1$, $I_2 > I_1$.</li>
+                    <li>Трансформатор працює <strong>тільки на змінному</strong> струмі.</li>
+                    <li>Чим більше напруга, тим менше струм (і навпаки) &mdash; потужність зберігається.</li>
+                </ul>
+            </div>
+
+            <!-- ВІЗУАЛІЗАЦІЯ: Трансформатор -->
+            <div class="visualization">
+                <h3 class="visualization__title">Трансформатор: принцип дії</h3>
+                <div class="visualization__canvas-wrapper">
+                    <canvas id="canvas-transformer" width="800" height="400"></canvas>
+                </div>
+                <div class="visualization__controls">
+                    <div class="control-group">
+                        <label class="control-group__label">Коефіцієнт трансформації k = N₁/N₂:</label>
+                        <input type="range" id="transformer-k" min="0.1" max="10" step="0.1" value="1">
+                        <span class="control-group__value" id="transformer-k-val">k = 1,0</span>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-group__label">Анімація:</label>
+                        <button id="transformer-pause" style="padding:5px 18px;cursor:pointer;border-radius:6px;border:1px solid #fbbf24;background:#1a1a2e;color:#fbbf24;font-size:14px;">&#10074;&#10074; Пауза</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== РОЗДІЛ 5: ПЕРЕДАЧА ЕНЕРГІЇ ==================== -->
+        <section id="section-5" class="content-section">
+            <h2 class="content-section__title">5. Передача електроенергії</h2>
+
+            <div class="definition">
+                <h3 class="definition__title">Лінія електропередачі (ЛЕП)</h3>
+                <p class="definition__text">
+                    При передачі електроенергії на великі відстані частина потужності втрачається у проводах лінії через їх активний опір $R_\text{лін}$. Зменшення втрат &mdash; головна задача енергетики.
+                </p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Втрати потужності у лінії</span>
+                $$\Delta P = I^2 \cdot R_\text{лін}$$
+                <p>Оскільки $I = P / U$, маємо: $\Delta P = \dfrac{P^2 \cdot R_\text{лін}}{U^2}$. Втрати обернено пропорційні квадрату напруги.</p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Відносні втрати</span>
+                $$\frac{\Delta P}{P} = \frac{P \cdot R_\text{лін}}{U^2}$$
+                <p>Щоб зменшити втрати у $n^2$ разів &mdash; треба підвищити напругу в $n$ разів.</p>
+            </div>
+
+            <div class="important">
+                <h4 class="important__title">Запам'ятай для ЗНО</h4>
+                <ul>
+                    <li>На підстанції біля електростанції стоїть <strong>підвищувальний</strong> трансформатор (наприклад, до 110&ndash;750 кВ).</li>
+                    <li>Біля споживача &mdash; <strong>знижувальний</strong> трансформатор (до 220 В).</li>
+                    <li>Підвищення напруги в 4 рази зменшує втрати потужності в <strong>16 разів</strong>.</li>
+                    <li>Передача постійного струму на великі відстані неможлива без значних втрат.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ==================== РОЗДІЛ 6: ТАБЛИЦЯ ФОРМУЛ ==================== -->
+        <section id="section-6" class="content-section">
+            <h2 class="content-section__title">6. Таблиця формул</h2>
+            <div class="formula-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Назва</th>
+                            <th>Формула</th>
+                            <th>Одиниці</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Миттєве значення струму</td>
+                            <td>$i = I_m \sin(\omega t)$</td>
+                            <td>А</td>
+                        </tr>
+                        <tr>
+                            <td>Миттєве значення напруги</td>
+                            <td>$u = U_m \sin(\omega t)$</td>
+                            <td>В</td>
+                        </tr>
+                        <tr>
+                            <td>Циклічна частота</td>
+                            <td>$\omega = 2\pi\nu$</td>
+                            <td>рад/с</td>
+                        </tr>
+                        <tr>
+                            <td>Діюче значення струму</td>
+                            <td>$I = I_m / \sqrt{2}$</td>
+                            <td>А</td>
+                        </tr>
+                        <tr>
+                            <td>Діюче значення напруги</td>
+                            <td>$U = U_m / \sqrt{2}$</td>
+                            <td>В</td>
+                        </tr>
+                        <tr>
+                            <td>Ємнісний опір</td>
+                            <td>$X_C = 1/(\omega C)$</td>
+                            <td>Ом</td>
+                        </tr>
+                        <tr>
+                            <td>Індуктивний опір</td>
+                            <td>$X_L = \omega L$</td>
+                            <td>Ом</td>
+                        </tr>
+                        <tr>
+                            <td>Повний опір (імпеданс)</td>
+                            <td>$Z = \sqrt{R^2 + (X_L - X_C)^2}$</td>
+                            <td>Ом</td>
+                        </tr>
+                        <tr>
+                            <td>Резонансна частота</td>
+                            <td>$\nu_0 = \dfrac{1}{2\pi\sqrt{LC}}$</td>
+                            <td>Гц</td>
+                        </tr>
+                        <tr>
+                            <td>Коефіцієнт трансформації</td>
+                            <td>$k = N_1/N_2 = U_1/U_2 = I_2/I_1$</td>
+                            <td>&mdash;</td>
+                        </tr>
+                        <tr>
+                            <td>ККД трансформатора</td>
+                            <td>$\eta = P_2 / P_1$</td>
+                            <td>&mdash;</td>
+                        </tr>
+                        <tr>
+                            <td>Втрати потужності в лінії</td>
+                            <td>$\Delta P = I^2 R_\text{лін} = P^2 R_\text{лін} / U^2$</td>
+                            <td>Вт</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ==================== РОЗДІЛ 7: ЗАДАЧІ ==================== -->
+        <section id="section-7" class="content-section">
+            <h2 class="content-section__title">7. Задачі</h2>
+
+            <div class="problem">
+                <div class="problem__header">
+                    <span class="problem__badge problem__badge--zno">ЗНО</span>
+                    <h3 class="problem__title">Задача 1. Підвищувальний трансформатор</h3>
+                </div>
+                <div class="problem__body">
+                    <p class="problem__text">Трансформатор має $N_1 = 500$ витків у первинній обмотці і $N_2 = 25000$ витків у вторинній. До первинної обмотки прикладена напруга $U_1 = 220$ В. Знайти напругу на вторинній обмотці.</p>
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати розв'язок</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__step">
+                            <span class="problem__step-number">1</span>
+                            <div class="problem__step-content">Визначаємо коефіцієнт трансформації: $k = \dfrac{N_1}{N_2} = \dfrac{500}{25000} = \dfrac{1}{50} = 0{,}02$</div>
+                        </div>
+                        <div class="problem__step">
+                            <span class="problem__step-number">2</span>
+                            <div class="problem__step-content">Оскільки $k = U_1/U_2$, то: $U_2 = \dfrac{U_1}{k} = U_1 \cdot \dfrac{N_2}{N_1} = 220 \cdot 50 = 11000$ В</div>
+                        </div>
+                        <div class="problem__step">
+                            <span class="problem__step-number">3</span>
+                            <div class="problem__step-content">Оскільки $k = 1/50 &lt; 1$, трансформатор є <strong>підвищувальним</strong>.</div>
+                        </div>
+                        <div class="problem__answer">
+                            <span class="problem__answer-label">Відповідь:</span> $U_2 = 11000$ В $= 11$ кВ
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem__header">
+                    <span class="problem__badge problem__badge--zno">ЗНО</span>
+                    <h3 class="problem__title">Задача 2. ЕРС генератора</h3>
+                </div>
+                <div class="problem__body">
+                    <p class="problem__text">Рамка обертається в магнітному полі з індукцією $B = 0{,}25$ Тл. Площа рамки $S = 50$ см², кількість витків $N = 10$, частота обертання $\nu = 50$ Гц. Знайти максимальну ЕРС.</p>
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати розв'язок</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__step">
+                            <span class="problem__step-number">1</span>
+                            <div class="problem__step-content">Переводимо площу: $S = 50 \text{ см}^2 = 50 \cdot 10^{-4} \text{ м}^2 = 5 \cdot 10^{-3} \text{ м}^2$</div>
+                        </div>
+                        <div class="problem__step">
+                            <span class="problem__step-number">2</span>
+                            <div class="problem__step-content">Циклічна частота: $\omega = 2\pi\nu = 2\pi \cdot 50 \approx 314$ рад/с</div>
+                        </div>
+                        <div class="problem__step">
+                            <span class="problem__step-number">3</span>
+                            <div class="problem__step-content">Максимальна ЕРС: $\varepsilon_m = NBS\omega = 10 \cdot 0{,}25 \cdot 5 \cdot 10^{-3} \cdot 314 \approx 3{,}93$ В</div>
+                        </div>
+                        <div class="problem__answer">
+                            <span class="problem__answer-label">Відповідь:</span> $\varepsilon_m \approx 3{,}93$ В
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem__header">
+                    <span class="problem__badge problem__badge--zno">ЗНО</span>
+                    <h3 class="problem__title">Задача 3. Втрати в лінії електропередачі</h3>
+                </div>
+                <div class="problem__body">
+                    <p class="problem__text">Електростанція передає потужність $P = 200$ кВт при напрузі $U = 10$ кВ. Опір лінії $R_\text{лін} = 20$ Ом. Знайти втрати потужності у лінії та ККД передачі.</p>
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати розв'язок</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__step">
+                            <span class="problem__step-number">1</span>
+                            <div class="problem__step-content">Струм у лінії: $I = \dfrac{P}{U} = \dfrac{200000}{10000} = 20$ А</div>
+                        </div>
+                        <div class="problem__step">
+                            <span class="problem__step-number">2</span>
+                            <div class="problem__step-content">Втрати потужності: $\Delta P = I^2 R_\text{лін} = 20^2 \cdot 20 = 400 \cdot 20 = 8000$ Вт $= 8$ кВт</div>
+                        </div>
+                        <div class="problem__step">
+                            <span class="problem__step-number">3</span>
+                            <div class="problem__step-content">ККД передачі: $\eta = \dfrac{P - \Delta P}{P} = \dfrac{200 - 8}{200} = \dfrac{192}{200} = 0{,}96 = 96\%$</div>
+                        </div>
+                        <div class="problem__answer">
+                            <span class="problem__answer-label">Відповідь:</span> $\Delta P = 8$ кВт, $\eta = 96\%$
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem__header">
+                    <span class="problem__badge problem__badge--zno">ЗНО</span>
+                    <h3 class="problem__title">Задача 4. Аналіз трансформатора</h3>
+                </div>
+                <div class="problem__body">
+                    <p class="problem__text">У трансформаторі первинна обмотка має 440 витків, вторинна &mdash; 20 витків. Напруга первинної обмотки $U_1 = 220$ В. Визначте напругу на вторинній обмотці та тип трансформатора.</p>
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати розв'язок</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__step">
+                            <span class="problem__step-number">1</span>
+                            <div class="problem__step-content">Коефіцієнт трансформації: $k = \dfrac{N_1}{N_2} = \dfrac{440}{20} = 22$</div>
+                        </div>
+                        <div class="problem__step">
+                            <span class="problem__step-number">2</span>
+                            <div class="problem__step-content">Вторинна напруга: $U_2 = \dfrac{U_1}{k} = \dfrac{220}{22} = 10$ В</div>
+                        </div>
+                        <div class="problem__step">
+                            <span class="problem__step-number">3</span>
+                            <div class="problem__step-content">Оскільки $k = 22 > 1$, маємо $U_2 &lt; U_1$ &mdash; трансформатор <strong>знижувальний</strong>. Такі трансформатори застосовуються, наприклад, у зарядних пристроях і побутовій електроніці.</div>
+                        </div>
+                        <div class="problem__answer">
+                            <span class="problem__answer-label">Відповідь:</span> $U_2 = 10$ В, трансформатор знижувальний
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== РОЗДІЛ 8: ТЕСТОВІ ЗАВДАННЯ ==================== -->
+        <section id="section-8" class="content-section">
+            <h2 class="content-section__title">8. Тестові завдання ЗНО</h2>
+
+            <div class="problem">
+                <div class="problem__header">
+                    <span class="problem__badge problem__badge--zno">ЗНО</span>
+                    <h3 class="problem__title">35.1</h3>
+                </div>
+                <div class="problem__body">
+                    <p class="problem__text">Що змінює трансформатор у колі змінного струму?</p>
+                    <div class="problem__options">
+                        <label class="problem__option"><input type="radio" name="q35-1" value="a"> А. Частоту струму</label>
+                        <label class="problem__option"><input type="radio" name="q35-1" value="b"> Б. Силу струму без зміни напруги</label>
+                        <label class="problem__option"><input type="radio" name="q35-1" value="c"> В. Напругу (і відповідно струм)</label>
+                        <label class="problem__option"><input type="radio" name="q35-1" value="d"> Г. Потужність струму</label>
+                    </div>
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати відповідь</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__answer">
+                            <span class="problem__answer-label">Відповідь:</span> В &mdash; трансформатор змінює напругу (підвищує або знижує), при цьому відповідно змінюється і струм, але потужність і частота залишаються незмінними.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem__header">
+                    <span class="problem__badge problem__badge--zno">ЗНО</span>
+                    <h3 class="problem__title">35.2</h3>
+                </div>
+                <div class="problem__body">
+                    <p class="problem__text">Коефіцієнт трансформації $k = N_1/N_2 = 1/4$. Який це трансформатор?</p>
+                    <div class="problem__options">
+                        <label class="problem__option"><input type="radio" name="q35-2" value="a"> А. Підвищувальний</label>
+                        <label class="problem__option"><input type="radio" name="q35-2" value="b"> Б. Знижувальний</label>
+                        <label class="problem__option"><input type="radio" name="q35-2" value="c"> В. Такий трансформатор неможливий</label>
+                        <label class="problem__option"><input type="radio" name="q35-2" value="d"> Г. Розв'язувальний</label>
+                    </div>
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати відповідь</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__answer">
+                            <span class="problem__answer-label">Відповідь:</span> А &mdash; при $k = 1/4 &lt; 1$ маємо $N_2 > N_1$, тобто вторинна обмотка має більше витків, отже $U_2 > U_1$ &mdash; трансформатор підвищувальний.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem__header">
+                    <span class="problem__badge problem__badge--zno">ЗНО</span>
+                    <h3 class="problem__title">35.3</h3>
+                </div>
+                <div class="problem__body">
+                    <p class="problem__text">Первинна обмотка трансформатора підключена до $U_1 = 220$ В. Коефіцієнт трансформації $k = 10$. Яка напруга на вторинній обмотці?</p>
+                    <div class="problem__options">
+                        <label class="problem__option"><input type="radio" name="q35-3" value="a"> А. 22 В</label>
+                        <label class="problem__option"><input type="radio" name="q35-3" value="b"> Б. 220 В</label>
+                        <label class="problem__option"><input type="radio" name="q35-3" value="c"> В. 2200 В</label>
+                        <label class="problem__option"><input type="radio" name="q35-3" value="d"> Г. 0 В</label>
+                    </div>
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати відповідь</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__answer">
+                            <span class="problem__answer-label">Відповідь:</span> А &mdash; $U_2 = U_1 / k = 220 / 10 = 22$ В. Це знижувальний трансформатор.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem__header">
+                    <span class="problem__badge problem__badge--zno">ЗНО</span>
+                    <h3 class="problem__title">35.4</h3>
+                </div>
+                <div class="problem__body">
+                    <p class="problem__text">Частота змінного струму $\nu = 50$ Гц. Чому дорівнює період?</p>
+                    <div class="problem__options">
+                        <label class="problem__option"><input type="radio" name="q35-4" value="a"> А. 0,2 с</label>
+                        <label class="problem__option"><input type="radio" name="q35-4" value="b"> Б. 0,02 с</label>
+                        <label class="problem__option"><input type="radio" name="q35-4" value="c"> В. 0,002 с</label>
+                        <label class="problem__option"><input type="radio" name="q35-4" value="d"> Г. 50 с</label>
+                    </div>
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати відповідь</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__answer">
+                            <span class="problem__answer-label">Відповідь:</span> Б &mdash; $T = 1/\nu = 1/50 = 0{,}02$ с. Це стандартна промислова частота в Україні та Європі.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem__header">
+                    <span class="problem__badge problem__badge--zno">ЗНО</span>
+                    <h3 class="problem__title">35.5</h3>
+                </div>
+                <div class="problem__body">
+                    <p class="problem__text">Діюче значення струму $I = 2$ А. Чому дорівнює амплітудне значення $I_m$?</p>
+                    <div class="problem__options">
+                        <label class="problem__option"><input type="radio" name="q35-5" value="a"> А. 1 А</label>
+                        <label class="problem__option"><input type="radio" name="q35-5" value="b"> Б. 2 А</label>
+                        <label class="problem__option"><input type="radio" name="q35-5" value="c"> В. $2\sqrt{2}$ А</label>
+                        <label class="problem__option"><input type="radio" name="q35-5" value="d"> Г. 4 А</label>
+                    </div>
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати відповідь</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__answer">
+                            <span class="problem__answer-label">Відповідь:</span> В &mdash; $I_m = I \cdot \sqrt{2} = 2\sqrt{2} \approx 2{,}83$ А. Амплітудне значення завжди більше від діючого в $\sqrt{2}$ разів.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem">
+                <div class="problem__header">
+                    <span class="problem__badge problem__badge--zno">ЗНО</span>
+                    <h3 class="problem__title">35.6</h3>
+                </div>
+                <div class="problem__body">
+                    <p class="problem__text">Напругу в лінії електропередачі збільшили в 4 рази. У скільки разів зменшились втрати потужності у лінії?</p>
+                    <div class="problem__options">
+                        <label class="problem__option"><input type="radio" name="q35-6" value="a"> А. У 2 рази</label>
+                        <label class="problem__option"><input type="radio" name="q35-6" value="b"> Б. У 4 рази</label>
+                        <label class="problem__option"><input type="radio" name="q35-6" value="c"> В. У 8 разів</label>
+                        <label class="problem__option"><input type="radio" name="q35-6" value="d"> Г. У 16 разів</label>
+                    </div>
+                    <button class="problem__solution-toggle" onclick="this.nextElementSibling.classList.toggle('active')">Показати відповідь</button>
+                    <div class="problem__solution-content">
+                        <div class="problem__answer">
+                            <span class="problem__answer-label">Відповідь:</span> Г &mdash; оскільки $\Delta P = P^2 R / U^2$, при збільшенні $U$ в 4 рази втрати зменшуються в $4^2 = 16$ разів. Саме тому ЛЕП передають енергію при надвисоких напругах (110&ndash;750 кВ).
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Навігація -->
+        <div class="topic-nav">
+            <a href="topic-34.html" class="topic-nav__btn topic-nav__btn--prev">
+                <span class="topic-nav__arrow">&larr;</span>
+                <span class="topic-nav__label">Тема 34</span>
+            </a>
+            <a href="topic-36.html" class="topic-nav__btn topic-nav__btn--next">
+                <span class="topic-nav__label">Тема 36</span>
+                <span class="topic-nav__arrow">&rarr;</span>
+            </a>
+        </div>
     </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        if (typeof renderMathInElement === 'function') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false}
+                ]
+            });
+        }
+
+        /* ========================================================
+         *  TRANSFORMER VISUALIZATION
+         * ======================================================== */
+
+        var canvasT = document.getElementById('canvas-transformer');
+        if (!canvasT) return;
+        var ctxT = canvasT.getContext('2d');
+
+        var kVal = 1.0;
+        var tPaused = false;
+        var tTime = 0;
+        var tAnimId = null;
+
+        var kSlider = document.getElementById('transformer-k');
+        var kLabel = document.getElementById('transformer-k-val');
+        var pauseBtn = document.getElementById('transformer-pause');
+
+        function resizeTransformerCanvas() {
+            var wrapper = canvasT.parentElement;
+            var dpr = window.devicePixelRatio || 1;
+            var w = wrapper.clientWidth;
+            var h = 400;
+            canvasT.style.width = w + 'px';
+            canvasT.style.height = h + 'px';
+            canvasT.width = w * dpr;
+            canvasT.height = h * dpr;
+            ctxT.setTransform(dpr, 0, 0, dpr, 0, 0);
+            return {w: w, h: h};
+        }
+
+        kSlider.addEventListener('input', function() {
+            kVal = parseFloat(this.value);
+            var disp = kVal.toFixed(1).replace('.', ',');
+            kLabel.textContent = 'k = ' + disp;
+        });
+
+        pauseBtn.addEventListener('click', function() {
+            tPaused = !tPaused;
+            this.textContent = tPaused ? '\u25BA Продовжити' : '\u23F8\u23F8 Пауза';
+            if (!tPaused) {
+                tAnimId = requestAnimationFrame(drawTransformer);
+            }
+        });
+
+        function drawCoil(ctx, cx, cy, turns, coilW, coilH, color, label, voltLabel) {
+            var step = coilH / (turns + 1);
+            ctx.save();
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2.5;
+
+            for (var i = 0; i < turns; i++) {
+                var y = cy - coilH / 2 + step * (i + 1);
+                ctx.beginPath();
+                ctx.ellipse(cx, y, coilW / 2, step * 0.45, 0, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+
+            ctx.font = 'bold 14px sans-serif';
+            ctx.fillStyle = color;
+            ctx.textAlign = 'center';
+            ctx.fillText(label, cx, cy + coilH / 2 + 22);
+
+            ctx.font = '13px sans-serif';
+            ctx.fillStyle = '#e2e8f0';
+            ctx.fillText(voltLabel, cx, cy + coilH / 2 + 40);
+
+            ctx.restore();
+        }
+
+        function drawCore(ctx, cx, cy, coreW, coreH) {
+            ctx.save();
+            ctx.strokeStyle = '#94a3b8';
+            ctx.lineWidth = 3;
+            ctx.fillStyle = 'rgba(100,116,139,0.18)';
+
+            var gap = 30;
+            var x = cx - coreW / 2;
+            var y = cy - coreH / 2;
+            var t = 18;
+
+            ctx.beginPath();
+            ctx.rect(x, y, coreW, t);
+            ctx.fill(); ctx.stroke();
+
+            ctx.beginPath();
+            ctx.rect(x, y + coreH - t, coreW, t);
+            ctx.fill(); ctx.stroke();
+
+            ctx.beginPath();
+            ctx.rect(x, y, t, coreH);
+            ctx.fill(); ctx.stroke();
+
+            ctx.beginPath();
+            ctx.rect(x + coreW - t, y, t, coreH);
+            ctx.fill(); ctx.stroke();
+
+            ctx.restore();
+        }
+
+        function drawSineWave(ctx, cx, cy, waveW, amp, phase, color, label) {
+            ctx.save();
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            var steps = 80;
+            for (var i = 0; i <= steps; i++) {
+                var x = cx - waveW / 2 + (waveW * i / steps);
+                var y = cy - amp * Math.sin(phase + i * Math.PI * 2 / steps);
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            ctx.font = '12px sans-serif';
+            ctx.fillStyle = color;
+            ctx.textAlign = 'center';
+            ctx.fillText(label, cx, cy - amp - 8);
+            ctx.restore();
+        }
+
+        function drawFluxArrows(ctx, cx, cy, coreH, phase) {
+            var arrowColor = 'rgba(251,191,36,0.7)';
+            var amp = 12 * Math.sin(phase);
+            var ys = [-coreH * 0.3, 0, coreH * 0.3];
+            ctx.save();
+            ctx.strokeStyle = arrowColor;
+            ctx.fillStyle = arrowColor;
+            ctx.lineWidth = 2;
+            for (var i = 0; i < ys.length; i++) {
+                var y = cy + ys[i];
+                var dx = amp > 0 ? 18 : -18;
+                ctx.beginPath();
+                ctx.moveTo(cx - 22, y);
+                ctx.lineTo(cx + 22, y);
+                var hx = amp > 0 ? cx + 22 : cx - 22;
+                ctx.moveTo(hx, y);
+                ctx.lineTo(hx - (amp > 0 ? 8 : -8), y - 5);
+                ctx.moveTo(hx, y);
+                ctx.lineTo(hx - (amp > 0 ? 8 : -8), y + 5);
+                ctx.stroke();
+            }
+            ctx.restore();
+        }
+
+        function drawTransformer() {
+            var dim = resizeTransformerCanvas();
+            var w = dim.w, h = dim.h;
+
+            ctxT.clearRect(0, 0, w, h);
+
+            ctxT.fillStyle = '#0f172a';
+            ctxT.fillRect(0, 0, w, h);
+
+            for (var si = 0; si < 40; si++) {
+                var sx = (si * 97.3) % w;
+                var sy = (si * 61.7) % h;
+                var br = 0.05 + 0.1 * Math.abs(Math.sin(si * 0.7));
+                ctxT.fillStyle = 'rgba(255,255,255,' + br + ')';
+                ctxT.beginPath();
+                ctxT.arc(sx, sy, 0.8, 0, Math.PI * 2);
+                ctxT.fill();
+            }
+
+            var cx = w / 2;
+            var cy = h / 2;
+            var coreW = w * 0.38;
+            var coreH = h * 0.58;
+
+            drawCore(ctxT, cx, cy, coreW, coreH);
+
+            var n1Display = Math.max(3, Math.min(12, Math.round(6 * kVal)));
+            var n2Display = Math.max(3, Math.min(12, Math.round(6)));
+            if (kVal < 1) {
+                n1Display = Math.max(2, Math.round(6));
+                n2Display = Math.max(2, Math.min(12, Math.round(6 / kVal)));
+            }
+
+            var u1 = 220;
+            var u2 = u1 / kVal;
+            var u2Str = u2 >= 1000 ? (u2 / 1000).toFixed(1).replace('.', ',') + ' кВ' : u2.toFixed(0) + ' В';
+
+            drawCoil(ctxT, cx - coreW * 0.3, cy, n1Display, 28, coreH * 0.7, '#60a5fa',
+                'N\u2081 = ' + n1Display + ' витків', 'U\u2081 = 220 В');
+
+            drawCoil(ctxT, cx + coreW * 0.3, cy, n2Display, 28, coreH * 0.7, '#4ade80',
+                'N\u2082 = ' + n2Display + ' витків', 'U\u2082 = ' + u2Str);
+
+            drawFluxArrows(ctxT, cx, cy, coreH, tTime * 2);
+
+            var waveH = 36;
+            drawSineWave(ctxT, cx - coreW * 0.3, h - 52, 90, waveH, tTime * 2, '#60a5fa', 'i\u2081');
+            drawSineWave(ctxT, cx + coreW * 0.3, h - 52, 90, waveH * Math.min(3, 1 / kVal), tTime * 2, '#4ade80', 'i\u2082');
+
+            ctxT.font = '13px sans-serif';
+            ctxT.fillStyle = '#94a3b8';
+            ctxT.textAlign = 'left';
+            ctxT.fillText('k = N\u2081/N\u2082 = ' + kVal.toFixed(1).replace('.', ','), 14, 22);
+
+            var typeStr = kVal < 1 ? '\u043f\u0456\u0434\u0432\u0438\u0449\u0443\u0432\u0430\u043b\u044c\u043d\u0438\u0439' : kVal > 1 ? '\u0437\u043d\u0438\u0436\u0443\u0432\u0430\u043b\u044c\u043d\u0438\u0439' : '\u0440\u0430\u0437\u0434\u0456\u043b\u044c\u043d\u0438\u0439';
+            ctxT.fillStyle = kVal < 1 ? '#4ade80' : kVal > 1 ? '#f87171' : '#fbbf24';
+            ctxT.textAlign = 'right';
+            ctxT.fillText(typeStr, w - 14, 22);
+
+            if (!tPaused) {
+                tTime += 0.025;
+                tAnimId = requestAnimationFrame(drawTransformer);
+            }
+        }
+
+        window.addEventListener('resize', function() {
+            if (!tPaused) {
+                cancelAnimationFrame(tAnimId);
+                tAnimId = requestAnimationFrame(drawTransformer);
+            }
+        });
+
+        drawTransformer();
+    });
+    </script>
 </body>
 </html>
