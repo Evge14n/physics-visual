@@ -63,8 +63,8 @@
             <a href="topic-32.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">32</span><span class="sidebar__item-title">Механічні коливання</span></a>
             <a href="topic-33.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">33</span><span class="sidebar__item-title">Механічні хвилі. Звук</span></a>
             <a href="topic-34.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">34</span><span class="sidebar__item-title">Вільні електромагнітні коливання</span></a>
-            <a href="topic-35.html" class="sidebar__item"><span class="sidebar__item-number">35</span><span class="sidebar__item-title">Змінний струм</span></a>
-            <a href="topic-36.html" class="sidebar__item sidebar__item--active"><span class="sidebar__item-number">36</span><span class="sidebar__item-title">Електромагнітні хвилі</span></a>
+            <a href="topic-35.html" class="sidebar__item sidebar__item--completed"><span class="sidebar__item-number">35</span><span class="sidebar__item-title">Змінний струм</span></a>
+            <a href="topic-36.html" class="sidebar__item sidebar__item--active sidebar__item--completed"><span class="sidebar__item-number">36</span><span class="sidebar__item-title">Електромагнітні хвилі</span></a>
             <a href="topic-37.html" class="sidebar__item"><span class="sidebar__item-number">37</span><span class="sidebar__item-title">Елементи геометричної оптики</span></a>
             <a href="topic-38.html" class="sidebar__item"><span class="sidebar__item-number">38</span><span class="sidebar__item-title">Лінзи</span></a>
             <a href="topic-39.html" class="sidebar__item"><span class="sidebar__item-number">39</span><span class="sidebar__item-title">Хвильова оптика</span></a>
@@ -84,16 +84,773 @@
             <h1 class="topic-header__title">Електромагнітні хвилі</h1>
         </div>
 
-        <div class="empty-topic">
-            <div class="empty-topic__icon">&#128218;</div>
-            <h2 class="empty-topic__title">Скоро буде</h2>
-            <p class="empty-topic__text">Ця тема ще в розробці. Контент з'явиться найближчим часом.</p>
+        <div class="toc">
+            <h2 class="toc__title">Зміст теми</h2>
+            <ol class="toc__list">
+                <li class="toc__item"><a href="#section-1" class="toc__link">Електромагнітне поле та хвиля</a></li>
+                <li class="toc__item"><a href="#section-2" class="toc__link">Характеристики ЕМХ</a></li>
+                <li class="toc__item"><a href="#section-3" class="toc__link">Енергія ЕМХ</a></li>
+                <li class="toc__item"><a href="#section-4" class="toc__link">Явища при поширенні. Модуляція</a></li>
+                <li class="toc__item"><a href="#section-5" class="toc__link">Радіозв'язок. Радіолокація</a></li>
+                <li class="toc__item"><a href="#section-6" class="toc__link">Шкала електромагнітних хвиль</a></li>
+                <li class="toc__item"><a href="#section-7" class="toc__link">Таблиця формул</a></li>
+                <li class="toc__item"><a href="#section-8" class="toc__link">Задачі</a></li>
+                <li class="toc__item"><a href="#section-9" class="toc__link">Тестові завдання ЗНО</a></li>
+            </ol>
         </div>
+
+        <section id="section-1" class="content-section">
+            <h2 class="content-section__title">1. Електромагнітне поле та хвиля</h2>
+
+            <div class="definition">
+                <h3 class="definition__title">Електромагнітне поле</h3>
+                <p class="definition__text">
+                    <strong>Електромагнітне поле</strong> &mdash; форма існування матерії, за допомогою якої здійснюється взаємодія між зарядженими частинками.
+                </p>
+                <p class="definition__text">
+                    Має дві складові: <strong>електричне поле</strong> &mdash; діє як на рухомі, так і на нерухомі заряди; <strong>магнітне поле</strong> &mdash; діє тільки на рухомі заряди.
+                </p>
+            </div>
+
+            <div class="important">
+                <h4 class="important__title">Теорія Максвелла</h4>
+                <p>Джеймс Максвелл теоретично обґрунтував, що електричне і магнітне поле не існують окремо &mdash; це два прояви єдиного <strong>електромагнітного</strong> поля.</p>
+                <ul>
+                    <li>Змінне магнітне поле породжує вихрове електричне поле.</li>
+                    <li>Змінне електричне поле породжує магнітне поле.</li>
+                    <li>Два поля підтримують одне одного і поширюються у просторі &mdash; це <strong>електромагнітна хвиля</strong>.</li>
+                </ul>
+            </div>
+
+            <div class="definition">
+                <h3 class="definition__title">Електромагнітна хвиля (ЕМХ)</h3>
+                <p class="definition__text">
+                    <strong>Електромагнітна хвиля</strong> &mdash; процес поширення у просторі електричних і магнітних полів, що періодично змінюються.
+                </p>
+                <p class="definition__text">
+                    <strong>Джерело ЕМХ</strong> &mdash; будь-який пристрій, у якому здійснюються електромагнітні коливання (антена, коливальний контур, прискорений заряд).
+                </p>
+            </div>
+
+            <div class="important">
+                <h4 class="important__title">Коли заряд випромінює ЕМХ</h4>
+                <ul>
+                    <li>Спочиваюча частинка &mdash; <strong>не випромінює</strong>.</li>
+                    <li>Рівномірний прямолінійний рух &mdash; <strong>не випромінює</strong>.</li>
+                    <li>Рівноприскорений або коливальний рух &mdash; <strong>випромінює</strong> (є прискорення).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="section-2" class="content-section">
+            <h2 class="content-section__title">2. Характеристики ЕМХ</h2>
+
+            <div class="definition">
+                <h3 class="definition__title">Напруженість і індукція</h3>
+                <p class="definition__text">
+                    Вектор напруженості електричного поля $\vec{E}$ та вектор індукції магнітного поля $\vec{B}$ періодично змінюються з часом і з відстанню від джерела.
+                </p>
+                <p class="definition__text">
+                    Згідно з теорією Максвелла $\vec{E} \perp \vec{B}$ і обидва перпендикулярні до напрямку поширення хвилі $\vec{v}$. Отже, <strong>ЕМХ є поперечною хвилею</strong>.
+                </p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Швидкість поширення</span>
+                $$v = \frac{S}{t}$$
+                <p>У вакуумі $v = c = 3 \cdot 10^{8}$ м/с; у речовині $v < c$. Швидкість залежить від діелектричної ($\varepsilon$) і магнітної ($\mu$) проникностей середовища.</p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Довжина хвилі</span>
+                $$\lambda = vT = \frac{v}{\nu}$$
+                <p>$\lambda$ &mdash; відстань між найближчими точками хвилі, у яких коливання вектора $\vec{E}$ (або $\vec{B}$) відбуваються однаково (різниця фаз $2\pi$). $T$ &mdash; період, $\nu$ &mdash; частота.</p>
+            </div>
+
+            <div class="visualization">
+                <h3 class="visualization__title">Електромагнітна хвиля: $\vec{E}$ та $\vec{B}$ взаємно перпендикулярні</h3>
+                <div class="visualization__canvas-wrapper">
+                    <canvas id="canvas-emwave" width="800" height="360"></canvas>
+                </div>
+                <div class="visualization__controls">
+                    <div class="control-group">
+                        <label class="control-group__label">Довжина хвилі λ:</label>
+                        <input type="range" id="em-wavelength" min="40" max="180" step="5" value="100">
+                        <span class="control-group__value" id="em-wavelength-val">λ = 100 у.о.</span>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-group__label">Амплітуда:</label>
+                        <input type="range" id="em-amplitude" min="10" max="50" step="2" value="35">
+                        <span class="control-group__value" id="em-amplitude-val">A = 35</span>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-group__label">Анімація:</label>
+                        <button id="em-pause" style="padding:5px 18px;cursor:pointer;border-radius:6px;border:1px solid #60a5fa;background:#1a1a2e;color:#60a5fa;font-size:14px;">❚❚ Пауза</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="important">
+                <h4 class="important__title">Запам'ятай для ЗНО</h4>
+                <ul>
+                    <li>ЕМХ &mdash; <strong>поперечна</strong> хвиля: $\vec{E} \perp \vec{B} \perp \vec{v}$.</li>
+                    <li>У вакуумі усі ЕМХ поширюються з однаковою швидкістю $c = 3 \cdot 10^8$ м/с.</li>
+                    <li>Швидкість не залежить від частоти та амплітуди.</li>
+                    <li>Формула Томсона ($\lambda = 2\pi c \sqrt{LC}$) з&apos;єднує довжину хвилі з параметрами контуру-джерела.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="section-3" class="content-section">
+            <h2 class="content-section__title">3. Енергія ЕМХ</h2>
+
+            <div class="definition">
+                <h3 class="definition__title">Енергія хвилі</h3>
+                <p class="definition__text">
+                    ЕМХ переносить <strong>енергію</strong>, яка є сумою енергій електричного і магнітного полів у даній точці середовища:
+                </p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Енергія хвилі в точці</span>
+                $$W = W_e + W_m$$
+                <p>$W_e$ &mdash; енергія електричного поля, $W_m$ &mdash; енергія магнітного поля.</p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Об'ємна густина енергії</span>
+                $$\omega = \frac{W}{V} = \omega_e + \omega_m, \quad \omega_e = \frac{\varepsilon\varepsilon_0 E^2}{2}, \quad \omega_m = \frac{\mu\mu_0 B^2}{2}$$
+                <p>У будь-якій точці простору $\omega_e = \omega_m$. Одиниця: $[\omega] = 1$ Дж/м³.</p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Потужність випромінювання джерела</span>
+                $$P = \frac{W}{t}$$
+                <p>Енергія, яку випромінює джерело за одиницю часу. Одиниця: $[P] = 1$ Вт.</p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Густина потоку випромінювання</span>
+                $$j = \frac{W}{tS} = \frac{P}{S} = \omega \cdot c$$
+                <p>Енергія, яку ЕМХ переносить за 1 секунду через перпендикулярну поверхню площею 1 м². Одиниця: $[j] = 1$ Вт/м².</p>
+            </div>
+
+            <div class="important">
+                <h4 class="important__title">Корисні співвідношення</h4>
+                <ul>
+                    <li>$j = \omega c$ &mdash; ключова формула ЗНО (густина потоку через густину енергії).</li>
+                    <li>У даній точці $\omega_e = \omega_m$ &mdash; енергія рівно розподілена між полями.</li>
+                    <li>Інтенсивність від точкового джерела зменшується як $1/r^2$.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="section-4" class="content-section">
+            <h2 class="content-section__title">4. Явища при поширенні. Модуляція</h2>
+
+            <div class="definition">
+                <h3 class="definition__title">Явища, що спостерігаються</h3>
+                <p class="definition__text">При поширенні ЕМХ спостерігаються:</p>
+                <ul>
+                    <li><strong>Поглинання</strong> &mdash; при проходженні через діелектричне середовище та поблизу провідних поверхонь.</li>
+                    <li><strong>Відбивання</strong> &mdash; від провідних поверхонь.</li>
+                    <li><strong>Заломлення</strong> &mdash; на межі двох діелектриків.</li>
+                    <li><strong>Дифракція</strong> &mdash; огинання перешкод (виразніше при $\lambda \sim $ розмір перешкоди).</li>
+                    <li><strong>Інтерференція</strong> &mdash; підсилення чи послаблення коливань у місцях накладання когерентних хвиль.</li>
+                </ul>
+            </div>
+
+            <div class="definition">
+                <h3 class="definition__title">Модуляція</h3>
+                <p class="definition__text">
+                    <strong>Модуляція</strong> &mdash; процес зміни параметрів високочастотних електромагнітних коливань за допомогою частот, менших ніж частота самої хвилі.
+                </p>
+                <ul>
+                    <li><strong>Амплітудно-модульовані</strong> (АМ) &mdash; змінюється амплітуда коливань.</li>
+                    <li><strong>Частотно-модульовані</strong> (ЧМ/FM) &mdash; змінюється частота коливань.</li>
+                </ul>
+            </div>
+
+            <div class="important">
+                <h4 class="important__title">Навіщо модуляція</h4>
+                <p>Радіопередавач створює високочастотні коливання (несучу), а звук &mdash; низькочастотні. Модулятор «накладає» низькочастотний сигнал на несучу. У приймачі демодулятор робить зворотне перетворення.</p>
+            </div>
+        </section>
+
+        <section id="section-5" class="content-section">
+            <h2 class="content-section__title">5. Радіозв'язок. Радіолокація</h2>
+
+            <div class="definition">
+                <h3 class="definition__title">Радіопередавач: блок-схема</h3>
+                <p class="definition__text">
+                    <strong>Мікрофон</strong> → <strong>Модулятор</strong> → <strong>Генератор високої частоти</strong> → <strong>Підсилювач</strong> → <strong>Передавальна антена</strong>
+                </p>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Елемент</th>
+                        <th>Призначення</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Мікрофон</td><td>Перетворює звукові хвилі у коливання струму</td></tr>
+                    <tr><td>Генератор високої частоти</td><td>Створює високочастотні електромагнітні коливання (несучу)</td></tr>
+                    <tr><td>Модулятор</td><td>Накладає низькочастотні коливання на високочастотні</td></tr>
+                    <tr><td>Підсилювач</td><td>Збільшує потужність модульованих коливань</td></tr>
+                    <tr><td>Передавальна антена</td><td>Випромінює високочастотні ЕМХ у простір</td></tr>
+                </tbody>
+            </table>
+
+            <div class="definition">
+                <h3 class="definition__title">Радіоприймач: блок-схема</h3>
+                <p class="definition__text">
+                    <strong>Приймальна антена</strong> → <strong>Коливальний контур</strong> → <strong>Демодулятор</strong> → <strong>Підсилювач</strong> → <strong>Динамік</strong>
+                </p>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Елемент</th>
+                        <th>Призначення</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Приймальна антена з коливальним контуром</td><td>Забезпечує приймання ЕМХ, частота яких збігається з власною частотою контуру</td></tr>
+                    <tr><td>Демодулятор</td><td>Виділяє з високочастотних модульованих коливань звукові (низькочастотні)</td></tr>
+                    <tr><td>Підсилювач</td><td>Підсилює низькочастотний сигнал</td></tr>
+                    <tr><td>Динамік</td><td>Перетворює коливання струму у звукові хвилі</td></tr>
+                </tbody>
+            </table>
+
+            <div class="definition">
+                <h3 class="definition__title">Радіолокація</h3>
+                <p class="definition__text">
+                    <strong>Радіолокація</strong> &mdash; виявлення, розпізнавання та встановлення місцезнаходження об'єктів за допомогою відбиття високочастотних радіохвиль. В основі лежить явище <strong>відбивання</strong> ультракоротких радіохвиль від перешкод.
+                </p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Параметри імпульсу</span>
+                $$N_k = \frac{t_0}{T}, \quad l_i = c \cdot \tau, \quad N_i = \frac{t}{\tau}$$
+                <p>$N_k$ &mdash; кількість коливань у одному імпульсі; $t_0$ &mdash; тривалість імпульсу; $T$ &mdash; період високої частоти; $l_i$ &mdash; просторова протяжність імпульсу; $\tau$ &mdash; проміжок між імпульсами; $N_i$ &mdash; кількість імпульсів за час $t$.</p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Мінімальна та максимальна дальність</span>
+                $$S_{\min} = \frac{v \cdot t_0}{2}, \quad S_{\max} = \frac{v \cdot \tau}{2}$$
+                <p>$S_{\min}$ &mdash; мінімальна глибина розвідки (об'єкт ближчий за це не видно). $S_{\max}$ &mdash; максимальна дальність (щоб луна встигла повернутися до наступного імпульсу).</p>
+            </div>
+
+            <div class="formula-block formula-block--highlighted">
+                <span class="formula-block__label">Потужність імпульсу, ККД</span>
+                $$P_0 = \frac{W_0}{t_0}, \quad P = \frac{W_0}{\tau}, \quad \eta = \frac{P}{P_0} = \frac{t_0}{\tau}$$
+                <p>$P_0$ &mdash; потужність одного імпульсу; $P$ &mdash; середня (корисна) потужність; $\eta$ &mdash; ККД локатора.</p>
+            </div>
+
+            <div class="important">
+                <h4 class="important__title">Запам'ятай для ЗНО</h4>
+                <ul>
+                    <li>Радіохвилі повертаються від перешкоди за час $\tau = 2S/c$ &mdash; базова формула дальності.</li>
+                    <li>Частота випромінювання імпульсів: $\nu_i = 1/\tau = c/(2 S_{\max})$.</li>
+                    <li>Чим коротший імпульс $t_0$ &mdash; тим менша $S_{\min}$ (краща розрізнювальна здатність).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="section-6" class="content-section">
+            <h2 class="content-section__title">6. Шкала електромагнітних хвиль</h2>
+
+            <div class="definition">
+                <h3 class="definition__title">Шкала ЕМХ</h3>
+                <p class="definition__text">
+                    <strong>Шкала електромагнітних хвиль</strong> &mdash; неперервна послідовність частот і довжин ЕМХ, що існують у природі. Чітких меж між видами немає: сусідні області перекриваються.
+                </p>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Вид ЕМХ</th>
+                        <th>Довжина хвилі</th>
+                        <th>Джерело</th>
+                        <th>Застосування</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Радіохвилі</td>
+                        <td>понад 1 мм</td>
+                        <td>Змінний електричний струм</td>
+                        <td>Радіозв'язок, радіолокація, телебачення, стільниковий зв'язок</td>
+                    </tr>
+                    <tr>
+                        <td>Інфрачервоне</td>
+                        <td>780 нм … 1 мм</td>
+                        <td>Нагріті тіла (атоми речовини)</td>
+                        <td>Прилади нічного бачення, ІЧ-діоди, пульти дистанційного керування</td>
+                    </tr>
+                    <tr>
+                        <td>Видиме світло</td>
+                        <td>400 … 780 нм</td>
+                        <td>Нагріті тіла, електронні переходи</td>
+                        <td>Зір, освітлення, оптика</td>
+                    </tr>
+                    <tr>
+                        <td>Ультрафіолетове</td>
+                        <td>10 … 400 нм</td>
+                        <td>Атоми речовини (висока хім. активність)</td>
+                        <td>Виробництво вітаміну D, стерилізація, знищення бактерій</td>
+                    </tr>
+                    <tr>
+                        <td>Рентгенівське</td>
+                        <td>0,01 … 10 нм</td>
+                        <td>Гальмування швидких заряджених частинок</td>
+                        <td>Рентгеноскопія, дефектоскопія, митний контроль</td>
+                    </tr>
+                    <tr>
+                        <td>Гамма-випромінювання</td>
+                        <td>менше 0,01 нм</td>
+                        <td>Ядерні реакції, радіоактивні перетворення</td>
+                        <td>Дефектоскопія, радіаційна хімія, стерилізація, терапія</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="visualization">
+                <h3 class="visualization__title">Інтерактивна шкала: від радіохвиль до γ-променів</h3>
+                <div class="visualization__canvas-wrapper">
+                    <canvas id="canvas-spectrum" width="800" height="280"></canvas>
+                </div>
+                <div class="visualization__controls">
+                    <div class="control-group">
+                        <label class="control-group__label">Довжина хвилі log₁₀(λ), м:</label>
+                        <input type="range" id="spec-pos" min="-13" max="4" step="0.1" value="-6.5">
+                        <span class="control-group__value" id="spec-pos-val">λ ≈ 3·10⁻⁷ м</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="important">
+                <h4 class="important__title">Важливі закономірності</h4>
+                <ul>
+                    <li>Чим <strong>більша частота</strong> ЕМХ, тим сильніше проявляються <strong>корпускулярні</strong> властивості і слабше &mdash; <strong>хвильові</strong>.</li>
+                    <li>Усі ЕМХ у вакуумі поширюються однаково: $c = 3 \cdot 10^8$ м/с. Різні лише $\lambda$ та $\nu$.</li>
+                    <li>Видимий діапазон (400&ndash;780 нм) &mdash; вузька смуга у загальній шкалі.</li>
+                    <li>Рентгенівське та γ-випромінювання іонізують середовище, тому небезпечні для живих тканин.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="section-7" class="content-section">
+            <h2 class="content-section__title">7. Таблиця формул</h2>
+
+            <table class="formula-table">
+                <thead>
+                    <tr>
+                        <th>Величина</th>
+                        <th>Формула</th>
+                        <th>Одиниця</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Швидкість у вакуумі</td><td>$c = 3 \cdot 10^8$ м/с</td><td>м/с</td></tr>
+                    <tr><td>Довжина хвилі</td><td>$\lambda = vT = v/\nu$</td><td>м</td></tr>
+                    <tr><td>Частота</td><td>$\nu = 1/T$</td><td>Гц</td></tr>
+                    <tr><td>Формула Томсона (джерело)</td><td>$\lambda = 2\pi c \sqrt{LC}$</td><td>м</td></tr>
+                    <tr><td>Енергія у точці</td><td>$W = W_e + W_m$</td><td>Дж</td></tr>
+                    <tr><td>Об'ємна густина енергії</td><td>$\omega = \omega_e + \omega_m$</td><td>Дж/м³</td></tr>
+                    <tr><td>Потужність випромінювання</td><td>$P = W/t$</td><td>Вт</td></tr>
+                    <tr><td>Густина потоку</td><td>$j = P/S = \omega c$</td><td>Вт/м²</td></tr>
+                    <tr><td>Коливань у імпульсі</td><td>$N_k = t_0/T = t_0 \nu$</td><td>&mdash;</td></tr>
+                    <tr><td>Мінімальна дальність</td><td>$S_{\min} = v t_0/2$</td><td>м</td></tr>
+                    <tr><td>Максимальна дальність</td><td>$S_{\max} = v \tau/2$</td><td>м</td></tr>
+                    <tr><td>Частота імпульсів</td><td>$\nu_i = 1/\tau = c/(2 S_{\max})$</td><td>Гц</td></tr>
+                    <tr><td>ККД локатора</td><td>$\eta = P/P_0 = t_0/\tau$</td><td>&mdash;</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="section-8" class="content-section">
+            <h2 class="content-section__title">8. Задачі</h2>
+
+            <div class="problem">
+                <h3 class="problem__title">Приклад 1. Густина потоку</h3>
+                <p class="problem__given"><strong>Дано:</strong> $\omega = 4 \cdot 10^{-11}$ Дж/м³; $v = c = 3 \cdot 10^8$ м/с. <strong>Знайти:</strong> $j$.</p>
+                <p>Густина потоку випромінювання: $j = \omega \cdot c = 4 \cdot 10^{-11} \cdot 3 \cdot 10^8 = 1{,}2 \cdot 10^{-2}$ Вт/м².</p>
+                <p>Перевірка одиниць: $\dfrac{\text{Дж}}{\text{м}^3} \cdot \dfrac{\text{м}}{\text{с}} = \dfrac{\text{Вт}}{\text{м}^2}$.</p>
+                <p class="problem__answer"><strong>Відповідь:</strong> $1{,}2 \cdot 10^{-2}$ Вт/м².</p>
+            </div>
+
+            <div class="problem">
+                <h3 class="problem__title">Приклад 2. На яку довжину хвилі налаштовано контур</h3>
+                <p class="problem__given"><strong>Дано:</strong> $L = 25 \cdot 10^{-3}$ Гн, $I_m = 2 \cdot 10^{-3}$ А, $U_m = 0{,}2$ В, $c = 3 \cdot 10^8$ м/с. <strong>Знайти:</strong> $\lambda$.</p>
+                <p>Довжина хвилі: $\lambda = cT_n$. Умова прийняття хвилі контуром: $T_n = T_к = 2\pi\sqrt{LC}$.</p>
+                <p>Із закону збереження енергії у контурі: $\dfrac{CU_m^2}{2} = \dfrac{LI_m^2}{2} \Rightarrow C = \dfrac{L I_m^2}{U_m^2}$.</p>
+                <p>Підставимо: $\lambda = 2\pi c \sqrt{LC} = 2\pi c \cdot \dfrac{L I_m}{U_m} = 2\pi \cdot 3 \cdot 10^8 \cdot \dfrac{25 \cdot 10^{-3} \cdot 2 \cdot 10^{-3}}{0{,}2} \approx 471{,}2$ м.</p>
+                <p class="problem__answer"><strong>Відповідь:</strong> $\lambda \approx 471{,}2$ м.</p>
+            </div>
+
+            <div class="problem">
+                <h3 class="problem__title">Приклад 3. Радіолокатор</h3>
+                <p class="problem__given"><strong>Дано:</strong> $\nu = 75 \cdot 10^9$ Гц, $P_с = 1000$ Вт, $W_0 = 1{,}6 \cdot 10^{-3}$ Дж, $N_k = 3 \cdot 10^4$, $S_{\max} = 12\,000$ м, $c = 3 \cdot 10^8$ м/с.</p>
+                <p><strong>Знайти:</strong> $S_{\min}$, $P_0$, $\eta$.</p>
+                <p>Тривалість імпульсу: $t_0 = N_k/\nu = 3 \cdot 10^4 / (75 \cdot 10^9) = 4 \cdot 10^{-7}$ с.</p>
+                <p>Мінімальна глибина розвідки: $S_{\min} = c t_0 / 2 = 3 \cdot 10^8 \cdot 4 \cdot 10^{-7} / 2 = 60$ м.</p>
+                <p>Потужність одного імпульсу: $P_0 = W_0/t_0 = 1{,}6 \cdot 10^{-3} / (4 \cdot 10^{-7}) = 4 \cdot 10^3$ Вт = 4 кВт.</p>
+                <p>Час між імпульсами: $\tau = 2 S_{\max}/c = 2 \cdot 12\,000 / (3 \cdot 10^8) = 8 \cdot 10^{-5}$ с.</p>
+                <p>Корисна потужність: $P = W_0/\tau = 20$ Вт. ККД: $\eta = P/P_с = 20/1000 = 0{,}02 = 2\%$.</p>
+                <p class="problem__answer"><strong>Відповідь:</strong> $S_{\min} = 60$ м; $P_0 = 4$ кВт; $\eta = 2\%$.</p>
+            </div>
+
+            <div class="problem">
+                <h3 class="problem__title">Приклад 4 (ЗНО-2008). Частота імпульсів</h3>
+                <p class="problem__given">Максимальна відстань виявлення об'єкта локатором &mdash; 150 км. Яка частота випромінювання високочастотних імпульсів? $c = 3 \cdot 10^8$ м/с.</p>
+                <p>А) 1000 імп/с &nbsp; Б) 2000 імп/с &nbsp; В) 4000 імп/с &nbsp; Г) 8000 імп/с</p>
+                <p>Час повернення імпульсу: $\tau = 2 S_{\max}/c$. Частота: $\nu_i = 1/\tau = c/(2 S_{\max}) = 3 \cdot 10^8 / (2 \cdot 150\,000) = 1000$ імп/с.</p>
+                <p class="problem__answer"><strong>Відповідь:</strong> А) 1000 імп/с.</p>
+            </div>
+
+            <div class="problem">
+                <h3 class="problem__title">Приклад 5 (ЗНО-2012). Довжина налаштування</h3>
+                <p class="problem__given"><strong>Дано:</strong> $L = 2 \cdot 10^{-6}$ Гн, $C = 50 \cdot 10^{-12}$ Ф, $c = 3 \cdot 10^8$ м/с. <strong>Знайти:</strong> $\lambda$.</p>
+                <p>А) 9 м &nbsp; Б) 12 м &nbsp; В) 18 м &nbsp; Г) 27 м</p>
+                <p>$\lambda = 2\pi c \sqrt{LC} = 2\pi \cdot 3 \cdot 10^8 \cdot \sqrt{2 \cdot 10^{-6} \cdot 50 \cdot 10^{-12}} = 2\pi \cdot 3 \cdot 10^8 \cdot 10^{-8} \approx 18{,}8$ м.</p>
+                <p class="problem__answer"><strong>Відповідь:</strong> В) $\approx 18$ м.</p>
+            </div>
+
+            <div class="problem">
+                <h3 class="problem__title">Приклад 6 (ЗНО-2013). Паралельне з'єднання конденсаторів</h3>
+                <p class="problem__given">Приймач налаштовано на $\lambda_1 = 4$ м. Паралельно до $C_1$ під'єднали $C_2 = 3 C_1$. На яку $\lambda_2$ тепер налаштовано приймач?</p>
+                <p>Паралельне з'єднання: $C_{\text{заг}} = C_1 + C_2 = 4 C_1$.</p>
+                <p>Оскільки $\lambda = 2\pi c \sqrt{LC}$: $\dfrac{\lambda_2}{\lambda_1} = \sqrt{\dfrac{C_{\text{заг}}}{C_1}} = \sqrt{4} = 2$.</p>
+                <p>$\lambda_2 = 2 \cdot 4 = 8$ м.</p>
+                <p class="problem__answer"><strong>Відповідь:</strong> $\lambda_2 = 8$ м.</p>
+            </div>
+        </section>
+
+        <section id="section-9" class="content-section">
+            <h2 class="content-section__title">9. Тестові завдання ЗНО</h2>
+
+            <div class="zno-question">
+                <div class="zno-question__num">36.1</div>
+                <p><strong>У яких випадках електричний заряд випромінює ЕМХ?</strong></p>
+                <ol>
+                    <li>При рівномірному прямолінійному русі.</li>
+                    <li>При рівноприскореному прямолінійному русі.</li>
+                    <li>У стані спокою.</li>
+                    <li>При коливальному русі.</li>
+                    <li>При рівномірному русі по колу.</li>
+                </ol>
+                <p>А) 1; 3 &nbsp; Б) 2; 4; 5 &nbsp; В) 1; 4 &nbsp; Г) 2; 3</p>
+                <details class="zno-answer">
+                    <summary>Показати відповідь</summary>
+                    <p><strong>Б)</strong> 2; 4; 5. ЕМХ випромінюються лише при прискореному русі заряду (коли $\vec{a} \neq 0$). Рух по колу теж має доцентрове прискорення.</p>
+                </details>
+            </div>
+
+            <div class="zno-question">
+                <div class="zno-question__num">36.2</div>
+                <p><strong>Правильне співвідношення між напрямками векторів швидкості поширення, напруженості електричного поля та індукції магнітного поля ЕМХ:</strong></p>
+                <p>А) $\vec{E} \perp \vec{B}$; $\vec{v} \perp \vec{E}$ &nbsp; Б) $\vec{E} \perp \vec{B}$; $\vec{v} \parallel \vec{B}$ &nbsp; В) $\vec{E} \perp \vec{B}$; $\vec{v} \perp \vec{B}$ &nbsp; Г) $\vec{E} \parallel \vec{B}$; $\vec{v} \perp \vec{E}$</p>
+                <details class="zno-answer">
+                    <summary>Показати відповідь</summary>
+                    <p>Усі три вектори взаємно перпендикулярні: $\vec{E} \perp \vec{B}$, $\vec{v} \perp \vec{E}$, $\vec{v} \perp \vec{B}$. Правильні варіанти А і В &mdash; описують частину цих умов; найповніший &mdash; А.</p>
+                </details>
+            </div>
+
+            <div class="zno-question">
+                <div class="zno-question__num">36.3</div>
+                <p><strong>Графік залежності довжини ЕМХ від її частоти:</strong></p>
+                <details class="zno-answer">
+                    <summary>Показати відповідь</summary>
+                    <p><strong>Гіпербола</strong> $\lambda = c/\nu$. При $\nu \to 0$ &mdash; $\lambda \to \infty$; при $\nu \to \infty$ &mdash; $\lambda \to 0$.</p>
+                </details>
+            </div>
+
+            <div class="zno-question">
+                <div class="zno-question__num">36.4</div>
+                <p><strong>Енергія яких ЕМХ є найбільшою?</strong></p>
+                <p>А) Ультрафіолетового випромінювання &nbsp; Б) Радіохвиль &nbsp; В) Рентгенівського випромінювання &nbsp; Г) Інфрачервоного випромінювання</p>
+                <details class="zno-answer">
+                    <summary>Показати відповідь</summary>
+                    <p><strong>В)</strong> Рентгенівське &mdash; найбільша частота серед поданих, отже найбільша енергія кванта $E = h\nu$.</p>
+                </details>
+            </div>
+
+            <div class="zno-question">
+                <div class="zno-question__num">36.5</div>
+                <p><strong>Радіопередавач випромінює хвилю з $\lambda = 300$ м. Визначте частоту.</strong></p>
+                <details class="zno-answer">
+                    <summary>Показати відповідь</summary>
+                    <p>$\nu = c/\lambda = 3 \cdot 10^8 / 300 = 10^6$ Гц = 1 МГц.</p>
+                </details>
+            </div>
+
+            <div class="zno-question">
+                <div class="zno-question__num">36.6</div>
+                <p><strong>Який параметр хвилі змінюється при амплітудній модуляції?</strong></p>
+                <details class="zno-answer">
+                    <summary>Показати відповідь</summary>
+                    <p>Амплітуда високочастотних коливань. Частота і фаза лишаються незмінними.</p>
+                </details>
+            </div>
+        </section>
 
         <nav class="topic-nav">
             <a href="topic-35.html" class="topic-nav__btn">&larr; Тема 35</a>
             <a href="topic-37.html" class="topic-nav__btn topic-nav__btn--next">Тема 37 &rarr;</a>
         </nav>
     </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var cvE = document.getElementById('canvas-emwave');
+        if (cvE) {
+            var ctxE = cvE.getContext('2d');
+            var lambdaE = 100;
+            var ampE = 35;
+            var tE = 0;
+            var pausedE = false;
+            var rafE = null;
+
+            function resizeE() {
+                var parent = cvE.parentElement;
+                var w = parent.clientWidth - 2;
+                cvE.width = w;
+                cvE.height = 340;
+                return { w: w, h: 340 };
+            }
+
+            var sliderW = document.getElementById('em-wavelength');
+            var sliderA = document.getElementById('em-amplitude');
+            var valW = document.getElementById('em-wavelength-val');
+            var valA = document.getElementById('em-amplitude-val');
+            var btnE = document.getElementById('em-pause');
+
+            if (sliderW) sliderW.addEventListener('input', function() {
+                lambdaE = +this.value;
+                valW.textContent = 'λ = ' + lambdaE + ' у.о.';
+            });
+            if (sliderA) sliderA.addEventListener('input', function() {
+                ampE = +this.value;
+                valA.textContent = 'A = ' + ampE;
+            });
+            if (btnE) btnE.addEventListener('click', function() {
+                pausedE = !pausedE;
+                this.textContent = pausedE ? '▶ Старт' : '❚❚ Пауза';
+                if (!pausedE) drawE();
+            });
+
+            function drawE() {
+                var dim = resizeE();
+                var w = dim.w, h = dim.h;
+                ctxE.fillStyle = '#0f172a';
+                ctxE.fillRect(0, 0, w, h);
+
+                var cx = 40;
+                var cy = h / 2;
+                var scaleX = w - 80;
+
+                ctxE.strokeStyle = '#334155';
+                ctxE.lineWidth = 1;
+                ctxE.beginPath();
+                ctxE.moveTo(cx, cy);
+                ctxE.lineTo(cx + scaleX, cy);
+                ctxE.stroke();
+
+                ctxE.strokeStyle = '#94a3b8';
+                ctxE.beginPath();
+                ctxE.moveTo(cx + scaleX, cy);
+                ctxE.lineTo(cx + scaleX - 10, cy - 4);
+                ctxE.moveTo(cx + scaleX, cy);
+                ctxE.lineTo(cx + scaleX - 10, cy + 4);
+                ctxE.stroke();
+
+                ctxE.fillStyle = '#94a3b8';
+                ctxE.font = '13px sans-serif';
+                ctxE.fillText('напрямок поширення v', cx + scaleX - 180, cy + 18);
+
+                ctxE.strokeStyle = '#60a5fa';
+                ctxE.lineWidth = 2.5;
+                ctxE.beginPath();
+                for (var x = 0; x <= scaleX; x += 2) {
+                    var phase = (x / lambdaE) * 2 * Math.PI - tE;
+                    var yE = cy - ampE * Math.sin(phase);
+                    if (x === 0) ctxE.moveTo(cx + x, yE);
+                    else ctxE.lineTo(cx + x, yE);
+                }
+                ctxE.stroke();
+
+                ctxE.strokeStyle = '#4ade80';
+                ctxE.lineWidth = 2.5;
+                ctxE.beginPath();
+                for (var x2 = 0; x2 <= scaleX; x2 += 2) {
+                    var phase2 = (x2 / lambdaE) * 2 * Math.PI - tE;
+                    var ampB = ampE * 0.6;
+                    var offY = -Math.sin(phase2) * ampB * 0.3;
+                    var offX = Math.sin(phase2) * ampB;
+                    if (x2 === 0) ctxE.moveTo(cx + x2 + offX, cy + offY);
+                    else ctxE.lineTo(cx + x2 + offX, cy + offY);
+                }
+                ctxE.stroke();
+
+                var lambdaPixels = lambdaE;
+                ctxE.strokeStyle = '#fbbf24';
+                ctxE.setLineDash([4, 3]);
+                ctxE.beginPath();
+                ctxE.moveTo(cx, cy - ampE - 20);
+                ctxE.lineTo(cx + lambdaPixels, cy - ampE - 20);
+                ctxE.stroke();
+                ctxE.setLineDash([]);
+                ctxE.fillStyle = '#fbbf24';
+                ctxE.fillText('λ', cx + lambdaPixels / 2 - 4, cy - ampE - 26);
+
+                ctxE.font = '13px sans-serif';
+                ctxE.fillStyle = '#60a5fa';
+                ctxE.fillText('E — напруженість електричного поля', 12, 22);
+                ctxE.fillStyle = '#4ade80';
+                ctxE.fillText('B — індукція магнітного поля (⊥ E)', 12, 40);
+
+                if (!pausedE) {
+                    tE += 0.06;
+                    rafE = requestAnimationFrame(drawE);
+                }
+            }
+
+            window.addEventListener('resize', function() {
+                if (!pausedE) {
+                    cancelAnimationFrame(rafE);
+                    rafE = requestAnimationFrame(drawE);
+                }
+            });
+
+            drawE();
+        }
+
+        var cvS = document.getElementById('canvas-spectrum');
+        if (cvS) {
+            var ctxS = cvS.getContext('2d');
+            var posS = -6.5;
+
+            function resizeS() {
+                var parent = cvS.parentElement;
+                var w = parent.clientWidth - 2;
+                cvS.width = w;
+                cvS.height = 260;
+                return { w: w, h: 260 };
+            }
+
+            var bands = [
+                { min: -13, max: -11, color: '#ef4444', name: 'γ-випромінювання' },
+                { min: -11, max: -8,  color: '#f97316', name: 'Рентгенівське' },
+                { min: -8,  max: -7,  color: '#a855f7', name: 'Ультрафіолет' },
+                { min: -7,  max: -6.1,color: '#eab308', name: 'Видиме світло' },
+                { min: -6.1,max: -3,  color: '#10b981', name: 'Інфрачервоне' },
+                { min: -3,  max: 4,   color: '#3b82f6', name: 'Радіохвилі' }
+            ];
+
+            var sliderS = document.getElementById('spec-pos');
+            var valS = document.getElementById('spec-pos-val');
+
+            function formatLambda(logLambda) {
+                var lambda = Math.pow(10, logLambda);
+                if (lambda >= 1e3) return (lambda / 1e3).toFixed(1).replace('.', ',') + ' км';
+                if (lambda >= 1) return lambda.toFixed(1).replace('.', ',') + ' м';
+                if (lambda >= 1e-3) return (lambda * 1e3).toFixed(1).replace('.', ',') + ' мм';
+                if (lambda >= 1e-6) return (lambda * 1e6).toFixed(1).replace('.', ',') + ' мкм';
+                if (lambda >= 1e-9) return (lambda * 1e9).toFixed(1).replace('.', ',') + ' нм';
+                return (lambda * 1e12).toFixed(1).replace('.', ',') + ' пм';
+            }
+
+            function currentBand(logLambda) {
+                for (var i = 0; i < bands.length; i++) {
+                    if (logLambda >= bands[i].min && logLambda <= bands[i].max) return bands[i];
+                }
+                return null;
+            }
+
+            if (sliderS) sliderS.addEventListener('input', function() {
+                posS = +this.value;
+                valS.textContent = 'λ ≈ ' + formatLambda(posS);
+                drawS();
+            });
+
+            function drawS() {
+                var dim = resizeS();
+                var w = dim.w, h = dim.h;
+                ctxS.fillStyle = '#0f172a';
+                ctxS.fillRect(0, 0, w, h);
+
+                var marginX = 40;
+                var barH = 40;
+                var barY = 110;
+                var barW = w - marginX * 2;
+                var minLog = -13, maxLog = 4;
+
+                for (var i = 0; i < bands.length; i++) {
+                    var b = bands[i];
+                    var x1 = marginX + ((b.min - minLog) / (maxLog - minLog)) * barW;
+                    var x2 = marginX + ((b.max - minLog) / (maxLog - minLog)) * barW;
+                    ctxS.fillStyle = b.color;
+                    ctxS.fillRect(x1, barY, x2 - x1, barH);
+                    ctxS.fillStyle = '#0f172a';
+                    ctxS.font = 'bold 11px sans-serif';
+                    ctxS.textAlign = 'center';
+                    var label = b.name.length > 10 && (x2 - x1) < 80 ? b.name.substring(0, 8) + '…' : b.name;
+                    ctxS.fillText(label, (x1 + x2) / 2, barY + 25);
+                }
+
+                ctxS.strokeStyle = '#475569';
+                ctxS.fillStyle = '#94a3b8';
+                ctxS.font = '11px sans-serif';
+                ctxS.textAlign = 'center';
+                for (var t = minLog; t <= maxLog; t += 2) {
+                    var tx = marginX + ((t - minLog) / (maxLog - minLog)) * barW;
+                    ctxS.beginPath();
+                    ctxS.moveTo(tx, barY + barH);
+                    ctxS.lineTo(tx, barY + barH + 5);
+                    ctxS.stroke();
+                    ctxS.fillText('10^' + t, tx, barY + barH + 20);
+                }
+
+                var px = marginX + ((posS - minLog) / (maxLog - minLog)) * barW;
+                ctxS.strokeStyle = '#ffffff';
+                ctxS.lineWidth = 2;
+                ctxS.beginPath();
+                ctxS.moveTo(px, barY - 10);
+                ctxS.lineTo(px, barY + barH + 10);
+                ctxS.stroke();
+
+                var band = currentBand(posS);
+                ctxS.fillStyle = '#e2e8f0';
+                ctxS.font = 'bold 16px sans-serif';
+                ctxS.textAlign = 'left';
+                ctxS.fillText('λ ≈ ' + formatLambda(posS), marginX, 30);
+                if (band) {
+                    ctxS.fillStyle = band.color;
+                    ctxS.fillText(band.name, marginX, 55);
+                }
+
+                var freq = 3e8 / Math.pow(10, posS);
+                var freqStr;
+                if (freq >= 1e9) freqStr = (freq / 1e9).toFixed(1).replace('.', ',') + ' ГГц';
+                else if (freq >= 1e6) freqStr = (freq / 1e6).toFixed(1).replace('.', ',') + ' МГц';
+                else if (freq >= 1e3) freqStr = (freq / 1e3).toFixed(1).replace('.', ',') + ' кГц';
+                else freqStr = freq.toFixed(1).replace('.', ',') + ' Гц';
+
+                ctxS.fillStyle = '#94a3b8';
+                ctxS.font = '13px sans-serif';
+                ctxS.fillText('ν ≈ ' + freqStr, marginX, 80);
+                ctxS.fillText('v = c = 3·10⁸ м/с (у вакуумі)', marginX + 220, 80);
+            }
+
+            window.addEventListener('resize', drawS);
+            drawS();
+        }
+    });
+    </script>
 </body>
 </html>
